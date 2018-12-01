@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Maylover" type="application/atom+xml">
+
 
 
 
@@ -83,8 +85,8 @@
 <meta name="keywords" content="实用,UI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS关于启动页自定义特殊处理 启动广告">
-<meta property="og:url" content="http://yoursite.com/2016/06/17/2016b/iOS关于启动页自定义特殊处理 启动广告/index.html">
-<meta property="og:site_name" content="Maylover的技术博客">
+<meta property="og:url" content="https://www.mayyutao.cn/2016/06/17/2016b/iOS关于启动页自定义特殊处理 启动广告/index.html">
+<meta property="og:site_name" content="Maylover">
 <meta property="og:description" content="其实原理也是很简单，启动页还是运用Launch Images Source的内容，然后在做一个视图在最上层，视图的背景用启动项的那张图，让人误以为还在启动中，启动页加载完成后，就显示这层视图，在2秒后再把这层视图删除，产生一个过度的假启动页效果；而我们自定义的动作就可以在这层视图上进行；下面将通过Coding.net的APP讲解这个功能  一：创建一个视图EaseStartView EaseSt">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-12-01T04:18:55.557Z">
@@ -98,7 +100,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/06/17/2016b/iOS关于启动页自定义特殊处理 启动广告/">
+  <link rel="canonical" href="https://www.mayyutao.cn/2016/06/17/2016b/iOS关于启动页自定义特殊处理 启动广告/">
 
 
 
 
 
-  <title>iOS关于启动页自定义特殊处理 启动广告 | Maylover的技术博客</title>
+  <title>iOS关于启动页自定义特殊处理 启动广告 | Maylover</title>
   
 
 
@@ -156,12 +158,12 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Maylover的技术博客</span>
+        <span class="site-title">Maylover</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">平凡之路</p>
       
   </div>
 
@@ -222,9 +224,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -253,16 +287,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/17/2016b/iOS关于启动页自定义特殊处理 启动广告/">
+    <link itemprop="mainEntityOfPage" href="https://www.mayyutao.cn/2016/06/17/2016b/iOS关于启动页自定义特殊处理 启动广告/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yu Tao">
+      <meta itemprop="name" content="May Tao">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Maylover的技术博客">
+      <meta itemprop="name" content="Maylover">
     </span>
 
     
@@ -318,13 +352,66 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/06/17/2016b/iOS关于启动页自定义特殊处理 启动广告/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/06/17/2016b/iOS关于启动页自定义特殊处理 启动广告/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
           
+             <span id="/2016/06/17/2016b/iOS关于启动页自定义特殊处理 启动广告/" class="leancloud_visitors" data-flag-title="iOS关于启动页自定义特殊处理 启动广告">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
           
 
           
@@ -347,39 +434,52 @@
 </blockquote>
 <h4 id="一：创建一个视图EaseStartView"><a href="#一：创建一个视图EaseStartView" class="headerlink" title="一：创建一个视图EaseStartView"></a>一：创建一个视图EaseStartView</h4><ul>
 <li><p>EaseStartView.h文件内容：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line">@interface EaseStartView : UIView</span><br><span class="line">+ (instancetype)startView;</span><br><span class="line">- (void)startAnimationWithCompletionBlock:(void(^)(EaseStartView *easeStartView))completionHandler;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+ <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">EaseStartView</span> : <span class="title">UIView</span></span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)startView;</span><br><span class="line">- (<span class="keyword">void</span>)startAnimationWithCompletionBlock:(<span class="keyword">void</span>(^)(EaseStartView *easeStartView))completionHandler;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>EaseStartView.m文件内容：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;EaseStartView.h&quot;</span><br><span class="line">#import &lt;NYXImagesKit/NYXImagesKit.h&gt;</span><br><span class="line">#import &quot;StartImagesManager.h&quot;</span><br><span class="line">@interface EaseStartView ()</span><br><span class="line">@property (strong, nonatomic) UIImageView *bgImageView, *logoIconView;</span><br><span class="line">@property (strong, nonatomic) UILabel *descriptionStrLabel;</span><br><span class="line">@end</span><br><span class="line">@implementation EaseStartView</span><br><span class="line">+ (instancetype)startView&#123;</span><br><span class="line">    UIImage *logoIcon = [UIImage imageNamed:@&quot;logo_coding_top&quot;];</span><br><span class="line">    StartImage *st = [[StartImagesManager shareManager] randomImage];</span><br><span class="line">    return [[self alloc] initWithBgImage:st.image logoIcon:logoIcon descriptionStr:st.descriptionStr];</span><br><span class="line">&#125;</span><br><span class="line">- (instancetype)initWithBgImage:(UIImage *)bgImage logoIcon:(UIImage *)logoIcon descriptionStr:(NSString *)descriptionStr&#123;</span><br><span class="line">    self = [super initWithFrame:kScreen_Bounds];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">        //add custom code</span><br><span class="line">        UIColor *blackColor = [UIColor blackColor];</span><br><span class="line">        self.backgroundColor = blackColor;</span><br><span class="line">        </span><br><span class="line">        _bgImageView = [[UIImageView alloc] initWithFrame:kScreen_Bounds];</span><br><span class="line">        _bgImageView.contentMode = UIViewContentModeScaleAspectFill;</span><br><span class="line">        _bgImageView.alpha = 0.0;</span><br><span class="line">        [self addSubview:_bgImageView];</span><br><span class="line">        [self addGradientLayerWithColors:@[(id)[blackColor colorWithAlphaComponent:0.4].CGColor, (id)[blackColor colorWithAlphaComponent:0.0].CGColor] locations:nil startPoint:CGPointMake(0.5, 0.0) endPoint:CGPointMake(0.5, 0.4)];</span><br><span class="line">        _logoIconView = [[UIImageView alloc] init];</span><br><span class="line">        _logoIconView.contentMode = UIViewContentModeScaleAspectFit;</span><br><span class="line">        [self addSubview:_logoIconView];</span><br><span class="line">        _descriptionStrLabel = [[UILabel alloc] init];</span><br><span class="line">        _descriptionStrLabel.font = [UIFont systemFontOfSize:10];</span><br><span class="line">        _descriptionStrLabel.textColor = [UIColor colorWithWhite:1.0 alpha:0.5];</span><br><span class="line">        _descriptionStrLabel.textAlignment = NSTextAlignmentCenter;</span><br><span class="line">        _descriptionStrLabel.alpha = 0.0;</span><br><span class="line">        [self addSubview:_descriptionStrLabel];</span><br><span class="line">        </span><br><span class="line">        [_descriptionStrLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make.centerX.equalTo(@[self, _logoIconView]);</span><br><span class="line">            make.height.mas_equalTo(10);</span><br><span class="line">            make.bottom.equalTo(self.mas_bottom).offset(-15);</span><br><span class="line">            make.left.equalTo(self.mas_left).offset(20);</span><br><span class="line">            make.right.equalTo(self.mas_right).offset(-20);</span><br><span class="line">        &#125;];</span><br><span class="line">        [_logoIconView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make.centerX.equalTo(self);</span><br><span class="line">            make.top.mas_equalTo(kScreen_Height/7);</span><br><span class="line">            make.width.mas_equalTo(kScreen_Width *2/3);</span><br><span class="line">            make.height.mas_equalTo(kScreen_Width/4 *2/3);</span><br><span class="line">        &#125;];</span><br><span class="line">        </span><br><span class="line">        [self configWithBgImage:bgImage logoIcon:logoIcon descriptionStr:descriptionStr];</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)configWithBgImage:(UIImage *)bgImage logoIcon:(UIImage *)logoIcon descriptionStr:(NSString *)descriptionStr&#123;</span><br><span class="line">bgImage = [bgImage scaleToSize:[_bgImageView doubleSizeOfFrame] usingMode:NYXResizeModeAspectFill];</span><br><span class="line">self.bgImageView.image = bgImage;</span><br><span class="line">self.logoIconView.image = logoIcon;</span><br><span class="line">self.descriptionStrLabel.text = descriptionStr;</span><br><span class="line">[self updateConstraintsIfNeeded];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">- (void)startAnimationWithCompletionBlock:(void(^)(EaseStartView *easeStartView))completionHandler&#123;</span><br><span class="line">    [[UIApplication sharedApplication].keyWindow</span><br><span class="line">addSubview:self];</span><br><span class="line">    [[UIApplication sharedApplication].keyWindow</span><br><span class="line">bringSubviewToFront:self];</span><br><span class="line">    _bgImageView.alpha = 0.0;</span><br><span class="line">    _descriptionStrLabel.alpha = 0.0;</span><br><span class="line">    @weakify(self);</span><br><span class="line">    [UIView animateWithDuration:2.0 animations:^&#123;</span><br><span class="line">        @strongify(self);</span><br><span class="line">        self.bgImageView.alpha = 1.0;</span><br><span class="line">        self.descriptionStrLabel.alpha = 1.0;</span><br><span class="line">    &#125; completion:^(BOOL finished) &#123;</span><br><span class="line">        [UIView animateWithDuration:0.6 delay:0.3 options:UIViewAnimationOptionCurveEaseIn animations:^&#123;</span><br><span class="line">            @strongify(self);</span><br><span class="line">            [self setX:-kScreen_Width];</span><br><span class="line">        &#125; completion:^(BOOL finished) &#123;</span><br><span class="line">            @strongify(self);</span><br><span class="line">            [self removeFromSuperview];</span><br><span class="line">            if (completionHandler) &#123;</span><br><span class="line">                completionHandler(self);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+ <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"EaseStartView.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;NYXImagesKit/NYXImagesKit.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"StartImagesManager.h"</span></span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">EaseStartView</span> ()</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIImageView</span> *bgImageView, *logoIconView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UILabel</span> *descriptionStrLabel;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">EaseStartView</span></span></span><br><span class="line">+ (<span class="keyword">instancetype</span>)startView&#123;</span><br><span class="line">    <span class="built_in">UIImage</span> *logoIcon = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"logo_coding_top"</span>];</span><br><span class="line">    StartImage *st = [[StartImagesManager shareManager] randomImage];</span><br><span class="line">    <span class="keyword">return</span> [[<span class="keyword">self</span> alloc] initWithBgImage:st.image logoIcon:logoIcon descriptionStr:st.descriptionStr];</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithBgImage:(<span class="built_in">UIImage</span> *)bgImage logoIcon:(<span class="built_in">UIImage</span> *)logoIcon descriptionStr:(<span class="built_in">NSString</span> *)descriptionStr&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:kScreen_Bounds];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="comment">//add custom code</span></span><br><span class="line">        <span class="built_in">UIColor</span> *blackColor = [<span class="built_in">UIColor</span> blackColor];</span><br><span class="line">        <span class="keyword">self</span>.backgroundColor = blackColor;</span><br><span class="line">        </span><br><span class="line">        _bgImageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:kScreen_Bounds];</span><br><span class="line">        _bgImageView.contentMode = <span class="built_in">UIViewContentModeScaleAspectFill</span>;</span><br><span class="line">        _bgImageView.alpha = <span class="number">0.0</span>;</span><br><span class="line">        [<span class="keyword">self</span> addSubview:_bgImageView];</span><br><span class="line">        [<span class="keyword">self</span> addGradientLayerWithColors:@[(<span class="keyword">id</span>)[blackColor colorWithAlphaComponent:<span class="number">0.4</span>].CGColor, (<span class="keyword">id</span>)[blackColor colorWithAlphaComponent:<span class="number">0.0</span>].CGColor] locations:<span class="literal">nil</span> startPoint:<span class="built_in">CGPointMake</span>(<span class="number">0.5</span>, <span class="number">0.0</span>) endPoint:<span class="built_in">CGPointMake</span>(<span class="number">0.5</span>, <span class="number">0.4</span>)];</span><br><span class="line">        _logoIconView = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">        _logoIconView.contentMode = <span class="built_in">UIViewContentModeScaleAspectFit</span>;</span><br><span class="line">        [<span class="keyword">self</span> addSubview:_logoIconView];</span><br><span class="line">        _descriptionStrLabel = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">        _descriptionStrLabel.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">10</span>];</span><br><span class="line">        _descriptionStrLabel.textColor = [<span class="built_in">UIColor</span> colorWithWhite:<span class="number">1.0</span> alpha:<span class="number">0.5</span>];</span><br><span class="line">        _descriptionStrLabel.textAlignment = <span class="built_in">NSTextAlignmentCenter</span>;</span><br><span class="line">        _descriptionStrLabel.alpha = <span class="number">0.0</span>;</span><br><span class="line">        [<span class="keyword">self</span> addSubview:_descriptionStrLabel];</span><br><span class="line">        </span><br><span class="line">        [_descriptionStrLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make.centerX.equalTo(@[<span class="keyword">self</span>, _logoIconView]);</span><br><span class="line">            make.height.mas_equalTo(<span class="number">10</span>);</span><br><span class="line">            make.bottom.equalTo(<span class="keyword">self</span>.mas_bottom).offset(<span class="number">-15</span>);</span><br><span class="line">            make.left.equalTo(<span class="keyword">self</span>.mas_left).offset(<span class="number">20</span>);</span><br><span class="line">            make.right.equalTo(<span class="keyword">self</span>.mas_right).offset(<span class="number">-20</span>);</span><br><span class="line">        &#125;];</span><br><span class="line">        [_logoIconView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make.centerX.equalTo(<span class="keyword">self</span>);</span><br><span class="line">            make.top.mas_equalTo(kScreen_Height/<span class="number">7</span>);</span><br><span class="line">            make.width.mas_equalTo(kScreen_Width *<span class="number">2</span>/<span class="number">3</span>);</span><br><span class="line">            make.height.mas_equalTo(kScreen_Width/<span class="number">4</span> *<span class="number">2</span>/<span class="number">3</span>);</span><br><span class="line">        &#125;];</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span> configWithBgImage:bgImage logoIcon:logoIcon descriptionStr:descriptionStr];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)configWithBgImage:(UIImage *)<span class="keyword">bgImage </span>logoIcon:(UIImage *)logoIcon descriptionStr:(NSString *)descriptionStr&#123;</span><br><span class="line"><span class="keyword">bgImage </span>= [<span class="keyword">bgImage </span><span class="keyword">scaleToSize:[_bgImageView </span>doubleSizeOfFrame] usingMode:NYXResizeModeAspectFill]<span class="comment">;</span></span><br><span class="line">self.<span class="keyword">bgImageView.image </span>= <span class="keyword">bgImage;</span></span><br><span class="line"><span class="keyword">self.logoIconView.image </span>= logoIcon<span class="comment">;</span></span><br><span class="line">self.descriptionStrLabel<span class="meta">.text</span> = descriptionStr<span class="comment">;</span></span><br><span class="line">[self updateConstraintsIfNeeded]<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)startAnimationWithCompletionBlock:(<span class="keyword">void</span>(^)(EaseStartView *easeStartView))completionHandler&#123;</span><br><span class="line">    [[<span class="built_in">UIApplication</span> sharedApplication].keyWindow</span><br><span class="line">addSubview:<span class="keyword">self</span>];</span><br><span class="line">    [[<span class="built_in">UIApplication</span> sharedApplication].keyWindow</span><br><span class="line">bringSubviewToFront:<span class="keyword">self</span>];</span><br><span class="line">    _bgImageView.alpha = <span class="number">0.0</span>;</span><br><span class="line">    _descriptionStrLabel.alpha = <span class="number">0.0</span>;</span><br><span class="line">    @weakify(<span class="keyword">self</span>);</span><br><span class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">2.0</span> animations:^&#123;</span><br><span class="line">        @strongify(<span class="keyword">self</span>);</span><br><span class="line">        <span class="keyword">self</span>.bgImageView.alpha = <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">self</span>.descriptionStrLabel.alpha = <span class="number">1.0</span>;</span><br><span class="line">    &#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">        [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.6</span> delay:<span class="number">0.3</span> options:<span class="built_in">UIViewAnimationOptionCurveEaseIn</span> animations:^&#123;</span><br><span class="line">            @strongify(<span class="keyword">self</span>);</span><br><span class="line">            [<span class="keyword">self</span> setX:-kScreen_Width];</span><br><span class="line">        &#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">            @strongify(<span class="keyword">self</span>);</span><br><span class="line">            [<span class="keyword">self</span> removeFromSuperview];</span><br><span class="line">            <span class="keyword">if</span> (completionHandler) &#123;</span><br><span class="line">                completionHandler(<span class="keyword">self</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>其实本实例中最为关键的内容在方法startAnimationWithCompletionBlock里</p>
 </blockquote>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[UIApplication sharedApplication].keyWindow addSubview:self];</span><br><span class="line">[[UIApplication sharedApplication].keyWindow bringSubviewToFront:self];</span><br></pre></td></tr></table></figure>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[[UIApplication sharedApplication]</span><span class="selector-class">.keyWindow</span> <span class="selector-tag">addSubview</span><span class="selector-pseudo">:self</span>];</span><br><span class="line"><span class="selector-attr">[[UIApplication sharedApplication]</span><span class="selector-class">.keyWindow</span> <span class="selector-tag">bringSubviewToFront</span><span class="selector-pseudo">:self</span>];</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
 <p>代码就是把这个视图设置成在最前的最上层，这样就可以盖住程序中的页面；</p>
 </blockquote>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">_bgImageView.alpha = 0.0;</span><br><span class="line">_descriptionStrLabel.alpha = 0.0;</span><br><span class="line">这个是为了下面的动画做准备，若是直接用背景图可以把这两个都设置成0.99这样就不会有一闪的错觉；</span><br><span class="line"></span><br><span class="line">@weakify(self);</span><br><span class="line">[UIView animateWithDuration:2.0 animations:^&#123;</span><br><span class="line">    @strongify(self);</span><br><span class="line">    self.bgImageView.alpha = 1.0;</span><br><span class="line">    self.descriptionStrLabel.alpha = 1.0;</span><br><span class="line">&#125; completion:^(BOOL finished) &#123;</span><br><span class="line">    [UIView animateWithDuration:0.6 delay:0.3 options:UIViewAnimationOptionCurveEaseIn animations:^&#123;</span><br><span class="line">        @strongify(self);</span><br><span class="line">        [self setX:-kScreen_Width];</span><br><span class="line">    &#125; completion:^(BOOL finished) &#123;</span><br><span class="line">        @strongify(self);</span><br><span class="line">        [self removeFromSuperview];</span><br><span class="line">        if (completionHandler) &#123;</span><br><span class="line">            completionHandler(self);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<pre><code><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">_bgImageView.alpha = <span class="number">0</span>.<span class="number">0</span><span class="comment">;</span></span><br><span class="line">_descriptionStrLabel.alpha = <span class="number">0</span>.<span class="number">0</span><span class="comment">;</span></span><br><span class="line">这个是为了下面的动画做准备，若是直接用背景图可以把这两个都设置成<span class="number">0</span>.<span class="number">99</span>这样就不会有一闪的错觉；</span><br><span class="line"></span><br><span class="line">@weakify(self)<span class="comment">;</span></span><br><span class="line">[UIView animateWithDuration:<span class="number">2</span>.<span class="number">0</span> animations:^&#123;</span><br><span class="line">    @strongify(self)<span class="comment">;</span></span><br><span class="line">    self.<span class="keyword">bgImageView.alpha </span>= <span class="number">1</span>.<span class="number">0</span><span class="comment">;</span></span><br><span class="line">    self.descriptionStrLabel.alpha = <span class="number">1</span>.<span class="number">0</span><span class="comment">;</span></span><br><span class="line">&#125; completion:^(<span class="keyword">BOOL </span>finished) &#123;</span><br><span class="line">    [UIView animateWithDuration:<span class="number">0</span>.<span class="number">6</span> delay:<span class="number">0</span>.<span class="number">3</span> options:UIViewAnimationOptionCurveEaseIn animations:^&#123;</span><br><span class="line">        @strongify(self)<span class="comment">;</span></span><br><span class="line">        [self setX:-kScreen_Width]<span class="comment">;</span></span><br><span class="line">    &#125; completion:^(<span class="keyword">BOOL </span>finished) &#123;</span><br><span class="line">        @strongify(self)<span class="comment">;</span></span><br><span class="line">        [self removeFromSuperview]<span class="comment">;</span></span><br><span class="line">        if (completionHandler) &#123;</span><br><span class="line">            completionHandler(self)<span class="comment">;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;]<span class="comment">;</span></span><br><span class="line">&#125;]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 </code></pre><blockquote>
 <p>这边是动画效果，时间设置为2秒，因为这边第一个动画完还有一个缩放的效果；当动画结束后就可以  [self removeFromSuperview];</p>
 </blockquote>
 <h4 id="二：调用启动页视图"><a href="#二：调用启动页视图" class="headerlink" title="二：调用启动页视图"></a>二：调用启动页视图</h4><blockquote>
 <p>在AppDelegate中的didFinishLaunchingWithOptions进行调用；</p>
 </blockquote>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</span><br><span class="line">self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];</span><br><span class="line">// Override point for customization after application launch.</span><br><span class="line">self.window.backgroundColor = [UIColor whiteColor];</span><br><span class="line"></span><br><span class="line">//网络</span><br><span class="line">[[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];</span><br><span class="line">[[AFNetworkReachabilityManager sharedManager] startMonitoring];</span><br><span class="line"></span><br><span class="line">//设置导航条样式</span><br><span class="line">[self customizeInterface];</span><br><span class="line">[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if ([Login isLogin]) &#123;</span><br><span class="line">    [self setupTabViewController];</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;</span><br><span class="line">    [self setupIntroductionViewController];</span><br><span class="line">&#125;</span><br><span class="line">[self.window makeKeyAndVisible];</span><br><span class="line">[FunctionIntroManager showIntroPage];</span><br><span class="line"></span><br><span class="line">EaseStartView *startView = [EaseStartView startView];</span><br><span class="line">@weakify(self);</span><br><span class="line">[startView startAnimationWithCompletionBlock:^(EaseStartView *easeStartView) &#123;</span><br><span class="line">    @strongify(self);</span><br><span class="line">    //可以做其它事情</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line"><span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[[<span class="built_in">UIScreen</span> mainScreen] bounds]];</span><br><span class="line"><span class="comment">// Override point for customization after application launch.</span></span><br><span class="line"><span class="keyword">self</span>.window.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line"></span><br><span class="line"><span class="comment">//网络</span></span><br><span class="line">[[AFNetworkActivityIndicatorManager sharedManager] setEnabled:<span class="literal">YES</span>];</span><br><span class="line">[[AFNetworkReachabilityManager sharedManager] startMonitoring];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置导航条样式</span></span><br><span class="line">[<span class="keyword">self</span> customizeInterface];</span><br><span class="line">[[<span class="built_in">UIApplication</span> sharedApplication] setStatusBarHidden:<span class="literal">NO</span> withAnimation:<span class="built_in">UIStatusBarAnimationFade</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ([Login isLogin]) &#123;</span><br><span class="line">    [<span class="keyword">self</span> setupTabViewController];</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    [<span class="built_in">UIApplication</span> sharedApplication].applicationIconBadgeNumber = <span class="number">0</span>;</span><br><span class="line">    [<span class="keyword">self</span> setupIntroductionViewController];</span><br><span class="line">&#125;</span><br><span class="line">[<span class="keyword">self</span>.window makeKeyAndVisible];</span><br><span class="line">[FunctionIntroManager showIntroPage];</span><br><span class="line"></span><br><span class="line">EaseStartView *startView = [EaseStartView startView];</span><br><span class="line">@weakify(<span class="keyword">self</span>);</span><br><span class="line">[startView startAnimationWithCompletionBlock:^(EaseStartView *easeStartView) &#123;</span><br><span class="line">    @strongify(<span class="keyword">self</span>);</span><br><span class="line">    <span class="comment">//可以做其它事情</span></span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </code></pre><blockquote>
 <p>注意，EaseStartView代码的位置是要放在最后面，因为要让它盖在最上层，就要后面加载，这样就可以盖在登录页面上面或者主页上；到这就已经可以成功启动页的效果；</p>
 </blockquote>
-<h4 id="三：下面实例为项目中用到的动态加载版本号到启动页上"><a href="#三：下面实例为项目中用到的动态加载版本号到启动页上" class="headerlink" title="三：下面实例为项目中用到的动态加载版本号到启动页上"></a>三：下面实例为项目中用到的动态加载版本号到启动页上</h4><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;StartUpView.h&quot;</span><br><span class="line"></span><br><span class="line">@interface StartUpView()</span><br><span class="line">@property (strong, nonatomic) UIImageView *bgImageView;</span><br><span class="line">@property (strong, nonatomic) UILabel *descriptionStrLabel;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation StartUpView</span><br><span class="line"></span><br><span class="line">+ (instancetype)startView &#123;</span><br><span class="line">    UIImage *bgImage=kshamLaunchImage;</span><br><span class="line">    return [[self alloc] initWithBgImage:bgImage];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (instancetype)initWithBgImage:(UIImage *)bgImage</span><br><span class="line">&#123;</span><br><span class="line">    self = [super initWithFrame:Main_Screen_Bounds];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">        </span><br><span class="line">        _bgImageView = [[UIImageView alloc] initWithFrame:Main_Screen_Bounds];</span><br><span class="line">        _bgImageView.contentMode = UIViewContentModeScaleAspectFill;</span><br><span class="line">        _bgImageView.alpha = 0;</span><br><span class="line">        _bgImageView.image=bgImage;</span><br><span class="line">        [self addSubview:_bgImageView];</span><br><span class="line">        </span><br><span class="line">        _descriptionStrLabel = [[UILabel alloc] init];</span><br><span class="line">        _descriptionStrLabel.font = [UIFont systemFontOfSize:15];</span><br><span class="line">        _descriptionStrLabel.textColor = [UIColor blackColor];</span><br><span class="line">        _descriptionStrLabel.textAlignment = NSTextAlignmentCenter;</span><br><span class="line">        _descriptionStrLabel.alpha = 0;</span><br><span class="line">        _descriptionStrLabel.text=[NSString stringWithFormat:@&quot;版本号为:%@&quot;,appVersion];</span><br><span class="line">        [self addSubview:_descriptionStrLabel];</span><br><span class="line">        </span><br><span class="line">        [_descriptionStrLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make.height.mas_equalTo(50);</span><br><span class="line">            make.bottom.equalTo(self.mas_bottom).offset(-15);</span><br><span class="line">            make.left.equalTo(self.mas_left).offset(20);</span><br><span class="line">            make.right.equalTo(self.mas_right).offset(-20);</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)startAnimationWithCompletionBlock:(void(^)(StartUpView *easeStartView))completionHandler&#123;</span><br><span class="line">    [[UIApplication sharedApplication].keyWindow addSubview:self];</span><br><span class="line">    [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self];</span><br><span class="line">    _bgImageView.alpha = 0.99;</span><br><span class="line">    _descriptionStrLabel.alpha = 0.99;</span><br><span class="line">    </span><br><span class="line">    @weakify(self);</span><br><span class="line">    [UIView animateWithDuration:2.0 animations:^&#123;</span><br><span class="line">        @strongify(self);</span><br><span class="line">        self.bgImageView.alpha = 1.0;</span><br><span class="line">        self.descriptionStrLabel.alpha = 1.0;</span><br><span class="line">    &#125; completion:^(BOOL finished) &#123;</span><br><span class="line">        [self removeFromSuperview];</span><br><span class="line">        if (completionHandler) &#123;</span><br><span class="line">            completionHandler(self);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h4 id="三：下面实例为项目中用到的动态加载版本号到启动页上"><a href="#三：下面实例为项目中用到的动态加载版本号到启动页上" class="headerlink" title="三：下面实例为项目中用到的动态加载版本号到启动页上"></a>三：下面实例为项目中用到的动态加载版本号到启动页上</h4><pre><code><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"StartUpView.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">StartUpView</span>()</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIImageView</span> *bgImageView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UILabel</span> *descriptionStrLabel;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">StartUpView</span></span></span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">instancetype</span>)startView &#123;</span><br><span class="line">    <span class="built_in">UIImage</span> *bgImage=kshamLaunchImage;</span><br><span class="line">    <span class="keyword">return</span> [[<span class="keyword">self</span> alloc] initWithBgImage:bgImage];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithBgImage:(<span class="built_in">UIImage</span> *)bgImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithFrame:Main_Screen_Bounds];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        _bgImageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:Main_Screen_Bounds];</span><br><span class="line">        _bgImageView.contentMode = <span class="built_in">UIViewContentModeScaleAspectFill</span>;</span><br><span class="line">        _bgImageView.alpha = <span class="number">0</span>;</span><br><span class="line">        _bgImageView.image=bgImage;</span><br><span class="line">        [<span class="keyword">self</span> addSubview:_bgImageView];</span><br><span class="line">        </span><br><span class="line">        _descriptionStrLabel = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">        _descriptionStrLabel.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</span><br><span class="line">        _descriptionStrLabel.textColor = [<span class="built_in">UIColor</span> blackColor];</span><br><span class="line">        _descriptionStrLabel.textAlignment = <span class="built_in">NSTextAlignmentCenter</span>;</span><br><span class="line">        _descriptionStrLabel.alpha = <span class="number">0</span>;</span><br><span class="line">        _descriptionStrLabel.text=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"版本号为:%@"</span>,appVersion];</span><br><span class="line">        [<span class="keyword">self</span> addSubview:_descriptionStrLabel];</span><br><span class="line">        </span><br><span class="line">        [_descriptionStrLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make.height.mas_equalTo(<span class="number">50</span>);</span><br><span class="line">            make.bottom.equalTo(<span class="keyword">self</span>.mas_bottom).offset(<span class="number">-15</span>);</span><br><span class="line">            make.left.equalTo(<span class="keyword">self</span>.mas_left).offset(<span class="number">20</span>);</span><br><span class="line">            make.right.equalTo(<span class="keyword">self</span>.mas_right).offset(<span class="number">-20</span>);</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)startAnimationWithCompletionBlock:(<span class="keyword">void</span>(^)(StartUpView *easeStartView))completionHandler&#123;</span><br><span class="line">    [[<span class="built_in">UIApplication</span> sharedApplication].keyWindow addSubview:<span class="keyword">self</span>];</span><br><span class="line">    [[<span class="built_in">UIApplication</span> sharedApplication].keyWindow bringSubviewToFront:<span class="keyword">self</span>];</span><br><span class="line">    _bgImageView.alpha = <span class="number">0.99</span>;</span><br><span class="line">    _descriptionStrLabel.alpha = <span class="number">0.99</span>;</span><br><span class="line">    </span><br><span class="line">    @weakify(<span class="keyword">self</span>);</span><br><span class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">2.0</span> animations:^&#123;</span><br><span class="line">        @strongify(<span class="keyword">self</span>);</span><br><span class="line">        <span class="keyword">self</span>.bgImageView.alpha = <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">self</span>.descriptionStrLabel.alpha = <span class="number">1.0</span>;</span><br><span class="line">    &#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">        [<span class="keyword">self</span> removeFromSuperview];</span><br><span class="line">        <span class="keyword">if</span> (completionHandler) &#123;</span><br><span class="line">            completionHandler(<span class="keyword">self</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 </code></pre>
       
     </div>
     
     
     
+    <div>
+      
+      <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+	     --------------------  本文结束
+	    <i class="fa fa-paw"></i>
+	    感谢您的阅读  --------------------
+    </div>
+
+</div>
+      
+    </div>
 
     
 
@@ -391,9 +491,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/实用/" rel="tag"># 实用</a>
+            <a href="/tags/实用/" rel="tag"><i class="fa fa-tag"></i> 实用</a>
           
-            <a href="/tags/UI/" rel="tag"># UI</a>
+            <a href="/tags/UI/" rel="tag"><i class="fa fa-tag"></i> UI</a>
           
         </div>
       
@@ -448,6 +548,9 @@
           
 
   
+    <div class="comments" id="comments">
+    </div>
+  
 
 
 
@@ -484,8 +587,10 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">Yu Tao</p>
-              <p class="site-description motion-element" itemprop="description">测试测试description</p>
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="May Tao">
+            
+              <p class="site-author-name" itemprop="name">May Tao</p>
+              <p class="site-description motion-element" itemprop="description">全栈在路上</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -495,7 +600,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -506,7 +611,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -526,7 +631,36 @@
           </nav>
 
           
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Huan-zhaolover" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ytxinguan09@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.87.com" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-angle-double-down"></i>掘金</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -574,21 +708,15 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Yu Tao</span>
+  <span class="author" itemprop="copyrightHolder">May Tao</span>
 
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
@@ -732,15 +860,461 @@
 
 
 
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz',
+        appKey: 'GYy3VQ9hXhRnbsBHmMPzwtbq',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
 
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz", "GYy3VQ9hXhRnbsBHmMPzwtbq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

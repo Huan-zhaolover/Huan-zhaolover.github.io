@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,23 +74,25 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Maylover" type="application/atom+xml">
 
 
 
 
 
-<meta name="description" content="1.UIButton button 的初始化，点击事件 button 传入参数，和不传入参数市一样的，好像只写方法名 button 的属性   123456view.backgroundColor=UIColor.greenlet  btn = UIButton(type: .system)btn.setTitle(&amp;quot;button&amp;quot;, for: .normal)btn.fram">
+
+<meta name="description" content="1.UIButton button 的初始化，点击事件 button 传入参数，和不传入参数市一样的，好像只写方法名 button 的属性   123456view.backgroundColor=UIColor.greenlet  btn = UIButton(type: .system)btn.setTitle(&quot;button&quot;, for: .normal)btn.frame=CGRect(x">
 <meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="swift学习笔记《1》">
-<meta property="og:url" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《1》/index.html">
-<meta property="og:site_name" content="Maylover的技术博客">
-<meta property="og:description" content="1.UIButton button 的初始化，点击事件 button 传入参数，和不传入参数市一样的，好像只写方法名 button 的属性   123456view.backgroundColor=UIColor.greenlet  btn = UIButton(type: .system)btn.setTitle(&amp;quot;button&amp;quot;, for: .normal)btn.fram">
+<meta property="og:url" content="https://www.mayyutao.cn/2016/09/21/2016b/swift学习笔记《1》/index.html">
+<meta property="og:site_name" content="Maylover">
+<meta property="og:description" content="1.UIButton button 的初始化，点击事件 button 传入参数，和不传入参数市一样的，好像只写方法名 button 的属性   123456view.backgroundColor=UIColor.greenlet  btn = UIButton(type: .system)btn.setTitle(&quot;button&quot;, for: .normal)btn.frame=CGRect(x">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-12-01T04:18:55.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift学习笔记《1》">
-<meta name="twitter:description" content="1.UIButton button 的初始化，点击事件 button 传入参数，和不传入参数市一样的，好像只写方法名 button 的属性   123456view.backgroundColor=UIColor.greenlet  btn = UIButton(type: .system)btn.setTitle(&amp;quot;button&amp;quot;, for: .normal)btn.fram">
+<meta name="twitter:description" content="1.UIButton button 的初始化，点击事件 button 传入参数，和不传入参数市一样的，好像只写方法名 button 的属性   123456view.backgroundColor=UIColor.greenlet  btn = UIButton(type: .system)btn.setTitle(&quot;button&quot;, for: .normal)btn.frame=CGRect(x">
 
 
 
@@ -98,7 +100,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/21/2016b/swift学习笔记《1》/">
+  <link rel="canonical" href="https://www.mayyutao.cn/2016/09/21/2016b/swift学习笔记《1》/">
 
 
 
 
 
-  <title>swift学习笔记《1》 | Maylover的技术博客</title>
+  <title>swift学习笔记《1》 | Maylover</title>
   
 
 
@@ -156,12 +158,12 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Maylover的技术博客</span>
+        <span class="site-title">Maylover</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">平凡之路</p>
       
   </div>
 
@@ -222,9 +224,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -253,16 +287,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/21/2016b/swift学习笔记《1》/">
+    <link itemprop="mainEntityOfPage" href="https://www.mayyutao.cn/2016/09/21/2016b/swift学习笔记《1》/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yu Tao">
+      <meta itemprop="name" content="May Tao">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Maylover的技术博客">
+      <meta itemprop="name" content="Maylover">
     </span>
 
     
@@ -329,13 +363,66 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/21/2016b/swift学习笔记《1》/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/09/21/2016b/swift学习笔记《1》/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
           
+             <span id="/2016/09/21/2016b/swift学习笔记《1》/" class="leancloud_visitors" data-flag-title="swift学习笔记《1》">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
 
           
 
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
           
 
           
@@ -357,39 +444,39 @@
 <li>button 的初始化，点击事件</li>
 <li>button 传入参数，和不传入参数市一样的，好像只写方法名</li>
 <li><p>button 的属性</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">view.backgroundColor=UIColor.green</span><br><span class="line">let  btn = UIButton(type: .system)</span><br><span class="line">btn.setTitle(&quot;button&quot;, for: .normal)</span><br><span class="line">btn.frame=CGRect(x: 100, y: 100, width: 100, height: 100)</span><br><span class="line">btn.addTarget(self, action: #selector(btnClick), for: .touchUpInside)</span><br><span class="line">view.addSubview(btn)</span><br></pre></td></tr></table></figure>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func btnClick(buttt:UIButton) &#123;</span><br><span class="line">print(buttt)        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">view</span>.backgroundColor=UIColor.green</span><br><span class="line"><span class="keyword">let</span>  btn = UIButton(<span class="built_in">type</span>: .<span class="built_in">system</span>)</span><br><span class="line">btn.setTitle(<span class="string">"button"</span>, <span class="keyword">for</span>: .<span class="keyword">normal</span>)</span><br><span class="line">btn.frame=CGRect(<span class="keyword">x</span>: <span class="number">100</span>, <span class="keyword">y</span>: <span class="number">100</span>, width: <span class="number">100</span>, heigh<span class="variable">t:</span> <span class="number">100</span>)</span><br><span class="line">btn.addTarget(self, action: #selector(btnClick), <span class="keyword">for</span>: .touchUpInside)</span><br><span class="line"><span class="keyword">view</span>.addSubview(btn)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">btnClick</span><span class="params">(buttt:UIButton)</span></span> &#123;</span><br><span class="line"><span class="built_in">print</span>(buttt)        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="2-UITableView"><a href="#2-UITableView" class="headerlink" title="2.UITableView"></a>2.UITableView</h4><ul>
 <li>懒加载  l<strong>azy</strong> 关键字 + <strong>var</strong>  <strong>属性名</strong> ：<strong>[</strong>集合中的类型<strong>]</strong> <strong>=</strong> <strong>{</strong> 设置return 类型 <strong>}</strong> <strong>(</strong> <strong>)</strong></li>
 <li><p>mark 的标记 <strong>// MARK:懒加载</strong></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lazy var dataSoure: [String] = &#123;</span><br><span class="line">    return [&quot;11&quot;,&quot;22&quot;,&quot;33&quot;,&quot;44&quot;,&quot;55&quot;]</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">lazy</span> <span class="keyword">var</span> dataSoure: [<span class="type">String</span>] = &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="string">"11"</span>,<span class="string">"22"</span>,<span class="string">"33"</span>,<span class="string">"44"</span>,<span class="string">"55"</span>]</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>tableView的属性   跟OC类似，</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource &#123;</span><br><span class="line">    override func loadView() &#123;</span><br><span class="line">        let tv = UITableView(frame: UIScreen.main.bounds)</span><br><span class="line">        tv.dataSource=self</span><br><span class="line">        tv.delegate=self</span><br><span class="line">        view=tv</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span>,<span class="title">UITableViewDelegate</span>,<span class="title">UITableViewDataSource</span> </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">loadView</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> tv = <span class="type">UITableView</span>(frame: <span class="type">UIScreen</span>.main.bounds)</span><br><span class="line">        tv.dataSource=<span class="keyword">self</span></span><br><span class="line">        tv.delegate=<span class="keyword">self</span></span><br><span class="line">        view=tv</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>tableView的代理设置  实现代理，是在类后面逗号隔开</p>
 </li>
-<li>tableView的代理方法实现   数据源方法写在extension 中，提高代码的可读性  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// extension 想当于 OC中的category</span><br><span class="line">extension ViewController : UITableViewDelegate, UITableViewDataSource &#123;</span><br><span class="line">    func numberOfSections(in tableView: UITableView) -&gt; Int &#123;</span><br><span class="line">        return 1</span><br><span class="line">    &#125;</span><br><span class="line">    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;</span><br><span class="line">        return 5</span><br><span class="line">    &#125;</span><br><span class="line">    //MARK: -数据源方法</span><br><span class="line">    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</span><br><span class="line">        var cell = tableView.dequeueReusableCell(withIdentifier: &quot;cell2&quot;)</span><br><span class="line">        if cell==nil &#123;</span><br><span class="line">            cell=UITableViewCell(style: .default, reuseIdentifier: &quot;cell2&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">        cell?.textLabel?.text = dataSoure[indexPath.row]</span><br><span class="line">        return cell!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>tableView的代理方法实现   数据源方法写在extension 中，提高代码的可读性  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// extension 想当于 OC中的category</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ViewController</span> : <span class="title">UITableViewDelegate</span>, <span class="title">UITableViewDataSource</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">numberOfSections</span><span class="params">(<span class="keyword">in</span> tableView: UITableView)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, numberOfRowsInSection section: Int)</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">5</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//MARK: -数据源方法</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">tableView</span><span class="params">(<span class="number">_</span> tableView: UITableView, cellForRowAt indexPath: IndexPath)</span></span> -&gt; <span class="type">UITableViewCell</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> cell = tableView.dequeueReusableCell(withIdentifier: <span class="string">"cell2"</span>)</span><br><span class="line">        <span class="keyword">if</span> cell==<span class="literal">nil</span> &#123;</span><br><span class="line">            cell=<span class="type">UITableViewCell</span>(style: .<span class="keyword">default</span>, reuseIdentifier: <span class="string">"cell2"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        cell?.textLabel?.text = dataSoure[indexPath.row]</span><br><span class="line">        <span class="keyword">return</span> cell!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="3-swift-TabBar"><a href="#3-swift-TabBar" class="headerlink" title="3.swift - TabBar"></a>3.swift - TabBar</h4><ul>
 <li><p>结构是tabBar 包括四个navigationController </p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tabBar.tintColor=UIColor.orange</span><br><span class="line"></span><br><span class="line">addSelfChildViewController(childVC: BillListVC(), title: &quot;账单&quot;, imageString: &quot;home_tabbar_zd&quot;)</span><br><span class="line"></span><br><span class="line">addSelfChildViewController(childVC: StatementVC(), title: &quot;报表&quot;, imageString: &quot;home_tabbar_bb&quot;)</span><br><span class="line"></span><br><span class="line">addSelfChildViewController(childVC: InvoiceListVC(), title: &quot;发票&quot;, imageString: &quot;home_tabbar_fp&quot;)</span><br><span class="line"></span><br><span class="line">addSelfChildViewController(childVC: PartnerVC(), title: &quot;伙伴&quot;, imageString: &quot;home_tabbar_hb&quot;)</span><br></pre></td></tr></table></figure>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">private func addSelfChildViewController(childVC: UIViewController,title:String,imageString:String) &#123;</span><br><span class="line"></span><br><span class="line">    childVC.tabBarItem.image=UIImage(named: imageString)</span><br><span class="line"></span><br><span class="line">    childVC.tabBarItem.selectedImage=UIImage(named: imageString.appending(&quot;_h&quot;))</span><br><span class="line"></span><br><span class="line">    childVC.tabBarItem.title=title</span><br><span class="line"></span><br><span class="line">    childVC.title=title;   </span><br><span class="line"></span><br><span class="line">    let nav = UINavigationController(rootViewController: childVC)</span><br><span class="line"></span><br><span class="line">    addChildViewController(nav)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">tabBar.tintColor=UIColor.orange</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">addSelfChildViewController</span><span class="params">(childVC: BillListVC()</span></span>, title: <span class="string">"账单"</span>, imageString: <span class="string">"home_tabbar_zd"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">addSelfChildViewController</span><span class="params">(childVC: StatementVC()</span></span>, title: <span class="string">"报表"</span>, imageString: <span class="string">"home_tabbar_bb"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">addSelfChildViewController</span><span class="params">(childVC: InvoiceListVC()</span></span>, title: <span class="string">"发票"</span>, imageString: <span class="string">"home_tabbar_fp"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">addSelfChildViewController</span><span class="params">(childVC: PartnerVC()</span></span>, title: <span class="string">"伙伴"</span>, imageString: <span class="string">"home_tabbar_hb"</span>)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">addSelfChildViewController</span><span class="params">(childVC: UIViewController,title:String,imageString:String)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    childVC.tabBarItem.image=<span class="type">UIImage</span>(named: imageString)</span><br><span class="line"></span><br><span class="line">    childVC.tabBarItem.selectedImage=<span class="type">UIImage</span>(named: imageString.appending(<span class="string">"_h"</span>))</span><br><span class="line"></span><br><span class="line">    childVC.tabBarItem.title=title</span><br><span class="line"></span><br><span class="line">    childVC.title=title;   </span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> nav = <span class="type">UINavigationController</span>(rootViewController: childVC)</span><br><span class="line"></span><br><span class="line">    addChildViewController(nav)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>字符串用appdend ,拼接字符用<strong>+</strong>号</p>
 </li>
 <li><p>命名空间 可以被修改</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">let nas = Bundle.main.infoDictionary! [&quot;CFBundleExecutable&quot;] as! String</span><br></pre></td></tr></table></figure>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> nas = Bundle.main.infoDictionary! [<span class="string">"CFBundleExecutable"</span>] <span class="keyword">as</span>! <span class="built_in">String</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>从plist 获取json  进行解析。  从本地加载转化位nsdata, 使用JSONSeriralation 转化为数组，打印数组中的字典</p>
 </li>
 <li><p><strong>contentsOfFile</strong> 方法是可选类型，调用 <strong>JSONSerialization.jsonObject</strong> 方法是需要强制解包，</p>
 </li>
 <li><p>打印 数组中的字典是时候，需要 声明数组中的数据类型</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let path = Bundle.main.path(forResource: &quot;home.plist&quot;, ofType: nil)</span><br><span class="line">if let filePath = path&#123;</span><br><span class="line">    do &#123;</span><br><span class="line">        let data = NSData(contentsOfFile: filePath)</span><br><span class="line">        let diarry:Any = try JSONSerialization.jsonObject(with: data! as Data, options: JSONSerialization.ReadingOptions.mutableContainers)</span><br><span class="line"></span><br><span class="line">        for adic in diarry as! [[String:String]] &#123;</span><br><span class="line">            print(adic)</span><br><span class="line">        &#125;</span><br><span class="line">        print(diarry)</span><br><span class="line">    &#125; catch   &#123;</span><br><span class="line"></span><br><span class="line">        print(&quot;读取本地数据出现错误！&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> path = <span class="type">Bundle</span>.main.path(forResource: <span class="string">"home.plist"</span>, ofType: <span class="literal">nil</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> filePath = path&#123;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> data = <span class="type">NSData</span>(contentsOfFile: filePath)</span><br><span class="line">        <span class="keyword">let</span> diarry:<span class="type">Any</span> = <span class="keyword">try</span> <span class="type">JSONSerialization</span>.jsonObject(with: data! <span class="keyword">as</span> <span class="type">Data</span>, options: <span class="type">JSONSerialization</span>.<span class="type">ReadingOptions</span>.mutableContainers)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> adic <span class="keyword">in</span> diarry <span class="keyword">as</span>! [[<span class="type">String</span>:<span class="type">String</span>]] &#123;</span><br><span class="line">            <span class="built_in">print</span>(adic)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">print</span>(diarry)</span><br><span class="line">    &#125; <span class="keyword">catch</span>   &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"读取本地数据出现错误！"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="4-swift-基类未登录界面"><a href="#4-swift-基类未登录界面" class="headerlink" title="4.swift-基类未登录界面"></a>4.swift-基类未登录界面</h4><blockquote>
@@ -412,22 +499,22 @@
 </blockquote>
 <ul>
 <li><p>三目运算符 判断登录状态</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let isHadLoggin :Bool = false</span><br><span class="line">lazy var nologvvv : NoLogView = NoLogView.shareNoLogView()</span><br><span class="line">override func loadView() &#123;</span><br><span class="line">    isHadLoggin ?  super.loadView(): setNoLogView()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isHadLoggin :<span class="type">Bool</span> = <span class="literal">false</span></span><br><span class="line"><span class="built_in">lazy</span> <span class="keyword">var</span> nologvvv : <span class="type">NoLogView</span> = <span class="type">NoLogView</span>.shareNoLogView()</span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">loadView</span><span class="params">()</span></span> &#123;</span><br><span class="line">    isHadLoggin ?  <span class="keyword">super</span>.loadView(): setNoLogView()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>根据控制器的不同，设置未登录页界面的图片和文字</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">func setUpNologViewInfo(imageString:String,title:String)&#123;</span><br><span class="line"></span><br><span class="line">    rotationView.isHidden=true</span><br><span class="line"></span><br><span class="line">    iconImageView.image=UIImage(named: imageString)</span><br><span class="line"></span><br><span class="line">    messageLable.text=title</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setUpNologViewInfo</span><span class="params">(imageString:String,title:String)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    rotationView.isHidden=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    iconImageView.image=<span class="type">UIImage</span>(named: imageString)</span><br><span class="line"></span><br><span class="line">    messageLable.text=title</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ul>
 <li><p>设置首页转轮动画</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">func addRotationAnimation()&#123;      </span><br><span class="line"></span><br><span class="line">    let animation = CABasicAnimation(keyPath: &quot;transform.rotation.z&quot;)</span><br><span class="line"></span><br><span class="line">    animation.fromValue = 0</span><br><span class="line"></span><br><span class="line">    animation.toValue = M_PI * 2</span><br><span class="line"></span><br><span class="line">    animation.repeatCount=MAXFLOAT</span><br><span class="line"></span><br><span class="line">    animation.isRemovedOnCompletion = false</span><br><span class="line"></span><br><span class="line">    animation.duration = 10   // 结束一次动画的时长</span><br><span class="line"></span><br><span class="line">    rotationView.layer.add(animation, forKey: &quot;homeRotation&quot;)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">func addRotationAnimation()&#123;      </span><br><span class="line"></span><br><span class="line">    <span class="built_in">let</span> <span class="built_in">animation</span> = CABasicAnimation(keyPath: <span class="string">"transform.rotation.z"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">animation</span>.fromValue = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">animation</span>.toValue = M_PI * <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">animation</span>.repeatCount=MAXFLOAT</span><br><span class="line"></span><br><span class="line">    <span class="built_in">animation</span>.isRemovedOnCompletion = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">animation</span>.duration = <span class="number">10</span>   // 结束一次动画的时长</span><br><span class="line"></span><br><span class="line">    rotationView.layer.add(<span class="built_in">animation</span>, forKey: <span class="string">"homeRotation"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>设置代理 继承 NSObjectProtocol</p>
 </li>
 <li><p>设置代理属性 使用weak 关键字，可选类型</p>
 </li>
 <li><p>使用不用判断代理 直接使用</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">protocol  NoLogViewDelegate :NSObjectProtocol&#123;</span><br><span class="line">    func registButtonWillClick()</span><br><span class="line"></span><br><span class="line">    func logginButtonWillClick()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">weak var delegate:NoLogViewDelegate?</span><br><span class="line">delegate?.registButtonWillClick()</span><br></pre></td></tr></table></figure>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span>  <span class="title">NoLogViewDelegate</span> :<span class="title">NSObjectProtocol</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">registButtonWillClick</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">logginButtonWillClick</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">weak</span> <span class="keyword">var</span> delegate:<span class="type">NoLogViewDelegate</span>?</span><br><span class="line">delegate?.registButtonWillClick()</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="5-自定义转场动画"><a href="#5-自定义转场动画" class="headerlink" title="5.自定义转场动画"></a>5.自定义转场动画</h4><blockquote>
@@ -442,7 +529,7 @@
 <p>上代码</p>
 </blockquote>
 <ul>
-<li>创建 HomePopOverAnimator，  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private lazy var homeAnimator : HomePopOverAnimator = HomePopOverAnimator()</span><br><span class="line"></span><br><span class="line">func changeAccoountBook()&#123;</span><br><span class="line">    let vc =  LeftChoseAccountBookVC()</span><br><span class="line">    vc.modalPresentationStyle = .custom</span><br><span class="line">    vc.transitioningDelegate = homeAnimator</span><br><span class="line">    present(vc, animated: true, completion:nil)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>创建 HomePopOverAnimator，  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> homeAnimator : <span class="type">HomePopOverAnimator</span> = <span class="type">HomePopOverAnimator</span>()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">changeAccoountBook</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">let</span> vc =  <span class="type">LeftChoseAccountBookVC</span>()</span><br><span class="line">    vc.modalPresentationStyle = .custom</span><br><span class="line">    vc.transitioningDelegate = homeAnimator</span><br><span class="line">    present(vc, animated: <span class="literal">true</span>, completion:<span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
@@ -452,13 +539,13 @@
 <li>HomePopOverAnimator  遵守UIViewControllerTransitioningDelegate 协议，实现协议方法</li>
 <li>在代理中创建负责展现view的HomeUIPresentationVC ，继承自UIPresentationController</li>
 <li><p>HomePopOverAnimator负责处理开始，结束动画，需要遵守UIViewControllerAnimatedTransitioning 协议</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// MARK:- 自定义转场代理的方法</span><br><span class="line">extension HomePopOverAnimator : UIViewControllerTransitioningDelegate &#123;</span><br><span class="line">    // 告诉代理，谁是处理展示的VC</span><br><span class="line">    public func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source:                             UIViewController) -&gt; UIPresentationController?&#123;</span><br><span class="line"></span><br><span class="line">    let homePrentVC = HomeUIPresentationVC(presentedViewController: presented, presenting: presenting)</span><br><span class="line">        return  homePrentVC</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 告诉代理，谁处理开始动画</span><br><span class="line">    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source:                                     UIViewController) -&gt; UIViewControllerAnimatedTransitioning?&#123;</span><br><span class="line"></span><br><span class="line">        isPresented = true</span><br><span class="line">        return self</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 告诉代理，谁处理结束动画</span><br><span class="line">    public func animationController(forDismissed dismissed: UIViewController) -&gt;UIViewControllerAnimatedTransitioning?&#123;</span><br><span class="line">        isPresented = false</span><br><span class="line">        return self</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK:- 自定义转场代理的方法</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">HomePopOverAnimator</span> : <span class="title">UIViewControllerTransitioningDelegate</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 告诉代理，谁是处理展示的VC</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">presentationController</span><span class="params">(forPresented presented: UIViewController, presenting: UIViewController?, source:                             UIViewController)</span></span> -&gt; <span class="type">UIPresentationController</span>?&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> homePrentVC = <span class="type">HomeUIPresentationVC</span>(presentedViewController: presented, presenting: presenting)</span><br><span class="line">        <span class="keyword">return</span>  homePrentVC</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 告诉代理，谁处理开始动画</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">animationController</span><span class="params">(forPresented presented: UIViewController, presenting: UIViewController, source:                                     UIViewController)</span></span> -&gt; <span class="type">UIViewControllerAnimatedTransitioning</span>?&#123;</span><br><span class="line"></span><br><span class="line">        isPresented = <span class="literal">true</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 告诉代理，谁处理结束动画</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">animationController</span><span class="params">(forDismissed dismissed: UIViewController)</span></span> -&gt;<span class="type">UIViewControllerAnimatedTransitioning</span>?&#123;</span><br><span class="line">        isPresented = <span class="literal">false</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>UIViewControllerAnimatedTransitioning 代理 弹出和消失动画代理的方法，根据上下文处理动画形式</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// MARK:- 弹出和消失动画代理的方法</span><br><span class="line">extension HomePopOverAnimator:UIViewControllerAnimatedTransitioning&#123;</span><br><span class="line"></span><br><span class="line">    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -&gt; TimeInterval&#123;</span><br><span class="line">        return 1</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    func animateTransition(using transitionContext: UIViewControllerContextTransitioning)&#123;</span><br><span class="line">        if isPresented &#123;</span><br><span class="line">            animationForStartAnimation(ransitionContext: transitionContext)</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            animationForEndAnimation(ransitionContext: transitionContext)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK:- 弹出和消失动画代理的方法</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">HomePopOverAnimator</span>:<span class="title">UIViewControllerAnimatedTransitioning</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">transitionDuration</span><span class="params">(using transitionContext: UIViewControllerContextTransitioning?)</span></span> -&gt; <span class="type">TimeInterval</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">animateTransition</span><span class="params">(using transitionContext: UIViewControllerContextTransitioning)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> isPresented &#123;</span><br><span class="line">            animationForStartAnimation(ransitionContext: transitionContext)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            animationForEndAnimation(ransitionContext: transitionContext)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>私有方法，开始动画，结束动画，transition 动画</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// 开始动画</span><br><span class="line">private func animationForStartAnimation(ransitionContext: UIViewControllerContextTransitioning)&#123;</span><br><span class="line">    // 获取view，将view加到contenterView上，执行动画</span><br><span class="line">    let containerView = ransitionContext.containerView</span><br><span class="line">    let prentedView = ransitionContext.view(forKey: .to)</span><br><span class="line">    containerView.addSubview(prentedView!)</span><br><span class="line">    prentedView?.transform = CGAffineTransform.init(translationX: -containerView.bounds.size.width, y: 0)</span><br><span class="line">    //        prentedView?.layer.anchorPoint = CGPoint(x: 0.5, y: 0)</span><br><span class="line">    UIView.animate(withDuration: transitionDuration(using: ransitionContext), animations: &#123;</span><br><span class="line">        prentedView?.transform = CGAffineTransform.identity</span><br><span class="line">    &#125;) &#123; (Bool) in</span><br><span class="line">        ransitionContext.completeTransition(true)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 结束动画</span><br><span class="line">private func  animationForEndAnimation(ransitionContext: UIViewControllerContextTransitioning)&#123;</span><br><span class="line">    // 获取view， 执行消失动画</span><br><span class="line">    let containerView = ransitionContext.containerView</span><br><span class="line">    let dismissView  = ransitionContext.view(forKey: .from)</span><br><span class="line">    UIView.animate(withDuration: transitionDuration(using: ransitionContext), animations: &#123;</span><br><span class="line">        dismissView?.transform = CGAffineTransform.init(translationX: -containerView.bounds.size.width, y: 0)</span><br><span class="line">    &#125;) &#123; (Bool) in</span><br><span class="line">        dismissView?.removeFromSuperview()</span><br><span class="line">        ransitionContext.completeTransition(true)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开始动画</span></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">animationForStartAnimation</span><span class="params">(ransitionContext: UIViewControllerContextTransitioning)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 获取view，将view加到contenterView上，执行动画</span></span><br><span class="line">    <span class="keyword">let</span> containerView = ransitionContext.containerView</span><br><span class="line">    <span class="keyword">let</span> prentedView = ransitionContext.view(forKey: .to)</span><br><span class="line">    containerView.addSubview(prentedView!)</span><br><span class="line">    prentedView?.transform = <span class="type">CGAffineTransform</span>.<span class="keyword">init</span>(translationX: -containerView.bounds.size.width, y: <span class="number">0</span>)</span><br><span class="line">    <span class="comment">//        prentedView?.layer.anchorPoint = CGPoint(x: 0.5, y: 0)</span></span><br><span class="line">    <span class="type">UIView</span>.animate(withDuration: transitionDuration(using: ransitionContext), animations: &#123;</span><br><span class="line">        prentedView?.transform = <span class="type">CGAffineTransform</span>.identity</span><br><span class="line">    &#125;) &#123; (<span class="type">Bool</span>) <span class="keyword">in</span></span><br><span class="line">        ransitionContext.completeTransition(<span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结束动画</span></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span>  <span class="title">animationForEndAnimation</span><span class="params">(ransitionContext: UIViewControllerContextTransitioning)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 获取view， 执行消失动画</span></span><br><span class="line">    <span class="keyword">let</span> containerView = ransitionContext.containerView</span><br><span class="line">    <span class="keyword">let</span> dismissView  = ransitionContext.view(forKey: .from)</span><br><span class="line">    <span class="type">UIView</span>.animate(withDuration: transitionDuration(using: ransitionContext), animations: &#123;</span><br><span class="line">        dismissView?.transform = <span class="type">CGAffineTransform</span>.<span class="keyword">init</span>(translationX: -containerView.bounds.size.width, y: <span class="number">0</span>)</span><br><span class="line">    &#125;) &#123; (<span class="type">Bool</span>) <span class="keyword">in</span></span><br><span class="line">        dismissView?.removeFromSuperview()</span><br><span class="line">        ransitionContext.completeTransition(<span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
@@ -467,10 +554,10 @@
 <ul>
 <li>负责显示的View ，左侧抽屉一半view，下面一层蒙版，能响应点击消失</li>
 <li><p>设置需要展现视图的大小，设置遮盖为button，响应点击事件</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 懒加载控件</span><br><span class="line">lazy var coverBGView :UIButton = UIButton()</span><br><span class="line">// 重写layoutsubviews 设置弹出视图的大小</span><br><span class="line">override func containerViewWillLayoutSubviews()&#123;</span><br><span class="line">    super.containerViewWillLayoutSubviews()</span><br><span class="line">    presentedView?.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width*0.6, height:                UIScreen.main.bounds.size.height)</span><br><span class="line">    setCoverbgViews()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 懒加载控件</span></span><br><span class="line"><span class="built_in">lazy</span> <span class="keyword">var</span> coverBGView :<span class="type">UIButton</span> = <span class="type">UIButton</span>()</span><br><span class="line"><span class="comment">// 重写layoutsubviews 设置弹出视图的大小</span></span><br><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">containerViewWillLayoutSubviews</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.containerViewWillLayoutSubviews()</span><br><span class="line">    presentedView?.frame = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: <span class="type">UIScreen</span>.main.bounds.size.width*<span class="number">0.6</span>, height:                <span class="type">UIScreen</span>.main.bounds.size.height)</span><br><span class="line">    setCoverbgViews()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>设置遮罩 frame和 响应方法</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">    extension HomeUIPresentationVC &#123;</span><br><span class="line">        func setCoverbgViews()&#123;</span><br><span class="line">            // 设置大小，插入到contenderView的最底层</span><br><span class="line">            coverBGView.titleLabel?.text=&quot;&quot;</span><br><span class="line">            coverBGView.frame  = containerView!.bounds</span><br><span class="line">            coverBGView.backgroundColor = UIColor.init(white: 0.8, alpha: 0.2)</span><br><span class="line">            coverBGView.addTarget(self, action: #selector(tapCoverBgView), for: .touchUpInside)</span><br><span class="line">            containerView?.insertSubview(coverBGView, at: 0)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    extension HomeUIPresentationVC &#123;</span><br><span class="line">    @objc func tapCoverBgView(tap:UITapGestureRecognizer)&#123;</span><br><span class="line">            presentedViewController.dismiss(animated: true, completion: nil)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ``` </span><br><span class="line"></span><br><span class="line">#### 6.extension 使用类扩展增加方法</span><br><span class="line"></span><br><span class="line">- swift 中extension 相当于OC中的category 作为类的扩展</span><br><span class="line">- 单独创建文件做类的扩展</span><br><span class="line">- 在vc 中使用extension 作为 vc 的方法分类 苹果推荐 代理等方法写在extension里。</span><br><span class="line">- 上代码 command + N 创建Swift 文件，名字为UIBarBarItem+category</span><br><span class="line">- 为 UIBarButtonItem 增加一个类方法， 创建item 的titleLable</span><br></pre></td></tr></table></figure>
+ <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">    <span class="class"><span class="keyword">extension</span> <span class="title">HomeUIPresentationVC</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">func</span> <span class="title">setCoverbgViews</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="comment">// 设置大小，插入到contenderView的最底层</span></span><br><span class="line">            coverBGView.titleLabel?.text=<span class="string">""</span></span><br><span class="line">            coverBGView.frame  = containerView!.bounds</span><br><span class="line">            coverBGView.backgroundColor = <span class="type">UIColor</span>.<span class="keyword">init</span>(white: <span class="number">0.8</span>, alpha: <span class="number">0.2</span>)</span><br><span class="line">            coverBGView.addTarget(<span class="keyword">self</span>, action: #selector(tapCoverBgView), <span class="keyword">for</span>: .touchUpInside)</span><br><span class="line">            containerView?.insertSubview(coverBGView, at: <span class="number">0</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">extension</span> <span class="title">HomeUIPresentationVC</span> </span>&#123;</span><br><span class="line">    <span class="meta">@objc</span> <span class="function"><span class="keyword">func</span> <span class="title">tapCoverBgView</span><span class="params">(tap:UITapGestureRecognizer)</span></span>&#123;</span><br><span class="line">            presentedViewController.dismiss(animated: <span class="literal">true</span>, completion: <span class="literal">nil</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ``` </span><br><span class="line"></span><br><span class="line">#### <span class="number">6</span>.<span class="keyword">extension</span> 使用类扩展增加方法</span><br><span class="line"></span><br><span class="line">- swift 中<span class="class"><span class="keyword">extension</span> 相当于<span class="title">OC</span>中的<span class="title">category</span> 作为类的扩展</span></span><br><span class="line"><span class="class">- 单独创建文件做类的扩展</span></span><br><span class="line"><span class="class">- 在<span class="title">vc</span> 中使用<span class="title">extension</span> 作为 <span class="title">vc</span> 的方法分类 苹果推荐 代理等方法写在<span class="title">extension</span>里。</span></span><br><span class="line"><span class="class">- 上代码 <span class="title">command</span> + <span class="title">N</span> 创建<span class="title">Swift</span> 文件，名字为<span class="title">UIBarBarItem</span>+<span class="title">category</span></span></span><br><span class="line"><span class="class">- 为 <span class="title">UIBarButtonItem</span> 增加一个类方法， 创建<span class="title">item</span> 的<span class="title">titleLable</span></span></span><br></pre></td></tr></table></figure>
 <p> extension UIBarButtonItem {<br> class func titleLableWithText(title:String)-&gt;UILabel{</p>
 <pre><code>    let lable = UILabel()
     lable.clipsToBounds = true
@@ -481,19 +568,19 @@
     return lable
 }
 </code></pre><p> }</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 7.创建二维码</span><br><span class="line">- 1.创建滤镜</span><br><span class="line">- 2.还原滤镜设置</span><br><span class="line">- 3.设置数据存入数据</span><br><span class="line">- 4.取出图片</span><br><span class="line">- 5.增加中间的头像</span><br><span class="line">- 6.设置高清图像</span><br><span class="line"></span><br><span class="line">&gt; 上代码 如下</span><br><span class="line">  </span><br><span class="line">  - 1.2.3.4 步骤</span><br></pre></td></tr></table></figure>
+ <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### <span class="number">7.</span>创建二维码</span><br><span class="line">- <span class="number">1.</span>创建滤镜</span><br><span class="line">- <span class="number">2.</span>还原滤镜设置</span><br><span class="line">- <span class="number">3.</span>设置数据存入数据</span><br><span class="line">- <span class="number">4.</span>取出图片</span><br><span class="line">- <span class="number">5.</span>增加中间的头像</span><br><span class="line">- <span class="number">6.</span>设置高清图像</span><br><span class="line"></span><br><span class="line">&gt; 上代码 如下</span><br><span class="line">  </span><br><span class="line">  - <span class="number">1.2</span><span class="number">.3</span><span class="number">.4</span> 步骤</span><br></pre></td></tr></table></figure>
 <p> //1.创建滤镜<br> let filer = CIFilter.init(name: “CIQRCodeGenerator”)</p>
 <p> // 2.还原滤镜的设置<br> filer?.setDefaults()</p>
 <p> // 3.设置数据<br> filer?.setValue(astring.data(using: .utf8), forKey: “inputMessage”)</p>
 <p> // 4.从滤镜中取出图片 CIImage<br> let fileCiImage = filer?.outputImage</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 增加中间的头像 UIGraphicsBegin</span><br></pre></td></tr></table></figure>
+ <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>增加中间的头像 UIGraphicsBegin</span><br></pre></td></tr></table></figure>
 <p> // 开启图像上下文<br> UIGraphicsBeginImageContext(bgImage.size)</p>
 <p> // 绘制背景大小<br> bgImage.drawInRect(CGRect(origin: CGPointZero, size: bgImage.size))</p>
 <p> // 绘制头像<br> let width:CGFloat = 50<br> let height:CGFloat = width<br> let x = (bgImage.size.width - width) <em> 0.5<br> let y = (bgImage.size.height - height) </em> 0.5<br> iconImage.drawInRect(CGRect(x: x, y: y, width: width, height: height))</p>
 <p> // 取出绘制好的图像<br> let newImage = UIGraphicsGetImageFromCurrentImageContext()</p>
 <p> // 关闭上下文<br> UIGraphicsEndImageContext()</p>
 <p> // 返回头像<br> return newImage</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 绘制高清图像</span><br></pre></td></tr></table></figure>
+ <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>绘制高清图像</span><br></pre></td></tr></table></figure>
 <p> /*<em><br> 根据CIImage生成指定大小的高清UIImage<br> :param: image 指定CIImage<br> :param: size    指定大小<br> :returns: 生成好的图片
  </em>/<br> private func createNonInterpolatedUIImageFormCIImage(image: CIImage, size: CGFloat) -&gt; UIImage {</p>
 <pre><code>let extent: CGRect = CGRectIntegral(image.extent)
@@ -529,6 +616,19 @@ return UIImage(CGImage: scaledImage)
     
     
     
+    <div>
+      
+      <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+	     --------------------  本文结束
+	    <i class="fa fa-paw"></i>
+	    感谢您的阅读  --------------------
+    </div>
+
+</div>
+      
+    </div>
 
     
 
@@ -540,7 +640,7 @@ return UIImage(CGImage: scaledImage)
       
         <div class="post-tags">
           
-            <a href="/tags/Swift/" rel="tag"># Swift</a>
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
           
         </div>
       
@@ -595,6 +695,9 @@ return UIImage(CGImage: scaledImage)
           
 
   
+    <div class="comments" id="comments">
+    </div>
+  
 
 
 
@@ -631,8 +734,10 @@ return UIImage(CGImage: scaledImage)
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">Yu Tao</p>
-              <p class="site-description motion-element" itemprop="description">测试测试description</p>
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="May Tao">
+            
+              <p class="site-author-name" itemprop="name">May Tao</p>
+              <p class="site-description motion-element" itemprop="description">全栈在路上</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -642,7 +747,7 @@ return UIImage(CGImage: scaledImage)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -653,7 +758,7 @@ return UIImage(CGImage: scaledImage)
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -673,7 +778,36 @@ return UIImage(CGImage: scaledImage)
           </nav>
 
           
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Huan-zhaolover" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ytxinguan09@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.87.com" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-angle-double-down"></i>掘金</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -721,21 +855,15 @@ return UIImage(CGImage: scaledImage)
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Yu Tao</span>
+  <span class="author" itemprop="copyrightHolder">May Tao</span>
 
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
@@ -879,15 +1007,461 @@ return UIImage(CGImage: scaledImage)
 
 
 
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz',
+        appKey: 'GYy3VQ9hXhRnbsBHmMPzwtbq',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
 
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz", "GYy3VQ9hXhRnbsBHmMPzwtbq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Maylover</title>
+  
+  <subtitle>平凡之路</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://www.mayyutao.cn/"/>
+  <updated>2018-12-01T08:21:23.280Z</updated>
+  <id>https://www.mayyutao.cn/</id>
+  
+  <author>
+    <name>May Tao</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端面试基本分析1</title>
+    <link href="https://www.mayyutao.cn/2018/12/01/%E9%9D%A2%E8%AF%95/preview/"/>
+    <id>https://www.mayyutao.cn/2018/12/01/面试/preview/</id>
+    <published>2018-12-01T00:39:00.000Z</published>
+    <updated>2018-12-01T08:21:23.280Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="面试" scheme="https://www.mayyutao.cn/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="面试" scheme="https://www.mayyutao.cn/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.mayyutao.cn/2018/11/29/%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0---%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript(%E4%B8%8A)/"/>
+    <id>https://www.mayyutao.cn/2018/11/29/杂七杂八/读书笔记---你不知道的JavaScript(上)/</id>
+    <published>2018-11-29T13:24:58.828Z</published>
+    <updated>2018-11-29T13:25:19.372Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>函数式编程-链式编程</title>
+    <link href="https://www.mayyutao.cn/2017/06/13/2017b/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B-%E9%93%BE%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    <id>https://www.mayyutao.cn/2017/06/13/2017b/函数式编程-链式编程/</id>
+    <published>2017-06-13T12:39:00.000Z</published>
+    <updated>2018-12-01T03:26:59.138Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="runloop" scheme="https://www.mayyutao.cn/tags/runloop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>runTime</title>
+    <link href="https://www.mayyutao.cn/2017/02/13/2017b/runTime/"/>
+    <id>https://www.mayyutao.cn/2017/02/13/2017b/runTime/</id>
+    <published>2017-02-13T12:39:00.000Z</published>
+    <updated>2018-12-01T03:28:28.192Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="runTime" scheme="https://www.mayyutao.cn/tags/runTime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>runloop解决Cell上主线程卡顿</title>
+    <link href="https://www.mayyutao.cn/2017/02/12/2017b/runloop%E8%A7%A3%E5%86%B3Cell%E4%B8%8A%E4%B8%BB%E7%BA%BF%E7%A8%8B%E5%8D%A1%E9%A1%BF/"/>
+    <id>https://www.mayyutao.cn/2017/02/12/2017b/runloop解决Cell上主线程卡顿/</id>
+    <published>2017-02-12T12:39:00.000Z</published>
+    <updated>2018-12-01T03:27:31.176Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="runloop" scheme="https://www.mayyutao.cn/tags/runloop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图片打码(系统自带 VS openCV)</title>
+    <link href="https://www.mayyutao.cn/2017/02/10/2017b/%E5%9B%BE%E7%89%87%E6%89%93%E7%A0%81(%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%20VS%20openVC)/"/>
+    <id>https://www.mayyutao.cn/2017/02/10/2017b/图片打码(系统自带 VS openVC)/</id>
+    <published>2017-02-10T12:39:00.000Z</published>
+    <updated>2018-12-01T04:01:20.662Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="openVC" scheme="https://www.mayyutao.cn/tags/openVC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图片转化为视频</title>
+    <link href="https://www.mayyutao.cn/2017/02/03/2017b/%E5%9B%BE%E7%89%87%E8%BD%AC%E5%8C%96%E4%B8%BA%E8%A7%86%E9%A2%91/"/>
+    <id>https://www.mayyutao.cn/2017/02/03/2017b/图片转化为视频/</id>
+    <published>2017-02-03T14:36:00.000Z</published>
+    <updated>2018-12-01T03:31:34.756Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;图片转为视频流&lt;ul&gt;
+&lt;li&gt;使用 &lt;code&gt;AVAssetWriter&lt;/code&gt;. &lt;code&gt;AVAssetWriterInputPixelBufferAdaptor&lt;/code&gt; 处理&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="实用技术" scheme="https://www.mayyutao.cn/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="实用" scheme="https://www.mayyutao.cn/tags/%E5%AE%9E%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swiftSQLite</title>
+    <link href="https://www.mayyutao.cn/2016/09/28/2016b/swiftSQLite/"/>
+    <id>https://www.mayyutao.cn/2016/09/28/2016b/swiftSQLite/</id>
+    <published>2016-09-28T15:38:00.000Z</published>
+    <updated>2018-12-01T04:11:23.231Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
+    
+      <category term="SQLite" scheme="https://www.mayyutao.cn/tags/SQLite/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift泛型</title>
+    <link href="https://www.mayyutao.cn/2016/09/27/2016b/swift%E6%B3%9B%E5%9E%8B/"/>
+    <id>https://www.mayyutao.cn/2016/09/27/2016b/swift泛型/</id>
+    <published>2016-09-27T15:38:00.000Z</published>
+    <updated>2018-12-01T04:11:41.392Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
+    
+      <category term="swift泛型" scheme="https://www.mayyutao.cn/tags/swift%E6%B3%9B%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift协议</title>
+    <link href="https://www.mayyutao.cn/2016/09/26/2016b/swift%E5%8D%8F%E8%AE%AE/"/>
+    <id>https://www.mayyutao.cn/2016/09/26/2016b/swift协议/</id>
+    <published>2016-09-26T15:38:00.000Z</published>
+    <updated>2018-12-01T04:15:29.955Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
+    
+      <category term="protocol" scheme="https://www.mayyutao.cn/tags/protocol/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift扩展Extensions</title>
+    <link href="https://www.mayyutao.cn/2016/09/25/2016b/swift%E6%89%A9%E5%B1%95Extensions/"/>
+    <id>https://www.mayyutao.cn/2016/09/25/2016b/swift扩展Extensions/</id>
+    <published>2016-09-25T15:38:00.000Z</published>
+    <updated>2018-12-01T04:15:44.561Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
+    
+      <category term="extension" scheme="https://www.mayyutao.cn/tags/extension/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift错误处理</title>
+    <link href="https://www.mayyutao.cn/2016/09/24/2016b/swift%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
+    <id>https://www.mayyutao.cn/2016/09/24/2016b/swift错误处理/</id>
+    <published>2016-09-24T15:38:00.000Z</published>
+    <updated>2018-12-01T04:18:55.406Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图文混排</title>
+    <link href="https://www.mayyutao.cn/2016/09/24/2016b/%E5%9B%BE%E6%96%87%E6%B7%B7%E6%8E%92/"/>
+    <id>https://www.mayyutao.cn/2016/09/24/2016b/图文混排/</id>
+    <published>2016-09-24T15:36:00.000Z</published>
+    <updated>2018-12-01T03:12:08.923Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GCD调度组</title>
+    <link href="https://www.mayyutao.cn/2016/09/24/2016b/GCD%E8%B0%83%E5%BA%A6%E7%BB%84/"/>
+    <id>https://www.mayyutao.cn/2016/09/24/2016b/GCD调度组/</id>
+    <published>2016-09-24T15:36:00.000Z</published>
+    <updated>2018-12-01T04:18:55.525Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义刷新控件</title>
+    <link href="https://www.mayyutao.cn/2016/09/24/2016b/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%88%B7%E6%96%B0%E6%8E%A7%E4%BB%B6/"/>
+    <id>https://www.mayyutao.cn/2016/09/24/2016b/自定义刷新控件/</id>
+    <published>2016-09-24T15:36:00.000Z</published>
+    <updated>2018-12-01T04:18:55.531Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift自动引用计数</title>
+    <link href="https://www.mayyutao.cn/2016/09/23/2016b/swift%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0/"/>
+    <id>https://www.mayyutao.cn/2016/09/23/2016b/swift自动引用计数/</id>
+    <published>2016-09-23T15:38:00.000Z</published>
+    <updated>2018-12-01T04:18:55.507Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SDwebImage实现图片下载-圆角</title>
+    <link href="https://www.mayyutao.cn/2016/09/23/2016b/SDwebImage%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD-%E5%9C%86%E8%A7%92/"/>
+    <id>https://www.mayyutao.cn/2016/09/23/2016b/SDwebImage实现图片下载-圆角/</id>
+    <published>2016-09-23T14:36:00.000Z</published>
+    <updated>2018-12-01T04:18:55.550Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="实用技术" scheme="https://www.mayyutao.cn/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="实用" scheme="https://www.mayyutao.cn/tags/%E5%AE%9E%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实现cell处理</title>
+    <link href="https://www.mayyutao.cn/2016/09/22/2016b/%E5%AE%9E%E7%8E%B0cell%E5%A4%84%E7%90%86/"/>
+    <id>https://www.mayyutao.cn/2016/09/22/2016b/实现cell处理/</id>
+    <published>2016-09-22T14:36:00.000Z</published>
+    <updated>2018-12-01T04:18:55.418Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="实用技术" scheme="https://www.mayyutao.cn/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="实用" scheme="https://www.mayyutao.cn/tags/%E5%AE%9E%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift学习笔记《5》- 实用</title>
+    <link href="https://www.mayyutao.cn/2016/09/21/2016b/swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8A5%E3%80%8B/"/>
+    <id>https://www.mayyutao.cn/2016/09/21/2016b/swift学习笔记《5》/</id>
+    <published>2016-09-21T13:39:00.000Z</published>
+    <updated>2018-12-01T04:18:55.453Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift学习笔记《4》</title>
+    <link href="https://www.mayyutao.cn/2016/09/21/2016b/swift%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8A4%E3%80%8B/"/>
+    <id>https://www.mayyutao.cn/2016/09/21/2016b/swift学习笔记《4》/</id>
+    <published>2016-09-21T12:39:00.000Z</published>
+    <updated>2018-12-01T04:18:55.501Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
+    
+  </entry>
+  
+</feed>
