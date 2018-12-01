@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Swift,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.swift Protocol 设置可选协议方法  需要遵守NSObjectProtocol 协议  协议需要是 @objec  方法是需要@object optional    123@objc protocol CircleDelegate:NSObjectProtocol &amp;#123;    @objc optional func cirelcPrint()&amp;#125;     定义del">
+<meta name="keywords" content="Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift学习笔记《4》">
+<meta property="og:url" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/index.html">
+<meta property="og:site_name" content="Maylover的技术博客">
+<meta property="og:description" content="1.swift Protocol 设置可选协议方法  需要遵守NSObjectProtocol 协议  协议需要是 @objec  方法是需要@object optional    123@objc protocol CircleDelegate:NSObjectProtocol &amp;#123;    @objc optional func cirelcPrint()&amp;#125;     定义del">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-1.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-2.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-3.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-4.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-5.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-6.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-7.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-8.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-9.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-10.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-11.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-12.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-13.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-14.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-15.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-16.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-17.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-18.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-19.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-20.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-21.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-22.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-23.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-24.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-25.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-26.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-27.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-28.png">
+<meta property="og:updated_time" content="2018-12-01T04:18:55.501Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swift学习笔记《4》">
+<meta name="twitter:description" content="1.swift Protocol 设置可选协议方法  需要遵守NSObjectProtocol 协议  协议需要是 @objec  方法是需要@object optional    123@objc protocol CircleDelegate:NSObjectProtocol &amp;#123;    @objc optional func cirelcPrint()&amp;#125;     定义del">
+<meta name="twitter:image" content="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/">
+
+
+
+
+
+  <title>swift学习笔记《4》 | Maylover的技术博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Maylover的技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/21/2016b/swift学习笔记《4》/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yu Tao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maylover的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">swift学习笔记《4》</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-21T20:39:00+08:00">
+                2016-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/Swift学习/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-swift-Protocol"><a href="#1-swift-Protocol" class="headerlink" title="1.swift Protocol"></a>1.<code>swift Protocol</code></h3><ul>
+<li><p>设置可选协议方法</p>
+<ul>
+<li><p>需要遵守<code>NSObjectProtocol</code> 协议</p>
+</li>
+<li><p>协议需要是 <code>@objec</code></p>
+</li>
+<li><p>方法是需要@object optional </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@objc protocol CircleDelegate:NSObjectProtocol &#123;</span><br><span class="line">    @objc optional func cirelcPrint()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-1.png" width="400">
+</li>
+<li><p>定义delegate 属性 <code>weak var delegate:CircleDelegate?</code></p>
+</li>
+<li><p>调用代理方法 <code>delegate?.cirelcPrint?()</code></p>
+<img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-2.png" width="400">
+</li>
+</ul>
+</li>
+<li><p>protocol <code>mutating</code> 关键字</p>
+<ul>
+<li><p>使用mutation 关键字来标记一个会修改结构体的刚发</p>
+</li>
+<li><p>class 中不需要使用mutating标记，因为类总方法通常可以修改类属性</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-3.png" width="400">
+</li>
+<li><p>可以给系统方法增加写extion,遵守代理</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-4.png" width="400">
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-switchCase"><a href="#2-switchCase" class="headerlink" title="2.switchCase"></a>2.<code>switchCase</code></h3><ul>
+<li><p>case let x where x.hasSuffix(“peper”): print(“li it a spicy”)</p>
+</li>
+<li><p>可以在case中使用where 进行判断</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-5.png" width="400">
+</li>
+</ul>
+<h3 id="3-元组"><a href="#3-元组" class="headerlink" title="3.元组"></a>3.元组</h3><ul>
+<li><p>取元组可以根据属性，也可以根据下标取</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let amutule : (min:Int,max:Int,sum:Int) = (2,4,6)</span><br><span class="line">print(amutule.sum)</span><br><span class="line">print(amutule.2)</span><br></pre></td></tr></table></figure>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-6.png" width="400">
+</li>
+</ul>
+<h3 id="4-函数的不确定参数个数"><a href="#4-函数的不确定参数个数" class="headerlink" title="4.函数的不确定参数个数"></a>4.函数的不确定参数个数</h3><ul>
+<li><p>传入一个不确定参数类别，计算和</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">func sumOfnumbers(numbers:Int...)-&gt;Int&#123;</span><br><span class="line">    var sum = 0</span><br><span class="line">    for numbe in numbers &#123;</span><br><span class="line">        sum += numbe</span><br><span class="line">    &#125;</span><br><span class="line">    return sum</span><br><span class="line">&#125;</span><br><span class="line">print(&quot;\(sumOfnumbers(numbers: 2,3,4,5,5))&quot;)</span><br></pre></td></tr></table></figure>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-7.png" width="400">
+</li>
+</ul>
+<h3 id="5-函数作为一个参数，传入另一个函数中"><a href="#5-函数作为一个参数，传入另一个函数中" class="headerlink" title="5.函数作为一个参数，传入另一个函数中"></a>5.函数作为一个参数，传入另一个函数中</h3><ul>
+<li>一个函数传入一个参数，一个判断条件的函数参数，返回值是bool</li>
+<li><p>在函数内部，传参数1，调用函数参数判断</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-8.png" width="400">
+</li>
+</ul>
+<h3 id="6-函数作为返回值"><a href="#6-函数作为返回值" class="headerlink" title="6.函数作为返回值"></a>6.函数作为返回值</h3><ul>
+<li>函数作为返回值</li>
+<li><p>适用的时候，生产函数类型的变量，调用变量（函数）方法</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-9.png" width="400">
+</li>
+</ul>
+<h3 id="7-集合map的使用"><a href="#7-集合map的使用" class="headerlink" title="7.集合map的使用"></a>7.<code>集合map</code>的使用</h3><ul>
+<li>使用map 批量操作集合内的元素</li>
+<li>匹配符合集合的元素批量处理，也可以进行判断，不符合条件的为0</li>
+<li><p>如果一个闭包的类型已知，并且作为回调函数，可以忽略参数类型和返回值，单个闭包语句，会把它语句的值当作返回值返回</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-10.png" width="400">
+</li>
+<li><p>可以通过参数所在的位置，替代参数名来引用参数，在非常短的闭包中非常有用</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-11.png" width="400">
+</li>
+</ul>
+<h3 id="8-setter-和getter-方法"><a href="#8-setter-和getter-方法" class="headerlink" title="8.setter 和getter 方法"></a>8.<code>setter 和getter</code> 方法</h3><ul>
+<li>在setter 中新值是newValue </li>
+<li><p>可以在set 后面显示设置一个别名</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-12.png" width="400">
+</li>
+</ul>
+<h3 id="9-监测API-可用性"><a href="#9-监测API-可用性" class="headerlink" title="9.监测API 可用性"></a>9.监测API 可用性</h3><ul>
+<li><p>监测API 可用性 iOS 10</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">func textAPI()&#123;</span><br><span class="line">    if #available(iOS 10, macOS 10.12,*) &#123;</span><br><span class="line">    // 在iOS 10使用，MacOS 10。12使用</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        // 使用先前的iOS，macOS的API</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-13.png" width="400">
+</li>
+</ul>
+<h3 id="10-swift-数组"><a href="#10-swift-数组" class="headerlink" title="10.swift 数组"></a>10.<code>swift 数组</code></h3><ul>
+<li><p>数组的CRUD</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">var aArray  = Array(repeating: 0.4, count: 3);</span><br><span class="line"></span><br><span class="line">//aArray.isEmpty</span><br><span class="line"></span><br><span class="line">//aArray.append(&lt;#T##newElement: Double##Double#&gt;)</span><br><span class="line"></span><br><span class="line">//aArray.insert(&lt;#T##newElement: Double##Double#&gt;, at: &lt;#T##Int#&gt;)</span><br><span class="line"></span><br><span class="line">//aArray.remove(at: &lt;#T##Int#&gt;)</span><br><span class="line"></span><br><span class="line">//aArray.removeLast()</span><br><span class="line"></span><br><span class="line">for (indx,value) in aArray.enumerated() &#123;</span><br><span class="line">print(&quot;\(indx)----\(value)&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-14.png" width="400">
+</li>
+</ul>
+<h3 id="11-swift字符串"><a href="#11-swift字符串" class="headerlink" title="11.swift字符串"></a>11.swift字符串</h3><ul>
+<li><p>字符串的CRUD</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">func textString()&#123;</span><br><span class="line">    var astring = &quot;Guten Tag!&quot;</span><br><span class="line">    if astring.isEmpty &#123;</span><br><span class="line">        // 空字符串</span><br><span class="line">    &#125;</span><br><span class="line">    print(&quot;\(astring[astring.startIndex])&quot;) // G</span><br><span class="line"></span><br><span class="line">    print(&quot;\(astring[astring.index(before: astring.endIndex)])&quot;)   // !</span><br><span class="line"></span><br><span class="line">    print(&quot;\(astring[astring.index(after: astring.startIndex)])&quot;) // u</span><br><span class="line"></span><br><span class="line">    // let aindex = astring.index(astring.startIndex, offsetBy: 7);</span><br><span class="line"></span><br><span class="line">    // print(&quot;\(astring[aindex])&quot;)  // a</span><br><span class="line"></span><br><span class="line">    astring.insert(&quot;!&quot;, at: astring.endIndex)</span><br><span class="line"></span><br><span class="line">    astring.insert(contentsOf: &quot;there&quot;.characters, at: astring.index(before: astring.endIndex))</span><br><span class="line"></span><br><span class="line">    //  前缀 - 后缀</span><br><span class="line"></span><br><span class="line">    _ = astring.hasPrefix(&quot;acutnr&quot;)</span><br><span class="line"></span><br><span class="line">    _ = astring.hasSuffix(&quot;!&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-15.png" width="400">
+</li>
+</ul>
+<h3 id="12-范型"><a href="#12-范型" class="headerlink" title="12.范型"></a>12.范型</h3><ul>
+<li><p>实用方法：</p>
+<ul>
+<li>在尖括号里面写一个名族创建一个范型函数或者类型</li>
+<li><p>定一个函数，传入一个未知类型参数，重复N词，返回数组，数组红元素类型就是传入的类型 </p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-16.png" width="400">
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用范型- 重新实现可选类型</p>
+<ul>
+<li>定义可选类型的枚举</li>
+<li><p>使用赋值</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-17.png" width="400">
+</li>
+</ul>
+</li>
+<li><p>实现方法，限定参数遵守协议，类型是相同的</p>
+<ul>
+<li>比较两个数组中相同的元素，有返回true，没有返回false</li>
+<li>可以计算 两个集合中相同的元素返回</li>
+<li>在类型名之后使用where 制定类型的需求</li>
+<li>比如，限定类型实现某一个协议，限定两个类型是相同的，或者限定某个类必须有一个特定的父类”</li>
+<li><p>where T.Iterator.Element: Equatable, T.Iterator.Element == U.Iterator.Element</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-18.png" width="400">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func anyCommonElements&lt;T:Sequence,U:Sequence&gt;(_ lhs :T,_ rhs: U)-&gt;Bool  where T.Iterator.Element:Equatable,T.Iterator.Element == U.Iterator.Element&#123;</span><br><span class="line">    for lhsElement in lhs &#123;</span><br><span class="line">        for rhsElement in rhs &#123;</span><br><span class="line">            if lhsElement == rhsElement &#123;</span><br><span class="line">                return true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="13-集合操作"><a href="#13-集合操作" class="headerlink" title="13.集合操作"></a>13.集合操作</h3><ul>
+<li><code>a.intersection(b)</code> A和B集合的交集 (A&amp;B)</li>
+<li><code>a.symmtriDifference(b)</code> A +B - (A&amp;B)</li>
+<li><code>a.union(b)</code> A+B</li>
+<li><p><code>a.subtracting(b)</code> A-(A&amp;B) </p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-19.png" width="400">
+</li>
+</ul>
+<h3 id="14-递归枚举"><a href="#14-递归枚举" class="headerlink" title="14.递归枚举"></a>14.递归枚举</h3><ul>
+<li><p>在枚举成员前面，加上 indirect 关键字，是可以递归的</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">enum ArithmeticExpression &#123;</span><br><span class="line">    case number(Int)</span><br><span class="line">    indirect  case addition(ArithmeticExpression,ArithmeticExpression)</span><br><span class="line">    indirect case multiplication(ArithmeticExpression,ArithmeticExpression)   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-20.png" width="400">
+</li>
+<li><p>调用枚举</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let five = ArithmeticExpression.number(5)</span><br><span class="line">let foure = ArithmeticExpression.number(4)</span><br><span class="line">let sum = ArithmeticExpression.addition(five, foure)</span><br><span class="line">let procuct = ArithmeticExpression.multiplication(sum, .number(2))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>操作能可以递归的枚举，需要可以递归的函数，</p>
+</li>
+<li><p>如果是纯数字，直接返回该值，如果是加法，或者乘法，计算左右的算法的值，然后相加，乘</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">func evaluate(_ expression:ArithmeticExpression) -&gt; Int&#123;</span><br><span class="line">    switch expression &#123;</span><br><span class="line">        case let  .number(value):</span><br><span class="line">            return value</span><br><span class="line">        case let .addition(left, right):</span><br><span class="line">            return  evaluate(left) + evaluate(right)</span><br><span class="line">        case let .multiplication(left, right):</span><br><span class="line">            return  evaluate(left) * evaluate(right)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-21.png" width="400">
+</li>
+</ul>
+<h3 id="15-Swift-下标-subscript"><a href="#15-Swift-下标-subscript" class="headerlink" title="15.Swift 下标 subscript"></a>15.Swift 下标 <code>subscript</code></h3><ul>
+<li><p>写法：</p>
+<ul>
+<li><p>定义下标使用<code>subscript</code>关键字，指定一个或多个输入参数和返回类型 </p>
+</li>
+<li><p>与实例方法不同的是，下标可以设定为读写或只读 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">subscript (index:Int)-&gt;Int&#123;</span><br><span class="line">    get&#123;</span><br><span class="line">        //返回一个适当的int 类型的操作</span><br><span class="line">        return 0</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    set(newValue)&#123;</span><br><span class="line">        // 执行适当的赋值操作</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>下标可以接受任意数量的入参，并且这些入参可以是任意类型。下标的返回值也可以是任意类型。下标可以使用变量参数和可变参数，但不能使用输入输出参数，也不能给参数设置默认值</p>
+</li>
+<li><p>定义了一个Matrix结构体，用于表示一个Double类型的二维矩阵</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-22.png" width="400">
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">struct Matrix &#123;</span><br><span class="line">    let rows: Int, columns: Int</span><br><span class="line">    var grid: [Double]</span><br><span class="line">    init(rows: Int, columns: Int) &#123;</span><br><span class="line">        self.rows = rows</span><br><span class="line">        self.columns = columns</span><br><span class="line">        grid = Array(repeating: 0.0,count: rows * columns)</span><br><span class="line">    &#125;</span><br><span class="line">    func indexIsValidForRow(row: Int, column: Int) -&gt; Bool &#123;</span><br><span class="line">        return row &gt;= 0 &amp;&amp; row &lt; rows &amp;&amp; column &gt;= 0 &amp;&amp; column &lt; columns</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //  N 行 * N 列的矩阵</span><br><span class="line">    subscript(row: Int, column: Int) -&gt; Double &#123;</span><br><span class="line">        get &#123;</span><br><span class="line">            assert(indexIsValidForRow(row: row, column: column), &quot;Index out of range&quot;)</span><br><span class="line">            return grid[(row * columns) + column]</span><br><span class="line">        &#125;</span><br><span class="line">        set &#123;</span><br><span class="line">            assert(indexIsValidForRow(row: row, column: column), &quot;Index out of range&quot;)</span><br><span class="line">            grid[(row * columns) + column] = newValue</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-23.png" width="400">
+</li>
+</ul>
+<h3 id="16-swift析构过程"><a href="#16-swift析构过程" class="headerlink" title="16.swift析构过程"></a>16.swift析构过程</h3><ul>
+<li>析构器用<code>deinit</code> 表示 – 构造器init<ul>
+<li>deinit {}</li>
+</ul>
+</li>
+</ul>
+<h3 id="17-swift访问控制"><a href="#17-swift访问控制" class="headerlink" title="17.swift访问控制"></a>17.swift访问控制</h3><ul>
+<li><p>模块和源文件</p>
+<ul>
+<li>使用<code>import</code> 导入另外一个模块</li>
+</ul>
+</li>
+<li><p>访问级别 五种不同的访问级别</p>
+<ul>
+<li><p>开放访问／公开访问   —–同一模块下的任意文件，任意方法，任意实体</p>
+</li>
+<li><p>内部访问   —-在模块内访问任何实体，到那时不能从外部导入模块访问</p>
+</li>
+<li><p>文件私有访问  只能在定义的文件内部访问</p>
+</li>
+<li><p>私有访问限制 只能在定义的作用域内访问</p>
+</li>
+</ul>
+</li>
+<li><p>开放访问权限最高，私有访问最低访问级别</p>
+<ul>
+<li><p>开放访问只作用于类类型和类的成员，和公开访问区别如下</p>
+</li>
+<li><p>开放访问的类，可以在模块内，模块外继承，公开访问和更严的访问级别的类，只能在他们定义的模块内部被继承</p>
+</li>
+<li><p>开放访问的类成员，可以在模块内，模块外的子类重写，公开访问只能在定义的模版内部重写。</p>
+</li>
+</ul>
+</li>
+<li><p>默认访问级别 <code>interal</code> 级别</p>
+<ul>
+<li>单目标程序，是为整个程序服务的，默认interal 即可。</li>
+</ul>
+</li>
+<li><p>访问控制语法</p>
+<ul>
+<li><p>通过 <code>open</code>,<code>public</code>,<code>internal</code>,<code>filepart</code>,<code>private</code> , 修饰符，声明实体的访问级别：</p>
+<img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-24.png" width="400">
+<img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-25.png" width="400">
+</li>
+</ul>
+</li>
+<li><p>子类的访问级别不得高于父类的访问级别</p>
+</li>
+<li>函数的访问级别  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-26.png" width="400">
+</li>
+</ul>
+<h3 id="18-Pch-文件创建"><a href="#18-Pch-文件创建" class="headerlink" title="18.Pch 文件创建"></a>18.Pch 文件创建</h3><ul>
+<li><p>工程  - &gt;TARGETS  -&gt; Bulid Settings  -&gt;搜索prefix -&gt; LLVM -Language  下的<code>Precompile Prefix Header</code> 设置置为YES，默认是NO。</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-27.png" width="400">
+</li>
+<li><p>LLVM -Language 设置下，<code>Prefix Header</code> pch文件路径</p>
+  <img src="/2016/09/21/2016b/swift学习笔记《4》/swift学习笔记4-28.png" width="400">
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift/" rel="tag"># Swift</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/21/2016b/swift学习笔记《3》/" rel="next" title="swift学习笔记《3》-技巧">
+                <i class="fa fa-chevron-left"></i> swift学习笔记《3》-技巧
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/21/2016b/swift学习笔记《5》/" rel="prev" title="swift学习笔记《5》- 实用">
+                swift学习笔记《5》- 实用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yu Tao</p>
+              <p class="site-description motion-element" itemprop="description">测试测试description</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-swift-Protocol"><span class="nav-number">1.</span> <span class="nav-text">1.swift Protocol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-switchCase"><span class="nav-number">2.</span> <span class="nav-text">2.switchCase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-元组"><span class="nav-number">3.</span> <span class="nav-text">3.元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-函数的不确定参数个数"><span class="nav-number">4.</span> <span class="nav-text">4.函数的不确定参数个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-函数作为一个参数，传入另一个函数中"><span class="nav-number">5.</span> <span class="nav-text">5.函数作为一个参数，传入另一个函数中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-函数作为返回值"><span class="nav-number">6.</span> <span class="nav-text">6.函数作为返回值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-集合map的使用"><span class="nav-number">7.</span> <span class="nav-text">7.集合map的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-setter-和getter-方法"><span class="nav-number">8.</span> <span class="nav-text">8.setter 和getter 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-监测API-可用性"><span class="nav-number">9.</span> <span class="nav-text">9.监测API 可用性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-swift-数组"><span class="nav-number">10.</span> <span class="nav-text">10.swift 数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-swift字符串"><span class="nav-number">11.</span> <span class="nav-text">11.swift字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-范型"><span class="nav-number">12.</span> <span class="nav-text">12.范型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-集合操作"><span class="nav-number">13.</span> <span class="nav-text">13.集合操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-递归枚举"><span class="nav-number">14.</span> <span class="nav-text">14.递归枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-Swift-下标-subscript"><span class="nav-number">15.</span> <span class="nav-text">15.Swift 下标 subscript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-swift析构过程"><span class="nav-number">16.</span> <span class="nav-text">16.swift析构过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17-swift访问控制"><span class="nav-number">17.</span> <span class="nav-text">17.swift访问控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18-Pch-文件创建"><span class="nav-number">18.</span> <span class="nav-text">18.Pch 文件创建</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu Tao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

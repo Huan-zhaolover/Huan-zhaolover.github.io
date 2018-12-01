@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Swift,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.自动引用计数实践 ARC 初始化      12345678910var reference1: Person?var reference2: Person?var reference3: Person?reference1 = Person(name: &amp;quot;John Appleseed&amp;quot;)reference2 = reference1reference3 = referen">
+<meta name="keywords" content="Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="swift自动引用计数">
+<meta property="og:url" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/index.html">
+<meta property="og:site_name" content="Maylover的技术博客">
+<meta property="og:description" content="1.自动引用计数实践 ARC 初始化      12345678910var reference1: Person?var reference2: Person?var reference3: Person?reference1 = Person(name: &amp;quot;John Appleseed&amp;quot;)reference2 = reference1reference3 = referen">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数1.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数2.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数3.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数4.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数5.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数6.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数7.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数8.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数9.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数10.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数11.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数12.png">
+<meta property="og:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数13.png">
+<meta property="og:updated_time" content="2018-12-01T04:18:55.507Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="swift自动引用计数">
+<meta name="twitter:description" content="1.自动引用计数实践 ARC 初始化      12345678910var reference1: Person?var reference2: Person?var reference3: Person?reference1 = Person(name: &amp;quot;John Appleseed&amp;quot;)reference2 = reference1reference3 = referen">
+<meta name="twitter:image" content="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/swift自动引用计数1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/">
+
+
+
+
+
+  <title>swift自动引用计数 | Maylover的技术博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Maylover的技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/23/2016b/swift自动引用计数/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yu Tao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maylover的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">swift自动引用计数</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-23T23:38:00+08:00">
+                2016-09-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/Swift学习/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-自动引用计数实践"><a href="#1-自动引用计数实践" class="headerlink" title="1.自动引用计数实践"></a>1.自动引用计数实践</h3><ul>
+<li><p><code>ARC</code> 初始化</p>
+  <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数1.png" width="400">
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var reference1: Person?</span><br><span class="line">var reference2: Person?</span><br><span class="line">var reference3: Person?</span><br><span class="line">reference1 = Person(name: &quot;John Appleseed&quot;)</span><br><span class="line">reference2 = reference1</span><br><span class="line">reference3 = reference1</span><br><span class="line">reference1 = nil</span><br><span class="line">reference2 = nil  //   此时person对象还没有释放，</span><br><span class="line">reference3 = nil  // 执行之后，对象进行释放，打印deinit 方法</span><br><span class="line">// 打印 “John Appleseed is being deinitialized</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-类实例之间的循环强引用"><a href="#2-类实例之间的循环强引用" class="headerlink" title="2.类实例之间的循环强引用"></a>2.类实例之间的循环强引用</h3><ul>
+<li><p><code>Person 和Apartment</code></p>
+ <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数2.png" width="400">
+ <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数3.png" width="400">
+ <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数4.png" width="400">
+</li>
+</ul>
+<h3 id="3-解决实例之间的循环强引用-—-弱引用（weak-reference）"><a href="#3-解决实例之间的循环强引用-—-弱引用（weak-reference）" class="headerlink" title="3.解决实例之间的循环强引用  — 弱引用（weak reference）"></a>3.解决实例之间的循环强引用  — 弱引用（weak reference）</h3><ul>
+<li><p>Swift 提供了两种办法用来解决你在使用类的属性时所遇到的循环强引用问题：弱引用（<code>weak</code>reference）和无主引用（<code>unowned</code>reference ）</p>
+ <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数5.png" width="400">
+ <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数6.png" width="380">
+ <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数7.png" width="400">
+</li>
+</ul>
+<h3 id="4-解决实例之间的循环强引用-—-无主引用（unowned-reference-）"><a href="#4-解决实例之间的循环强引用-—-无主引用（unowned-reference-）" class="headerlink" title="4.解决实例之间的循环强引用  — 无主引用（unowned reference ）"></a>4.解决实例之间的循环强引用  — 无主引用（unowned reference ）</h3><ul>
+<li><p>在前面加上关键字unowned表示这是一个无主引用</p>
+  <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数8.png" width="400">
+  <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数9.png" width="400">
+</li>
+<li><p>Person和Apartment的例子展示了两个属性的值都允许为nil，并会潜在的产生循环强引用。这种场景最适合用弱引用来解决。</p>
+</li>
+<li>Customer和CreditCard的例子展示了一个属性的值允许为nil，而另一个属性的值不允许为nil，这也可能会产生循环强引用。这种场景最适合通过无主引用来解决。</li>
+</ul>
+<h3 id="5-无主引用以及隐式解析可选属性"><a href="#5-无主引用以及隐式解析可选属性" class="headerlink" title="5.无主引用以及隐式解析可选属性"></a>5.无主引用以及隐式解析可选属性</h3><ul>
+<li><p>在这种场景中，两个属性都必须有值，并且初始化完成后永远不会为nil。在这种场景中，需要一个类使用无主属性，而另外一个类使用隐式解析可选属性 </p>
+   <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数10.png" width="400">
+</li>
+<li><p>Country的构造函数调用了City的构造函数。然而，只有Country的实例完全初始化后，Country的构造函数才能把self传给City的构造函数</p>
+</li>
+<li>为了满足这种需求，通过在类型结尾处加上感叹号（City!）的方式，将Country的capitalCity属性声明为隐式解析可选类型的属性。这意味着像其他可选类型一样，capitalCity属性的默认值为nil，但是不需要展开它的值就能访问它</li>
+<li>由于capitalCity默认值为nil，一旦Country的实例在构造函数中给name属性赋值后，整个初始化过程就完成了。这意味着一旦name属性被赋值后，Country的构造函数就能引用并传递隐式的self。Country的构造函数在赋值capitalCity时，就能将self作为参数传递给City的构造函数 </li>
+</ul>
+<h3 id="6-闭包引起的循环强引用"><a href="#6-闭包引起的循环强引用" class="headerlink" title="6.闭包引起的循环强引用"></a>6.闭包引起的循环强引用</h3><ul>
+<li>Swift 提供了一种优雅的方法来解决这个问题，称之为闭包捕获列表（closure capture list）</li>
+<li><p>定义了一个类，一个懒加载属性，懒加载属性是个闭包，内部强引用了类的2个属性</p>
+  <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数11.png" width="400">
+</li>
+<li><p>实例化对象</p>
+  <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数12.png" width="400">
+</li>
+<li><p>实例和闭包的引用关系如下：</p>
+  <img src="/2016/09/23/2016b/swift自动引用计数/swift自动引用计数13.png" width="400">
+</li>
+</ul>
+<h3 id="7-解决闭包引起的循环强引用"><a href="#7-解决闭包引起的循环强引用" class="headerlink" title="7.解决闭包引起的循环强引用"></a>7.解决闭包引起的循环强引用</h3><ul>
+<li>在定义闭包时同时定义捕获列表作为闭包的一部分，通过这种方式可以解决闭包和类实例之间的循环强引用 </li>
+<li><p>捕获列表中的每一项都由一对元素组成，一个元素是weak或unowned关键字，另一个元素是类实例的引用（例如self）或初始化过的变量<code>（如delegate = self.delegate!）</code>。这些项在方括号中用逗号分开</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lazy var someClosure: (Int, String) -&gt; String = &#123;</span><br><span class="line">    [unowned self, weak property= self. property!] (index: Int, stringToProcess: String) -&gt; String in</span><br><span class="line">    // 这里是闭包的函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8-使用弱引用和无主引用"><a href="#8-使用弱引用和无主引用" class="headerlink" title="8.使用弱引用和无主引用"></a>8.使用弱引用和无主引用</h3><ul>
+<li>在闭包和捕获的实例总是互相引用并且总是同时销毁时，将闭包内的捕获定义为无主引用。</li>
+<li>相反的，在被捕获的引用可能会变为nil时，将闭包内的捕获定义为弱引用。弱引用总是可选类型，并且当引用的实例被销毁后，弱引用的值会自动置为nil。这使我们可以在闭包体内检查它们是否存在。</li>
+<li>注意如果被捕获的引用绝对不会变为nil，应该用无主引用，而不是弱引用。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift/" rel="tag"># Swift</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/23/2016b/SDwebImage实现图片下载-圆角/" rel="next" title="SDwebImage实现图片下载-圆角">
+                <i class="fa fa-chevron-left"></i> SDwebImage实现图片下载-圆角
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/24/2016b/GCD调度组/" rel="prev" title="GCD调度组">
+                GCD调度组 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yu Tao</p>
+              <p class="site-description motion-element" itemprop="description">测试测试description</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-自动引用计数实践"><span class="nav-number">1.</span> <span class="nav-text">1.自动引用计数实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-类实例之间的循环强引用"><span class="nav-number">2.</span> <span class="nav-text">2.类实例之间的循环强引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-解决实例之间的循环强引用-—-弱引用（weak-reference）"><span class="nav-number">3.</span> <span class="nav-text">3.解决实例之间的循环强引用  — 弱引用（weak reference）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-解决实例之间的循环强引用-—-无主引用（unowned-reference-）"><span class="nav-number">4.</span> <span class="nav-text">4.解决实例之间的循环强引用  — 无主引用（unowned reference ）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-无主引用以及隐式解析可选属性"><span class="nav-number">5.</span> <span class="nav-text">5.无主引用以及隐式解析可选属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-闭包引起的循环强引用"><span class="nav-number">6.</span> <span class="nav-text">6.闭包引起的循环强引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-解决闭包引起的循环强引用"><span class="nav-number">7.</span> <span class="nav-text">7.解决闭包引起的循环强引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-使用弱引用和无主引用"><span class="nav-number">8.</span> <span class="nav-text">8.使用弱引用和无主引用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu Tao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

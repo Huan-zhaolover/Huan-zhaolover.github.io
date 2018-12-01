@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="实用,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.介绍： Apple Pay并不是独立的第三方支付服务，相比较支付宝和微信支付，他没有自己的账户，也不参与资金的流动， Apple Pay只是将原有的实体银行卡变成手机上“虚拟的银行卡”。Apple Pay依赖iPhone系统底层的整合,在便捷程度上,非第三方支付能比。和第三方的支付对比：一个是系统级的，一个是应用级的。  iOS 8 中第一次被介绍，支持到iOS9以上的系统   2配置证书：">
+<meta name="keywords" content="实用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apple Pay">
+<meta property="og:url" content="http://yoursite.com/2015/03/23/2015b/Apple Pay/index.html">
+<meta property="og:site_name" content="Maylover的技术博客">
+<meta property="og:description" content="1.介绍： Apple Pay并不是独立的第三方支付服务，相比较支付宝和微信支付，他没有自己的账户，也不参与资金的流动， Apple Pay只是将原有的实体银行卡变成手机上“虚拟的银行卡”。Apple Pay依赖iPhone系统底层的整合,在便捷程度上,非第三方支付能比。和第三方的支付对比：一个是系统级的，一个是应用级的。  iOS 8 中第一次被介绍，支持到iOS9以上的系统   2配置证书：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2015/03/23/2015b/Apple%20Pay/ApplePay1.png">
+<meta property="og:image" content="http://yoursite.com/2015/03/23/2015b/Apple%20Pay/ApplePay2.png">
+<meta property="og:image" content="http://yoursite.com/2015/03/23/2015b/Apple%20Pay/ApplePay3.png">
+<meta property="og:image" content="http://yoursite.com/2015/03/23/2015b/Apple%20Pay/ApplePay4.png">
+<meta property="og:image" content="http://yoursite.com/2015/03/23/2015b/Apple%20Pay/ApplePay5.png">
+<meta property="og:image" content="http://yoursite.com/2015/03/23/2015b/Apple%20Pay/ApplePay6.png">
+<meta property="og:image" content="http://yoursite.com/2015/03/23/2015b/Apple%20Pay/ApplePay7.png">
+<meta property="og:image" content="http://yoursite.com/2015/03/23/2015b/Apple%20Pay/ApplePay8.png">
+<meta property="og:image" content="http://yoursite.com/2015/03/23/2015b/Apple%20Pay/ApplePay9.png">
+<meta property="og:image" content="http://yoursite.com/2015/03/23/2015b/Apple%20Pay/ApplePay10.png">
+<meta property="og:image" content="http://yoursite.com/2015/03/23/2015b/Apple%20Pay/ApplePay11.png">
+<meta property="og:updated_time" content="2018-12-01T04:24:41.892Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Apple Pay">
+<meta name="twitter:description" content="1.介绍： Apple Pay并不是独立的第三方支付服务，相比较支付宝和微信支付，他没有自己的账户，也不参与资金的流动， Apple Pay只是将原有的实体银行卡变成手机上“虚拟的银行卡”。Apple Pay依赖iPhone系统底层的整合,在便捷程度上,非第三方支付能比。和第三方的支付对比：一个是系统级的，一个是应用级的。  iOS 8 中第一次被介绍，支持到iOS9以上的系统   2配置证书：">
+<meta name="twitter:image" content="http://yoursite.com/2015/03/23/2015b/Apple%20Pay/ApplePay1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/03/23/2015b/Apple Pay/">
+
+
+
+
+
+  <title>Apple Pay | Maylover的技术博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Maylover的技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/03/23/2015b/Apple Pay/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yu Tao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maylover的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Apple Pay</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-03-23T22:36:00+08:00">
+                2015-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用技术/" itemprop="url" rel="index">
+                    <span itemprop="name">实用技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-介绍："><a href="#1-介绍：" class="headerlink" title="1.介绍："></a>1.介绍：</h3><ul>
+<li><p>Apple Pay并不是独立的第三方支付服务，相比较支付宝和微信支付，他没有自己的账户，也不参与资金的流动， Apple Pay只是将原有的实体银行卡变成手机上“虚拟的银行卡”。Apple Pay依赖iPhone系统底层的整合,在便捷程度上,非第三方支付能比。和第三方的支付对比：一个是系统级的，一个是应用级的。</p>
+</li>
+<li><p>iOS 8 中第一次被介绍，支持到iOS9以上的系统</p>
+</li>
+</ul>
+<h3 id="2配置证书："><a href="#2配置证书：" class="headerlink" title="2配置证书："></a>2配置证书：</h3><ul>
+<li><p>需要有一个具有ApplePay服务的APPid.以及真机测试的证书和描述文件</p>
+</li>
+<li><p>创建或者编辑appID的支持Apple pay</p>
+  <img src="/2015/03/23/2015b/Apple%20Pay/ApplePay1.png">
+  <img src="/2015/03/23/2015b/Apple%20Pay/ApplePay2.png">
+</li>
+</ul>
+<ul>
+<li><p>编辑Merchant ID  </p>
+  <img src="/2015/03/23/2015b/Apple%20Pay/ApplePay3.png">
+  <img src="/2015/03/23/2015b/Apple%20Pay/ApplePay4.png">
+  <img src="/2015/03/23/2015b/Apple%20Pay/ApplePay5.png">
+</li>
+</ul>
+<ul>
+<li><p>从钥匙串中请求证书</p>
+  <img src="/2015/03/23/2015b/Apple%20Pay/ApplePay6.png">
+  <img src="/2015/03/23/2015b/Apple%20Pay/ApplePay7.png">
+  <img src="/2015/03/23/2015b/Apple%20Pay/ApplePay8.png">
+  <img src="/2015/03/23/2015b/Apple%20Pay/ApplePay9.png">
+  <img src="/2015/03/23/2015b/Apple%20Pay/ApplePay10.png">
+</li>
+<li><p>在Xcode 中设置允许Apple pay </p>
+  <img src="/2015/03/23/2015b/Apple%20Pay/ApplePay11.png">
+</li>
+</ul>
+<h3 id="3-在界面中设置pay-button"><a href="#3-在界面中设置pay-button" class="headerlink" title="3. 在界面中设置pay button"></a>3. 在界面中设置pay button</h3><ul>
+<li><code>PKPaymentButton</code> –我们需要添加一个按钮，进行支付代码的实现</li>
+<li>切图可以拉伸，但是不可以变窄！</li>
+<li>这个按钮有三个样式：White; WhiteOutLine; Black</li>
+<li>同样具有三个不同类型：Plain; Buy；SetUp</li>
+</ul>
+<h3 id="4-上代码"><a href="#4-上代码" class="headerlink" title="4.上代码"></a>4.上代码</h3><ul>
+<li><p>创建button </p>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> &lt;PassKit/PassKit.h&gt;</span><br><span class="line"><span class="comment">//    Type : 类型</span></span><br><span class="line"><span class="comment">//    PKPaymentButtonTypePlain</span></span><br><span class="line"><span class="comment">//    PKPaymentButtonTypeBuy</span></span><br><span class="line"><span class="comment">//    PKPaymentButtonTypeSetUp</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">//    style : 样式</span></span><br><span class="line"><span class="comment">//    PKPaymentButtonStyleWhite</span></span><br><span class="line"><span class="comment">//    PKPaymentButtonStyleWhiteOutline</span></span><br><span class="line"><span class="comment">//    PKPaymentButtonStyleBlack</span></span><br><span class="line">    <span class="comment">//以上的样式和类型，大家可以更换下，运行后可以直接查看到效果。在这里就不在解释。</span></span><br><span class="line">    <span class="type">PKPaymentButton</span> * payButton = [<span class="type">PKPaymentButton</span> buttonWithType:<span class="type">PKPaymentButtonTypePlain</span> style:<span class="type">PKPaymentButtonStyleWhiteOutline</span>];</span><br><span class="line">    payButton.center = <span class="keyword">self</span>.view.center;</span><br><span class="line">    [payButton addTarget:<span class="keyword">self</span> action:@selector(payAction:) forControlEvents:<span class="type">UIControlEventTouchUpInside</span>];</span><br><span class="line">    [<span class="keyword">self</span>.view addSubview:payButton];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开始支付 </p>
+</li>
+<li><p>系统提供了API来判断当前设备是否支持Apple Pay支付的功能。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line">    if([PKPaymentAuthorizationViewController canMakePayments])&#123;</span><br><span class="line">        //设备支持支付</span><br><span class="line">        //PKPayment类来创建支付请求</span><br><span class="line">        PKPaymentRequest *request = [[PKPaymentRequest alloc] init];</span><br><span class="line">        //国家 //HK 香港   CN :  中国大陆</span><br><span class="line">        request.countryCode = @&quot;CN&quot;;</span><br><span class="line">        //人民币 // HKD  港币  CNY : 人民币    USD : 美元</span><br><span class="line">        request.currencyCode = @&quot;CNY&quot;;// 其他国家以及币种的缩写自行百度</span><br><span class="line">        ///由商家支持的支付网络 所支持的卡类型</span><br><span class="line">        //此属性限制支付卡，可以支付。</span><br><span class="line">        //        PKPaymentNetworkAmex : 美国运通</span><br><span class="line">        //        PKPaymentNetworkChinaUnionPay : 中国银联</span><br><span class="line">        //        PKPaymentNetworkVisa  : Visa卡</span><br><span class="line">        //        PKPaymentNetworkMasterCard : 万事达信用卡</span><br><span class="line">        //        PKPaymentNetworkDiscover</span><br><span class="line">        //        PKPaymentNetworkInterac</span><br><span class="line">        //        PKPaymentNetworkPrivateLabel</span><br><span class="line">        //        PKEncryptionSchemeECC_V2</span><br><span class="line">        request.supportedNetworks = @[PKPaymentNetworkAmex, PKPaymentNetworkChinaUnionPay, PKPaymentNetworkDiscover, PKPaymentNetworkInterac, PKPaymentNetworkMasterCard, PKPaymentNetworkPrivateLabel, PKPaymentNetworkVisa, PKEncryptionSchemeECC_V2];</span><br><span class="line">        </span><br><span class="line">        //        PKMerchantCapability3DS // 美国的一个卡 必须支持</span><br><span class="line">        //        PKMerchantCapabilityEMV // 欧洲的卡</span><br><span class="line">        //        PKMerchantCapabilityCredit //信用卡</span><br><span class="line">        //        PKMerchantCapabilityDebit //借记卡</span><br><span class="line">        </span><br><span class="line">        //商家的支付处理能力</span><br><span class="line">        //PKMerchantCapabilityEMV : 他的旗下有三大银行 ： 中国银联 Visa卡 万事达信用卡</span><br><span class="line">        //也就是说merchantCapabilities指的支付的银行卡的范围。</span><br><span class="line">        request.merchantCapabilities =   PKMerchantCapabilityDebit | PKMerchantCapabilityCredit | PKMerchantCapabilityEMV;</span><br><span class="line">        </span><br><span class="line">        //merchantIdentifier 要和你在开发者中心生成的id保持一致</span><br><span class="line">        request.merchantIdentifier = @&quot;merchant.com.lanou3g.hanshanhuApplePayTest&quot;;</span><br><span class="line">        </span><br><span class="line">        //需要的配送信息和账单信息</span><br><span class="line">        request.requiredBillingAddressFields = PKAddressFieldAll;</span><br><span class="line">        request.requiredShippingAddressFields = PKAddressFieldAll;</span><br><span class="line">        //运输方式</span><br><span class="line">        NSDecimalNumber * shippingPrice = [NSDecimalNumber decimalNumberWithString:@&quot;11.0&quot;];</span><br><span class="line">        PKShippingMethod *method = [PKShippingMethod summaryItemWithLabel:@&quot;快递公司&quot; amount:shippingPrice];</span><br><span class="line">        method.detail = @&quot;24小时送到！&quot;;</span><br><span class="line">        method.identifier = @&quot;kuaidi&quot;;</span><br><span class="line">        request.shippingMethods = @[method];</span><br><span class="line">        request.shippingType = PKShippingTypeServicePickup;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        // 2.9 存储额外信息</span><br><span class="line">        // 使用applicationData属性来存储一些在你的应用中关于这次支付请求的唯一标识信息，比如一个购物车的标识符。在用户授权支付之后，这个属性的哈希值会出现在这次支付的token中。</span><br><span class="line">        request.applicationData = [@&quot;商品ID:123456&quot; dataUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        //添加物品到支付页</span><br><span class="line">        //创建物品并显示，这个对象描述了一个物品和它的价格，数组最后的对象必须是总价格。</span><br><span class="line">        //使用PKPaymentSummaryItem来创建商品信息</span><br><span class="line">        </span><br><span class="line">        PKPaymentSummaryItem *widget1 = [PKPaymentSummaryItem summaryItemWithLabel:@&quot;商品1&quot; amount:[NSDecimalNumber decimalNumberWithString:@&quot;20.0&quot;]];</span><br><span class="line">        </span><br><span class="line">        PKPaymentSummaryItem *widget2 = [PKPaymentSummaryItem summaryItemWithLabel:@&quot;商品2&quot; amount:[NSDecimalNumber decimalNumberWithString:@&quot;10.0&quot;]];</span><br><span class="line">        </span><br><span class="line">        PKPaymentSummaryItem *total = [PKPaymentSummaryItem summaryItemWithLabel:@&quot;商品3&quot; amount:[NSDecimalNumber decimalNumberWithString:@&quot;25.0&quot;]];</span><br><span class="line">        </span><br><span class="line">        request.paymentSummaryItems = @[widget1, widget2, total];</span><br><span class="line">        //        request.paymentSummaryItems = @[widget1];</span><br><span class="line">        //显示认证视图</span><br><span class="line">        PKPaymentAuthorizationViewController * paymentPane = [[PKPaymentAuthorizationViewController alloc] initWithPaymentRequest:request];</span><br><span class="line">        paymentPane.delegate = self;</span><br><span class="line">        </span><br><span class="line">        [self presentViewController:paymentPane animated:TRUE completion:nil];</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        //设备不支持支付</span><br><span class="line">        NSLog(@&quot;设备不支持支付&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    ```  </span><br><span class="line"></span><br><span class="line">- 支付过程中会进行调用 `PKPaymentAuthorizationViewControllerDelegate`</span><br><span class="line">      </span><br><span class="line">    ``` swift</span><br><span class="line">    //这个代理方法指的是支付过程中会进行调用</span><br><span class="line">    - (void)paymentAuthorizationViewController:(PKPaymentAuthorizationViewController *)controller</span><br><span class="line">                        didAuthorizePayment:(PKPayment *)payment</span><br><span class="line">                                completion:(void (^)(PKPaymentAuthorizationStatus status))completion</span><br><span class="line">    &#123;</span><br><span class="line">        //payment:代表的是一个支付对象， 支付相关的所有信息都在他的身上：1.token.   2.address</span><br><span class="line">            </span><br><span class="line">        //completion : 是一个回调的block  ，block回调的参数，直接影响到界面结果的展示。</span><br><span class="line"></span><br><span class="line">        /*PKPaymentAuthorizationStatus 交易状态</span><br><span class="line">        PKPaymentAuthorizationStatusSuccess, // 成功交易</span><br><span class="line">        PKPaymentAuthorizationStatusFailure // 没有授权交易</span><br><span class="line">        PKPaymentAuthorizationStatusInvalidBillingPostalAddress  // 拒绝账单地址</span><br><span class="line">        PKPaymentAuthorizationStatusInvalidShippingPostalAddress, // 拒绝收货地址</span><br><span class="line">        PKPaymentAuthorizationStatusInvalidShippingContact //提供的信息不够</span><br><span class="line">        PKPaymentAuthorizationStatusPINRequired  // 交易需要指纹输入</span><br><span class="line">        PKPaymentAuthorizationStatusPINIncorrect // 输入不正确,重新输入.</span><br><span class="line">        PKPaymentAuthorizationStatusPINLockout// 输入次数超出</span><br><span class="line">        */</span><br><span class="line">        PKPaymentToken * token = payment.token;</span><br><span class="line">        NSLog(@&quot;获取token---%@&quot;, token);</span><br><span class="line">        //获取订单地址</span><br><span class="line">        NSString * address = payment.billingContact.postalAddress.city;</span><br><span class="line">        NSLog(@&quot;获取到地址： %@&quot;, address);</span><br><span class="line">        NSLog(@&quot;验证通过后, 需要开发者继续完成交易&quot;);</span><br><span class="line">        // 在这个位置， 我们开发人员需要把token值和商品的其他信息如：地址 id  这些 ， 上传到自己公司的服务器。然后公司的服务器和银行的商家接口进行接口的调用，并将接口调用返回的支付结果信息返回到这里。</span><br><span class="line">        //根据不同的支付结果状态，让block调用不同的交易状态；</span><br><span class="line">        //比如说：服务器调用支付结果是成功的， 就让        completion(PKPaymentAuthorizationStatusSuccess);          如果失败 调用        completion(PKPaymentAuthorizationStatusFailure);</span><br><span class="line">        //如：</span><br><span class="line">        BOOL isSuccess = YES;</span><br><span class="line">        if (isSuccess) &#123;</span><br><span class="line">            completion(PKPaymentAuthorizationStatusSuccess);</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            completion(PKPaymentAuthorizationStatusFailure);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>授权成功之后或者取消授权之后会调用这个代理方法</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)paymentAuthorizationViewControllerDidFinish:(PKPaymentAuthorizationViewController *)controller &#123;</span><br><span class="line">NSLog(@&quot;取消或者交易完成&quot;);</span><br><span class="line">[self dismissViewControllerAnimated:YES completion:nil];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/实用/" rel="tag"># 实用</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/23/2015b/viewController的生命周期/" rel="next" title="viewController的生命周期">
+                <i class="fa fa-chevron-left"></i> viewController的生命周期
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/21/2015b/面试题1/" rel="prev" title="面试题《一》">
+                面试题《一》 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yu Tao</p>
+              <p class="site-description motion-element" itemprop="description">测试测试description</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-介绍："><span class="nav-number">1.</span> <span class="nav-text">1.介绍：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2配置证书："><span class="nav-number">2.</span> <span class="nav-text">2配置证书：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-在界面中设置pay-button"><span class="nav-number">3.</span> <span class="nav-text">3. 在界面中设置pay button</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-上代码"><span class="nav-number">4.</span> <span class="nav-text">4.上代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu Tao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

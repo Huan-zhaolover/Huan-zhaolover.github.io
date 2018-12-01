@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="实用,UI,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="其实原理也是很简单，启动页还是运用Launch Images Source的内容，然后在做一个视图在最上层，视图的背景用启动项的那张图，让人误以为还在启动中，启动页加载完成后，就显示这层视图，在2秒后再把这层视图删除，产生一个过度的假启动页效果；而我们自定义的动作就可以在这层视图上进行；下面将通过Coding.net的APP讲解这个功能  一：创建一个视图EaseStartView EaseSt">
+<meta name="keywords" content="实用,UI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS关于启动页自定义特殊处理 启动广告">
+<meta property="og:url" content="http://yoursite.com/2016/06/17/2016b/iOS关于启动页自定义特殊处理 启动广告/index.html">
+<meta property="og:site_name" content="Maylover的技术博客">
+<meta property="og:description" content="其实原理也是很简单，启动页还是运用Launch Images Source的内容，然后在做一个视图在最上层，视图的背景用启动项的那张图，让人误以为还在启动中，启动页加载完成后，就显示这层视图，在2秒后再把这层视图删除，产生一个过度的假启动页效果；而我们自定义的动作就可以在这层视图上进行；下面将通过Coding.net的APP讲解这个功能  一：创建一个视图EaseStartView EaseSt">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-01T04:18:55.557Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS关于启动页自定义特殊处理 启动广告">
+<meta name="twitter:description" content="其实原理也是很简单，启动页还是运用Launch Images Source的内容，然后在做一个视图在最上层，视图的背景用启动项的那张图，让人误以为还在启动中，启动页加载完成后，就显示这层视图，在2秒后再把这层视图删除，产生一个过度的假启动页效果；而我们自定义的动作就可以在这层视图上进行；下面将通过Coding.net的APP讲解这个功能  一：创建一个视图EaseStartView EaseSt">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/06/17/2016b/iOS关于启动页自定义特殊处理 启动广告/">
+
+
+
+
+
+  <title>iOS关于启动页自定义特殊处理 启动广告 | Maylover的技术博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Maylover的技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/17/2016b/iOS关于启动页自定义特殊处理 启动广告/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yu Tao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maylover的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS关于启动页自定义特殊处理 启动广告</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-17T22:36:00+08:00">
+                2016-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用技术/" itemprop="url" rel="index">
+                    <span itemprop="name">实用技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>其实原理也是很简单，启动页还是运用Launch Images Source的内容，然后在做一个视图在最上层，视图的背景用启动项的那张图，让人误以为还在启动中，启动页加载完成后，就显示这层视图，在2秒后再把这层视图删除，产生一个过度的假启动页效果；而我们自定义的动作就可以在这层视图上进行；下面将通过Coding.net的APP讲解这个功能</p>
+</blockquote>
+<h4 id="一：创建一个视图EaseStartView"><a href="#一：创建一个视图EaseStartView" class="headerlink" title="一：创建一个视图EaseStartView"></a>一：创建一个视图EaseStartView</h4><ul>
+<li><p>EaseStartView.h文件内容：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;UIKit/UIKit.h&gt;</span><br><span class="line">@interface EaseStartView : UIView</span><br><span class="line">+ (instancetype)startView;</span><br><span class="line">- (void)startAnimationWithCompletionBlock:(void(^)(EaseStartView *easeStartView))completionHandler;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>EaseStartView.m文件内容：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;EaseStartView.h&quot;</span><br><span class="line">#import &lt;NYXImagesKit/NYXImagesKit.h&gt;</span><br><span class="line">#import &quot;StartImagesManager.h&quot;</span><br><span class="line">@interface EaseStartView ()</span><br><span class="line">@property (strong, nonatomic) UIImageView *bgImageView, *logoIconView;</span><br><span class="line">@property (strong, nonatomic) UILabel *descriptionStrLabel;</span><br><span class="line">@end</span><br><span class="line">@implementation EaseStartView</span><br><span class="line">+ (instancetype)startView&#123;</span><br><span class="line">    UIImage *logoIcon = [UIImage imageNamed:@&quot;logo_coding_top&quot;];</span><br><span class="line">    StartImage *st = [[StartImagesManager shareManager] randomImage];</span><br><span class="line">    return [[self alloc] initWithBgImage:st.image logoIcon:logoIcon descriptionStr:st.descriptionStr];</span><br><span class="line">&#125;</span><br><span class="line">- (instancetype)initWithBgImage:(UIImage *)bgImage logoIcon:(UIImage *)logoIcon descriptionStr:(NSString *)descriptionStr&#123;</span><br><span class="line">    self = [super initWithFrame:kScreen_Bounds];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">        //add custom code</span><br><span class="line">        UIColor *blackColor = [UIColor blackColor];</span><br><span class="line">        self.backgroundColor = blackColor;</span><br><span class="line">        </span><br><span class="line">        _bgImageView = [[UIImageView alloc] initWithFrame:kScreen_Bounds];</span><br><span class="line">        _bgImageView.contentMode = UIViewContentModeScaleAspectFill;</span><br><span class="line">        _bgImageView.alpha = 0.0;</span><br><span class="line">        [self addSubview:_bgImageView];</span><br><span class="line">        [self addGradientLayerWithColors:@[(id)[blackColor colorWithAlphaComponent:0.4].CGColor, (id)[blackColor colorWithAlphaComponent:0.0].CGColor] locations:nil startPoint:CGPointMake(0.5, 0.0) endPoint:CGPointMake(0.5, 0.4)];</span><br><span class="line">        _logoIconView = [[UIImageView alloc] init];</span><br><span class="line">        _logoIconView.contentMode = UIViewContentModeScaleAspectFit;</span><br><span class="line">        [self addSubview:_logoIconView];</span><br><span class="line">        _descriptionStrLabel = [[UILabel alloc] init];</span><br><span class="line">        _descriptionStrLabel.font = [UIFont systemFontOfSize:10];</span><br><span class="line">        _descriptionStrLabel.textColor = [UIColor colorWithWhite:1.0 alpha:0.5];</span><br><span class="line">        _descriptionStrLabel.textAlignment = NSTextAlignmentCenter;</span><br><span class="line">        _descriptionStrLabel.alpha = 0.0;</span><br><span class="line">        [self addSubview:_descriptionStrLabel];</span><br><span class="line">        </span><br><span class="line">        [_descriptionStrLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make.centerX.equalTo(@[self, _logoIconView]);</span><br><span class="line">            make.height.mas_equalTo(10);</span><br><span class="line">            make.bottom.equalTo(self.mas_bottom).offset(-15);</span><br><span class="line">            make.left.equalTo(self.mas_left).offset(20);</span><br><span class="line">            make.right.equalTo(self.mas_right).offset(-20);</span><br><span class="line">        &#125;];</span><br><span class="line">        [_logoIconView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make.centerX.equalTo(self);</span><br><span class="line">            make.top.mas_equalTo(kScreen_Height/7);</span><br><span class="line">            make.width.mas_equalTo(kScreen_Width *2/3);</span><br><span class="line">            make.height.mas_equalTo(kScreen_Width/4 *2/3);</span><br><span class="line">        &#125;];</span><br><span class="line">        </span><br><span class="line">        [self configWithBgImage:bgImage logoIcon:logoIcon descriptionStr:descriptionStr];</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)configWithBgImage:(UIImage *)bgImage logoIcon:(UIImage *)logoIcon descriptionStr:(NSString *)descriptionStr&#123;</span><br><span class="line">bgImage = [bgImage scaleToSize:[_bgImageView doubleSizeOfFrame] usingMode:NYXResizeModeAspectFill];</span><br><span class="line">self.bgImageView.image = bgImage;</span><br><span class="line">self.logoIconView.image = logoIcon;</span><br><span class="line">self.descriptionStrLabel.text = descriptionStr;</span><br><span class="line">[self updateConstraintsIfNeeded];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">- (void)startAnimationWithCompletionBlock:(void(^)(EaseStartView *easeStartView))completionHandler&#123;</span><br><span class="line">    [[UIApplication sharedApplication].keyWindow</span><br><span class="line">addSubview:self];</span><br><span class="line">    [[UIApplication sharedApplication].keyWindow</span><br><span class="line">bringSubviewToFront:self];</span><br><span class="line">    _bgImageView.alpha = 0.0;</span><br><span class="line">    _descriptionStrLabel.alpha = 0.0;</span><br><span class="line">    @weakify(self);</span><br><span class="line">    [UIView animateWithDuration:2.0 animations:^&#123;</span><br><span class="line">        @strongify(self);</span><br><span class="line">        self.bgImageView.alpha = 1.0;</span><br><span class="line">        self.descriptionStrLabel.alpha = 1.0;</span><br><span class="line">    &#125; completion:^(BOOL finished) &#123;</span><br><span class="line">        [UIView animateWithDuration:0.6 delay:0.3 options:UIViewAnimationOptionCurveEaseIn animations:^&#123;</span><br><span class="line">            @strongify(self);</span><br><span class="line">            [self setX:-kScreen_Width];</span><br><span class="line">        &#125; completion:^(BOOL finished) &#123;</span><br><span class="line">            @strongify(self);</span><br><span class="line">            [self removeFromSuperview];</span><br><span class="line">            if (completionHandler) &#123;</span><br><span class="line">                completionHandler(self);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其实本实例中最为关键的内容在方法startAnimationWithCompletionBlock里</p>
+</blockquote>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[UIApplication sharedApplication].keyWindow addSubview:self];</span><br><span class="line">[[UIApplication sharedApplication].keyWindow bringSubviewToFront:self];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>代码就是把这个视图设置成在最前的最上层，这样就可以盖住程序中的页面；</p>
+</blockquote>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">_bgImageView.alpha = 0.0;</span><br><span class="line">_descriptionStrLabel.alpha = 0.0;</span><br><span class="line">这个是为了下面的动画做准备，若是直接用背景图可以把这两个都设置成0.99这样就不会有一闪的错觉；</span><br><span class="line"></span><br><span class="line">@weakify(self);</span><br><span class="line">[UIView animateWithDuration:2.0 animations:^&#123;</span><br><span class="line">    @strongify(self);</span><br><span class="line">    self.bgImageView.alpha = 1.0;</span><br><span class="line">    self.descriptionStrLabel.alpha = 1.0;</span><br><span class="line">&#125; completion:^(BOOL finished) &#123;</span><br><span class="line">    [UIView animateWithDuration:0.6 delay:0.3 options:UIViewAnimationOptionCurveEaseIn animations:^&#123;</span><br><span class="line">        @strongify(self);</span><br><span class="line">        [self setX:-kScreen_Width];</span><br><span class="line">    &#125; completion:^(BOOL finished) &#123;</span><br><span class="line">        @strongify(self);</span><br><span class="line">        [self removeFromSuperview];</span><br><span class="line">        if (completionHandler) &#123;</span><br><span class="line">            completionHandler(self);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+</code></pre><blockquote>
+<p>这边是动画效果，时间设置为2秒，因为这边第一个动画完还有一个缩放的效果；当动画结束后就可以  [self removeFromSuperview];</p>
+</blockquote>
+<h4 id="二：调用启动页视图"><a href="#二：调用启动页视图" class="headerlink" title="二：调用启动页视图"></a>二：调用启动页视图</h4><blockquote>
+<p>在AppDelegate中的didFinishLaunchingWithOptions进行调用；</p>
+</blockquote>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions &#123;</span><br><span class="line">self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];</span><br><span class="line">// Override point for customization after application launch.</span><br><span class="line">self.window.backgroundColor = [UIColor whiteColor];</span><br><span class="line"></span><br><span class="line">//网络</span><br><span class="line">[[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];</span><br><span class="line">[[AFNetworkReachabilityManager sharedManager] startMonitoring];</span><br><span class="line"></span><br><span class="line">//设置导航条样式</span><br><span class="line">[self customizeInterface];</span><br><span class="line">[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if ([Login isLogin]) &#123;</span><br><span class="line">    [self setupTabViewController];</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;</span><br><span class="line">    [self setupIntroductionViewController];</span><br><span class="line">&#125;</span><br><span class="line">[self.window makeKeyAndVisible];</span><br><span class="line">[FunctionIntroManager showIntroPage];</span><br><span class="line"></span><br><span class="line">EaseStartView *startView = [EaseStartView startView];</span><br><span class="line">@weakify(self);</span><br><span class="line">[startView startAnimationWithCompletionBlock:^(EaseStartView *easeStartView) &#123;</span><br><span class="line">    @strongify(self);</span><br><span class="line">    //可以做其它事情</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line">return YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><blockquote>
+<p>注意，EaseStartView代码的位置是要放在最后面，因为要让它盖在最上层，就要后面加载，这样就可以盖在登录页面上面或者主页上；到这就已经可以成功启动页的效果；</p>
+</blockquote>
+<h4 id="三：下面实例为项目中用到的动态加载版本号到启动页上"><a href="#三：下面实例为项目中用到的动态加载版本号到启动页上" class="headerlink" title="三：下面实例为项目中用到的动态加载版本号到启动页上"></a>三：下面实例为项目中用到的动态加载版本号到启动页上</h4><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;StartUpView.h&quot;</span><br><span class="line"></span><br><span class="line">@interface StartUpView()</span><br><span class="line">@property (strong, nonatomic) UIImageView *bgImageView;</span><br><span class="line">@property (strong, nonatomic) UILabel *descriptionStrLabel;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation StartUpView</span><br><span class="line"></span><br><span class="line">+ (instancetype)startView &#123;</span><br><span class="line">    UIImage *bgImage=kshamLaunchImage;</span><br><span class="line">    return [[self alloc] initWithBgImage:bgImage];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (instancetype)initWithBgImage:(UIImage *)bgImage</span><br><span class="line">&#123;</span><br><span class="line">    self = [super initWithFrame:Main_Screen_Bounds];</span><br><span class="line">    if (self) &#123;</span><br><span class="line">        </span><br><span class="line">        _bgImageView = [[UIImageView alloc] initWithFrame:Main_Screen_Bounds];</span><br><span class="line">        _bgImageView.contentMode = UIViewContentModeScaleAspectFill;</span><br><span class="line">        _bgImageView.alpha = 0;</span><br><span class="line">        _bgImageView.image=bgImage;</span><br><span class="line">        [self addSubview:_bgImageView];</span><br><span class="line">        </span><br><span class="line">        _descriptionStrLabel = [[UILabel alloc] init];</span><br><span class="line">        _descriptionStrLabel.font = [UIFont systemFontOfSize:15];</span><br><span class="line">        _descriptionStrLabel.textColor = [UIColor blackColor];</span><br><span class="line">        _descriptionStrLabel.textAlignment = NSTextAlignmentCenter;</span><br><span class="line">        _descriptionStrLabel.alpha = 0;</span><br><span class="line">        _descriptionStrLabel.text=[NSString stringWithFormat:@&quot;版本号为:%@&quot;,appVersion];</span><br><span class="line">        [self addSubview:_descriptionStrLabel];</span><br><span class="line">        </span><br><span class="line">        [_descriptionStrLabel mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">            make.height.mas_equalTo(50);</span><br><span class="line">            make.bottom.equalTo(self.mas_bottom).offset(-15);</span><br><span class="line">            make.left.equalTo(self.mas_left).offset(20);</span><br><span class="line">            make.right.equalTo(self.mas_right).offset(-20);</span><br><span class="line">        &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)startAnimationWithCompletionBlock:(void(^)(StartUpView *easeStartView))completionHandler&#123;</span><br><span class="line">    [[UIApplication sharedApplication].keyWindow addSubview:self];</span><br><span class="line">    [[UIApplication sharedApplication].keyWindow bringSubviewToFront:self];</span><br><span class="line">    _bgImageView.alpha = 0.99;</span><br><span class="line">    _descriptionStrLabel.alpha = 0.99;</span><br><span class="line">    </span><br><span class="line">    @weakify(self);</span><br><span class="line">    [UIView animateWithDuration:2.0 animations:^&#123;</span><br><span class="line">        @strongify(self);</span><br><span class="line">        self.bgImageView.alpha = 1.0;</span><br><span class="line">        self.descriptionStrLabel.alpha = 1.0;</span><br><span class="line">    &#125; completion:^(BOOL finished) &#123;</span><br><span class="line">        [self removeFromSuperview];</span><br><span class="line">        if (completionHandler) &#123;</span><br><span class="line">            completionHandler(self);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/实用/" rel="tag"># 实用</a>
+          
+            <a href="/tags/UI/" rel="tag"># UI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/16/2016b/新特性界面/" rel="next" title="新特性界面">
+                <i class="fa fa-chevron-left"></i> 新特性界面
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/18/2016b/新浪微博分享不跳转/" rel="prev" title="新浪微博分享不跳转">
+                新浪微博分享不跳转 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yu Tao</p>
+              <p class="site-description motion-element" itemprop="description">测试测试description</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一：创建一个视图EaseStartView"><span class="nav-number">1.</span> <span class="nav-text">一：创建一个视图EaseStartView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二：调用启动页视图"><span class="nav-number">2.</span> <span class="nav-text">二：调用启动页视图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三：下面实例为项目中用到的动态加载版本号到启动页上"><span class="nav-number">3.</span> <span class="nav-text">三：下面实例为项目中用到的动态加载版本号到启动页上</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu Tao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

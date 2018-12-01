@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="实用,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="技术路线： Java学习路线图  人工智能+Python学习路线图 前端与移动开发学习路线图 H5+全栈工程师学习路线图 产品经理学习路线图 云计算大数据学习路线图1.IT社区:   推荐 http://www.cnblogs.com/  http://www.csdn.net/  http://www.51cto.com/  http://www.cocoachina.com/    http:">
+<meta name="keywords" content="实用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记网站">
+<meta property="og:url" content="http://yoursite.com/2016/09/06/2016b/笔记网站/index.html">
+<meta property="og:site_name" content="Maylover的技术博客">
+<meta property="og:description" content="技术路线： Java学习路线图  人工智能+Python学习路线图 前端与移动开发学习路线图 H5+全栈工程师学习路线图 产品经理学习路线图 云计算大数据学习路线图1.IT社区:   推荐 http://www.cnblogs.com/  http://www.csdn.net/  http://www.51cto.com/  http://www.cocoachina.com/    http:">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-01T04:18:55.428Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔记网站">
+<meta name="twitter:description" content="技术路线： Java学习路线图  人工智能+Python学习路线图 前端与移动开发学习路线图 H5+全栈工程师学习路线图 产品经理学习路线图 云计算大数据学习路线图1.IT社区:   推荐 http://www.cnblogs.com/  http://www.csdn.net/  http://www.51cto.com/  http://www.cocoachina.com/    http:">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/06/2016b/笔记网站/">
+
+
+
+
+
+  <title>笔记网站 | Maylover的技术博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Maylover的技术博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/06/2016b/笔记网站/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yu Tao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maylover的技术博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">笔记网站</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-06T22:36:00+08:00">
+                2016-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用技术/" itemprop="url" rel="index">
+                    <span itemprop="name">实用技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用技术/个人博客/" itemprop="url" rel="index">
+                    <span itemprop="name">个人博客</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="技术路线："><a href="#技术路线：" class="headerlink" title="技术路线："></a>技术路线：</h3><ul>
+<li><a href="http://bbs.itheima.com/forum-589-1.html" target="_blank" rel="noopener">Java学习路线图 </a></li>
+<li><a href="http://bbs.itheima.com/forum-581-1.html" target="_blank" rel="noopener">人工智能+Python学习路线图</a></li>
+<li><a href="http://bbs.itheima.com/forum-586-1.html" target="_blank" rel="noopener">前端与移动开发学习路线图</a></li>
+<li><a href="http://bbs.itheima.com/forum-585-1.html" target="_blank" rel="noopener">H5+全栈工程师学习路线图</a></li>
+<li><a href="http://bbs.itheima.com/forum-601-1.html" target="_blank" rel="noopener">产品经理学习路线图</a></li>
+<li><a href="http://bbs.itheima.com/forum-603-1.html" target="_blank" rel="noopener">云计算大数据学习路线图</a><h3 id="1-IT社区"><a href="#1-IT社区" class="headerlink" title="1.IT社区:"></a>1.IT社区:</h3></li>
+</ul>
+<ul>
+<li>推荐<ul>
+<li><a href="http://www.cnblogs.com/" target="_blank" rel="noopener">http://www.cnblogs.com/</a> </li>
+<li><a href="http://www.csdn.net/" target="_blank" rel="noopener">http://www.csdn.net/</a> </li>
+<li><a href="http://www.51cto.com/" target="_blank" rel="noopener">http://www.51cto.com/</a> </li>
+<li><a href="http://www.cocoachina.com/" target="_blank" rel="noopener">http://www.cocoachina.com/</a>   </li>
+<li><a href="http://www.techcn.com.cn/" target="_blank" rel="noopener">http://www.techcn.com.cn/</a> </li>
+<li><a href="http://mobilehub.io/" target="_blank" rel="noopener">http://mobilehub.io/</a>  </li>
+</ul>
+</li>
+</ul>
+<h3 id="2-iOS-学习网站"><a href="#2-iOS-学习网站" class="headerlink" title="2.iOS 学习网站:"></a>2.iOS 学习网站:</h3><ul>
+<li><p>iOS 学习网站</p>
+<ul>
+<li><a href="http://www.w3school.com.cn/" target="_blank" rel="noopener">http://www.w3school.com.cn/</a>  </li>
+<li><a href="http://objccn.io/" target="_blank" rel="noopener">http://objccn.io/</a>     </li>
+<li><a href="http://github.ibireme.com/github/list/ios/" target="_blank" rel="noopener">http://github.ibireme.com/github/list/ios/</a>   github上ios第三方库集合 可以多看看</li>
+<li><a href="https://github.com/chasseurmic/TWRProgressView" target="_blank" rel="noopener">https://github.com/chasseurmic/TWRProgressView</a></li>
+</ul>
+</li>
+<li><p>Swift学习</p>
+<ul>
+<li><a href="https://github.com/CocoaChina-editors/Welcome-to-Swift" target="_blank" rel="noopener">https://github.com/CocoaChina-editors/Welcome-to-Swift</a>  </li>
+<li><a href="https://github.com/numbbbbb/the-swift-programming-language-in-chinese" target="_blank" rel="noopener">https://github.com/numbbbbb/the-swift-programming-language-in-chinese</a>  </li>
+<li><a href="http://www.infoq.com/cn" target="_blank" rel="noopener">http://www.infoq.com/cn</a>    软件开发领域:此网站里面有很多文章都是翻译国外的    里面有一些架构设计的文章很不错</li>
+<li><a href="http://www.cnblogs.com/wendingding/" target="_blank" rel="noopener">http://www.cnblogs.com/wendingding/</a>  传智学员记录了学习ios</li>
+</ul>
+</li>
+<li><p>安全:</p>
+<ul>
+<li><a href="http://blog.csdn.net/yiyaaixuexi" target="_blank" rel="noopener">http://blog.csdn.net/yiyaaixuexi</a>   好像是一位妹子好牛逼 </li>
+<li><a href="http://nianxi.net/" target="_blank" rel="noopener">http://nianxi.net/</a>    她的新博客不过现在内容比较少</li>
+<li><a href="http://bbs.pediy.com/" target="_blank" rel="noopener">http://bbs.pediy.com/</a>  开雪学院 国内重量级</li>
+</ul>
+</li>
+<li><p>数据结构与算法</p>
+<ul>
+<li><a href="http://blog.csdn.net/v_july_v" target="_blank" rel="noopener">http://blog.csdn.net/v_july_v</a>  </li>
+<li><a href="http://blog.csdn.net/itcastcpp?viewmode=contents" target="_blank" rel="noopener">http://blog.csdn.net/itcastcpp?viewmode=contents</a>     C++学院院长 尹成 </li>
+</ul>
+</li>
+<li><p>blog:</p>
+<ul>
+<li><a href="http://blog.devtang.com/" target="_blank" rel="noopener">http://blog.devtang.com/</a>   唐巧  曾开发网易微博后台\ iOS:曾开发过 有道云笔记\粉笔网\猿题库</li>
+<li><a href="http://onevcat.com/" target="_blank" rel="noopener">http://onevcat.com/</a>     王巍    就职Line  技术领域: ios+Unity3d</li>
+<li><a href="http://beyondvincent.com/blog/archives/" target="_blank" rel="noopener">http://beyondvincent.com/blog/archives/</a>   </li>
+<li><a href="http://esoftmobile.com/" target="_blank" rel="noopener">http://esoftmobile.com/</a>   </li>
+<li><a href="http://blog.csdn.net/tonny_guan?viewmode=contents" target="_blank" rel="noopener">http://blog.csdn.net/tonny_guan?viewmode=contents</a> </li>
+<li><a href="http://blog.csdn.net/opengl_es" target="_blank" rel="noopener">http://blog.csdn.net/opengl_es</a> </li>
+</ul>
+</li>
+<li><p>游戏开发:</p>
+<ul>
+<li><a href="http://blog.codingnow.com/" target="_blank" rel="noopener">http://blog.codingnow.com/</a>   吴云洋( 云风)  很牛逼  网易研究中心总监  </li>
+<li><a href="http://www.gameres.com/" target="_blank" rel="noopener">http://www.gameres.com/</a>   非常不错的一个 游戏资讯门户  </li>
+<li><a href="http://game.ceeger.com/forum/" target="_blank" rel="noopener">http://game.ceeger.com/forum/</a>   Unity3D 学习论坛</li>
+</ul>
+</li>
+<li><p>开源网站:</p>
+<ul>
+<li><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a>  </li>
+<li><a href="http://code4app.com/" target="_blank" rel="noopener">http://code4app.com/</a>  </li>
+<li><a href="http://code.cocoachina.com/" target="_blank" rel="noopener">http://code.cocoachina.com/</a> </li>
+</ul>
+</li>
+<li><p>推荐书籍:</p>
+<ul>
+<li>现代操作系统</li>
+<li>iOS与OS X多线程和内存管理 </li>
+<li>Effective Objective-C 2.0：编写高质量iOS与OS X代码的52个有效方法 </li>
+<li>Objective-C编程之道：iOS设计模式解析</li>
+<li>iOS应用逆向工程：分析与实战 </li>
+<li>重构：改善既有代码的设计</li>
+<li>鸟哥的Linux私房菜</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-学习资源"><a href="#3-学习资源" class="headerlink" title="3.学习资源"></a>3.学习资源</h4><ul>
+<li>一个非常强大的mac retina高清壁纸网站  <a href="http://wallpaperswide.com" target="_blank" rel="noopener">http://wallpaperswide.com</a> </li>
+<li><p>Quartz2D使用     <a href="http://www.cnblogs.com/wendingding/p/3778940.html" target="_blank" rel="noopener">http://www.cnblogs.com/wendingding/p/3778940.html</a></p>
+<ul>
+<li>Quartz2D简单介绍 </li>
+<li>Quartz2D简单使用（一）</li>
+<li>Quartz2D简单使用(二)</li>
+<li>Quartz2D简单使用（三）</li>
+<li>iOS开发UI篇—Quartz2D使用（绘制基本图形）</li>
+<li>Quartz2D(自定义UIImageView控件)</li>
+<li>Quartz2D使用（截屏）</li>
+<li>Quartz2D使用(信纸条纹)</li>
+<li>Quartz2D使用（绘图路径）</li>
+<li>Quartz2D使用（图片剪切）</li>
+<li>Quartz2D使用（矩阵操作）</li>
+<li>Quartz2D使用（图形上下文栈）</li>
+</ul>
+</li>
+<li><p>李明杰浅谈逆向  <a href="https://pan.baidu.com/s/1kVn1Nc7#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1kVn1Nc7#list/path=%2F</a> 密码: hq19 </p>
+</li>
+<li>自动化测试视频讲解  <a href="https://pan.baidu.com/s/1boQb6cZ#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1boQb6cZ#list/path=%2F</a></li>
+<li>揭秘微博、微信刷fen平台内幕与实战吸粉 <a href="https://pan.baidu.com/s/1i5PzDpb#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1i5PzDpb#list/path=%2F</a>  密码: cgj6 </li>
+<li>求职心态篇  <a href="https://pan.baidu.com/s/1nvC02ZB#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1nvC02ZB#list/path=%2F</a> 密码: wz8a </li>
+<li>vue.js腾讯课堂百度云链接： <a href="https://pan.baidu.com/s/1nvPXGpj#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1nvPXGpj#list/path=%2F</a>   密码: v2vw</li>
+<li>带你玩转github <a href="https://pan.baidu.com/s/1mi4uMhU#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1mi4uMhU#list/path=%2F</a>  密码: yg1t </li>
+<li>微信朋友圈开发视频：（转给你需要的朋友） <a href="https://pan.baidu.com/s/1cKUb9c#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1cKUb9c#list/path=%2F</a></li>
+<li>即时通常融云讲解视频： <a href="https://pan.baidu.com/s/1eRDehUi#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1eRDehUi#list/path=%2F</a></li>
+<li>swiift项目实战视频： <a href="https://pan.baidu.com/s/1c1YgVoG#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1c1YgVoG#list/path=%2F</a></li>
+<li>iOS面试官面试上百个iOS感受以及面试技巧 <a href="https://pan.baidu.com/s/1eSqtFlo#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1eSqtFlo#list/path=%2F</a><br>-1000套求职简历模板： <a href="https://pan.baidu.com/s/1jIHVLK6#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1jIHVLK6#list/path=%2F</a></li>
+<li>lldb调试bug高级用法  <a href="https://pan.baidu.com/s/1o89Gb82#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1o89Gb82#list/path=%2F</a></li>
+<li>支付宝生活圈开发视频：（仅限学习使用） <a href="https://pan.baidu.com/s/1nuZPSiH#list/path=%2F" target="_blank" rel="noopener">https://pan.baidu.com/s/1nuZPSiH#list/path=%2F</a></li>
+</ul>
+<h4 id="4-GitHub网址"><a href="#4-GitHub网址" class="headerlink" title="4.GitHub网址"></a>4.GitHub网址</h4><ul>
+<li><a href="https://github.com/lihongli528628/HLBookReader" target="_blank" rel="noopener">https://github.com/lihongli528628/HLBookReader</a>   电子书+语音阅读</li>
+<li><a href="https://github.com/GGGHub/Reader" target="_blank" rel="noopener">https://github.com/GGGHub/Reader</a> 电子书源码</li>
+<li><a href="https://github.com/Aufree/trip-to-iOS" target="_blank" rel="noopener">https://github.com/Aufree/trip-to-iOS</a>   iOS学习资料列表，开源框架前100，</li>
+<li><a href="https://github.com/nicklockwood/iCarousel" target="_blank" rel="noopener">https://github.com/nicklockwood/iCarousel</a>   动画 轮播动画，反转的类似</li>
+<li><a href="https://github.com/zwaldowski/BlocksKit" target="_blank" rel="noopener">https://github.com/zwaldowski/BlocksKit</a>     改变系统的target+selector模式为 block模式。 带来紧凑的代码风格，高效率的回调执行  </li>
+<li>objc.io</li>
+<li>Swift Apprentice</li>
+<li>objectManager</li>
+</ul>
+<h4 id="5-博客"><a href="#5-博客" class="headerlink" title="5.博客"></a>5.博客</h4><ul>
+<li>iOS Provisioning Profile(Certificate)与Code Signing详解</li>
+<li>基于 CoreText 的排版引擎：基础</li>
+<li>iOS开发之网络编程篇六：AFNetworking3.0使用简介</li>
+<li>RTImageAssets：自动生成全尺寸icon以及2x/3x图片</li>
+<li>网易滚动导航栏——（第三方框架实现） HACursor</li>
+<li>AMScrollingNavbar框架(自动隐藏导航栏)使用简介</li>
+<li>3D Touch 使用：Quick Action（Short Cut）</li>
+<li>3D Touch 使用：Peek 和 Pop</li>
+<li>系统自带的iOS扫描二维码 AVMetadataObjec</li>
+<li>友盟消息推送SDK集成</li>
+<li>NSScanner类的基本用法</li>
+</ul>
+<h4 id="6-技巧网址"><a href="#6-技巧网址" class="headerlink" title="6.技巧网址"></a>6.技巧网址</h4><ul>
+<li>iOS/mac开发的一些知名个人博客  <a href="http://www.cocoachina.com/bbs/read.php?tid=299721" target="_blank" rel="noopener">http://www.cocoachina.com/bbs/read.php?tid=299721</a></li>
+<li>Windows 8.1正式版官方专业版原版iso镜像系统下载  <a href="http://www.wingod8.com/a/yuanbanxitong/win8/466.html" target="_blank" rel="noopener">http://www.wingod8.com/a/yuanbanxitong/win8/466.html</a></li>
+<li>程序员如何优雅地使用 Mac？ <a href="http://www.zhihu.com/question/20873070" target="_blank" rel="noopener">http://www.zhihu.com/question/20873070</a></li>
+<li>ios开发学习笔记 <a href="http://blog.csdn.net/mad1989/article/details/7972612" target="_blank" rel="noopener">http://blog.csdn.net/mad1989/article/details/7972612</a></li>
+<li>苹果6Mac软件下载网址   <a href="http://www.pc6.com/mac/" target="_blank" rel="noopener">http://www.pc6.com/mac/</a></li>
+<li>少数派 <a href="https://sspai.com/post/33493" target="_blank" rel="noopener">https://sspai.com/post/33493</a></li>
+<li>Xcode插件优缺点对比（推荐20款插件） <a href="http://www.cnblogs.com/dsxniubility/p/5099191.html" target="_blank" rel="noopener">http://www.cnblogs.com/dsxniubility/p/5099191.html</a></li>
+<li>CocoaChina 代码分类  ://code.cocoachina.com/</li>
+<li>code4App</li>
+</ul>
+<h4 id="7-分享网址"><a href="#7-分享网址" class="headerlink" title="7.分享网址"></a>7.分享网址</h4><ul>
+<li>仿新浪微博表情键盘  HMEmoticon <a href="https://github.com/itheima-developer/HMEmoticon" target="_blank" rel="noopener">https://github.com/itheima-developer/HMEmoticon</a></li>
+<li>轻量级的上拉／下拉刷新控件 <a href="https://github.com/itheima-developer/HMRefresh" target="_blank" rel="noopener">https://github.com/itheima-developer/HMRefresh</a></li>
+<li>轻量级图像选择框架 <a href="https://github.com/itheima-developer/HMImagePicker" target="_blank" rel="noopener">https://github.com/itheima-developer/HMImagePicker</a></li>
+<li>Objective-C 语法糖 <a href="https://github.com/itheima-developer/HMObjcSugar" target="_blank" rel="noopener">https://github.com/itheima-developer/HMObjcSugar</a></li>
+<li>轻量级图片浏览器  <a href="https://github.com/itheima-developer/HMPhotoBrowser" target="_blank" rel="noopener">https://github.com/itheima-developer/HMPhotoBrowser</a></li>
+<li>swift二维码 <a href="https://github.com/liufan321/SwiftQRCode" target="_blank" rel="noopener">https://github.com/liufan321/SwiftQRCode</a></li>
+<li>FFlable <a href="https://github.com/liufan321/FFLabel" target="_blank" rel="noopener">https://github.com/liufan321/FFLabel</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/实用/" rel="tag"># 实用</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/19/2016b/NSPropertyListSerialization 持久化字典与数组/" rel="next" title="NSPropertyListSerialization 持久化字典与数组">
+                <i class="fa fa-chevron-left"></i> NSPropertyListSerialization 持久化字典与数组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/20/2016b/swift语法-读书笔记/" rel="prev" title="swift语法-读书笔记">
+                swift语法-读书笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Yu Tao</p>
+              <p class="site-description motion-element" itemprop="description">测试测试description</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#技术路线："><span class="nav-number">1.</span> <span class="nav-text">技术路线：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-IT社区"><span class="nav-number">2.</span> <span class="nav-text">1.IT社区:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-iOS-学习网站"><span class="nav-number">3.</span> <span class="nav-text">2.iOS 学习网站:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-学习资源"><span class="nav-number">3.1.</span> <span class="nav-text">3.学习资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-GitHub网址"><span class="nav-number">3.2.</span> <span class="nav-text">4.GitHub网址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-博客"><span class="nav-number">3.3.</span> <span class="nav-text">5.博客</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-技巧网址"><span class="nav-number">3.4.</span> <span class="nav-text">6.技巧网址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-分享网址"><span class="nav-number">3.5.</span> <span class="nav-text">7.分享网址</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yu Tao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
