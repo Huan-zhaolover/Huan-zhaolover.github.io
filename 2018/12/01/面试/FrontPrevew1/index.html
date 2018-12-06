@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Maylover">
 <meta property="og:description" content="js 1.JS的typeof 会返回什么数据类型 -&amp;gt; (object| number|function|boolen|undefind) 判断一个字符串中出现的次数最多的字符，统计这个次数 12345678910111213141516171819test1()&amp;#123;    var str = &apos;asdfssaaasasasasaa&apos;; var json = &amp;#123;&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-06T14:39:12.244Z">
+<meta property="og:updated_time" content="2018-12-06T23:12:11.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端基础2">
 <meta name="twitter:description" content="js 1.JS的typeof 会返回什么数据类型 -&amp;gt; (object| number|function|boolen|undefind) 判断一个字符串中出现的次数最多的字符，统计这个次数 12345678910111213141516171819test1()&amp;#123;    var str = &apos;asdfssaaasasasasaa&apos;; var json = &amp;#123;&amp;#125;">
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  274
+                  743
                 </span>
               
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -453,7 +453,26 @@
 <li>Ajax 是页面无刷新请求数据操作 </li>
 </ul>
 </li>
-<li>JS的本地对象，内置对象 宿主对象</li>
+<li>JS的本地对象，内置对象 宿主对象<ul>
+<li>本地对象可以new实例化的 array obj regexp</li>
+<li>内置对象 不可以实例化 的，gload math 等</li>
+<li>宿主对象 BOM对象 document window等</li>
+</ul>
+</li>
+<li>Window.location.search 返回什么？(返回问好后面的，?number1&amp;page=2&amp;id=2111)</li>
+<li>Window.location.hash返回的是什么？(#后面的锚点<code>http://www.sina.com/getage?#age</code> 中的<code>#age</code>)</li>
+<li><p>阻止冒泡函数 兼容W3C 和IE</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">stopPropagation(e) &#123;</span><br><span class="line">    e = e || <span class="built_in">window</span>.event;</span><br><span class="line">    <span class="keyword">if</span>(e.stopPropagation) &#123; <span class="comment">//W3C阻止冒泡方法 </span></span><br><span class="line">        e.stopPropagation();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        e.cancelBubble = <span class="literal">true</span>; <span class="comment">//IE阻止冒泡方法</span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象和函数的log</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">unction  f1()&#123;</span><br><span class="line">    <span class="keyword">var</span>  tmp  =  <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.x = <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp);      <span class="comment">//A</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);   <span class="comment">//B</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span>  obj  =  <span class="keyword">new</span>  f1();  <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.x)          <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(f1());     <span class="comment">//3</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">// 1 构造函数，内部的this 就是f1 ,log:1,3</span></span><br><span class="line"><span class="comment">// 2 创建的实例：log:3</span></span><br><span class="line"><span class="comment">// 3. 简单的一个函数：this是window，JS特性是向外层去找，所以log: 1 3 undefined</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数的作用域问题：</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeObjectProperty</span> (<span class="params">o</span>) </span>&#123;</span><br><span class="line">        o.siteUrl = <span class="string">"http://www.csser.com/"</span>; </span><br><span class="line">        o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">        o.siteUrl = <span class="string">"http://www.popcg.com/"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> CSSer = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">changeObjectProperty(CSSer);</span><br><span class="line"><span class="built_in">console</span>.log(CSSer.siteUrl); <span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">如果 CSSer 参数是按引用传递的，那么结果应该是 "http://www.popcg.com/"，但实际结果却仍是"http://www.csser.com/"。</span></span><br><span class="line"><span class="comment">事实是这 样的:在函数内部修改了引用类型值的参数，该参数值的原始引用保持不变。我们可 以把参数想象成局部变量，当参数被重写时，这个变量引用的就是一个局部变量，局 部变量的生存期仅限于函数执行的过程中，函数执行完毕，局部变量即被销毁以释放 内存。</span></span><br><span class="line"><span class="comment">(补充:内部环境可以通过作用域链访问所有的外部环境中的变量对象，但 外部环境无法访问内部环境。每个环境都可以向上搜索作用域链，以查询变量和函数 名，反之向下则不能。)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li></li>
 </ul>
 
       
