@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Maylover">
 <meta property="og:description" content="js 1.JS的typeof 会返回什么数据类型 -&amp;gt; (object| number|function|boolen|undefind) 判断一个字符串中出现的次数最多的字符，统计这个次数 12345678910111213141516171819test1()&amp;#123;    var str = &apos;asdfssaaasasasasaa&apos;; var json = &amp;#123;&amp;#125;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-06T23:12:11.590Z">
+<meta property="og:updated_time" content="2018-12-08T07:18:52.065Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端基础2">
 <meta name="twitter:description" content="js 1.JS的typeof 会返回什么数据类型 -&amp;gt; (object| number|function|boolen|undefind) 判断一个字符串中出现的次数最多的字符，统计这个次数 12345678910111213141516171819test1()&amp;#123;    var str = &apos;asdfssaaasasasasaa&apos;; var json = &amp;#123;&amp;#125;">
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  743
+                  2.7k
                 </span>
               
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  11
                 </span>
               
             </div>
@@ -465,14 +465,141 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">stopPropagation(e) &#123;</span><br><span class="line">    e = e || <span class="built_in">window</span>.event;</span><br><span class="line">    <span class="keyword">if</span>(e.stopPropagation) &#123; <span class="comment">//W3C阻止冒泡方法 </span></span><br><span class="line">        e.stopPropagation();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        e.cancelBubble = <span class="literal">true</span>; <span class="comment">//IE阻止冒泡方法</span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>对象和函数的log</p>
+</li>
+</ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">unction  f1()&#123;</span><br><span class="line">    <span class="keyword">var</span>  tmp  =  <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">this</span>.x = <span class="number">3</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp);      <span class="comment">//A</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);   <span class="comment">//B</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span>  obj  =  <span class="keyword">new</span>  f1();  <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.x)          <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(f1());     <span class="comment">//3</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">// 1 构造函数，内部的this 就是f1 ,log:1,3</span></span><br><span class="line"><span class="comment">// 2 创建的实例：log:3</span></span><br><span class="line"><span class="comment">// 3. 简单的一个函数：this是window，JS特性是向外层去找，所以log: 1 3 undefined</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函数的作用域问题：</p>
-</li>
+<ul>
+<li>函数的作用域问题：</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeObjectProperty</span> (<span class="params">o</span>) </span>&#123;</span><br><span class="line">        o.siteUrl = <span class="string">"http://www.csser.com/"</span>; </span><br><span class="line">        o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">        o.siteUrl = <span class="string">"http://www.popcg.com/"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> CSSer = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">changeObjectProperty(CSSer);</span><br><span class="line"><span class="built_in">console</span>.log(CSSer.siteUrl); <span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">如果 CSSer 参数是按引用传递的，那么结果应该是 "http://www.popcg.com/"，但实际结果却仍是"http://www.csser.com/"。</span></span><br><span class="line"><span class="comment">事实是这 样的:在函数内部修改了引用类型值的参数，该参数值的原始引用保持不变。我们可 以把参数想象成局部变量，当参数被重写时，这个变量引用的就是一个局部变量，局 部变量的生存期仅限于函数执行的过程中，函数执行完毕，局部变量即被销毁以释放 内存。</span></span><br><span class="line"><span class="comment">(补充:内部环境可以通过作用域链访问所有的外部环境中的变量对象，但 外部环境无法访问内部环境。每个环境都可以向上搜索作用域链，以查询变量和函数 名，反之向下则不能。)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li></li>
+<li>JS 加减运算 <ul>
+<li><code>alert(&#39;5&#39;+3)</code>  数字和字符串加 转换为字符串格式 </li>
+<li>alert(‘5’-3)   字符串和数字减 转换为Number类型</li>
+</ul>
+</li>
+<li>为什不能定义1PX 的div 容器<ul>
+<li>IE6这个问题是默认行高造成的，解决：<code>overflow:hidden</code>  <code>zoom:0.08</code> <code>line-height:1px</code></li>
+</ul>
+</li>
+<li><p>闭包函数运行log</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    foo.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="number">1</span>)</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="number">2</span>)</span><br><span class="line">    &#125;;</span><br><span class="line">    a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="number">3</span>)</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="number">4</span>)</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">foo.prototype.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="number">5</span>)</span><br><span class="line">&#125;; </span><br><span class="line">foo.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="number">6</span>)</span><br><span class="line">&#125;;</span><br><span class="line">foo.a(); <span class="comment">//6</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> foo();</span><br><span class="line">obj.a(); <span class="comment">//2</span></span><br><span class="line">foo.a(); <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>匹配输入的字符：第一个必须是字母或下划线开头，后面的是字母数字或者下划线构成，长度5-20 <code>/^[a-zA-Z_][a-zA-Z0-9_]{4,19}/</code></p>
+</li>
+<li>html添加事件的几种方法 <code>onclick</code> <code>attachEvent</code> <code>addEventListener</code></li>
+<li>BOM的对象？<ul>
+<li><code>Window</code> 是JS的最顶层 其他BOM对象都是Window的属性</li>
+<li><code>doucument</code> 文档对象</li>
+<li><code>location</code> 浏览器的当前URL </li>
+<li><code>navigation</code> 浏览器本身信息</li>
+<li><code>screen</code> 客户端屏幕信息</li>
+<li><code>history</code> 浏览器访问历史信息 </li>
+</ul>
+</li>
+<li><p>JS中的简单继承 <code>Call</code>方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">textCallAction</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name, money</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name  =  name;</span><br><span class="line">        <span class="keyword">this</span>.money  =  money;</span><br><span class="line">        <span class="keyword">this</span>.info  =  <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'姓名: '</span>+<span class="keyword">this</span>.name+<span class="string">' 钱: '</span>+ <span class="keyword">this</span>.money);</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//定义孩子类</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Children</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">        Parent.call(<span class="keyword">this</span>, name); <span class="comment">//继承 姓名属性，不要钱。 </span></span><br><span class="line">        <span class="keyword">this</span>.info = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'姓名: '</span>+<span class="keyword">this</span>.name);</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//实例化类</span></span><br><span class="line">    <span class="keyword">var</span> per = <span class="keyword">new</span> Parent(<span class="string">'parent'</span>, <span class="number">800000000000</span>);</span><br><span class="line">    <span class="keyword">var</span> chi = <span class="keyword">new</span> Children(<span class="string">'child'</span>);</span><br><span class="line">    per.info();  <span class="comment">// 查询自己有方法</span></span><br><span class="line">    chi.info();  <span class="comment">// 查询自己有方法，如果没有向父类查询</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>bind()</code> <code>live()</code> <code>delegate()</code> 的区别？</p>
+<ul>
+<li><code>bind</code> 绑定事件，对新添加的事件不起作用，方法用于将一个处理成语附加到每个匹配事件上并返回Jquery 对象</li>
+<li><code>live</code> 方法将一个时间处理程序附加到与当前选择器匹配到所有的元素的制定事件上并返回JQuery对象</li>
+<li><code>delegate</code> 放大基于一组特定的根元素将处理程序附加到匹配选择器的所有元素的一个或者多个事件上</li>
+</ul>
+</li>
+<li>typeof [1,2] 返回的object | 返回的类型有 boolen string number object function undefined</li>
+<li>Link 和import的区别<ul>
+<li>用途：Link是Html标签  除了加载CSS 外，还可以定义RSS的其他事物，@import 属于CSS范畴 只能加载CSS</li>
+<li>载入时机：Link引用CSS时，在页面载入的时候加载，@import 网页完全载入之后加载</li>
+<li>兼容性问题：Link时html标签，无兼容性问题 @import时CSS2.1提出来的，低版本无法兼容</li>
+<li>改变样式：Link支持用JS控制DOM去改变样式 @import不支持</li>
+</ul>
+</li>
+<li>Window.onload 和Window.ready的区别？<ul>
+<li>Load需要图片和包含的文件都在加进来之后执行</li>
+<li>ready是不包含图片和非文字的 文档结构准备好就执行 DOM结构绘制完成之后就执行</li>
+</ul>
+</li>
+<li>如何优化代码<ul>
+<li>代码重用</li>
+<li>避免使用全局变量</li>
+<li>拆分函数 -&gt; 避免函数过于臃肿单一职责</li>
+<li>适当的注释 尤其是复杂的业务逻辑和计算逻辑 应写出业务逻辑的具体过程</li>
+<li>内存管理，闭包的变量的释放  </li>
+</ul>
+</li>
+<li><p>文本域当按下<code>enter</code> 键时，不换行，而是换成<code></code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">replaceTextEnterKey</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dom = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'textarea'</span>)</span><br><span class="line">    dom.onkeyup = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>)</span>&#123;</span><br><span class="line">        e.preventDefault()        <span class="comment">//为了阻止 enter 键的默认换行效果</span></span><br><span class="line">        <span class="keyword">if</span>(e.keycode == <span class="string">'enter键码'</span>)&#123;</span><br><span class="line">            dom.value+=<span class="string">"&#123;&#123;enter&#125;&#125;"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用原声的JS实现Jquer的Post/get 请求 以及跨域问题</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">占位置：</span><br><span class="line">POST：</span><br><span class="line">GET：</span><br><span class="line">跨域配置</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>web 前端性能优化 优化思路？</p>
+<ul>
+<li>网络资源 ：设置缓存 减少Http请求 </li>
+<li>本地资源：多个小图配置程精灵图，</li>
+<li>加载进度 JS 循环引用 重复代码合并抽取 没用的图片定期删除 减小包体积</li>
+</ul>
+</li>
+<li>reayonly 与disable的区别<ul>
+<li>readonly 只针对inputtext / passwodd 和textarea 有效</li>
+<li>而disable 对于所有的表单元素都有效，当表单元素使用了disable之后，当把表单提交的时候，元素值不会传递出去</li>
+<li>readonly 会将值传递出去</li>
+</ul>
+</li>
+<li>尽可能详尽的解释Ajax的工作原理<ul>
+<li>Ajax原理通过XMLHttpRequest对象来向服务器发异步请求 ，从服务器获得数据，然后通过JS来操作DOM来更新界面，</li>
+<li>XMLHttpRequest时Ajax的核心机制，是IE5首先引入的，支持异步请求的技术， </li>
+</ul>
+</li>
+<li>JS同源策略: <code>域名 协议 端口</code> 相同</li>
+<li>如何实现设计中用了非标准的字体?</li>
+<li>HTTP 协议中GET 金和POST有什么区别，分别使用什么场景 使用场景：<ul>
+<li>get 传送的数据长度有限制，post没有</li>
+<li>get 通过url 传递 在浏览器地址栏可见，post在报文中传递</li>
+<li>post一般用于表单提交</li>
+<li>get一般用于简单的数据查询，严格要求不那么高的场景</li>
+</ul>
+</li>
+<li><p>HTTP状态码 【200 302 304 403 404 500】分别表示什么</p>
+<ul>
+<li>200请求成功</li>
+<li>302临时重定向 客户端应当继续原有的地址发送以后的请求，只有在cache-control 或Expirse中进行了指定的情况下这个相应才是可缓存的</li>
+<li>304如果客户端 发送了一个带条件的GET请求并且被允许，而内容没有改变，304响应禁止包含消息体 因此消息头后以第一个空行结尾</li>
+<li>403 服务器拒绝执行</li>
+<li>404 请求失败，请求的资源未在服务器上发现</li>
+<li>500 服务器遇到了一个未曾预料的状况，导致无法完成对请求的处理，一般出现在服务器端代码出现错误</li>
+</ul>
+</li>
+<li><p>HTTP协议中，header信息里面 -&gt; 怎么控制页面失效时间？ <code>last-modified</code> <code>cache-control</code> <code>Expires</code></p>
+<ul>
+<li><code>Last-Modified</code> 文档最后修改的时间 客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文档才会返回，否则返回一个304(Not Modified)状态 Last-Modified也可以通过setDateHeader 方法来设置</li>
+<li><code>Expires</code> 应该在什么时候认为文档过期，从而不再缓存它</li>
+</ul>
+</li>
+<li><p>优化常用的优化WEB页面加载速度的方法(从网络请求 CSS JS 服务器等)</p>
+</li>
+<li><p>JS中实现一个map</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testMap</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">Array</span>.prototype.map2=<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</span><br><span class="line">                <span class="keyword">this</span>[i]=callback(<span class="keyword">this</span>[i]);</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">var</span> temq = [&#123;<span class="attr">name</span>:<span class="string">'1'</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'2'</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'3'</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'4'</span>&#125;]</span><br><span class="line">        temq.map2(<span class="function"><span class="params">obj</span>=&gt;</span> obj2.name)</span><br><span class="line">        <span class="keyword">var</span> nameStr = temq.map2(<span class="function"><span class="keyword">function</span> (<span class="params">amodel</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> amodel.name</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>约瑟夫环</code> 已知 n 个人(以编号 1，2，3…分别表示)围坐在一张圆桌周围。从编号为k的人开始报数，数到m的那个人出列;他的下一个人又从1开始报数，数到m的那个人又出列;依此规律重复下去，直到圆桌周围的人全部 出列</p>
+</li>
+<li>有 1 到 10w 这个 10w 个数，去除 2 个并打乱次序，如何找出那两个数?</li>
+<li><p>如何获取对象A的所有属性(可枚举的，不可枚举的，不包括继承来的属性)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.keys——IE9+</span><br><span class="line"><span class="comment">//或者使用 for...in 并过滤出继承的属性 </span></span><br><span class="line"><span class="keyword">for</span>(o <span class="keyword">in</span> obj)&#123;</span><br><span class="line">	<span class="keyword">if</span>(obj.hasOwnproperty(o))&#123;</span><br><span class="line">		<span class="comment">//把 o 这个属性放入到一个数组中 &#125;</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>三种弹框的单词三种弹框的功能 【alert confirm prompt】</p>
+</li>
+<li>console.log(8 | 1) -&gt; log:9</li>
+<li><p>JS数组添加，删除 排序 方法有哪些</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.contact() <span class="comment">//拼接数组</span></span><br><span class="line"><span class="built_in">Array</span>.join()    <span class="comment">// 用，拼接 </span></span><br><span class="line"><span class="built_in">Array</span>.length    <span class="comment">// 数组长度</span></span><br><span class="line"><span class="built_in">Array</span>.pop()     <span class="comment">//尾部删除并返回数组的最后一个元素</span></span><br><span class="line"><span class="built_in">Array</span>.push()    尾部给添加元素</span><br><span class="line"><span class="built_in">Array</span>.shift()   头部移除</span><br><span class="line"><span class="built_in">Array</span>.unshift() 头部插入</span><br><span class="line"><span class="built_in">Array</span>.splice()   删除位置，长度</span><br><span class="line"><span class="built_in">Array</span>.slice()   返回数组的一部分</span><br><span class="line"><span class="built_in">Array</span>.reverse() 反转</span><br><span class="line"><span class="built_in">Array</span>.sort()    排序 函数或箭头函数</span><br><span class="line"><span class="built_in">Array</span>.toString()    转换为字符串</span><br><span class="line"><span class="built_in">Array</span>.toLocaleString()  将数组 转换成局部字符串</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JS中callee 和 caller的作用区别</p>
+</li>
+</ul>
+<h3 id="Jquery"><a href="#Jquery" class="headerlink" title="Jquery"></a>Jquery</h3><ul>
+<li>$.ajax()常用的参数有哪些</li>
+<li>用post请求并带有发送数据的和返回数据的样例</li>
 </ul>
 
       
@@ -691,7 +818,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#js"><span class="nav-number">1.</span> <span class="nav-text">js</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#js"><span class="nav-number">1.</span> <span class="nav-text">js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jquery"><span class="nav-number">2.</span> <span class="nav-text">Jquery</span></a></li></ol></div>
             
 
           </div>
