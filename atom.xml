@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.mayyutao.cn/"/>
-  <updated>2018-12-21T13:50:32.674Z</updated>
+  <updated>2019-03-22T05:38:49.197Z</updated>
   <id>https://www.mayyutao.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>weex环境配置</title>
+    <link href="https://www.mayyutao.cn/2019/03/01/Vue/Weex%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    <id>https://www.mayyutao.cn/2019/03/01/Vue/Weex环境配置/</id>
+    <published>2019-03-01T00:40:00.000Z</published>
+    <updated>2019-03-22T05:38:49.197Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Weex" scheme="https://www.mayyutao.cn/categories/Weex/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue环境配置</title>
@@ -281,7 +307,7 @@
     <link href="https://www.mayyutao.cn/2018/05/02/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/w3cschool-html%E8%A1%A5%E5%85%85/"/>
     <id>https://www.mayyutao.cn/2018/05/02/前端技巧/w3cschool-html补充/</id>
     <published>2018-05-02T00:40:00.000Z</published>
-    <updated>2019-01-26T08:04:07.210Z</updated>
+    <updated>2019-03-22T05:38:52.605Z</updated>
     
     <summary type="html">
     
@@ -511,36 +537,6 @@
       <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
     
       <category term="swift泛型" scheme="https://www.mayyutao.cn/tags/swift%E6%B3%9B%E5%9E%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift协议</title>
-    <link href="https://www.mayyutao.cn/2016/09/26/2016b/swift%E5%8D%8F%E8%AE%AE/"/>
-    <id>https://www.mayyutao.cn/2016/09/26/2016b/swift协议/</id>
-    <published>2016-09-26T15:38:00.000Z</published>
-    <updated>2018-12-01T04:15:29.955Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
-    
-      <category term="protocol" scheme="https://www.mayyutao.cn/tags/protocol/"/>
     
   </entry>
   
