@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.mayyutao.cn/"/>
-  <updated>2019-03-22T05:38:49.197Z</updated>
+  <updated>2019-04-08T08:52:32.765Z</updated>
   <id>https://www.mayyutao.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Weex学习笔记1</title>
+    <link href="https://www.mayyutao.cn/2019/03/02/Vue/Weex%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+    <id>https://www.mayyutao.cn/2019/03/02/Vue/Weex学习笔记1/</id>
+    <published>2019-03-02T00:40:00.000Z</published>
+    <updated>2019-04-08T08:52:32.765Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Weex" scheme="https://www.mayyutao.cn/categories/Weex/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>weex环境配置</title>
@@ -47,7 +73,7 @@
     <link href="https://www.mayyutao.cn/2018/12/21/Vue/Vue%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     <id>https://www.mayyutao.cn/2018/12/21/Vue/Vue环境配置/</id>
     <published>2018-12-21T00:39:00.000Z</published>
-    <updated>2019-03-22T07:31:08.189Z</updated>
+    <updated>2019-03-22T08:13:16.478Z</updated>
     
     <summary type="html">
     
@@ -121,32 +147,6 @@
   </entry>
   
   <entry>
-    <title>前端面试基本分析1</title>
-    <link href="https://www.mayyutao.cn/2018/12/01/%E9%9D%A2%E8%AF%95/preview/"/>
-    <id>https://www.mayyutao.cn/2018/12/01/面试/preview/</id>
-    <published>2018-12-01T00:39:00.000Z</published>
-    <updated>2018-12-04T23:13:55.784Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="面试" scheme="https://www.mayyutao.cn/categories/%E9%9D%A2%E8%AF%95/"/>
-    
-    
-      <category term="面试" scheme="https://www.mayyutao.cn/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>前端基础1</title>
     <link href="https://www.mayyutao.cn/2018/12/01/%E9%9D%A2%E8%AF%95/FrontPrevew/"/>
     <id>https://www.mayyutao.cn/2018/12/01/面试/FrontPrevew/</id>
@@ -195,6 +195,32 @@
     
     
       <category term="JS" scheme="https://www.mayyutao.cn/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前端面试基本分析1</title>
+    <link href="https://www.mayyutao.cn/2018/12/01/%E9%9D%A2%E8%AF%95/preview/"/>
+    <id>https://www.mayyutao.cn/2018/12/01/面试/preview/</id>
+    <published>2018-12-01T00:39:00.000Z</published>
+    <updated>2018-12-04T23:13:55.784Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="面试" scheme="https://www.mayyutao.cn/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="面试" scheme="https://www.mayyutao.cn/tags/%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
@@ -507,36 +533,6 @@
       <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
     
       <category term="SQLite" scheme="https://www.mayyutao.cn/tags/SQLite/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift泛型</title>
-    <link href="https://www.mayyutao.cn/2016/09/27/2016b/swift%E6%B3%9B%E5%9E%8B/"/>
-    <id>https://www.mayyutao.cn/2016/09/27/2016b/swift泛型/</id>
-    <published>2016-09-27T15:38:00.000Z</published>
-    <updated>2018-12-01T04:11:41.392Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="Swift学习" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Swift%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Swift" scheme="https://www.mayyutao.cn/tags/Swift/"/>
-    
-      <category term="swift泛型" scheme="https://www.mayyutao.cn/tags/swift%E6%B3%9B%E5%9E%8B/"/>
     
   </entry>
   

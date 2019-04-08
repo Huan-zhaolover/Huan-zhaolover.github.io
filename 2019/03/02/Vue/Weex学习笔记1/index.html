@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学习笔记,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Maylover" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="学习目标  Weex 常用的组件 ；和原生的交互；原生调用Weex组件；封装原生组件；  公用参数1.Weex WXEnvironment 环境变量 weex.config.env === WXEnvironment   paltform 设备类型 iOS android web  weexVersion Weex SDK 版本 appName   appVersion osName iOS /">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Weex学习笔记1">
+<meta property="og:url" content="https://www.mayyutao.cn/2019/03/02/Vue/Weex学习笔记1/index.html">
+<meta property="og:site_name" content="Maylover">
+<meta property="og:description" content="学习目标  Weex 常用的组件 ；和原生的交互；原生调用Weex组件；封装原生组件；  公用参数1.Weex WXEnvironment 环境变量 weex.config.env === WXEnvironment   paltform 设备类型 iOS android web  weexVersion Weex SDK 版本 appName   appVersion osName iOS /">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-23%20%E4%B8%8B%E5%8D%883.08.11-2.png">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-23%20%E4%B8%8B%E5%8D%883.12.24.png">
+<meta property="og:updated_time" content="2019-04-08T08:52:32.765Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Weex学习笔记1">
+<meta name="twitter:description" content="学习目标  Weex 常用的组件 ；和原生的交互；原生调用Weex组件；封装原生组件；  公用参数1.Weex WXEnvironment 环境变量 weex.config.env === WXEnvironment   paltform 设备类型 iOS android web  weexVersion Weex SDK 版本 appName   appVersion osName iOS /">
+<meta name="twitter:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-23%20%E4%B8%8B%E5%8D%883.08.11-2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.mayyutao.cn/2019/03/02/Vue/Weex学习笔记1/">
+
+
+
+
+
+  <title>Weex学习笔记1 | Maylover</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/hexo_resize_image.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Maylover</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">平凡之路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mayyutao.cn/2019/03/02/Vue/Weex学习笔记1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="May Tao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maylover">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Weex学习笔记1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-02T08:40:00+08:00">
+                2019-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Weex/" itemprop="url" rel="index">
+                    <span itemprop="name">Weex</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/02/Vue/Weex学习笔记1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/02/Vue/Weex学习笔记1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/02/Vue/Weex学习笔记1/" class="leancloud_visitors" data-flag-title="Weex学习笔记1">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>学习目标  Weex 常用的组件 ；和原生的交互；原生调用Weex组件；封装原生组件；</p>
+</blockquote>
+<h2 id="公用参数"><a href="#公用参数" class="headerlink" title="公用参数"></a>公用参数</h2><h3 id="1-Weex-WXEnvironment"><a href="#1-Weex-WXEnvironment" class="headerlink" title="1.Weex WXEnvironment"></a>1.Weex WXEnvironment</h3><blockquote>
+<p>环境变量 weex.config.env === WXEnvironment</p>
+</blockquote>
+<ul>
+<li>paltform 设备类型 iOS android web </li>
+<li>weexVersion Weex SDK 版本</li>
+<li>appName  </li>
+<li>appVersion</li>
+<li>osName iOS / Android</li>
+<li>deviceModel 设备型号</li>
+<li>deviceWidth 设置宽</li>
+<li>deviceHeight 设备高 </li>
+</ul>
+<h3 id="2-document-当前页面的文档模型对象"><a href="#2-document-当前页面的文档模型对象" class="headerlink" title="2.document 当前页面的文档模型对象"></a>2.document 当前页面的文档模型对象</h3><blockquote>
+<p>可以操作创建DOM数中元素 不建议再开发页面的时候使用</p>
+</blockquote>
+<h3 id="3-requireModule-引入模块简单使用"><a href="#3-requireModule-引入模块简单使用" class="headerlink" title="3.requireModule 引入模块简单使用"></a>3.requireModule 引入模块简单使用</h3><blockquote>
+<p>引入模块 可以引入原生模块 / weex 内置的模块</p>
+</blockquote>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">weex</span><span class="selector-class">.requireModule</span>(<span class="attribute">name</span>:string)<span class="selector-pseudo">:Object</span> | <span class="selector-tag">void</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>有返回值，可以为undefined</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">template</span> 中</span><br><span class="line">&lt;<span class="selector-tag">text</span> @<span class="keyword">click</span>='<span class="keyword">modaltext</span>'&gt;点击弹框提示&lt;/<span class="keyword">text</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">script</span>中 </span><br><span class="line">const modal = weex.requireModule(<span class="string">'modal'</span>)</span><br><span class="line">modaltext()&#123;</span><br><span class="line">    <span class="selector-tag">modal</span><span class="selector-class">.toast</span>(&#123;</span><br><span class="line">        <span class="attribute">message</span>:<span class="string">'测试2秒'</span>,</span><br><span class="line">        duration:<span class="number">2</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-supports-检测是否支持某个功能"><a href="#4-supports-检测是否支持某个功能" class="headerlink" title="4.supports 检测是否支持某个功能"></a>4.supports 检测是否支持某个功能</h3><blockquote>
+<p>可以检测某个功能在当前环境中是否可用 <code>weex.supports(@{type}/{name})</code><br>type 为component时检测组件是否存在；<br>type是module时检测模块是否存在 ;<br>name.fun 可以检测模块下有没有某个方法名</p>
+</blockquote>
+<pre><code><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">1</span>.检测组件是否存在</span><br><span class="line"><span class="selector-tag">weex</span><span class="selector-class">.supports</span>(<span class="string">'@component/slider'</span>)      <span class="comment">// true</span></span><br><span class="line"><span class="selector-tag">weex</span><span class="selector-class">.supports</span>(<span class="string">'@components/sliderbar'</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">2</span>.检测模块是否存在</span><br><span class="line"><span class="selector-tag">weex</span><span class="selector-class">.supports</span>(<span class="string">'@module/store'</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="selector-tag">weex</span><span class="selector-class">.supports</span>(<span class="string">'@module/abcdef'</span>)  <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">3</span>.检测模块下是否有某个方法</span><br><span class="line"><span class="selector-tag">weex</span><span class="selector-class">.supports</span>(<span class="string">'@module/dom.getComponentRect'</span>) <span class="comment">// true</span></span><br><span class="line"><span class="selector-tag">weex</span><span class="selector-class">.supports</span>(<span class="string">'@module/navigator.jumpToPage'</span>) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</code></pre><h3 id="5-isRegisteredModule-检测某个特定模块-接口-是否可用-只用于模块检测，组件不适用"><a href="#5-isRegisteredModule-检测某个特定模块-接口-是否可用-只用于模块检测，组件不适用" class="headerlink" title="5.isRegisteredModule 检测某个特定模块 / 接口 是否可用 只用于模块检测，组件不适用"></a>5.isRegisteredModule 检测某个特定模块 / 接口 是否可用 只用于模块检测，组件不适用</h3><h3 id="6-isRegisteredComponent-检测特定组件是否可用，-只用于组件检测，模块不适用"><a href="#6-isRegisteredComponent-检测特定组件是否可用，-只用于组件检测，模块不适用" class="headerlink" title="6.isRegisteredComponent 检测特定组件是否可用， 只用于组件检测，模块不适用"></a>6.isRegisteredComponent 检测特定组件是否可用， 只用于组件检测，模块不适用</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">weex</span><span class="selector-class">.isRegisteredModule</span>(<span class="attribute">moduleName</span>: string, <span class="attribute">methodName</span>: string): <span class="selector-tag">boolean</span></span><br><span class="line"><span class="selector-tag">weex</span><span class="selector-class">.isRegisteredComponent</span>(<span class="attribute">componentName</span>: string): <span class="selector-tag">boolean</span></span><br><span class="line">    </span><br><span class="line"><span class="selector-tag">weex</span><span class="selector-class">.isRegisteredModule</span>(<span class="string">'stream'</span>) <span class="comment">// true</span></span><br><span class="line"><span class="selector-tag">weex</span><span class="selector-class">.isRegisteredComponent</span>(<span class="string">'div'</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<hr>
+
+<h2 id="组件-通用样式-通用事件"><a href="#组件-通用样式-通用事件" class="headerlink" title="组件 通用样式/通用事件"></a>组件 <em>通用样式/通用事件</em></h2><h3 id="1-通用样式-weex-支持的所有通用样式"><a href="#1-通用样式-weex-支持的所有通用样式" class="headerlink" title="1.通用样式 weex 支持的所有通用样式"></a>1.通用样式 weex 支持的所有通用样式</h3><ul>
+<li><strong>盒模型</strong> weex 和模型是border-box 宽高 = (content宽高 + padding + border)</li>
+</ul>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.只支持overflow:hidden</span><br><span class="line"><span class="number">2.</span><span class="built_in">width</span>/ <span class="built_in">height</span> / padding </span><br><span class="line"><span class="number">3.</span><span class="built_in">border</span>-<span class="built_in">style</span> 统一设置 或 给四个边分别设置<span class="built_in">border</span>-top-<span class="built_in">style</span>  (solid / dashed / dotted)</span><br><span class="line"><span class="number">4.</span><span class="built_in">border</span>-<span class="built_in">width</span> 统一设置 或 分别设置上下左右 <span class="built_in">border</span>-top-<span class="built_in">width</span></span><br><span class="line"><span class="number">5.</span><span class="built_in">border</span>-<span class="built_in">color</span> 统一设置 或 分别设置四边 <span class="built_in">border</span>-top-<span class="built_in">color</span></span><br><span class="line"><span class="number">6.</span><span class="built_in">border</span>-<span class="built_in">radius</span> 统一设置 或 分别设置四边 <span class="built_in">border</span>-top-<span class="built_in">radius</span></span><br><span class="line"><span class="number">7.</span>margin 外边距</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Flexbox</strong> weex中唯一且默认的布局模型 默认<code>display:flex</code></li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="selector-class">.direction</span> 决定文字方向和<span class="attribute">flex</span>容器的基线方向 从左到右ltr，从右到左rtf</span><br><span class="line"><span class="number">2</span><span class="selector-class">.flex-direction</span> :column / column-reverse / row / row-reverse </span><br><span class="line">  column 从上到下 column-reverse 从下到上；row 横线展示，与<span class="attribute">direction</span>结合显示，ltr:leftToRight 从左到右显示</span><br><span class="line"><span class="number">3</span><span class="selector-class">.flex-wrap</span> 决定是一行显示还是多行显示 nowrap(不换行一行显示) / wrap(换行显示) / wap-reverse (换行但是方向 和<span class="attribute">direction</span>相反)</span><br><span class="line"><span class="number">4</span><span class="selector-class">.justify-content</span>:定义了在主轴上处理空白逻辑 <span class="attribute">flex</span>-start / flex-end / center / space-between</span><br><span class="line">  <span class="attribute">flex</span>-start 默认上排在前面 / flex-end 排在后面 / center 居中两边留白 / space-between 两边对其 中间空白均分</span><br><span class="line"></span><br><span class="line"><span class="number">5</span><span class="selector-class">.align-items</span> 定义在纵轴上如何显示 <span class="attribute">flex</span>-start(上对齐) / flex-end(下对齐) / center(中间对齐) / stretch(默认值 充满高度)</span><br><span class="line"></span><br><span class="line"><span class="number">6</span><span class="selector-class">.flex</span> <span class="attribute">flex</span>: <span class="number">2</span> 子类根据flex 权重分享父控件的空间</span><br></pre></td></tr></table></figure>
+<p><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-23%20%E4%B8%8B%E5%8D%883.08.11-2.png" alt="屏幕快照 2019-03-23 下午3.08.11"></p>
+<p><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-23%20%E4%B8%8B%E5%8D%883.12.24.png" alt="屏幕快照 2019-03-23 下午3.12.24"></p>
+<ul>
+<li><strong>定位</strong> 支持position  设置position之后，可以设置top / bottom / left / right</li>
+</ul>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">1</span><span class="selector-class">.position</span> <span class="selector-tag">relative</span>(相对) / <span class="selector-tag">absolute</span>(绝对) / <span class="selector-tag">fixed</span>(相对窗口) / <span class="selector-tag">sticky</span>(滚动到页面之外会固定到页面顶) </span><br><span class="line"><span class="selector-tag">2</span>. <span class="selector-tag">weex</span> 不支持 <span class="selector-tag">z-index</span>，后面的会覆盖之前的</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Transition</strong> 动画<ul>
+<li>CSS的属性值可以使用Transition 进行layoutanimation</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>transition-property 过度动画的属性名</span><br><span class="line">width/height/top/bottom/left/right/opacity/background-color/transform</span><br><span class="line"><span class="number">2.</span>transition-duration 过度动画的持续时间</span><br><span class="line"><span class="number">3.</span>transition-delay 动画延迟</span><br><span class="line"><span class="number">4.</span>transition-timing-<span class="function"><span class="keyword">function</span> 描述执行动画的过度曲线 默认是<span class="title">ease</span> /<span class="title">ease</span>-<span class="title">in</span>/<span class="title">ease</span>-<span class="title">out</span>/ <span class="title">ease</span>-<span class="title">in</span>-<span class="title">out</span>/<span class="title">linear</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span> <span class="selector-tag">scoped</span>&gt;</span><br><span class="line">  <span class="selector-class">.panel</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">border</span>: solid;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">transition-property</span>: width, height, background-color;</span><br><span class="line">    <span class="attribute">transition-duration</span>: <span class="number">0.3s</span>;</span><br><span class="line">    <span class="attribute">transition-delay</span>: <span class="number">0s</span>;</span><br><span class="line">    <span class="attribute">transition-timing-function</span>: <span class="built_in">cubic-bezier</span>(0.25, 0.1, 0.25, 1.0);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Transform</strong>  位移动画/ 旋转动画/ 缩放动画</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">translate位移 / scale缩放 / rotate旋转</span><br><span class="line"><span class="number">1.</span>位移 translate() / translateX(x) / translateY(y) </span><br><span class="line"><span class="number">2.</span>缩放 scale() / scaleX(x) / scaleY(y)</span><br><span class="line"><span class="number">3.</span>旋转 rotate() / rotateX() / rotateY()</span><br><span class="line"><span class="number">4.</span>透视   perspective()</span><br><span class="line"><span class="number">5.</span>transform-origin(<span class="number">0</span>/<span class="number">10</span>%<span class="regexp">/top/</span>left/right/bottom) 设置元素变形的锚点</span><br><span class="line"></span><br><span class="line">.transform &#123;</span><br><span class="line">    align-items: center;</span><br><span class="line">    transform: translate(<span class="number">150</span>px, <span class="number">200</span>px) rotate(<span class="number">20</span>deg);</span><br><span class="line">    transform-origin: <span class="number">0</span> <span class="number">-250</span>px;</span><br><span class="line">    border-color:red;</span><br><span class="line">    border-width:<span class="number">2</span>px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>伪类</strong> <code>active</code>  <code>focus</code>  <code>disable</code>  <code>enable</code></p>
+<ul>
+<li>所有组件都支持 active 但是只有input 支持focus disable enable / 优先级 css 权重优先级 </li>
+</ul>
+</li>
+<li><p><strong>线性渐变</strong> 通过background-image设置线性渐变</p>
+</li>
+</ul>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>三个参数，位置，开始颜色，结束颜色</span><br><span class="line">background-image:linear-gradient(<span class="keyword">to</span> top, #a80077, #<span class="number">66</span>ff00)</span><br><span class="line">位置参数 ：</span><br><span class="line"><span class="keyword">to</span> <span class="built_in">right</span> / <span class="keyword">to</span> <span class="built_in">left</span> / <span class="keyword">to</span> top / <span class="keyword">to</span> bottom / <span class="keyword">to</span> bottom <span class="built_in">right</span>(右下) / <span class="keyword">to</span> top <span class="built_in">left</span>(左上)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>阴影(box-shadow)</strong> 只支持iOS，android使用图片代替 </li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box-shadow</span><span class="selector-pseudo">:inset</span>,<span class="selector-tag">x-offset</span>,<span class="selector-tag">y-offset</span>,<span class="selector-tag">radius</span>,<span class="selector-tag">color</span></span><br><span class="line"><span class="selector-tag">inset</span> :默认外边框。设置<span class="selector-tag">inset</span>之后是设置内边框</span><br><span class="line"><span class="selector-tag">radius</span>: 值越大，边缘越模糊，阴影模糊效果</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box1</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">20px</span> <span class="number">10px</span> <span class="built_in">rgb</span>(255, 69, 0);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box2</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">20px</span> <span class="number">10px</span> <span class="number">5px</span> <span class="built_in">rgba</span>(255, 69, 0, 0.8);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box3</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: inset <span class="number">20px</span>  <span class="number">10px</span> <span class="number">5px</span> <span class="built_in">rgba</span>(255, 69, 0, 0.8);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box4</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: inset <span class="number">20px</span>  <span class="number">10px</span> <span class="number">5px</span> <span class="built_in">rgb</span>(255, 69, 0);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box5</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>:<span class="number">20px</span>  <span class="number">10px</span> <span class="number">5px</span> black;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box6</span> &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>:<span class="number">20px</span>  <span class="number">10px</span> <span class="number">5px</span> <span class="number">#008B00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>文本样式</strong> text input richtext 公用的文本样式</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">color: <span class="keyword">red</span> / #EEE / #FF0000 / rgba(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.5</span>) / rgb(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">font-size:<span class="number">12</span></span><br><span class="line">font-style:<span class="keyword">normal</span> / italic</span><br><span class="line">font-weigh<span class="variable">t:normal</span> / bold / <span class="number">100</span> - <span class="number">900</span> /</span><br><span class="line">        <span class="keyword">normal</span> 是<span class="number">400</span> ，bold 是<span class="number">700</span>；iOS支持<span class="number">7</span>种，andriod支持<span class="number">400</span> / <span class="number">700</span> 两种</span><br><span class="line">text-decoration: none / underline / <span class="built_in">line</span>-through </span><br><span class="line">text-align: <span class="keyword">left</span> / <span class="keyword">center</span> / <span class="keyword">right</span></span><br><span class="line">font-family :平台默认字体，可设置自定义字体</span><br><span class="line">text-overflo<span class="variable">w:clip</span>(裁剪) / ellipsis(省略号)</span><br><span class="line"><span class="built_in">line</span><span class="variable">s:3</span> 最大文本行数</span><br><span class="line"><span class="built_in">line</span>-heigh<span class="variable">t:</span>文字高度</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>CSS单位</strong> weex 中只支持px为单位;</li>
+</ul>
+<h3 id="2-通用事件"><a href="#2-通用事件" class="headerlink" title="2.通用事件"></a>2.通用事件</h3><ul>
+<li><strong>click</strong> 点击事件<ul>
+<li>input/switch组件 没有click时间，change方法 或input事件</li>
+<li>事件对象 handleClick(event) / event.type:click / event.target / event.timestamp</li>
+</ul>
+</li>
+<li><strong>longpress</strong>长按事件<ul>
+<li>用户长按会触发</li>
+<li>事件对象handleLongpress(event) / event.type:longpress / event.target / event.timestamp</li>
+</ul>
+</li>
+<li><strong>Appear</strong> 组件显示到屏幕上<ul>
+<li>当这个组件的状态在屏幕上显示时 调用</li>
+<li>事件对象handleAppear(evevnt) / event.type:appear / event.target / event.timestamp / event.direction :up dowm</li>
+</ul>
+</li>
+<li><strong>Disappear</strong> 滑出屏幕出发<ul>
+<li>绑定了disappear事件，当组件滑出屏幕的时候触发事件。</li>
+<li>事件对象 handleDisappear(event) / event.type:disappear / event.target / event.timestamp / event.direction:up dowm </li>
+</ul>
+</li>
+<li><p><strong>stopPropagation</strong> 组织native事件进行冒泡传递 </p>
+<ul>
+<li>结合shouldStopPropagationInterval / shouldStopPropagationInitResult 属性来控制</li>
+<li>shouldStopPropagationInitResult 默认初始化false/true的结果。</li>
+<li><p>shouldStopPropagationInterval 默认数字类型，控制touch频率，减少JS和Native通信次数，提升流畅性 </p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">  在iOS设备上 禁止冒泡。</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">list</span> <span class="attr">class</span>=<span class="string">"list"</span> <span class="attr">show-scrollbar</span>=<span class="string">"false"</span> </span></span></span><br><span class="line"><span class="xml">          @stoppropagation="Env.platform === 'iOS' ? false : true" </span></span><br><span class="line"><span class="xml">            shouldStopPropagationInterval="1000000" </span></span><br><span class="line"><span class="xml">            shouldStopPropagationInitResult="false"&gt;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span></span><br><span class="line"><span class="xml">            </span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">scroller</span> <span class="attr">class</span>=<span class="string">"home"</span> @<span class="attr">scroll</span>=<span class="string">"scrollHandler"</span> <span class="attr">show-scrollbar</span>=<span class="string">false</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"menu"</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"menuPanel"</span> @<span class="attr">swipe</span>=<span class="string">"swipeEvent"</span> <span class="attr">:style</span>=<span class="string">"</span></span></span><span class="template-variable">&#123; left: activeTab * -750 + 'px'&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="comment">&lt;!-- 杭务公告 --&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"menuContent"</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"contentList"</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">list</span> <span class="attr">class</span>=<span class="string">"list"</span> <span class="attr">show-scrollbar</span>=<span class="string">"false"</span> </span></span></span><br><span class="line"><span class="xml">            @stoppropagation="Env.platform === 'iOS' ? false : true" </span></span><br><span class="line"><span class="xml">            shouldStopPropagationInterval="1000000" </span></span><br><span class="line"><span class="xml">            shouldStopPropagationInitResult="false"&gt;</span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">cell</span> <span class="attr">class</span>=<span class="string">"listPanel"</span> <span class="attr">v-for</span>=<span class="string">"(list, index) in lists1"</span> <span class="attr">:key</span>=<span class="string">"index"</span> <span class="attr">:ref</span>=<span class="string">"'hwgg' + index"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"circle_dot"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">                  <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"listTitle"</span>&gt;</span></span><span class="template-variable">&#123;&#123;index&#125;</span><span class="xml">&#125;</span><span class="template-variable">&#123;&#123;list.title&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span></span><br><span class="line"><span class="xml">                  <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"listTime"</span>&gt;</span></span><span class="template-variable">&#123;&#123;list.showtime.split('-').join('.')&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">cell</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"loadMoreFirst"</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">"loadMoreTxt"</span>&gt;</span></span><span class="template-variable">&#123;&#123;loadMore1 === 1 ? '更多' : '点击收起'&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span></span><br><span class="line"><span class="xml">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">scroller</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>Page</strong> 通过viewappear / viewdisappear提供页面的状态管理</p>
+<ul>
+<li>viewappear 事件会在页面就要显示或配置的任何页面动画被执行前触发，例如，当调用 navigator 模块的 push 方法时，该事件将会在打开新页面时被触发。</li>
+<li>viewdisappear 事件会在页面就要关闭时被触发。</li>
+<li>与组件的 appear 和 disappear 事件不同的是，viewappear 和 viewdisappear 事件关注的是整个页面的状态，所以它们必须绑定到页面的根元素上。</li>
+<li>特殊情况下，这两个事件也能被绑定到非根元素的body组件上，例如wxc-navpage组件 </li>
+<li><p>事件对象 handleAppear(e,name) / handleDisappear(e,name) / e.type / e.target / e.timestamp</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"btn block"</span></span><br><span class="line">  @appear=<span class="string">"(e) =&gt; &#123; handleAppear(e, 'block1'); &#125;"</span></span><br><span class="line">  @disappear=<span class="string">"(e) =&gt; &#123; handleDisappear(e, 'block1') &#125;"</span></span><br><span class="line">&gt;</span><br><span class="line">  &lt;<span class="built_in">text</span> <span class="built_in">class</span>=<span class="string">"btn-text"</span>&gt;block1&lt;/<span class="built_in">text</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"btn block"</span></span><br><span class="line">  @appear=<span class="string">"(e) =&gt; &#123; handleAppear(e, 'block2'); &#125;"</span></span><br><span class="line">  @disappear=<span class="string">"(e) =&gt; &#123; handleDisappear(e, 'block2') &#125;"</span></span><br><span class="line">&gt;</span><br><span class="line">  &lt;<span class="built_in">text</span> <span class="built_in">class</span>=<span class="string">"btn-text"</span>&gt;block2&lt;/<span class="built_in">text</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>事件冒泡</strong> 捕获 / 冒泡</p>
+<ul>
+<li>weex 0.13版本冒泡 默认是不开启冒泡事件，需要在根元素开启<code>bubble=true</code></li>
+<li>阻止冒泡 event.stopPropagation ；影响范围，当前元素和父级之前的元素，子类元素不影响。</li>
+<li>bubble=true 是全局开关，全部开启，全部关闭</li>
+</ul>
+</li>
+<li><p><strong>手势</strong> Touch / Pan / Swipe / LongPress 只需要在组件上监听手势即可</p>
+<ul>
+<li>touchstart/ touchend / touchmove / stopPropagation</li>
+<li>Pan 拖动 ，精确性差于touch panstar / panend/ panmove / horizontalpan / verticalpan (0.10+)</li>
+<li>Swipe 轻扫 一次联系的滑动出发一次swipe事件 返回direction滑动方向</li>
+<li>longPress 在触摸点联系 500ms之上出发</li>
+<li>changedTouches 一组手势对象的数组 其中一个对象含有 identifier / pagex / pageY / screenX / screenY / force</li>
+</ul>
+</li>
+</ul>
+<h3 id="a标签-实现页面之间跳转"><a href="#a标签-实现页面之间跳转" class="headerlink" title="a标签 实现页面之间跳转"></a>a标签 实现页面之间跳转</h3><ul>
+<li>不可以在组件内直接写文字，是和Vue 区别，需要在text标签内写入文字</li>
+<li>href 属性跳转界面是一个weex界面</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://dotwe.org/raw/dist/a5e3760925ac3b9d68a3aa0cc0298857.bundle.wx"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>Jump<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://emas-ha-remote-log-poc.oss-cn-beijing.aliyuncs.com/eweex/app/biz-docs-com-mod/upload/271ccdca-db41-423d-981c-c7c6751ba479/show_1.js"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>主会场<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><hr></p>
+<h2 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h2><h3 id="跨页面通信-BroadcastChannel-‘name’"><a href="#跨页面通信-BroadcastChannel-‘name’" class="headerlink" title="跨页面通信 BroadcastChannel(‘name’)"></a>跨页面通信 BroadcastChannel(‘name’)</h3><blockquote>
+<p>同源跨页面通信，逆向传值 同级别传值 子传父。初步理解先监听后发送。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>父监听广播</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> channe1 = <span class="keyword">new</span> BroadcastChannel(<span class="string">'hl-le'</span>)</span><br><span class="line">channel.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(event.data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>子组件触发事件 发送消息</span><br><span class="line"><span class="keyword">const</span> channe1 = <span class="keyword">new</span> BroadcastChannel(<span class="string">'hl-le'</span>)</span><br><span class="line">channel.postMessage(<span class="string">'apuedmessage'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>传入的参数是指针地址，没有深拷贝。如果传入的数组，接收方修改数组，发送方的值也会跟着改变</span><br></pre></td></tr></table></figure>
+<h3 id="Android接口-Weex通信"><a href="#Android接口-Weex通信" class="headerlink" title="Android接口 / Weex通信"></a>Android接口 / Weex通信</h3><h3 id="iOS接口-Weex通信"><a href="#iOS接口-Weex通信" class="headerlink" title="iOS接口 / Weex通信"></a>iOS接口 / Weex通信</h3><h3 id="JSServer-JS生命周期-提供创建-刷新-销毁生命周期"><a href="#JSServer-JS生命周期-提供创建-刷新-销毁生命周期" class="headerlink" title="JSServer  JS生命周期  提供创建 刷新 销毁生命周期"></a>JSServer  JS生命周期  提供创建 刷新 销毁生命周期</h3>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+      <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+	     --------------------  本文结束
+	    <i class="fa fa-paw"></i>
+	    感谢您的阅读  --------------------
+    </div>
+
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/01/Vue/Weex环境配置/" rel="next" title="weex环境配置">
+                <i class="fa fa-chevron-left"></i> weex环境配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="May Tao">
+            
+              <p class="site-author-name" itemprop="name">May Tao</p>
+              <p class="site-description motion-element" itemprop="description">全栈在路上</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Huan-zhaolover" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ytxinguan09@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.87.com" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-angle-double-down"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#公用参数"><span class="nav-number">1.</span> <span class="nav-text">公用参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Weex-WXEnvironment"><span class="nav-number">1.1.</span> <span class="nav-text">1.Weex WXEnvironment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-document-当前页面的文档模型对象"><span class="nav-number">1.2.</span> <span class="nav-text">2.document 当前页面的文档模型对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-requireModule-引入模块简单使用"><span class="nav-number">1.3.</span> <span class="nav-text">3.requireModule 引入模块简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-supports-检测是否支持某个功能"><span class="nav-number">1.4.</span> <span class="nav-text">4.supports 检测是否支持某个功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-isRegisteredModule-检测某个特定模块-接口-是否可用-只用于模块检测，组件不适用"><span class="nav-number">1.5.</span> <span class="nav-text">5.isRegisteredModule 检测某个特定模块 / 接口 是否可用 只用于模块检测，组件不适用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-isRegisteredComponent-检测特定组件是否可用，-只用于组件检测，模块不适用"><span class="nav-number">1.6.</span> <span class="nav-text">6.isRegisteredComponent 检测特定组件是否可用， 只用于组件检测，模块不适用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件-通用样式-通用事件"><span class="nav-number">2.</span> <span class="nav-text">组件 通用样式/通用事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-通用样式-weex-支持的所有通用样式"><span class="nav-number">2.1.</span> <span class="nav-text">1.通用样式 weex 支持的所有通用样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-通用事件"><span class="nav-number">2.2.</span> <span class="nav-text">2.通用事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a标签-实现页面之间跳转"><span class="nav-number">2.3.</span> <span class="nav-text">a标签 实现页面之间跳转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通信"><span class="nav-number">3.</span> <span class="nav-text">通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跨页面通信-BroadcastChannel-‘name’"><span class="nav-number">3.1.</span> <span class="nav-text">跨页面通信 BroadcastChannel(‘name’)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android接口-Weex通信"><span class="nav-number">3.2.</span> <span class="nav-text">Android接口 / Weex通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS接口-Weex通信"><span class="nav-number">3.3.</span> <span class="nav-text">iOS接口 / Weex通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSServer-JS生命周期-提供创建-刷新-销毁生命周期"><span class="nav-number">3.4.</span> <span class="nav-text">JSServer  JS生命周期  提供创建 刷新 销毁生命周期</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+     <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">May Tao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz',
+        appKey: 'GYy3VQ9hXhRnbsBHmMPzwtbq',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz", "GYy3VQ9hXhRnbsBHmMPzwtbq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
