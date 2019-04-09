@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-23%20%E4%B8%8B%E5%8D%883.08.11-2.png">
 <meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-03-23%20%E4%B8%8B%E5%8D%883.12.24.png">
-<meta property="og:updated_time" content="2019-04-08T08:52:32.765Z">
+<meta property="og:updated_time" content="2019-04-08T08:56:18.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Weex学习笔记1">
 <meta name="twitter:description" content="学习目标  Weex 常用的组件 ；和原生的交互；原生调用Weex组件；封装原生组件；  公用参数1.Weex WXEnvironment 环境变量 weex.config.env === WXEnvironment   paltform 设备类型 iOS android web  weexVersion Weex SDK 版本 appName   appVersion osName iOS /">
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.5k
+                  2.4k
                 </span>
               
 
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  11
+                  10
                 </span>
               
             </div>
@@ -578,12 +578,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="a标签-实现页面之间跳转"><a href="#a标签-实现页面之间跳转" class="headerlink" title="a标签 实现页面之间跳转"></a>a标签 实现页面之间跳转</h3><ul>
-<li>不可以在组件内直接写文字，是和Vue 区别，需要在text标签内写入文字</li>
-<li>href 属性跳转界面是一个weex界面</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://dotwe.org/raw/dist/a5e3760925ac3b9d68a3aa0cc0298857.bundle.wx"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>Jump<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://emas-ha-remote-log-poc.oss-cn-beijing.aliyuncs.com/eweex/app/biz-docs-com-mod/upload/271ccdca-db41-423d-981c-c7c6751ba479/show_1.js"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">text</span>&gt;</span>主会场<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><hr></p>
+<hr>
+
 <h2 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h2><h3 id="跨页面通信-BroadcastChannel-‘name’"><a href="#跨页面通信-BroadcastChannel-‘name’" class="headerlink" title="跨页面通信 BroadcastChannel(‘name’)"></a>跨页面通信 BroadcastChannel(‘name’)</h3><blockquote>
 <p>同源跨页面通信，逆向传值 同级别传值 子传父。初步理解先监听后发送。</p>
 </blockquote>
@@ -640,6 +636,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/03/Vue/Weex学习笔记2/" rel="prev" title="Weex学习笔记2">
+                Weex学习笔记2 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -721,7 +721,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -805,7 +805,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#公用参数"><span class="nav-number">1.</span> <span class="nav-text">公用参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Weex-WXEnvironment"><span class="nav-number">1.1.</span> <span class="nav-text">1.Weex WXEnvironment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-document-当前页面的文档模型对象"><span class="nav-number">1.2.</span> <span class="nav-text">2.document 当前页面的文档模型对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-requireModule-引入模块简单使用"><span class="nav-number">1.3.</span> <span class="nav-text">3.requireModule 引入模块简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-supports-检测是否支持某个功能"><span class="nav-number">1.4.</span> <span class="nav-text">4.supports 检测是否支持某个功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-isRegisteredModule-检测某个特定模块-接口-是否可用-只用于模块检测，组件不适用"><span class="nav-number">1.5.</span> <span class="nav-text">5.isRegisteredModule 检测某个特定模块 / 接口 是否可用 只用于模块检测，组件不适用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-isRegisteredComponent-检测特定组件是否可用，-只用于组件检测，模块不适用"><span class="nav-number">1.6.</span> <span class="nav-text">6.isRegisteredComponent 检测特定组件是否可用， 只用于组件检测，模块不适用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件-通用样式-通用事件"><span class="nav-number">2.</span> <span class="nav-text">组件 通用样式/通用事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-通用样式-weex-支持的所有通用样式"><span class="nav-number">2.1.</span> <span class="nav-text">1.通用样式 weex 支持的所有通用样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-通用事件"><span class="nav-number">2.2.</span> <span class="nav-text">2.通用事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a标签-实现页面之间跳转"><span class="nav-number">2.3.</span> <span class="nav-text">a标签 实现页面之间跳转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通信"><span class="nav-number">3.</span> <span class="nav-text">通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跨页面通信-BroadcastChannel-‘name’"><span class="nav-number">3.1.</span> <span class="nav-text">跨页面通信 BroadcastChannel(‘name’)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android接口-Weex通信"><span class="nav-number">3.2.</span> <span class="nav-text">Android接口 / Weex通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS接口-Weex通信"><span class="nav-number">3.3.</span> <span class="nav-text">iOS接口 / Weex通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSServer-JS生命周期-提供创建-刷新-销毁生命周期"><span class="nav-number">3.4.</span> <span class="nav-text">JSServer  JS生命周期  提供创建 刷新 销毁生命周期</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#公用参数"><span class="nav-number">1.</span> <span class="nav-text">公用参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Weex-WXEnvironment"><span class="nav-number">1.1.</span> <span class="nav-text">1.Weex WXEnvironment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-document-当前页面的文档模型对象"><span class="nav-number">1.2.</span> <span class="nav-text">2.document 当前页面的文档模型对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-requireModule-引入模块简单使用"><span class="nav-number">1.3.</span> <span class="nav-text">3.requireModule 引入模块简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-supports-检测是否支持某个功能"><span class="nav-number">1.4.</span> <span class="nav-text">4.supports 检测是否支持某个功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-isRegisteredModule-检测某个特定模块-接口-是否可用-只用于模块检测，组件不适用"><span class="nav-number">1.5.</span> <span class="nav-text">5.isRegisteredModule 检测某个特定模块 / 接口 是否可用 只用于模块检测，组件不适用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-isRegisteredComponent-检测特定组件是否可用，-只用于组件检测，模块不适用"><span class="nav-number">1.6.</span> <span class="nav-text">6.isRegisteredComponent 检测特定组件是否可用， 只用于组件检测，模块不适用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件-通用样式-通用事件"><span class="nav-number">2.</span> <span class="nav-text">组件 通用样式/通用事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-通用样式-weex-支持的所有通用样式"><span class="nav-number">2.1.</span> <span class="nav-text">1.通用样式 weex 支持的所有通用样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-通用事件"><span class="nav-number">2.2.</span> <span class="nav-text">2.通用事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通信"><span class="nav-number">3.</span> <span class="nav-text">通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跨页面通信-BroadcastChannel-‘name’"><span class="nav-number">3.1.</span> <span class="nav-text">跨页面通信 BroadcastChannel(‘name’)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android接口-Weex通信"><span class="nav-number">3.2.</span> <span class="nav-text">Android接口 / Weex通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS接口-Weex通信"><span class="nav-number">3.3.</span> <span class="nav-text">iOS接口 / Weex通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSServer-JS生命周期-提供创建-刷新-销毁生命周期"><span class="nav-number">3.4.</span> <span class="nav-text">JSServer  JS生命周期  提供创建 刷新 销毁生命周期</span></a></li></ol></li></ol></div>
             
 
           </div>
