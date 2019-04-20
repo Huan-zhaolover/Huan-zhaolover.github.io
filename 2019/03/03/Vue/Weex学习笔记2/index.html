@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Maylover">
 <meta property="og:description" content="学习目标  Weex 常用的组件 ；和原生的交互；原生调用Weex组件；封装原生组件；  Weex 内置组件a标签 实现页面之间跳转 不可以在组件内直接写文字，是和Vue 区别，需要在text标签内写入文字 href 属性跳转界面是一个weex界面  1234567&amp;lt;a href=&quot;http://dotwe.org/raw/dist/a5e3760925ac3b9d68a3aa0cc029">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-10T14:06:38.401Z">
+<meta property="og:updated_time" content="2019-04-20T02:21:38.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Weex学习笔记2">
 <meta name="twitter:description" content="学习目标  Weex 常用的组件 ；和原生的交互；原生调用Weex组件；封装原生组件；  Weex 内置组件a标签 实现页面之间跳转 不可以在组件内直接写文字，是和Vue 区别，需要在text标签内写入文字 href 属性跳转界面是一个weex界面  1234567&amp;lt;a href=&quot;http://dotwe.org/raw/dist/a5e3760925ac3b9d68a3aa0cc029">
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.6k
+                  4.7k
                 </span>
               
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7
+                  22
                 </span>
               
             </div>
@@ -560,6 +560,7 @@
 </ul>
 </li>
 </ul>
+<p><hr></p>
 <h3 id="recycle-list-组件-具有回收-复用的能力-大幅优化内存-和渲染性能"><a href="#recycle-list-组件-具有回收-复用的能力-大幅优化内存-和渲染性能" class="headerlink" title="recycle-list 组件 具有回收 复用的能力 大幅优化内存 和渲染性能"></a>recycle-list 组件 具有回收 复用的能力 大幅优化内存 和渲染性能</h3><ul>
 <li>recycle-list 结合cell-slot 作为子节点。</li>
 <li>可以使用switch / case 对不同类的cell 进行分类显示</li>
@@ -575,7 +576,199 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">1.switch 是根据数据源list中一个对象的某个属性，case是对象的值，采用对应的cell-slot</span><br><span class="line">&lt;recycle-list for=&quot;(item, i) in longList&quot; switch=&quot;type&quot;&gt;</span><br><span class="line">  &lt;cell-slot case=&quot;A&quot;&gt;</span><br><span class="line">    &lt;text&gt;- A &#123;&#123;i&#125;&#125; -&lt;/text&gt;</span><br><span class="line">  &lt;/cell-slot&gt;</span><br><span class="line">  &lt;cell-slot case=&quot;B&quot;&gt;</span><br><span class="line">    &lt;text&gt;- B &#123;&#123;i&#125;&#125; -&lt;/text&gt;</span><br><span class="line">  &lt;/cell-slot&gt;</span><br><span class="line">&lt;/recycle-list&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;recycle-list class=&quot;list&quot; for=&quot;(item, i) in floors&quot; switch=&quot;type&quot;&gt;</span><br><span class="line">    &lt;cell-slot case=&quot;floor&quot; :key=&quot;i&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;floor&quot;&gt;</span><br><span class="line">        &lt;text class=&quot;title&quot;&gt;&#123;&#123;item.title&#125;&#125;&lt;/text&gt;</span><br><span class="line">        &lt;text class=&quot;desc&quot; lines=&quot;2&quot;&gt;&#123;&#123;item.desc&#125;&#125;&lt;/text&gt;</span><br><span class="line">        &lt;div class=&quot;image-section&quot;&gt;</span><br><span class="line">          &lt;image class=&quot;image&quot; :src=&quot;source&quot; v-for=&quot;(source, i) in item.pictures&quot; :key=&quot;i&quot; /&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;text class=&quot;comment&quot;&gt;&#123;&#123;item.count&#125;&#125; 人说好&lt;/text&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/cell-slot&gt;</span><br><span class="line">  &lt;/recycle-list&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
 <ul>
-<li><strong>cell-slot</strong> 唯一子组件</li>
+<li><strong>cell-slot</strong> 唯一子组件<hr>
+
+</li>
+</ul>
+<h3 id="scroller-滚动视图"><a href="#scroller-滚动视图" class="headerlink" title="scroller 滚动视图"></a>scroller 滚动视图</h3><ul>
+<li>支持上拉加载，下拉刷新。<code>&lt;refresh&gt;&lt;loading&gt;</code></li>
+<li>属性<ul>
+<li>show-scrollbar 是否显示滚动条</li>
+<li>scroll-direction 设置滚动方向</li>
+<li>loadmoreoffset 出发loadmore 时间的垂直距离</li>
+<li>offset-accuracy 出发scroll时间的距离频率</li>
+<li>scrollToBegin 内容改变时 是否自动滚动到顶部，默认是true </li>
+</ul>
+</li>
+<li>事件<ul>
+<li><code>loadmore</code> 如果滚动到底部将会立即触发这个事件</li>
+<li><code>scroll</code> 列表发生滚动时将会触发该事件</li>
+<li><code>scrollstart</code> 列表开始滚动时触发</li>
+<li><code>scrollend</code> 列表结束滚动时触发</li>
+<li>事件对象 handleScroll(event) / event.contentSize / event.width / event.height / event.contentOffset / event.x / event.y  </li>
+</ul>
+</li>
+<li>扩展<ul>
+<li><code>scrollToElement(node, options)</code>  node 是节点name；option可以设置<code>{offset:20}</code> 滚动到某个元素 偏移20</li>
+</ul>
+</li>
+<li>嵌套scroller 点击左右切换 电梯效果</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1.scroller 的事件，scroll scrollstart scrollend</span><br><span class="line">&lt;scroller class=&quot;list&quot; @scroll=&quot;scroll&quot; @scrollstart=&quot;scrollStart&quot; @scrollend=&quot;scrollEnd&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;row&quot; v-for=&quot;row in rows&quot; :key=&quot;row.id&quot;&gt;</span><br><span class="line">      &lt;text class=&quot;text&quot;&gt;&#123;&#123;row.name&#125;&#125;&lt;/text&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/scroller&gt;</span><br><span class="line"></span><br><span class="line">&lt;scroller class=&quot;wrapper&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;floor&quot; v-for=&quot;(name, index) in floors&quot; :ref=&quot;&apos;floor&apos;+name&quot;&gt;</span><br><span class="line">      &lt;text class=&quot;floor-title&quot;&gt;- &#123;&#123;name&#125;&#125; -&lt;/text&gt;</span><br><span class="line">      &lt;div class=&quot;goods&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;scroller class=&quot;elevator&quot; scroll-direction=&quot;horizontal&quot; show-scrollbar=&quot;false&quot;&gt;</span><br><span class="line">      &lt;text class=&quot;elevator-title&quot;&gt;主要会场：&lt;/text&gt;</span><br><span class="line">      &lt;div class=&quot;elevator-item&quot; v-for=&quot;(name, index) in floors&quot; :ref=&quot;&apos;item&apos;+index&quot; @click=&quot;go2floor($event, &apos;floor&apos;+name)&quot;&gt;</span><br><span class="line">        &lt;text class=&quot;item-text&quot; :ref=&quot;&apos;text&apos;+index&quot;&gt;&#123;&#123;name&#125;&#125;&lt;/text&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/scroller&gt;</span><br><span class="line">&lt;/scroller&gt;</span><br><span class="line">  </span><br><span class="line">  2.go2floor($event, &apos;floor&apos;+name) 控制着本层的左右切换，并控制上层scroller的子视图滚动到顶部</span><br><span class="line"></span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    go2floor: function(event, refId) &#123;</span><br><span class="line">         // 获取点击的横向tab</span><br><span class="line">        const target = event.target;</span><br><span class="line">        </span><br><span class="line">        // 获取点击的纵向关联组件</span><br><span class="line">        const ref = this.$refs[refId];</span><br><span class="line">        </span><br><span class="line">        const el = ref ? ref[0] : null;</span><br><span class="line">        </span><br><span class="line">        // 控制横向的滑动到可见区域 -300 位置</span><br><span class="line">        dom.scrollToElement(target, &#123;offset: -300&#125;);</span><br><span class="line">        if (el) &#123;</span><br><span class="line">          // 滑动到垂直可见区域，偏移-60</span><br><span class="line">          dom.scrollToElement(el, &#123;offset: -60&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p><hr></p>
+<h3 id="slider-组件-轮播图-一个页面中加载多个图片，循环播放"><a href="#slider-组件-轮播图-一个页面中加载多个图片，循环播放" class="headerlink" title="slider 组件 轮播图 一个页面中加载多个图片，循环播放"></a>slider 组件 轮播图 一个页面中加载多个图片，循环播放</h3><ul>
+<li>子组件 可以是任何组件作为slider的子组件</li>
+<li>属性 <ul>
+<li>auto-play 自动循环播放，默认是false</li>
+<li>interval 轮播间隔 默认3000ms</li>
+<li>index  设置默认显示的第几个页面</li>
+<li>offset-x-accuracy 触发scroll事件滚动的频率</li>
+<li>show-indicators 是否显示指示器</li>
+<li>infinite 是否可以无限轮播</li>
+<li>scrollable 是否允许手势切换页面，默认true</li>
+<li>keep-index android 是否数据源变化之后，index保持不变</li>
+<li>forbid-slide-animation  iOS默认是开启动画，使用该属性可以强制关闭切换时的动画</li>
+</ul>
+</li>
+<li>样式 通用样式</li>
+<li>事件 通用事件外 change / scroll 事件<ul>
+<li>change(event)当轮播图下表改变时，触发change事件，参数有index，下标</li>
+<li>scroll 当发生滚动的时候出发，参数offsetXRatio 当前图片的偏移比例 [-1,1]</li>
+</ul>
+</li>
+<li>实例</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">indicator 作为slider的子组件</span><br><span class="line">&lt;slider class=<span class="string">"slider"</span> interval=<span class="string">"3000"</span> <span class="attribute">auto</span>-play=<span class="string">"true"</span>&gt;</span><br><span class="line">  &lt;<span class="selector-tag">div</span> class=<span class="string">"frame"</span> v-<span class="keyword">for</span>=<span class="string">"img in imageList"</span>&gt;</span><br><span class="line">    &lt;image class=<span class="string">"image"</span> <span class="attribute">resize</span>=<span class="string">"cover"</span> :src=<span class="string">"img.src"</span>&gt;&lt;/image&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">   </span><br><span class="line">   &lt;indicator class=<span class="string">"indicator"</span>&gt;&lt;/indicator&gt;</span><br><span class="line">&lt;/slider&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置整体颜色background-color；  指示点半径item-size ； 指示器的颜色item-color ；  指示器选中的颜色item-selected-color </span></span><br><span class="line">&lt;css&gt;</span><br><span class="line"> <span class="selector-class">.indicator</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    item-<span class="attribute">color</span>: <span class="number">#ddd</span>;</span><br><span class="line">    item-selected-<span class="attribute">color</span>: rgb(<span class="number">0</span>, <span class="number">180</span>, <span class="number">255</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/css&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="input-输入框组件"><a href="#input-输入框组件" class="headerlink" title="input 输入框组件"></a>input 输入框组件</h3><ul>
+<li>用来接收用户的字符串输入，不支持click方法，有input 方法，change方法替代，不支持子组件</li>
+<li>属性<ul>
+<li>type 控件的类型 text / date / time / datetime / email / passworld / tel / url / number</li>
+<li>value 默认内容</li>
+<li>placeholder 占位符 不能有回车或换行</li>
+<li>autofocus 是否自动聚焦</li>
+<li>return-key-type 回车类型 default / go / next / search / send / done </li>
+<li>singleline 控制内容 是否显示1行</li>
+<li>maxlength  数值类型采用maxlength 控制输入的最大长度</li>
+<li>max-length  控制输入内容的的最大长度 字符串长度，中英文占位都为1 </li>
+<li>max date类型的时候 选择最大时间</li>
+<li>min date类型的时候，选择的最小时间</li>
+<li>upriseOffset 弹出的键盘挡住输入框的时候 输入框会自动向上，upriseOffset 是设置键盘 与滑动之后的输入框间距 默认是20 </li>
+<li>hideDoneButton  隐藏键盘上的完成按钮 默认是false</li>
+</ul>
+</li>
+<li>样式<ul>
+<li>placeholder-color 占位符的颜色</li>
+<li>伪类 <code>:active</code> <code>:focus</code> <code>:disable</code> <code>:enable</code> </li>
+</ul>
+</li>
+<li>事件<ul>
+<li>支持通用事件</li>
+<li>input 输入中不断触发handleInput(value)</li>
+<li>change  输入完成之后触发handleChange(value) </li>
+<li>focus  获取焦点的时候触发 handelFocus()</li>
+<li>blur  失去焦点的时候触发handleBlur()</li>
+<li>return 用户输入右下角的回车触发 handleReturn(value,returnType)</li>
+<li>keyboard 当键盘弹出 隐藏的时候触发 handleKeboard(isshow,keyboardSize)</li>
+</ul>
+</li>
+<li><p>组件方法</p>
+<ul>
+<li>focus() 让组件聚焦</li>
+<li>blur() 让组件失去焦点</li>
+<li>setSelectionRange(selectionStart,selectionEnd)  设置文本选区</li>
+<li>getSelectionRange(function(params){}) 获取文本选区</li>
+<li><p>setTextFormatter(params) 对输入的内容进行 进行正则匹配</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">formatRule 格式化匹配的正则表达式</span><br><span class="line">formatReplace 格式化匹配后用于替换的内容</span><br><span class="line">recoverRule 从格式化后的内容还原原始内容的正则表达式</span><br><span class="line">recoverReplace 还原原始内容时用于替换的内容</span><br><span class="line"></span><br><span class="line">this.$refs.input1.setTextFormatter(&#123;</span><br><span class="line">    formatRule: &quot;/(\\d&#123;4&#125;)(?!$)/g&quot;,</span><br><span class="line">    formatReplace: &quot;$1#&quot;,</span><br><span class="line">    recoverRule: &quot;/#/g&quot;,</span><br><span class="line">    recoverReplace: &quot;&quot;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>示例 </p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;input class=&quot;input&quot; type=&quot;date&quot;/&gt;</span><br><span class="line">&lt;input class=&quot;input&quot; type=&quot;time&quot; /&gt;</span><br><span class="line">&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;default&quot; return-key-type=&quot;default&quot; /&gt;</span><br><span class="line">&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;go&quot; return-key-type=&quot;go&quot; /&gt;</span><br><span class="line">&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;next&quot; return-key-type=&quot;next&quot; /&gt;</span><br><span class="line">&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;search&quot; return-key-type=&quot;search&quot; /&gt;</span><br><span class="line">&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;send&quot; return-key-type=&quot;send&quot; /&gt;</span><br><span class="line">&lt;input class=&quot;input&quot; type=&quot;text&quot; placeholder=&quot;done&quot; return-key-type=&quot;done&quot; /&gt;</span><br><span class="line"></span><br><span class="line">&lt;input ref=&quot;widget&quot; class=&quot;input&quot; type=&quot;text&quot; @focus=&quot;handleFocus&quot; @blur=&quot;handleBlur&quot; @return=&quot;handleReturn&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="textarea-支持多行输入"><a href="#textarea-支持多行输入" class="headerlink" title="textarea 支持多行输入"></a>textarea 支持多行输入</h3><ul>
+<li>支持input所有的事件，属性 样式</li>
+<li>属性 row 控制输入的行数</li>
+</ul>
+<hr>
+
+<h3 id="waterfall-瀑布流-collectionView"><a href="#waterfall-瀑布流-collectionView" class="headerlink" title="waterfall 瀑布流 /collectionView?"></a>waterfall 瀑布流 /collectionView?</h3><blockquote>
+<p>类似iOS 多行 collectionview控制瀑布流 </p>
+</blockquote>
+<ul>
+<li>子组件 只能是四种组件 和 fix定位组件 refresh header cell loading</li>
+<li>属性 <ul>
+<li>show-scrollbar 是否显示出现滚动条 </li>
+<li>column-count 控制显示的列数 auto:根据column-width一列宽自动显示；number</li>
+<li>column-width 一列的宽度 auto:根据column-count自动分割；number</li>
+<li>column-gap 列之间的间隙 默认是32</li>
+<li>left-gap 左侧cell与边框的间距</li>
+<li>right-gap 右侧cell与边框的间距</li>
+</ul>
+</li>
+<li>事件 支持所有的通用事件；click；longpress；appear;disappear</li>
+<li>实例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;waterfall class=&quot;page&quot; ref=&quot;waterfall&quot;</span><br><span class="line">  :column-width=&quot;columnWidth&quot; :column-count=&quot;columnCount&quot; :column-gap=&quot;columnGap&quot;</span><br><span class="line">  :show-scrollbar=&quot;showScrollbar&quot; :scrollable=&quot;scrollable&quot;</span><br><span class="line">  @scroll=&quot;recylerScroll&quot; @loadmore=&quot;loadmore&quot; loadmoreoffset=3000</span><br><span class="line">  &gt;</span><br><span class="line">    </span><br><span class="line">    &lt;refresh class=&quot;refresh&quot; @refresh=&quot;onrefresh&quot;  @pullingdown=&quot;onpullingdown&quot; </span><br><span class="line">            :display=&quot;refreshing ? &apos;show&apos; : &apos;hide&apos;&quot;&gt;</span><br><span class="line">          &lt;loading-indicator class=&quot;indicator&quot;&gt;&lt;/loading-indicator&gt;</span><br><span class="line">          &lt;text class=&quot;refreshText&quot;&gt;&#123;&#123;refreshText&#125;&#125;&lt;/text&gt;</span><br><span class="line">    &lt;/refresh&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;header class=&quot;stickyHeader&quot; &gt;</span><br><span class="line">      &lt;div v-if=&quot;stickyHeaderType === &apos;none&apos;&quot; class=&quot;stickyWrapper&quot;&gt;</span><br><span class="line">        &lt;text class=&quot;stickyText&quot;&gt;Header&lt;/text&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/header&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;cell v-for=&quot;(item, index) in items&quot; :key=&quot;item.src&quot; class=&quot;cell&quot; ref=&quot;index&quot;&gt;</span><br><span class="line">      &lt;div class=&quot;item&quot; @click=&quot;onItemclick(item.behaviour, index)&quot; @appear=&quot;itemAppear(item.src)&quot; @disappear=&quot;itemDisappear(item.src)&quot;&gt;</span><br><span class="line">        &lt;text v-if=&quot;item.name&quot; class=&quot;itemName&quot;&gt;&#123;&#123;item.name&#125;&#125;&lt;/text&gt;</span><br><span class="line">        &lt;image class=&quot;itemPhoto&quot; :src=&quot;item.src&quot;&gt;&lt;/image&gt;</span><br><span class="line">        &lt;text v-if=&quot;item.desc&quot; class=&quot;itemDesc&quot;&gt;&#123;&#123;item.desc&#125;&#125;&lt;/text&gt;</span><br><span class="line">        &lt;text v-if=&quot;item.behaviourName&quot; class=&quot;itemClickBehaviour&quot;&gt; &#123;&#123;item.behaviourName&#125;&#125;&lt;/text&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/cell&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;header class=&quot;footer&quot; ref=&quot;footer&quot;&gt;</span><br><span class="line">      &lt;text class=&quot;stickyText&quot;&gt;Footer&lt;/text&gt;</span><br><span class="line">    &lt;/header&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;div ref=&quot;fixed&quot; class=&quot;fixedItem&quot; @click=&quot;scrollToNext&quot;&gt;</span><br><span class="line">      &lt;text class=&quot;fixedText&quot;&gt;bot&lt;/text&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;/waterfall&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="video-嵌入视频内容"><a href="#video-嵌入视频内容" class="headerlink" title="video 嵌入视频内容"></a>video 嵌入视频内容</h3><ul>
+<li>text是唯一合法子组件</li>
+<li>属性 <ul>
+<li>src 内嵌指向的URL </li>
+<li>play-status 设置播放状态 ‘play’ ；‘pause’ </li>
+<li>auto-play 是否默认播放 默认是false</li>
+<li>poster 制定视频首图的图片链接</li>
+<li>controls 是否显示回放控制面板 值‘controls’；‘nocontrols’ 默认显示‘controls’</li>
+</ul>
+</li>
+<li>样式 默认支持所有通用样式</li>
+<li>事件 <ul>
+<li>start 当 playback 的状态是 Playing 时触发。</li>
+<li>pause 当 playback 的状态是 Paused 时触发。</li>
+<li>finish 当 playback 的状态是 Finished 时触发。</li>
+<li>fail 当 playback 状态是 Failed 时触发</li>
+</ul>
+</li>
+<li>示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;video class=&quot;video&quot; :src=&quot;src&quot; autoplay controls</span><br><span class="line">         @start=&quot;onstart&quot; @pause=&quot;onpause&quot; @finish=&quot;onfinish&quot; @fail=&quot;onfail&quot;&gt;&lt;/video&gt;</span><br><span class="line">     &lt;text class=&quot;info&quot;&gt;state: &#123;&#123;state&#125;&#125;&lt;/text&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> </span><br><span class="line"> &lt;div&gt;</span><br><span class="line">   &lt;video class=&quot;video&quot; :src=&quot;src&quot; :play-status=&quot;state&quot;&gt;&lt;/video&gt;</span><br><span class="line">   &lt;text class=&quot;btn&quot; @click=&quot;onclick&quot;&gt;&#123;&#123;state === &apos;pause&apos; ? &apos;播放&apos; : &apos;暂停&apos; &#125;&#125;&lt;/text&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> onclick (event) &#123;</span><br><span class="line">   const currState = this.state;</span><br><span class="line">   console.log(currState);</span><br><span class="line">   this.state = currState === &apos;pause&apos; ? &apos;play&apos; : &apos;pause&apos;;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="web-网页组件"><a href="#web-网页组件" class="headerlink" title="web 网页组件"></a>web 网页组件</h3><blockquote>
+<p>用于在 WEEX 页面中显示由 src 属性指定的网页内容</p>
+</blockquote>
+<ul>
+<li>不支持嵌套任何组件；必须指定宽高，否则不会起作用</li>
+<li>属性 src</li>
+<li>事件 appear;disappear;pagestart;pagefinish;error;receivedtitle;<ul>
+<li>pagestart会在开始加载的时候调用 </li>
+<li>pagefinish会在web加载完成之后调用</li>
+<li>error加载失败调用</li>
+<li>receivedtitle加载web标题变化之后调用，android平台支持</li>
+</ul>
+</li>
+<li>借助webview module，对网页前进后退，刷新操作 </li>
+<li>示例</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrapper&quot;&gt;</span><br><span class="line">   &lt;web @pagestart=&quot;onPageStart&quot; </span><br><span class="line">       @pagefinish=&quot;onPageFinish&quot; </span><br><span class="line">       @error=&quot;onError&quot; </span><br><span class="line">       src=&quot;https://www.taobao.com/&quot;&gt;</span><br><span class="line">    &lt;/web&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"> </span><br><span class="line"> methods: &#123;</span><br><span class="line">     goBack: function() &#123;</span><br><span class="line">       var webview = weex.requireModule(&apos;webview&apos;);</span><br><span class="line">       webview.goBack(this.$refs.webview);</span><br><span class="line">     &#125;,</span><br><span class="line">     goForward: function() &#123;</span><br><span class="line">       var webview = weex.requireModule(&apos;webview&apos;);</span><br><span class="line">       webview.goForward(this.$refs.webview);</span><br><span class="line">     &#125;,</span><br><span class="line">     reload: function() &#123;</span><br><span class="line">       var webview = weex.requireModule(&apos;webview&apos;);</span><br><span class="line">       webview.reload(this.$refs.webview);</span><br><span class="line">     &#125;,</span><br><span class="line">     onPageStart: function(e) &#123;</span><br><span class="line">       this.pagestart = e.url;</span><br><span class="line">     &#125;,</span><br><span class="line">     onPageFinish: function(e) &#123;</span><br><span class="line">       this.pagefinish = e.url;</span><br><span class="line">       this.canGoBack = e.canGoBack;</span><br><span class="line">       this.canGoForward = e.canGoForward;</span><br><span class="line">       if (e.title) &#123;</span><br><span class="line">         this.title = e.title;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;,</span><br><span class="line">     onError: function(e) &#123;</span><br><span class="line">       this.error = url;</span><br><span class="line">     &#125;,</span><br><span class="line">     onReceivedTitle: function(e) &#123;</span><br><span class="line">       this.title = e.title;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+ <hr>
+
+<h3 id="richtext-富文本"><a href="#richtext-富文本" class="headerlink" title="richtext 富文本"></a>richtext 富文本</h3><blockquote>
+<p>富文本组件 可以内嵌span a image,也可以被前面三个嵌套；span a 标签 是行内标签，image被显示为display:inline-block;循环嵌套不能超过255层，超过会被忽略<br>子组件a 标签 在iOS上恒定是blue 样式，android上无限制 ；image 必须指定width，height；</p>
+</blockquote>
+<ul>
+<li>属性 子节点的属性<ul>
+<li>image的属性 src图片链接； pseudo-ref. 开发者指定的索引，会被传给回调方法 itemclick</li>
+<li>a标签的属性 href 链接</li>
+<li>span标签不支持任何属性，文本需要包在span里面，例<code>&lt;span&gt;Hello World&lt;/span&gt;</code></li>
+</ul>
+</li>
+<li>样式 富文本和三种子组件拥有的样式<ul>
+<li><strong><span>, <a> 和 <richtext></richtext></a></span></strong>：color，font-family，font-size, font-style, font-width, line-height; 不可被继承的background-color</li>
+<li><strong>span</strong> text-decoration: none | underline | line-through, 默认值是 none</li>
+<li><strong>richtext</strong> lines: 最大行数，必须为正数</li>
+<li><strong>image</strong> width / height</li>
+</ul>
+</li>
+<li>事件 支持所有的通用样式 和 <strong>itemclick</strong>，<ul>
+<li>itemclick触发时机； image被点击；没有任何父级a节点；image的pseude-ref作为参数回传，可进行判断</li>
+</ul>
+</li>
+<li><p>示例 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">  &lt;div&gt;</span><br><span class="line">        &lt;richtext @itemclick=&quot;listener&quot; style=&quot;color:red;text-overflow:ellipsis&quot;&gt;</span><br><span class="line">            &lt;span&gt;link&lt;/span&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;a href=&quot;http://t.cn?_wx_tpl=http://g.tbcdn.cn/ali-wireless-h5/res/0.0.16/hello.js&quot;&gt;</span><br><span class="line">                &lt;image style=&quot;width:150; height:150&quot; src=&quot;https://img.alicdn.com/tps/i2/TB1hRb1IXXXXXX3XVXXXQaP.pXX-87-87.jpeg&quot; pseudo-ref=&quot;22&quot;&gt;&lt;/image&gt;</span><br><span class="line">                &lt;span style=&quot;font-size:42;color:#FF5400;&quot;&gt;TAOBAO&lt;/span&gt;</span><br><span class="line">            &lt;/a&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;image style=&quot;width:300; height:300&quot; src=&quot;http://www.fresher.ru/manager_content/images2/kadry-veka/big/2-1.jpg&quot; pseudo-ref=&quot;23&quot;&gt;&lt;/image&gt;</span><br><span class="line">            </span><br><span class="line">            &lt;span&gt;继承Transition继承Transition继承Transition继承Transition继承Transition继承Transition继承Transition继承Transition继承Transition&lt;/span&gt;</span><br><span class="line">        &lt;/richtext&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">    listener: function (foo) &#123;</span><br><span class="line">        var modal = weex.requireModule(&apos;modal&apos;);</span><br><span class="line">        modal.toast(&#123;</span><br><span class="line">        &apos;message&apos;: &apos;My pseudoRef is&apos;+foo.pseudoRef,</span><br><span class="line">        &apos;duration&apos;: 3</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -794,7 +987,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Weex-内置组件"><span class="nav-number">1.</span> <span class="nav-text">Weex 内置组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a标签-实现页面之间跳转"><span class="nav-number">1.1.</span> <span class="nav-text">a标签 实现页面之间跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#div标签-通用容器"><span class="nav-number">1.2.</span> <span class="nav-text">div标签 -通用容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text组件-渲染文本"><span class="nav-number">1.3.</span> <span class="nav-text">text组件 渲染文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#image-图片组件"><span class="nav-number">1.4.</span> <span class="nav-text">image 图片组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list-组件-长列表-cell"><span class="nav-number">1.5.</span> <span class="nav-text">list 组件 长列表 cell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recycle-list-组件-具有回收-复用的能力-大幅优化内存-和渲染性能"><span class="nav-number">1.6.</span> <span class="nav-text">recycle-list 组件 具有回收 复用的能力 大幅优化内存 和渲染性能</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Weex-内置组件"><span class="nav-number">1.</span> <span class="nav-text">Weex 内置组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a标签-实现页面之间跳转"><span class="nav-number">1.1.</span> <span class="nav-text">a标签 实现页面之间跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#div标签-通用容器"><span class="nav-number">1.2.</span> <span class="nav-text">div标签 -通用容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text组件-渲染文本"><span class="nav-number">1.3.</span> <span class="nav-text">text组件 渲染文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#image-图片组件"><span class="nav-number">1.4.</span> <span class="nav-text">image 图片组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list-组件-长列表-cell"><span class="nav-number">1.5.</span> <span class="nav-text">list 组件 长列表 cell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recycle-list-组件-具有回收-复用的能力-大幅优化内存-和渲染性能"><span class="nav-number">1.6.</span> <span class="nav-text">recycle-list 组件 具有回收 复用的能力 大幅优化内存 和渲染性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scroller-滚动视图"><span class="nav-number">1.7.</span> <span class="nav-text">scroller 滚动视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slider-组件-轮播图-一个页面中加载多个图片，循环播放"><span class="nav-number">1.8.</span> <span class="nav-text">slider 组件 轮播图 一个页面中加载多个图片，循环播放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#input-输入框组件"><span class="nav-number">1.9.</span> <span class="nav-text">input 输入框组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#textarea-支持多行输入"><span class="nav-number">1.10.</span> <span class="nav-text">textarea 支持多行输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#waterfall-瀑布流-collectionView"><span class="nav-number">1.11.</span> <span class="nav-text">waterfall 瀑布流 /collectionView?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#video-嵌入视频内容"><span class="nav-number">1.12.</span> <span class="nav-text">video 嵌入视频内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web-网页组件"><span class="nav-number">1.13.</span> <span class="nav-text">web 网页组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#richtext-富文本"><span class="nav-number">1.14.</span> <span class="nav-text">richtext 富文本</span></a></li></ol></li></ol></div>
             
 
           </div>
