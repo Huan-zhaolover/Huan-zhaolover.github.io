@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.mayyutao.cn/"/>
-  <updated>2019-04-24T07:02:52.715Z</updated>
+  <updated>2019-07-12T02:40:25.473Z</updated>
   <id>https://www.mayyutao.cn/</id>
   
   <author>
@@ -17,11 +17,205 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Weex学习笔记3</title>
-    <link href="https://www.mayyutao.cn/2019/03/04/Vue/Weex%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
-    <id>https://www.mayyutao.cn/2019/03/04/Vue/Weex学习笔记3/</id>
+    <title>swift-xmg07</title>
+    <link href="https://www.mayyutao.cn/2019/03/09/iOS/swift-xmg07/"/>
+    <id>https://www.mayyutao.cn/2019/03/09/iOS/swift-xmg07/</id>
+    <published>2019-03-09T00:40:00.000Z</published>
+    <updated>2019-07-12T02:40:25.473Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg06</title>
+    <link href="https://www.mayyutao.cn/2019/03/08/iOS/swift-xmg06/"/>
+    <id>https://www.mayyutao.cn/2019/03/08/iOS/swift-xmg06/</id>
+    <published>2019-03-08T00:40:00.000Z</published>
+    <updated>2019-07-12T03:05:04.466Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg05</title>
+    <link href="https://www.mayyutao.cn/2019/03/07/iOS/swift-xmg05/"/>
+    <id>https://www.mayyutao.cn/2019/03/07/iOS/swift-xmg05/</id>
+    <published>2019-03-07T00:40:00.000Z</published>
+    <updated>2019-07-12T03:02:12.312Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg04</title>
+    <link href="https://www.mayyutao.cn/2019/03/06/iOS/swift-xmg04/"/>
+    <id>https://www.mayyutao.cn/2019/03/06/iOS/swift-xmg04/</id>
+    <published>2019-03-06T00:40:00.000Z</published>
+    <updated>2019-07-12T02:51:30.715Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg03</title>
+    <link href="https://www.mayyutao.cn/2019/03/05/iOS/swift-xmg03/"/>
+    <id>https://www.mayyutao.cn/2019/03/05/iOS/swift-xmg03/</id>
+    <published>2019-03-05T00:40:00.000Z</published>
+    <updated>2019-07-12T02:46:47.808Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg02</title>
+    <link href="https://www.mayyutao.cn/2019/03/04/iOS/swift-xmg02/"/>
+    <id>https://www.mayyutao.cn/2019/03/04/iOS/swift-xmg02/</id>
     <published>2019-03-04T00:40:00.000Z</published>
-    <updated>2019-04-24T07:02:52.715Z</updated>
+    <updated>2019-07-12T02:45:11.513Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Weex应用笔记1</title>
+    <link href="https://www.mayyutao.cn/2019/03/03/Vue/Weex%E5%BA%94%E7%94%A8%E7%AC%94%E8%AE%B01/"/>
+    <id>https://www.mayyutao.cn/2019/03/03/Vue/Weex应用笔记1/</id>
+    <published>2019-03-03T00:40:00.000Z</published>
+    <updated>2019-07-12T02:42:38.710Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Weex" scheme="https://www.mayyutao.cn/categories/Weex/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Weex学习笔记3</title>
+    <link href="https://www.mayyutao.cn/2019/03/02/Vue/Weex%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
+    <id>https://www.mayyutao.cn/2019/03/02/Vue/Weex学习笔记3/</id>
+    <published>2019-03-02T00:46:00.000Z</published>
+    <updated>2019-07-12T02:42:40.944Z</updated>
     
     <summary type="html">
     
@@ -44,10 +238,10 @@
   
   <entry>
     <title>Weex学习笔记2</title>
-    <link href="https://www.mayyutao.cn/2019/03/03/Vue/Weex%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
-    <id>https://www.mayyutao.cn/2019/03/03/Vue/Weex学习笔记2/</id>
-    <published>2019-03-03T00:40:00.000Z</published>
-    <updated>2019-04-20T02:21:38.579Z</updated>
+    <link href="https://www.mayyutao.cn/2019/03/02/Vue/Weex%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
+    <id>https://www.mayyutao.cn/2019/03/02/Vue/Weex学习笔记2/</id>
+    <published>2019-03-02T00:45:00.000Z</published>
+    <updated>2019-07-12T02:42:40.938Z</updated>
     
     <summary type="html">
     
@@ -99,7 +293,7 @@
     <link href="https://www.mayyutao.cn/2019/03/01/Vue/Weex%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     <id>https://www.mayyutao.cn/2019/03/01/Vue/Weex环境配置/</id>
     <published>2019-03-01T00:40:00.000Z</published>
-    <updated>2019-03-22T05:38:49.197Z</updated>
+    <updated>2019-07-12T02:42:40.932Z</updated>
     
     <summary type="html">
     
@@ -117,6 +311,36 @@
     
     
       <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android-web01-Java</title>
+    <link href="https://www.mayyutao.cn/2019/01/02/Android/Android-web01/"/>
+    <id>https://www.mayyutao.cn/2019/01/02/Android/Android-web01/</id>
+    <published>2019-01-02T00:39:00.000Z</published>
+    <updated>2019-07-12T02:35:21.262Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://www.mayyutao.cn/categories/Android/"/>
+    
+      <category term="Java" scheme="https://www.mayyutao.cn/categories/Android/Java/"/>
+    
+    
+      <category term="Android" scheme="https://www.mayyutao.cn/tags/Android/"/>
+    
+      <category term="Java" scheme="https://www.mayyutao.cn/tags/Java/"/>
     
   </entry>
   
@@ -169,6 +393,58 @@
     
     
       <category term="前端环境" scheme="https://www.mayyutao.cn/tags/%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试笔记1</title>
+    <link href="https://www.mayyutao.cn/2018/12/03/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B01/"/>
+    <id>https://www.mayyutao.cn/2018/12/03/面试/面试笔记1/</id>
+    <published>2018-12-03T00:39:00.000Z</published>
+    <updated>2019-05-14T01:44:31.085Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="面试" scheme="https://www.mayyutao.cn/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="iOS面试" scheme="https://www.mayyutao.cn/tags/iOS%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>300道iOS面试题（附参考答案）</title>
+    <link href="https://www.mayyutao.cn/2018/12/02/%E9%9D%A2%E8%AF%95/300iOS%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    <id>https://www.mayyutao.cn/2018/12/02/面试/300iOS面试题/</id>
+    <published>2018-12-02T00:39:00.000Z</published>
+    <updated>2019-05-07T07:22:42.722Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="面试" scheme="https://www.mayyutao.cn/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="iOS面试" scheme="https://www.mayyutao.cn/tags/iOS%E9%9D%A2%E8%AF%95/"/>
     
   </entry>
   
@@ -273,266 +549,6 @@
     
     
       <category term="面试" scheme="https://www.mayyutao.cn/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ECharts + Vue 配置使用总结</title>
-    <link href="https://www.mayyutao.cn/2018/10/30/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/Echarts/"/>
-    <id>https://www.mayyutao.cn/2018/10/30/前端技巧/Echarts/</id>
-    <published>2018-10-30T00:40:00.000Z</published>
-    <updated>2019-01-12T08:04:52.409Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="ECharts" scheme="https://www.mayyutao.cn/categories/ECharts/"/>
-    
-    
-      <category term="前端框架" scheme="https://www.mayyutao.cn/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery学习笔记03</title>
-    <link href="https://www.mayyutao.cn/2018/05/22/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/jQuery03/"/>
-    <id>https://www.mayyutao.cn/2018/05/22/前端技巧/jQuery03/</id>
-    <published>2018-05-22T00:40:00.000Z</published>
-    <updated>2018-12-29T13:04:58.602Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="jQuery" scheme="https://www.mayyutao.cn/categories/jQuery/"/>
-    
-    
-      <category term="前端框架" scheme="https://www.mayyutao.cn/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery学习笔记02</title>
-    <link href="https://www.mayyutao.cn/2018/05/21/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/jQuery02/"/>
-    <id>https://www.mayyutao.cn/2018/05/21/前端技巧/jQuery02/</id>
-    <published>2018-05-21T00:40:00.000Z</published>
-    <updated>2018-12-25T22:54:00.822Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="jQuery" scheme="https://www.mayyutao.cn/categories/jQuery/"/>
-    
-    
-      <category term="前端框架" scheme="https://www.mayyutao.cn/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jQuery学习笔记01</title>
-    <link href="https://www.mayyutao.cn/2018/05/21/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/jQuery01/"/>
-    <id>https://www.mayyutao.cn/2018/05/21/前端技巧/jQuery01/</id>
-    <published>2018-05-21T00:39:00.000Z</published>
-    <updated>2018-12-21T13:57:58.065Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="jQuery" scheme="https://www.mayyutao.cn/categories/jQuery/"/>
-    
-    
-      <category term="前端框架" scheme="https://www.mayyutao.cn/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>W3C-HTML补充</title>
-    <link href="https://www.mayyutao.cn/2018/05/02/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/w3cschool-html%E8%A1%A5%E5%85%85/"/>
-    <id>https://www.mayyutao.cn/2018/05/02/前端技巧/w3cschool-html补充/</id>
-    <published>2018-05-02T00:40:00.000Z</published>
-    <updated>2019-03-22T05:38:52.605Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="HTML" scheme="https://www.mayyutao.cn/categories/HTML/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>W3C-HTML</title>
-    <link href="https://www.mayyutao.cn/2018/05/01/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/w3cschool-html/"/>
-    <id>https://www.mayyutao.cn/2018/05/01/前端技巧/w3cschool-html/</id>
-    <published>2018-05-01T00:40:00.000Z</published>
-    <updated>2019-01-26T02:59:39.818Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="HTML" scheme="https://www.mayyutao.cn/categories/HTML/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>函数式编程-链式编程</title>
-    <link href="https://www.mayyutao.cn/2017/06/13/2017b/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B-%E9%93%BE%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
-    <id>https://www.mayyutao.cn/2017/06/13/2017b/函数式编程-链式编程/</id>
-    <published>2017-06-13T12:39:00.000Z</published>
-    <updated>2018-12-01T03:26:59.138Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="runloop" scheme="https://www.mayyutao.cn/tags/runloop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>runTime</title>
-    <link href="https://www.mayyutao.cn/2017/02/13/2017b/runTime/"/>
-    <id>https://www.mayyutao.cn/2017/02/13/2017b/runTime/</id>
-    <published>2017-02-13T12:39:00.000Z</published>
-    <updated>2018-12-01T03:28:28.192Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="runTime" scheme="https://www.mayyutao.cn/tags/runTime/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>runloop解决Cell上主线程卡顿</title>
-    <link href="https://www.mayyutao.cn/2017/02/12/2017b/runloop%E8%A7%A3%E5%86%B3Cell%E4%B8%8A%E4%B8%BB%E7%BA%BF%E7%A8%8B%E5%8D%A1%E9%A1%BF/"/>
-    <id>https://www.mayyutao.cn/2017/02/12/2017b/runloop解决Cell上主线程卡顿/</id>
-    <published>2017-02-12T12:39:00.000Z</published>
-    <updated>2018-12-01T03:27:31.176Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="runloop" scheme="https://www.mayyutao.cn/tags/runloop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>图片打码(系统自带 VS openCV)</title>
-    <link href="https://www.mayyutao.cn/2017/02/10/2017b/%E5%9B%BE%E7%89%87%E6%89%93%E7%A0%81(%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%20VS%20openVC)/"/>
-    <id>https://www.mayyutao.cn/2017/02/10/2017b/图片打码(系统自带 VS openVC)/</id>
-    <published>2017-02-10T12:39:00.000Z</published>
-    <updated>2018-12-02T03:35:25.887Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="openVC" scheme="https://www.mayyutao.cn/tags/openVC/"/>
     
   </entry>
   
