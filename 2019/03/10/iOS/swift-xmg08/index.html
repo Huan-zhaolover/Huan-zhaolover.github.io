@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Maylover">
 <meta property="og:description" content="属性存储属性 在创建类和结构体时b必须为所有的存储属性设置一个合适的初始化值。 可以在初始化器为存储属性设置一个初始值 也可以在定义存储属性的时候给定默认值   类似成员变量这个概念 存储在实例的内存中 结构体。类中可以定义存储属性，枚举中不能定义存储属性计算属性 本质时函数/方法 不占用实例的内存 枚举，结构体，类都可以定义计算属性 计算属性 实现set /get 方法 存储属性只能用var,不">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-13T06:57:33.919Z">
+<meta property="og:updated_time" content="2019-07-14T22:33:20.774Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift-xmg08">
 <meta name="twitter:description" content="属性存储属性 在创建类和结构体时b必须为所有的存储属性设置一个合适的初始化值。 可以在初始化器为存储属性设置一个初始值 也可以在定义存储属性的时候给定默认值   类似成员变量这个概念 存储在实例的内存中 结构体。类中可以定义存储属性，枚举中不能定义存储属性计算属性 本质时函数/方法 不占用实例的内存 枚举，结构体，类都可以定义计算属性 计算属性 实现set /get 方法 存储属性只能用var,不">
@@ -467,7 +467,7 @@
 <h3 id="枚举rawValue原理"><a href="#枚举rawValue原理" class="headerlink" title="枚举rawValue原理"></a>枚举rawValue原理</h3><ul>
 <li>枚举原始值rawValue的本质是:只读计算属性</li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">TestEnum</span> : <span class="title">Int</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> test1 = <span class="number">1</span>, test2 = <span class="number">2</span>, test3 = <span class="number">3</span></span><br><span class="line">    <span class="keyword">var</span> rawValue: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">            <span class="keyword">case</span> .test1:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">10</span></span><br><span class="line">            <span class="keyword">case</span> .test2:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">11</span></span><br><span class="line">            <span class="keyword">case</span> .test3:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">12</span> </span><br><span class="line">       &#125;</span><br><span class="line">   &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">TestEnum</span> : <span class="title">Int</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> test1 = <span class="number">1</span>, test2 = <span class="number">2</span>, test3 = <span class="number">3</span></span><br><span class="line">    <span class="keyword">var</span> rawValue: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">            <span class="keyword">case</span> .test1:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">10</span></span><br><span class="line">            <span class="keyword">case</span> .test2:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">11</span> </span><br><span class="line">            <span class="keyword">case</span> .test3:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">12</span> </span><br><span class="line">       &#125;</span><br><span class="line">   &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="延迟加载属性-lazy"><a href="#延迟加载属性-lazy" class="headerlink" title="延迟加载属性 lazy"></a>延迟加载属性 lazy</h3><ul>
 <li>使用lazy可以定义一个延迟存储属性，在第一次用到属性的时候才会进行初始化</li>
 <li>lazy属性必须是var，不能是let let必须在实例的初始化方法完成之前就拥有值</li>
@@ -666,7 +666,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
