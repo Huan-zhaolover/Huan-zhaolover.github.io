@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Maylover">
 <meta property="og:description" content="可选链(Optional Chaining) 如果可选项为nil，调用方法、下标、属性失败，结果为nil 如果可选项不为nil，调用方法、下标、属性成功，结果会被包装成可选项  如果结果本来就是可选项，不会进行再次包装  12345678910111213141516171819class Car &amp;#123; var price = 0 &amp;#125; class Dog &amp;#123; var w">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-17T08:41:09.070Z">
+<meta property="og:updated_time" content="2019-07-26T06:50:53.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift-xmg11">
 <meta name="twitter:description" content="可选链(Optional Chaining) 如果可选项为nil，调用方法、下标、属性失败，结果为nil 如果可选项不为nil，调用方法、下标、属性成功，结果会被包装成可选项  如果结果本来就是可选项，不会进行再次包装  12345678910111213141516171819class Car &amp;#123; var price = 0 &amp;#125; class Dog &amp;#123; var w">
@@ -513,7 +513,6 @@
 <li>Self一般用作返回值类型，限定返回值跟方法调用者必须是同一类型(也可以作为参数类型)</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span> -&gt; <span class="type">Self</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> : <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">init</span>() &#123; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span> -&gt; <span class="type">Self</span> &#123; </span><br><span class="line">        type(of: <span class="keyword">self</span>).<span class="keyword">init</span>() </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> : <span class="title">Person</span> </span>&#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="type">Person</span>()</span><br><span class="line"><span class="comment">// Person</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(p.test())</span><br><span class="line"><span class="keyword">var</span> stu = <span class="type">Student</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// Student</span></span><br><span class="line"><span class="built_in">print</span>(stu.test())</span><br></pre></td></tr></table></figure>
-
       
     </div>
     
@@ -566,8 +565,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/01/iOS/汇编学习1/" rel="prev" title="汇编学习1">
-                汇编学习1 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/14/iOS/swift-xmg12/" rel="prev" title="swift-xmg12">
+                swift-xmg12 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -650,7 +649,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-count">91</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
