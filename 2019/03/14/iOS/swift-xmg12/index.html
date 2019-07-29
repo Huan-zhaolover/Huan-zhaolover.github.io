@@ -89,10 +89,12 @@
 <meta property="og:site_name" content="Maylover">
 <meta property="og:description" content="补充 类型属性 staic var age ; 可以通过类型名Person调用，也可以通过Person.self调用的  12345// 下面都是调用init()方法var p0 = Person() // init var p1 = Person.self() // init var p2 = Person.init() // init var p3 = Person.self.init() /">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-26T06:48:15.971Z">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.21.12.png?80">
+<meta property="og:updated_time" content="2019-07-29T07:41:51.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift-xmg12">
 <meta name="twitter:description" content="补充 类型属性 staic var age ; 可以通过类型名Person调用，也可以通过Person.self调用的  12345// 下面都是调用init()方法var p0 = Person() // init var p1 = Person.self() // init var p2 = Person.init() // init var p3 = Person.self.init() /">
+<meta name="twitter:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.21.12.png?80">
 
 
 
@@ -547,7 +549,10 @@
 <li>some除了用在返回值类型上，一般还可以用在属性类型上</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Runnable</span> </span>&#123; <span class="keyword">associatedtype</span> <span class="type">Speed</span> &#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> : <span class="title">Runnable</span> </span>&#123; <span class="keyword">typealias</span> <span class="type">Speed</span> = <span class="type">Double</span> &#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> pet: some <span class="type">Runnable</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Dog</span>()</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="可选类型的本质是枚举enum"><a href="#可选类型的本质是枚举enum" class="headerlink" title="可选类型的本质是枚举enum"></a>可选类型的本质是枚举enum</h3>
+<h3 id="可选类型的本质是枚举enum"><a href="#可选类型的本质是枚举enum" class="headerlink" title="可选类型的本质是枚举enum"></a>可选类型的本质是枚举enum</h3><ul>
+<li>可选类型 本质是有关联值的枚举<br><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.21.12.png?80" alt="屏幕快照 2019-07-26 下午4.21.12"></li>
+</ul>
+
       
     </div>
     

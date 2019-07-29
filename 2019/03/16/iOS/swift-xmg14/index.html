@@ -81,18 +81,25 @@
 
 
 
-<meta name="description" content="补充">
+<meta name="description" content="高级运算符溢出运算符 Swift的算数运算符出现溢出时会抛出运行时错误 Swift有溢出运算符(&amp;amp;+、&amp;amp;-、&amp;amp;*)，用来支持溢出运算  123456789var min = UInt8.minprint(min &amp;amp;- 1) // 255, Int8.maxvar max = UInt8.maxprint(max &amp;amp;+ 1) // 0, Int8.min pr">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="swift-xmg14">
 <meta property="og:url" content="https://www.mayyutao.cn/2019/03/16/iOS/swift-xmg14/index.html">
 <meta property="og:site_name" content="Maylover">
-<meta property="og:description" content="补充">
+<meta property="og:description" content="高级运算符溢出运算符 Swift的算数运算符出现溢出时会抛出运行时错误 Swift有溢出运算符(&amp;amp;+、&amp;amp;-、&amp;amp;*)，用来支持溢出运算  123456789var min = UInt8.minprint(min &amp;amp;- 1) // 255, Int8.maxvar max = UInt8.maxprint(max &amp;amp;+ 1) // 0, Int8.min pr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-26T06:50:00.053Z">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.32.58.png?40">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.49.20.png?30">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.52.19.png?30">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.51.52.png?30">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.57.02.png">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%885.02.09.png?30">
+<meta property="og:updated_time" content="2019-07-29T09:07:01.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift-xmg14">
-<meta name="twitter:description" content="补充">
+<meta name="twitter:description" content="高级运算符溢出运算符 Swift的算数运算符出现溢出时会抛出运行时错误 Swift有溢出运算符(&amp;amp;+、&amp;amp;-、&amp;amp;*)，用来支持溢出运算  123456789var min = UInt8.minprint(min &amp;amp;- 1) // 255, Int8.maxvar max = UInt8.maxprint(max &amp;amp;+ 1) // 0, Int8.min pr">
+<meta name="twitter:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.32.58.png?40">
 
 
 
@@ -407,7 +414,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2
+                  699
                 </span>
               
 
@@ -423,7 +430,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -444,7 +451,59 @@
       
 
       
-        <h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3>
+        <h3 id="高级运算符"><a href="#高级运算符" class="headerlink" title="高级运算符"></a>高级运算符</h3><h4 id="溢出运算符"><a href="#溢出运算符" class="headerlink" title="溢出运算符"></a>溢出运算符</h4><ul>
+<li>Swift的算数运算符出现溢出时会抛出运行时错误</li>
+<li>Swift有溢出运算符(&amp;+、&amp;-、&amp;*)，用来支持溢出运算<br><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.32.58.png?40" alt="屏幕快照 2019-07-26 下午4.32.58"></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">min</span> = <span class="type">UInt8</span>.<span class="built_in">min</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">min</span> &amp;- <span class="number">1</span>) </span><br><span class="line"><span class="comment">// 255, Int8.max</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">max</span> = <span class="type">UInt8</span>.<span class="built_in">max</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">max</span> &amp;+ <span class="number">1</span>) <span class="comment">// 0, Int8.min </span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">max</span> &amp;* <span class="number">2</span>) <span class="comment">// 254, 等价于 max &amp;+ max</span></span><br><span class="line"><span class="type">UInt8</span>.<span class="built_in">min</span> <span class="number">0</span> ----逐渐递增-----&gt; <span class="type">UInt8</span>.<span class="built_in">max</span> <span class="number">255</span></span><br></pre></td></tr></table></figure>
+<h4 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h4><ul>
+<li>类、结构体、枚举可以为现有的运算符提供自定义的实现，这个操作叫做:运算符重载</li>
+<li><p>如果函数内部改变外部变量的值，使用inout函数</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="function"><span class="keyword">func</span> + <span class="params">(p1: Point, p2: Point)</span></span> -&gt; <span class="type">Point</span> &#123;</span><br><span class="line">     <span class="type">Point</span>(x: p1.x + p2.x, y: p1.y + p2.y)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="function"><span class="keyword">func</span> - <span class="params">(p1: Point, p2: Point)</span></span> -&gt; <span class="type">Point</span> &#123;</span><br><span class="line">    <span class="type">Point</span>(x: p1.x - p2.x, y: p1.y - p2.y) </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">prefix</span> <span class="function"><span class="keyword">func</span> - <span class="params">(p: Point)</span></span> -&gt; <span class="type">Point</span> &#123; </span><br><span class="line">    <span class="type">Point</span>(x: -p.x, y: -p.y)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="function"><span class="keyword">func</span> += <span class="params">(p1: <span class="keyword">inout</span> Point, p2: Point)</span></span> &#123;</span><br><span class="line">    p1 = p1 + p2 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>prefix 前结合 <code>++p</code> 先自增改变自身，再使用</p>
+</li>
+<li>postfix 后结合 <code>p++</code> 先使用自身，再加1</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">prefix</span> <span class="function"><span class="keyword">func</span> ++ <span class="params">(p: <span class="keyword">inout</span> Point)</span></span> -&gt; <span class="type">Point</span> &#123; </span><br><span class="line">    p += <span class="type">Point</span>(x: <span class="number">1</span>, y: <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">postfix</span> <span class="function"><span class="keyword">func</span> ++ <span class="params">(p: <span class="keyword">inout</span> Point)</span></span> -&gt; <span class="type">Point</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = p</span><br><span class="line">    p += <span class="type">Point</span>(x: <span class="number">1</span>, y: <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="function"><span class="keyword">func</span> == <span class="params">(p1: Point, p2: Point)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    (p1.x == p2.x) &amp;&amp; (p1.y == p2.y)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Equatable-协议"><a href="#Equatable-协议" class="headerlink" title="Equatable 协议"></a>Equatable 协议</h4><ul>
+<li>要想得知2个实例是否等价，一般做法是遵守Equatable 协议，重载== 运算符 <ul>
+<li>与此同时，等价于重载了 != 运算符</li>
+</ul>
+</li>
+<li>Swift为以下类型提供默认的Equatable 实现 <ul>
+<li>没有关联类型的枚举</li>
+<li>只拥有遵守 Equatable 协议关联类型的枚举 </li>
+<li>只拥有遵守 Equatable 协议存储属性的结构体</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> : <span class="title">Equatable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x: <span class="type">Int</span>, y: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1 = <span class="type">Point</span>(x: <span class="number">10</span>, y: <span class="number">20</span>)</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="type">Point</span>(x: <span class="number">11</span>, y: <span class="number">22</span>)</span><br><span class="line"><span class="built_in">print</span>(p1 == p2) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">print</span>(p1 != p2) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>引用类型比较存储的地址值是否相等(是否引用着同一个对象)，使用恒等运算符=== 、!==</li>
+<li><p>实现了 <code>==</code> 相当于同时实现了 <code>!==</code><br><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.49.20.png?30" alt="屏幕快照 2019-07-26 下午4.49.20"></p>
+</li>
+<li><p>枚举 默认 原始值实现了Equatable协议</p>
+</li>
+</ul>
+<p><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.52.19.png?30" alt="屏幕快照 2019-07-26 下午4.52.19"></p>
+<ul>
+<li><p>枚举 默认 关联值 不能实现了Equatable协议<br><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.51.52.png?30" alt="屏幕快照 2019-07-26 下午4.51.52"></p>
+</li>
+<li><p><code>===</code> 三个等号 是判断 指针也相同，下面例子 返回的是false<br><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.57.02.png" alt="屏幕快照 2019-07-26 下午4.57.02"></p>
+</li>
+</ul>
+<h4 id="自定义运算符"><a href="#自定义运算符" class="headerlink" title="自定义运算符"></a>自定义运算符</h4><ul>
+<li><code>prefix operator +++</code></li>
+<li>以自定义新的运算符:在全局作用域使用<code>operator</code>进行声明</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">prefix</span> <span class="keyword">operator</span> 前缀运算符</span><br><span class="line"><span class="keyword">postfix</span> <span class="keyword">operator</span> 后缀运算符</span><br><span class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> 中缀运算符 : 优先级组</span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义优先级组</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">precedencegroup 优先级组 &#123;</span><br><span class="line">    <span class="keyword">associativity</span>: 结合性(<span class="keyword">left</span>\<span class="keyword">right</span>\<span class="keyword">none</span>)</span><br><span class="line">    higherThan: 比谁的优先级高</span><br><span class="line">    lowerThan: 比谁的优先级低</span><br><span class="line">    assignment: <span class="literal">true</span>  代表在可选链操作中拥有跟赋值运算符一样的优先级</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line">- 举例说明</span><br><span class="line"></span><br><span class="line">```swift</span><br><span class="line"><span class="keyword">prefix</span> <span class="keyword">operator</span> +++</span><br><span class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> +- : <span class="type">PlusMinusPrecedence</span> </span><br><span class="line">precedencegroup <span class="type">PlusMinusPrecedence</span> &#123;</span><br><span class="line">    <span class="keyword">associativity</span>: <span class="keyword">none</span></span><br><span class="line">    higherThan: <span class="type">AdditionPrecedence</span> </span><br><span class="line">    lowerThan: <span class="type">MultiplicationPrecedence</span> </span><br><span class="line">    assignment: <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">assignment: <span class="literal">true</span>: 如果 有可选链的赋值运算符 =，有相同的优先级；</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> point: <span class="type">Point</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person: <span class="type">Person</span>? = <span class="literal">nil</span> </span><br><span class="line">person?.point +- <span class="type">Point</span>(x: <span class="number">10</span>, y: <span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%885.02.09.png?30" alt="屏幕快照 2019-07-26 下午5.02.09"></p>
+
       
     </div>
     
@@ -665,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">1.</span> <span class="nav-text">补充</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#高级运算符"><span class="nav-number">1.</span> <span class="nav-text">高级运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#溢出运算符"><span class="nav-number">1.1.</span> <span class="nav-text">溢出运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运算符重载"><span class="nav-number">1.2.</span> <span class="nav-text">运算符重载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Equatable-协议"><span class="nav-number">1.3.</span> <span class="nav-text">Equatable 协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义运算符"><span class="nav-number">1.4.</span> <span class="nav-text">自定义运算符</span></a></li></ol></li></ol></div>
             
 
           </div>
