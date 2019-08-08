@@ -81,18 +81,22 @@
 
 
 
-<meta name="description" content="补充">
+<meta name="description" content="访问控制(Access Control) 在访问权限控制这块，Swift提供了5个不同的访问级别(以下是从高到低排列， 实体指被访问级别修饰的内容)  open:允许在定义实体的模块、其他模块中访问，允许其他模块进行继承、重写(open只能用在类、类成员上)  public:允许在定义实体的模块、其他模块中访问，不允许其他模块进行继承、重写  internal:只允许在定义实体的模块中访问，不允许">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="swift-xmg15">
 <meta property="og:url" content="https://www.mayyutao.cn/2019/03/17/iOS/swift-xmg15/index.html">
 <meta property="og:site_name" content="Maylover">
-<meta property="og:description" content="补充">
+<meta property="og:description" content="访问控制(Access Control) 在访问权限控制这块，Swift提供了5个不同的访问级别(以下是从高到低排列， 实体指被访问级别修饰的内容)  open:允许在定义实体的模块、其他模块中访问，允许其他模块进行继承、重写(open只能用在类、类成员上)  public:允许在定义实体的模块、其他模块中访问，不允许其他模块进行继承、重写  internal:只允许在定义实体的模块中访问，不允许">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-26T06:49:52.089Z">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-08-01%20%E4%B8%8B%E5%8D%886.03.48.png">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-08-02%20%E4%B8%8A%E5%8D%8810.35.06.png">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-08-02%20%E4%B8%8A%E5%8D%8810.48.04.png">
+<meta property="og:updated_time" content="2019-08-02T07:10:38.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="swift-xmg15">
-<meta name="twitter:description" content="补充">
+<meta name="twitter:description" content="访问控制(Access Control) 在访问权限控制这块，Swift提供了5个不同的访问级别(以下是从高到低排列， 实体指被访问级别修饰的内容)  open:允许在定义实体的模块、其他模块中访问，允许其他模块进行继承、重写(open只能用在类、类成员上)  public:允许在定义实体的模块、其他模块中访问，不允许其他模块进行继承、重写  internal:只允许在定义实体的模块中访问，不允许">
+<meta name="twitter:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-08-01%20%E4%B8%8B%E5%8D%886.03.48.png">
 
 
 
@@ -407,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2
+                  721
                 </span>
               
 
@@ -423,7 +427,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -444,7 +448,57 @@
       
 
       
-        <h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3>
+        <h3 id="访问控制-Access-Control"><a href="#访问控制-Access-Control" class="headerlink" title="访问控制(Access Control)"></a>访问控制(Access Control)</h3><ul>
+<li>在访问权限控制这块，Swift提供了5个不同的访问级别(以下是从高到低排列， 实体指被访问级别修饰的内容) <ul>
+<li><code>open</code>:允许在定义实体的模块、其他模块中访问，允许其他模块进行继承、重写(open只能用在类、类成员上) </li>
+<li><code>public</code>:允许在定义实体的模块、其他模块中访问，不允许其他模块进行继承、重写 </li>
+<li><code>internal</code>:只允许在定义实体的模块中访问，不允许在其他模块中访问 </li>
+<li><code>fileprivate</code>:只允许在定义实体的源文件中访问</li>
+<li><code>private</code>:只允许在定义实体的封闭声明中访问 </li>
+<li>绝大部分实体默认都是<code>internal</code> 级别，不写就是internal</li>
+</ul>
+</li>
+</ul>
+<h4 id="访问级别的使用准则"><a href="#访问级别的使用准则" class="headerlink" title="访问级别的使用准则"></a>访问级别的使用准则</h4><ul>
+<li><p>一个实体不可以被更低访问级别的实体定义，比如 下面的多种类型</p>
+<ul>
+<li>变量\常量类型 ≥ 变量\常量 </li>
+<li>参数类型、返回值类型 ≥ 函数</li>
+<li>父类 ≥ 子类</li>
+<li>父协议 ≥ 子协议</li>
+<li>原类型 ≥ typealias </li>
+<li>原始值类型、关联值类型 ≥ 枚举类型 </li>
+<li>定义类型A时用到的其他类型 ≥ 类型A  </li>
+<li>……<br><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-08-01%20%E4%B8%8B%E5%8D%886.03.48.png" alt="屏幕快照 2019-08-01 下午6.03.48"></li>
+</ul>
+</li>
+<li><p>因为 如果外部文件 使用 变量 / 实体；但是读取不到Person类型的定义，就会报错；同理 实体级别 &lt;= 类型定义</p>
+</li>
+</ul>
+<h4 id="元组类型"><a href="#元组类型" class="headerlink" title="元组类型"></a>元组类型</h4><ul>
+<li>元组类型的访问级别是所有成员类型最低的那个</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">internal</span> <span class="class"><span class="keyword">struct</span> <span class="title">Dog</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">fileprivate</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// (Dog, Person)的访问级别是fileprivate </span></span><br><span class="line"><span class="keyword">fileprivate</span> <span class="keyword">var</span> data1: (<span class="type">Dog</span>, <span class="type">Person</span>) </span><br><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> data2: (<span class="type">Dog</span>, <span class="type">Person</span>) <span class="comment">// 实体级别 &lt;= 类型定义</span></span><br></pre></td></tr></table></figure>
+<h4 id="泛型类型"><a href="#泛型类型" class="headerlink" title="泛型类型"></a>泛型类型</h4><ul>
+<li>泛型类型的访问级别是 类型的访问级别 以及 所有泛型类型参数的访问级别 中最低的那个</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">internal</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">fileprivate</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span>&lt;<span class="title">T1</span>, <span class="title">T2</span>&gt; </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Person&lt;Car, Dog&gt;的访问级别是fileprivate </span></span><br><span class="line"><span class="keyword">fileprivate</span> <span class="keyword">var</span> p = <span class="type">Person</span>&lt;<span class="type">Car</span>, <span class="type">Dog</span>&gt;() <span class="comment">// p的级别 要 &lt;= fileprivate</span></span><br></pre></td></tr></table></figure>
+<h4 id="初始化器"><a href="#初始化器" class="headerlink" title="初始化器"></a>初始化器</h4><ul>
+<li>如果一个public类想在另一个模块调用编译生成的默认无参初始化器，必须显式提供public的无参初始化器 </li>
+</ul>
+<p><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-08-02%20%E4%B8%8A%E5%8D%8810.35.06.png" alt="屏幕快照 2019-08-02 上午10.35.06"></p>
+<ul>
+<li>因为public类的默认初始化器是internal级别</li>
+<li>required初始化器 ≥ 它的默认访问级别</li>
+<li>如果结构体有private\fileprivate的存储实例属性，那么它的成员初始化器也是private\fileprivate p否则默认就是internal</li>
+</ul>
+<h4 id="方法也可以像函数那样，赋值给一个let或者var"><a href="#方法也可以像函数那样，赋值给一个let或者var" class="headerlink" title="方法也可以像函数那样，赋值给一个let或者var"></a>方法也可以像函数那样，赋值给一个let或者var</h4><ul>
+<li>类型方法可以直接赋值 调用；结构体内的函数，</li>
+<li>在内部引用了实例变量，其类型是<code>(Person) -&gt; ((Int) -&gt; ())</code></li>
+</ul>
+<p><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-08-02%20%E4%B8%8A%E5%8D%8810.48.04.png" alt="屏幕快照 2019-08-02 上午10.48.04"></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">run</span><span class="params">(<span class="number">_</span> v: Int)</span></span> &#123; <span class="built_in">print</span>(<span class="string">"func run"</span>, age, v) &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">run</span><span class="params">(<span class="number">_</span> v: Int)</span></span> &#123; <span class="built_in">print</span>(<span class="string">"static func run"</span>, v) &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fn1 = <span class="type">Person</span>.run</span><br><span class="line">fn1(<span class="number">10</span>) <span class="comment">// static func run 10</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fn2: (<span class="type">Int</span>) -&gt; () = <span class="type">Person</span>.run</span><br><span class="line">fn2(<span class="number">20</span>) <span class="comment">// static func run 20</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fn3: (<span class="type">Person</span>) -&gt; ((<span class="type">Int</span>) -&gt; ()) = <span class="type">Person</span>.run</span><br><span class="line">fn3(<span class="type">Person</span>(age: <span class="number">18</span>))(<span class="number">30</span>) <span class="comment">// func run 18 30</span></span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -665,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">1.</span> <span class="nav-text">补充</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#访问控制-Access-Control"><span class="nav-number">1.</span> <span class="nav-text">访问控制(Access Control)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#访问级别的使用准则"><span class="nav-number">1.1.</span> <span class="nav-text">访问级别的使用准则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元组类型"><span class="nav-number">1.2.</span> <span class="nav-text">元组类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型类型"><span class="nav-number">1.3.</span> <span class="nav-text">泛型类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化器"><span class="nav-number">1.4.</span> <span class="nav-text">初始化器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法也可以像函数那样，赋值给一个let或者var"><span class="nav-number">1.5.</span> <span class="nav-text">方法也可以像函数那样，赋值给一个let或者var</span></a></li></ol></li></ol></div>
             
 
           </div>
