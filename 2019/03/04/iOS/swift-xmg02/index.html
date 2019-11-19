@@ -461,7 +461,7 @@
 <li><p>字符。字符串也能使用区间运算符，但默认不能用在for-in中</p>
 </li>
 <li><p>从‘\0’到‘～’ 囊括了所有的要用到的ASCII字符</p>
-  <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> characterRange:CloseRange&lt;Character&gt; = <span class="string">"\0"</span>...<span class="string">"~"</span></span><br><span class="line">characterRange.contains(<span class="string">"G"</span>). <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> characterRange:<span class="type">CloseRange</span>&lt;<span class="type">Character</span>&gt; = <span class="string">"\0"</span>...<span class="string">"~"</span></span><br><span class="line">characterRange.<span class="built_in">contains</span>(<span class="string">"G"</span>). <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="2-带间隔的区间值"><a href="#2-带间隔的区间值" class="headerlink" title="(2)带间隔的区间值"></a>(2)带间隔的区间值</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> hours = <span class="number">11</span></span><br><span class="line"><span class="keyword">let</span> hourInterval = <span class="number">2</span></span><br><span class="line"><span class="keyword">for</span> tickMark <span class="keyword">in</span> <span class="built_in">stride</span>(from:<span class="number">4</span>, through:hours, by:hourInterval)&#123;</span><br><span class="line">    <span class="built_in">print</span>(tickMark)  <span class="comment">// 4,6,8,10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -735,7 +735,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">102</span>
+                  <span class="site-state-item-count">101</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
