@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.mayyutao.cn/"/>
-  <updated>2019-07-12T03:34:21.356Z</updated>
+  <updated>2019-11-07T14:09:03.918Z</updated>
   <id>https://www.mayyutao.cn/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.mayyutao.cn/2019/09/18/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/2019-09-18/"/>
+    <id>https://www.mayyutao.cn/2019/09/18/前端技巧/2019-09-18/</id>
+    <published>2019-09-18T06:06:44.146Z</published>
+    <updated>2019-11-07T14:09:03.918Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://www.mayyutao.cn/2019/08/29/iOS/ios%E5%BC%80%E5%8F%91%E9%AB%98%E6%89%8B/"/>
+    <id>https://www.mayyutao.cn/2019/08/29/iOS/ios开发高手/</id>
+    <published>2019-08-29T07:39:48.927Z</published>
+    <updated>2019-09-03T08:41:09.658Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>汇编学习1</title>
@@ -45,11 +89,263 @@
   </entry>
   
   <entry>
+    <title>swift-xmg21</title>
+    <link href="https://www.mayyutao.cn/2019/03/23/iOS/swift-xmg21/"/>
+    <id>https://www.mayyutao.cn/2019/03/23/iOS/swift-xmg21/</id>
+    <published>2019-03-23T00:40:00.000Z</published>
+    <updated>2019-11-19T09:11:01.432Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg20</title>
+    <link href="https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg26/"/>
+    <id>https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg26/</id>
+    <published>2019-03-22T00:40:00.000Z</published>
+    <updated>2019-08-13T07:05:52.587Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg20</title>
+    <link href="https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg25/"/>
+    <id>https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg25/</id>
+    <published>2019-03-22T00:40:00.000Z</published>
+    <updated>2019-08-13T07:05:52.587Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg20</title>
+    <link href="https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg23/"/>
+    <id>https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg23/</id>
+    <published>2019-03-22T00:40:00.000Z</published>
+    <updated>2019-08-13T07:05:52.587Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg20</title>
+    <link href="https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg22/"/>
+    <id>https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg22/</id>
+    <published>2019-03-22T00:40:00.000Z</published>
+    <updated>2019-08-13T07:05:52.587Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg20</title>
+    <link href="https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg24/"/>
+    <id>https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg24/</id>
+    <published>2019-03-22T00:40:00.000Z</published>
+    <updated>2019-08-13T07:05:52.587Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg20</title>
+    <link href="https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg20/"/>
+    <id>https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg20/</id>
+    <published>2019-03-22T00:40:00.000Z</published>
+    <updated>2019-08-13T07:05:52.587Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg19</title>
+    <link href="https://www.mayyutao.cn/2019/03/21/iOS/swift-xmg19/"/>
+    <id>https://www.mayyutao.cn/2019/03/21/iOS/swift-xmg19/</id>
+    <published>2019-03-21T00:40:00.000Z</published>
+    <updated>2019-08-13T07:05:57.312Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg18</title>
+    <link href="https://www.mayyutao.cn/2019/03/20/iOS/swift-xmg18/"/>
+    <id>https://www.mayyutao.cn/2019/03/20/iOS/swift-xmg18/</id>
+    <published>2019-03-20T00:40:00.000Z</published>
+    <updated>2019-08-13T08:36:13.538Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>swift-xmg17</title>
     <link href="https://www.mayyutao.cn/2019/03/19/iOS/swift-xmg17/"/>
     <id>https://www.mayyutao.cn/2019/03/19/iOS/swift-xmg17/</id>
     <published>2019-03-19T00:40:00.000Z</published>
-    <updated>2019-08-08T09:55:04.502Z</updated>
+    <updated>2019-08-08T09:55:45.107Z</updated>
     
     <summary type="html">
     
@@ -262,308 +558,6 @@
       <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
     
       <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-xmg09</title>
-    <link href="https://www.mayyutao.cn/2019/03/11/iOS/swift-xmg09/"/>
-    <id>https://www.mayyutao.cn/2019/03/11/iOS/swift-xmg09/</id>
-    <published>2019-03-11T00:40:00.000Z</published>
-    <updated>2019-07-13T06:56:28.157Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
-    
-      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-xmg08</title>
-    <link href="https://www.mayyutao.cn/2019/03/10/iOS/swift-xmg08/"/>
-    <id>https://www.mayyutao.cn/2019/03/10/iOS/swift-xmg08/</id>
-    <published>2019-03-10T00:40:00.000Z</published>
-    <updated>2019-07-14T22:33:20.774Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
-    
-      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-xmg07</title>
-    <link href="https://www.mayyutao.cn/2019/03/09/iOS/swift-xmg07/"/>
-    <id>https://www.mayyutao.cn/2019/03/09/iOS/swift-xmg07/</id>
-    <published>2019-03-09T00:40:00.000Z</published>
-    <updated>2019-07-12T07:19:02.887Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
-    
-      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-xmg06</title>
-    <link href="https://www.mayyutao.cn/2019/03/08/iOS/swift-xmg06/"/>
-    <id>https://www.mayyutao.cn/2019/03/08/iOS/swift-xmg06/</id>
-    <published>2019-03-08T00:40:00.000Z</published>
-    <updated>2019-07-12T03:05:04.466Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
-    
-      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-xmg05</title>
-    <link href="https://www.mayyutao.cn/2019/03/07/iOS/swift-xmg05/"/>
-    <id>https://www.mayyutao.cn/2019/03/07/iOS/swift-xmg05/</id>
-    <published>2019-03-07T00:40:00.000Z</published>
-    <updated>2019-07-12T03:02:12.312Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
-    
-      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-xmg04</title>
-    <link href="https://www.mayyutao.cn/2019/03/06/iOS/swift-xmg04/"/>
-    <id>https://www.mayyutao.cn/2019/03/06/iOS/swift-xmg04/</id>
-    <published>2019-03-06T00:40:00.000Z</published>
-    <updated>2019-07-12T02:51:30.715Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
-    
-      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-xmg03</title>
-    <link href="https://www.mayyutao.cn/2019/03/05/iOS/swift-xmg03/"/>
-    <id>https://www.mayyutao.cn/2019/03/05/iOS/swift-xmg03/</id>
-    <published>2019-03-05T00:40:00.000Z</published>
-    <updated>2019-07-12T02:46:47.808Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
-    
-      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-xmg02</title>
-    <link href="https://www.mayyutao.cn/2019/03/04/iOS/swift-xmg02/"/>
-    <id>https://www.mayyutao.cn/2019/03/04/iOS/swift-xmg02/</id>
-    <published>2019-03-04T00:40:00.000Z</published>
-    <updated>2019-07-12T02:45:11.513Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
-    
-      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Weex应用笔记1</title>
-    <link href="https://www.mayyutao.cn/2019/03/03/Vue/Weex%E5%BA%94%E7%94%A8%E7%AC%94%E8%AE%B01/"/>
-    <id>https://www.mayyutao.cn/2019/03/03/Vue/Weex应用笔记1/</id>
-    <published>2019-03-03T00:40:00.000Z</published>
-    <updated>2019-07-12T02:42:38.710Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="Weex" scheme="https://www.mayyutao.cn/categories/Weex/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Weex学习笔记3</title>
-    <link href="https://www.mayyutao.cn/2019/03/02/Vue/Weex%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/"/>
-    <id>https://www.mayyutao.cn/2019/03/02/Vue/Weex学习笔记3/</id>
-    <published>2019-03-02T00:46:00.000Z</published>
-    <updated>2019-07-12T02:42:40.944Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="Weex" scheme="https://www.mayyutao.cn/categories/Weex/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Weex学习笔记2</title>
-    <link href="https://www.mayyutao.cn/2019/03/02/Vue/Weex%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/"/>
-    <id>https://www.mayyutao.cn/2019/03/02/Vue/Weex学习笔记2/</id>
-    <published>2019-03-02T00:45:00.000Z</published>
-    <updated>2019-07-12T02:42:40.938Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="Weex" scheme="https://www.mayyutao.cn/categories/Weex/"/>
     
     
       <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>

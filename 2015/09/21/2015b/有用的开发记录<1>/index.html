@@ -479,7 +479,7 @@
 <h4 id="7-设置声音静音：soundname-推送通知禁止声音"><a href="#7-设置声音静音：soundname-推送通知禁止声音" class="headerlink" title="7.设置声音静音：soundname 推送通知禁止声音"></a>7.设置声音静音：soundname 推送通知禁止声音</h4><ul>
 <li>设置声音静音：soundname ，震动也是一个souond：<code>kSystemSoundID_Vibrate</code></li>
 <li><p>后台的代码设置推送内容</p>
-  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">PushNotificationPayload</span> payLoad =  <span class="type">PushNotificationPayload</span>.fromJSON(message);  </span><br><span class="line">payLoad.addAlert(<span class="string">"iphone推送测试 www.baidu.com"</span>); <span class="comment">// 消息内容           </span></span><br><span class="line">payLoad.addBadge(<span class="built_in">count</span>); <span class="comment">// iphone应用图标上小红圈上的数值   </span></span><br><span class="line">payLoad.addSound(<span class="string">"default"</span>); <span class="comment">// 铃音 默认</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PushNotificationPayload payLoad =  PushNotificationPayload.fromJSON(message)<span class="comment">;  </span></span><br><span class="line">payLoad.addAlert(<span class="string">"iphone推送测试 www.baidu.com"</span>)<span class="comment">; // 消息内容           </span></span><br><span class="line">payLoad.addBadge(count)<span class="comment">; // iphone应用图标上小红圈上的数值   </span></span><br><span class="line">payLoad.addSound(<span class="string">"default"</span>)<span class="comment">; // 铃音 默认</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>2:程序内代码</p>
   <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;AudioToolbox/AudioToolbox.h&gt;</span> </span></span><br><span class="line">AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); </span><br><span class="line">AudioServicesPlaySystemSound(<span class="number">1007</span>);其中<span class="number">1007</span>是系统声音的编号，其他的可用编号：</span><br><span class="line"></span><br><span class="line"><span class="comment">//音效文件路径  </span></span><br><span class="line"><span class="built_in">NSString</span> *path = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"message"</span> ofType:<span class="string">@"wav"</span>]; </span><br><span class="line"><span class="comment">//组装并播放音效  </span></span><br><span class="line">SystemSoundID soundID; </span><br><span class="line"><span class="built_in">NSURL</span> *filePath = [<span class="built_in">NSURL</span> fileURLWithPath:path isDirectory:<span class="literal">NO</span>]; </span><br><span class="line">AudioServicesCreateSystemSoundID((__bridge <span class="built_in">CFURLRef</span>)filePath, &amp;soundID); </span><br><span class="line">AudioServicesPlaySystemSound(soundID); </span><br><span class="line"><span class="comment">//声音停止  </span></span><br><span class="line">AudioServicesDisposeSystemSoundID(soundID);</span><br></pre></td></tr></table></figure>
@@ -628,8 +628,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/21/2015b/面试题1/" rel="next" title="面试题《一》">
-                <i class="fa fa-chevron-left"></i> 面试题《一》
+              <a href="/2015/09/21/2015b/面试题2/" rel="next" title="面试题《二》">
+                <i class="fa fa-chevron-left"></i> 面试题《二》
               </a>
             
           </div>
@@ -638,8 +638,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/21/2015b/面试题2/" rel="prev" title="面试题《二》">
-                面试题《二》 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/09/22/2015b/有用的UI组件/" rel="prev" title="有用的UI组件">
+                有用的UI组件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -722,7 +722,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">91</span>
+                  <span class="site-state-item-count">102</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

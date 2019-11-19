@@ -473,7 +473,7 @@
 <li>NSLayoutManager 负责协调布局，显示NSTextStorage对象中保存的字符，将字形设置为一系列NSTextContainer 对象，然后以系列文本视图对象显示</li>
 <li><p>NStextContainer 也可以定义一个排除路径，定义一下矩形区域，在layoutSubviews中更新调用</p>
   <img src="/2016/09/24/2016b/图文混排/图文混排2.png" width="400">
-  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 属性文本存储  是 NSMutableAttributedString子类</span></span><br><span class="line"><span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> textStore = <span class="type">NSTextStorage</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 负责文本“字形”布局</span></span><br><span class="line"><span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> layoutManager = <span class="type">NSLayoutManager</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设定文本绘制的的范围</span></span><br><span class="line"><span class="keyword">private</span> <span class="built_in">lazy</span> <span class="keyword">var</span> textContainer = <span class="type">NSTextContainer</span> ()</span><br></pre></td></tr></table></figure>
+  <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 属性文本存储  是 NSMutableAttributedString子类</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">lazy</span> <span class="keyword">var</span> textStore = <span class="type">NSTextStorage</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 负责文本“字形”布局</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">lazy</span> <span class="keyword">var</span> layoutManager = <span class="type">NSLayoutManager</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设定文本绘制的的范围</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">lazy</span> <span class="keyword">var</span> textContainer = <span class="type">NSTextContainer</span> ()</span><br></pre></td></tr></table></figure>
   <img src="/2016/09/24/2016b/图文混排/图文混排3.png" width="400">
 </li>
 <li><p>代码实现 </p>
@@ -536,7 +536,7 @@
 </li>
 <li><p>执行动画</p>
   <figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听键盘通知，</span></span><br><span class="line">NotificationCenter.<span class="keyword">default</span>.addObserver(self, selector: #selector(keybordChanged), <span class="keyword">name</span>: NSNotification.<span class="keyword">Name</span>.UIKeyboardWillChangeFrame, <span class="keyword">object</span>: <span class="keyword">nil</span>);</span><br></pre></td></tr></table></figure>
-  <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">deinit</span> &#123;</span><br><span class="line">    <span class="type">NotificationCenter</span>.<span class="keyword">default</span>.removeObserver(<span class="keyword">self</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">deinit &#123;</span><br><span class="line">    NotificationCenter<span class="selector-class">.default</span><span class="selector-class">.removeObserver</span>(self)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">guard</span> <span class="keyword">let</span>  rect = (noti.userInfo?[<span class="type">UIKeyboardFrameEndUserInfoKey</span>] <span class="keyword">as</span>? <span class="type">NSValue</span>)?.cgRectValue,</span><br><span class="line">        <span class="keyword">let</span> duration = (noti.userInfo?[<span class="type">UIKeyboardAnimationDurationUserInfoKey</span>] <span class="keyword">as</span>? <span class="type">NSNumber</span>)?.doubleValue <span class="keyword">else</span>&#123; <span class="keyword">return</span> &#125;</span><br><span class="line"><span class="comment">// 设置底部约束高度</span></span><br><span class="line"><span class="keyword">let</span> offsite = view.bounds.height - rect.origin.y</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新约束</span></span><br><span class="line">viewToButtonH.constant = offsite</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行动画</span></span><br><span class="line"><span class="type">UIView</span>.animate(withDuration: duration) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span>.view.layoutIfNeeded()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   <img src="/2016/09/24/2016b/图文混排/图文混排11.png" width="400">
 </li>
@@ -623,8 +623,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/23/2016b/swift自动引用计数/" rel="next" title="swift自动引用计数">
-                <i class="fa fa-chevron-left"></i> swift自动引用计数
+              <a href="/2016/09/24/2016b/GCD调度组/" rel="next" title="GCD调度组">
+                <i class="fa fa-chevron-left"></i> GCD调度组
               </a>
             
           </div>
@@ -633,8 +633,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/24/2016b/自定义刷新控件/" rel="prev" title="自定义刷新控件">
-                自定义刷新控件 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/24/2016b/swift错误处理/" rel="prev" title="swift错误处理">
+                swift错误处理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -717,7 +717,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">91</span>
+                  <span class="site-state-item-count">102</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
