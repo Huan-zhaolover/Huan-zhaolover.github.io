@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.mayyutao.cn/"/>
-  <updated>2019-11-07T14:09:03.918Z</updated>
+  <updated>2019-07-12T03:34:21.356Z</updated>
   <id>https://www.mayyutao.cn/</id>
   
   <author>
@@ -15,50 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://www.mayyutao.cn/2019/09/18/%E5%89%8D%E7%AB%AF%E6%8A%80%E5%B7%A7/2019-09-18/"/>
-    <id>https://www.mayyutao.cn/2019/09/18/前端技巧/2019-09-18/</id>
-    <published>2019-09-18T06:06:44.146Z</published>
-    <updated>2019-11-07T14:09:03.918Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://www.mayyutao.cn/2019/08/29/iOS/ios%E5%BC%80%E5%8F%91%E9%AB%98%E6%89%8B/"/>
-    <id>https://www.mayyutao.cn/2019/08/29/iOS/ios开发高手/</id>
-    <published>2019-08-29T07:39:48.927Z</published>
-    <updated>2019-09-03T08:41:09.658Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>汇编学习1</title>
@@ -542,6 +498,62 @@
     <id>https://www.mayyutao.cn/2019/03/11/iOS/swift-xmg09/</id>
     <published>2019-03-11T00:40:00.000Z</published>
     <updated>2019-07-13T06:56:28.157Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg08</title>
+    <link href="https://www.mayyutao.cn/2019/03/10/iOS/swift-xmg08/"/>
+    <id>https://www.mayyutao.cn/2019/03/10/iOS/swift-xmg08/</id>
+    <published>2019-03-10T00:40:00.000Z</published>
+    <updated>2019-07-14T22:33:20.774Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
+    
+      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
+    
+    
+      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>swift-xmg07</title>
+    <link href="https://www.mayyutao.cn/2019/03/09/iOS/swift-xmg07/"/>
+    <id>https://www.mayyutao.cn/2019/03/09/iOS/swift-xmg07/</id>
+    <published>2019-03-09T00:40:00.000Z</published>
+    <updated>2019-07-12T07:19:02.887Z</updated>
     
     <summary type="html">
     
