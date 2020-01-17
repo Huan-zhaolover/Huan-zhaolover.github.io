@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.mayyutao.cn/"/>
-  <updated>2019-07-12T03:34:21.356Z</updated>
+  <updated>2020-01-17T04:03:27.896Z</updated>
   <id>https://www.mayyutao.cn/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2019年总结</title>
+    <link href="https://www.mayyutao.cn/2019/12/30/iOS/2019%E6%80%BB%E7%BB%93/"/>
+    <id>https://www.mayyutao.cn/2019/12/30/iOS/2019总结/</id>
+    <published>2019-12-30T00:40:00.000Z</published>
+    <updated>2020-01-17T04:03:27.896Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="https://www.mayyutao.cn/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="总结" scheme="https://www.mayyutao.cn/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>汇编学习1</title>
     <link href="https://www.mayyutao.cn/2019/04/01/iOS/%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A01/"/>
     <id>https://www.mayyutao.cn/2019/04/01/iOS/汇编学习1/</id>
     <published>2019-04-01T00:40:00.000Z</published>
-    <updated>2019-07-12T03:34:21.356Z</updated>
+    <updated>2020-01-17T03:16:06.215Z</updated>
     
     <summary type="html">
     
@@ -526,34 +552,6 @@
     <id>https://www.mayyutao.cn/2019/03/08/iOS/swift-xmg06/</id>
     <published>2019-03-08T00:40:00.000Z</published>
     <updated>2019-07-12T03:05:04.466Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
-    
-      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-xmg05</title>
-    <link href="https://www.mayyutao.cn/2019/03/07/iOS/swift-xmg05/"/>
-    <id>https://www.mayyutao.cn/2019/03/07/iOS/swift-xmg05/</id>
-    <published>2019-03-07T00:40:00.000Z</published>
-    <updated>2019-07-12T03:02:12.312Z</updated>
     
     <summary type="html">
     

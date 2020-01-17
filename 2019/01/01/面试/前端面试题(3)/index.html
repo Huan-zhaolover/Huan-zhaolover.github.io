@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面试,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Maylover" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="整理2 职责描述   1234567891011职责描述：1、各业务模块前端代码开发；2、配合后端工程师一起研讨技术实现方案，进行应用及系统整合；3、持续优化前端代码的性能，对现有产品功能进行升级以提高前端的用户体验以及性能，推进系统架构的演化。任职要求：1、专科以上学历，计算机相关专业，3年以上前端开发工作经验；1.前端工作经验3年以上，在前几家工作相对稳定没有频繁跳槽的，年龄在88年以后的2.">
+<meta name="keywords" content="面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试题(3)">
+<meta property="og:url" content="https://www.mayyutao.cn/2019/01/01/面试/前端面试题(3)/index.html">
+<meta property="og:site_name" content="Maylover">
+<meta property="og:description" content="整理2 职责描述   1234567891011职责描述：1、各业务模块前端代码开发；2、配合后端工程师一起研讨技术实现方案，进行应用及系统整合；3、持续优化前端代码的性能，对现有产品功能进行升级以提高前端的用户体验以及性能，推进系统架构的演化。任职要求：1、专科以上学历，计算机相关专业，3年以上前端开发工作经验；1.前端工作经验3年以上，在前几家工作相对稳定没有频繁跳槽的，年龄在88年以后的2.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-01-17T03:58:02.501Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端面试题(3)">
+<meta name="twitter:description" content="整理2 职责描述   1234567891011职责描述：1、各业务模块前端代码开发；2、配合后端工程师一起研讨技术实现方案，进行应用及系统整合；3、持续优化前端代码的性能，对现有产品功能进行升级以提高前端的用户体验以及性能，推进系统架构的演化。任职要求：1、专科以上学历，计算机相关专业，3年以上前端开发工作经验；1.前端工作经验3年以上，在前几家工作相对稳定没有频繁跳槽的，年龄在88年以后的2.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.mayyutao.cn/2019/01/01/面试/前端面试题(3)/">
+
+
+
+
+
+  <title>前端面试题(3) | Maylover</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/hexo_resize_image.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Maylover</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">平凡之路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mayyutao.cn/2019/01/01/面试/前端面试题(3)/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="May Tao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maylover">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端面试题(3)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-01T08:40:00+08:00">
+                2019-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/01/面试/前端面试题(3)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/01/面试/前端面试题(3)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/01/面试/前端面试题(3)/" class="leancloud_visitors" data-flag-title="前端面试题(3)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  27
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="整理2"><a href="#整理2" class="headerlink" title="整理2"></a>整理2</h3><ul>
+<li><p>职责描述</p>
+  <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">职责描述：</span><br><span class="line"><span class="number">1</span>、各业务模块前端代码开发；</span><br><span class="line"><span class="number">2</span>、配合后端工程师一起研讨技术实现方案，进行应用及系统整合；</span><br><span class="line"><span class="number">3</span>、持续优化前端代码的性能，对现有产品功能进行升级以提高前端的用户体验以及性能，推进系统架构的演化。</span><br><span class="line">任职要求：</span><br><span class="line"><span class="number">1</span>、专科以上学历，计算机相关专业，<span class="number">3</span>年以上前端开发工作经验；</span><br><span class="line"><span class="number">1.</span>前端工作经验<span class="number">3</span>年以上，在前几家工作相对稳定没有频繁跳槽的，年龄在<span class="number">88</span>年以后的</span><br><span class="line"><span class="number">2.</span>vue是必要条件，至少有<span class="number">1</span>年的相关vue的中大型产品开发经验，从事前端开发经验<span class="number">3</span>年以上，前端开发是指使用vue，react等做过项目</span><br><span class="line"><span class="number">3.</span>小程序电商开发经验至少一年,有百度，支付宝小程序经验等优先</span><br><span class="line"><span class="number">4.</span>如有带团队经验的超过一年的，需要属于团队的核心开发类型的技术管理岗</span><br><span class="line"><span class="number">5.</span>人选从两个方向选择要么从事过可视化拖拽布局项目者优先，要么会自己编写vue组件，良好的代码风格，扎实的原生JS编写能力，良好的理解和表达能力，良好的逻辑思维能力，编程基础扎实。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>小程序有没有做过</p>
+</li>
+<li><p>前端的生命周期钩子怎么解释；生命周期（小程序的生命周期or vue的生命周期）</p>
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">beforecreate</span><span class="params">()</span></span>；此时 data 和methods 还没有被初始化</span><br><span class="line"><span class="function"><span class="title">created</span><span class="params">()</span></span> data 和method 已经初始化好了。</span><br><span class="line"><span class="function"><span class="title">beforeMount</span><span class="params">()</span></span> 模版已经编译加载到内存中，但还未加载到页面上</span><br><span class="line"><span class="function"><span class="title">mounted</span><span class="params">()</span></span>  已经加载到页面上了。看到的是渲染好的页面。</span><br><span class="line"><span class="function"><span class="title">beforUpdate</span><span class="params">()</span></span> UI还没有更新，但是数据肯定被更新了，data是新数据，但是页面上的数据是旧数据</span><br><span class="line"><span class="function"><span class="title">updated</span><span class="params">()</span></span> 已保持同步更新</span><br><span class="line"><span class="function"><span class="title">beforDestroy</span><span class="params">()</span></span> 销毁前 做一些保存操作</span><br><span class="line"><span class="function"><span class="title">destroyed</span><span class="params">()</span></span> 销毁后 内存销毁</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Vue中的脚手架用什么</p>
+  <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vue脚手架指的是vue-cli，它是一个专门为单页面应用快速搭建繁杂的脚手架，它可以轻松的创建新的应用程序而且可用于自动生成vue和webpack的项目模板。</span><br><span class="line">全局安装webpack命令行： <span class="built_in">npm</span> install webpack -g</span><br><span class="line">全局安装，输入命令行： <span class="built_in">npm</span> install vue-cli -g</span><br><span class="line">安装完成后执行命令:   vue -V 查看版本号</span><br><span class="line">在新建文件夹的上一级文件夹右键打开命令行工具，输入命令行：vue init webpack mySelf(项目名)</span><br><span class="line">cd 项目的文件夹</span><br><span class="line">安装项目依赖。命令行： <span class="built_in">npm</span> install</span><br><span class="line"><span class="built_in">npm</span> run dev或者<span class="built_in">npm</span> start，启动服务</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Vue的更新机制</p>
+  <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Vue</span>引入虚拟<span class="selector-tag">DOM</span>的最初目的却是为了降低内存; <span class="selector-tag">vue</span>自动更新视图的基础是响应式系统;</span><br><span class="line">(<span class="number">1</span>) 在数据变化时，调用组件的渲染函数重新生成<span class="selector-tag">VNode</span> ; 通过<span class="selector-tag">diff</span>算法比对新旧<span class="selector-tag">VNode</span>，判断哪里发生了变化 ; 更新真实<span class="selector-tag">DOM</span></span><br><span class="line">(<span class="number">2</span>) 总结 虚拟<span class="selector-tag">DOM</span>本身就是对真实<span class="selector-tag">DOM</span>的一种<span class="selector-tag">JavaScript</span>描述，每当数据更新时，它就通过<span class="selector-tag">diff</span>算法来比对之前的和新生成的两个<span class="selector-tag">VNode</span>，根据差异来更新真实<span class="selector-tag">DOM</span>。由于在<span class="selector-tag">React</span>中没有响应式系统，当数据发生变化时，<span class="selector-tag">React</span>不知道哪个组件受到了影响，因此需要对完整的虚拟<span class="selector-tag">DOM</span>进行<span class="selector-tag">diff</span>，从而更新页面。而借助响应式系统，只要数据变化，<span class="selector-tag">Vue</span>就能立即定位到是哪个组件的<span class="selector-tag">DOM</span>需要更新，因此它的<span class="selector-tag">diff</span>算法是组件级别的，效率更高（当然，构建响应式系统本身必然有一定的资源消耗，但这种消耗是值得的）。</span><br><span class="line">(<span class="number">3</span>) 通过<span class="selector-tag">isCollapse</span>改变触发<span class="selector-tag">ref</span>的子组件<span class="selector-tag">child</span>触发方法<span class="selector-tag">resize</span>()，接着触发<span class="selector-tag">callResize</span>()方法</span><br><span class="line">(<span class="number">4</span>) 子组件是<span class="selector-tag">child</span>，父组件是整个界面 ，在父组件上任意触发监听，调用方法<span class="selector-tag">resize</span>()；</span><br><span class="line">      <span class="selector-tag">resize</span>()调用<span class="selector-tag">callResize</span>()，<span class="selector-tag">callResize</span>()把下面的<span class="selector-tag">3</span>个方法的<span class="selector-tag">resize</span>()一次调用。</span><br><span class="line">      循环遍历  父触发，父亲告诉子 <span class="selector-tag">resize</span>  子告诉孙 <span class="selector-tag">resize</span>。没有孙子，就调用停止。</span><br><span class="line">想一个树形结构，导航菜单，点击导航菜单，切换对应界面。保证每个节点都跟着刷新。</span><br><span class="line">就是说，父组件更新了，它的子组件，孙组件都要更新。子组件变化了，它引用的所有组件都要更新。</span><br><span class="line">————————————————</span><br><span class="line">(<span class="number">5</span>) </span><br><span class="line"><span class="selector-tag">1</span>.数组更改值或者增加删除值，不会触发更新。</span><br><span class="line"><span class="selector-tag">2</span>.对象更改值可触发更新，增加或者删除属性不会触发更新。</span><br><span class="line"><span class="selector-tag">3</span>.对象数组：数组中的对象更改值会触发更新。</span><br><span class="line"></span><br><span class="line">(<span class="number">6</span>) 由于<span class="selector-tag">VUE</span>的数据驱动视图更新，是异步的，即修改数据的当下，视图不会立刻更新，而是等同一事件循环中的所有数据变化完成之后，再统一进行视图更新。</span><br><span class="line"><span class="selector-tag">nextTick</span>的触发时机： 在同一事件循环中的数据变化后，<span class="selector-tag">DOM</span>完成更新，立即执行<span class="selector-tag">nextTick</span>(callback)内的回调</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>vue双向绑定的原理</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">vue主要是借助对象的访问器属性（<span class="built_in">Object</span>.defineProperty）劫持数据，并结合订阅者-发布者模式来实现数据双向绑定。</span><br><span class="line">vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过<span class="built_in">Object</span>.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。</span><br><span class="line">（<span class="number">1</span>）为属性 实现 <span class="built_in">Object</span>.defineProperty 实现 set get方法</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">data,key,val</span>) </span>&#123;</span><br><span class="line">    observe(val);</span><br><span class="line">    <span class="keyword">var</span> dep = <span class="keyword">new</span> Dep();</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(data, key, &#123;</span><br><span class="line">        enumerable: <span class="literal">true</span>,</span><br><span class="line">        configurable: <span class="literal">true</span>,</span><br><span class="line">        get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (是否需要添加订阅者) &#123;    <span class="comment">//Watcher初始化触发</span></span><br><span class="line">                dep.addSub(watcher); <span class="comment">// 在这里添加一个订阅者</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> val;</span><br><span class="line">        &#125;,</span><br><span class="line">        set: <span class="function"><span class="keyword">function</span>(<span class="params">newVal</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (val === newVal) &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            val = newVal;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'属性'</span> + key + <span class="string">'已经被监听了，现在值为：“'</span> + newVal.toString() + <span class="string">'”'</span>);</span><br><span class="line">            dep.notify(); <span class="comment">// 如果数据变化，通知所有订阅者</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">(<span class="number">2</span>) 创建订阅者</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dep</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.subs = [];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//prototype这个属性只有函数对象才有，具体的说就是构造函数具有.只要你声明定义了一个函数对象，这个prototype就会存在</span></span><br><span class="line"><span class="comment">//对象实例是没有这个属性</span></span><br><span class="line">Dep.prototype = &#123;                        </span><br><span class="line">    addSub:<span class="function"><span class="keyword">function</span>(<span class="params">sub</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.subs.push(sub);</span><br><span class="line">    &#125;,</span><br><span class="line">    notify:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.subs.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">sub</span>) </span>&#123;</span><br><span class="line">            sub.update();        <span class="comment">//通知每个订阅者检查更新</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Dep.target = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">（<span class="number">3</span>）实现坚监听着，收到通知，通知刷新UI</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">Watcher</span>(<span class="params">vm,exp,cb</span>) </span>&#123;</span><br><span class="line">	    <span class="keyword">this</span>.vm = vm;    <span class="comment">//指向SelfVue的作用域</span></span><br><span class="line">	    <span class="keyword">this</span>.exp = exp;  <span class="comment">//绑定属性的key值</span></span><br><span class="line">	    <span class="keyword">this</span>.cb = cb;    <span class="comment">//闭包</span></span><br><span class="line">	    <span class="keyword">this</span>.value = <span class="keyword">this</span>.get();</span><br><span class="line">	&#125;</span><br><span class="line">	Watcher.prototype = &#123;</span><br><span class="line">	    update:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	        <span class="keyword">this</span>.run();</span><br><span class="line">	    &#125;,</span><br><span class="line">	    run:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	        <span class="keyword">var</span> value = <span class="keyword">this</span>.vm.data[<span class="keyword">this</span>.exp];</span><br><span class="line">	        <span class="keyword">var</span> oldVal = <span class="keyword">this</span>.value;</span><br><span class="line">	        <span class="keyword">if</span>(value !== oldVal) &#123;</span><br><span class="line">	            <span class="keyword">this</span>.value = value;</span><br><span class="line">	            <span class="keyword">this</span>.cb.call(<span class="keyword">this</span>.vm,value,oldVal);</span><br><span class="line">	        &#125;</span><br><span class="line">	    &#125;,</span><br><span class="line">	    get:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	        Dep.target = <span class="keyword">this</span>;                   <span class="comment">// 缓存自己</span></span><br><span class="line">	        <span class="keyword">var</span> value = <span class="keyword">this</span>.vm.data[<span class="keyword">this</span>.exp];  <span class="comment">// 强制执行监听器里的get函数</span></span><br><span class="line">	        Dep.target = <span class="literal">null</span>;                   <span class="comment">// 释放自己</span></span><br><span class="line">	        <span class="keyword">return</span> value;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">（<span class="number">4</span>） 定义一个SelfVue类，来实现observer和watcher的关联，</span><br><span class="line"><span class="comment">//将Observer和Watcher关联起来</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SelfVue</span>(<span class="params">data,el,exp</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.data = data;</span><br><span class="line">    observe(data);</span><br><span class="line">    el.innerHTML = <span class="keyword">this</span>.data[exp];</span><br><span class="line">    <span class="keyword">new</span> Watcher(<span class="keyword">this</span>,exp,<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">        el.innerHTML = value;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">（<span class="number">5</span>）页面上测试监听：</span><br><span class="line">	&lt;script&gt;</span><br><span class="line">	     <span class="keyword">var</span> ele = <span class="built_in">document</span>.querySelector(<span class="string">'#name'</span>);</span><br><span class="line">	     <span class="keyword">var</span> selfVue = <span class="keyword">new</span> SelfVue(&#123;</span><br><span class="line">	         name:<span class="string">'hello world'</span></span><br><span class="line">	     &#125;,ele,<span class="string">'name'</span>);</span><br><span class="line">	</span><br><span class="line">	     <span class="built_in">window</span>.setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	         <span class="built_in">console</span>.log(<span class="string">'name值改变了'</span>);</span><br><span class="line">	         selfVue.name = <span class="string">'byebye world'</span>;</span><br><span class="line">	     &#125;,<span class="number">2000</span>);</span><br><span class="line">	&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<pre><code>- 父子组件通信； 父传子，子传父的Vue组件怎么构成（父子组件之间的通信）
+
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)通过 Prop 向子组件传递数据</span><br><span class="line">父：</span><br><span class="line"> &lt;my-child <span class="symbol">:deliverParentAge=<span class="string">"parentAge"</span>&gt;&lt;/my-child&gt;</span></span><br><span class="line"> 子：</span><br><span class="line"> <span class="symbol">props:</span> [<span class="string">"deliverParentAge"</span>];</span><br><span class="line"> (<span class="number">2</span>) 通过emit 子传父；</span><br><span class="line"> 子：</span><br><span class="line">  AddAge() &#123;</span><br><span class="line">      this.<span class="variable">$emit</span>(<span class="string">"addParentAge"</span>, this.parentActualAge);</span><br><span class="line">    &#125;</span><br><span class="line">   父： <span class="variable">@addParentAge</span> 是子 emit的时候 传入的函数名</span><br><span class="line">   &lt;my-child <span class="symbol">:deliverParentAge=<span class="string">"parentAge"</span></span></span><br><span class="line">            <span class="variable">@addParentAge</span>=<span class="string">"handleAddParentAge"</span>&gt;&lt;<span class="regexp">/my-child&gt;</span></span><br></pre></td></tr></table></figure>
+</code></pre><ul>
+<li><p>Vue兄弟组件怎么使用; eventBus ;vuex; localStorage;</p>
+ <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">兄弟组件之间的通信 ，是用eventBus;</span><br><span class="line">A 组件监听</span><br><span class="line">eventBus.$on(<span class="string">'my-event'</span>, args =&gt; &#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// B组件发送消息</span></span><br><span class="line">list(<span class="keyword">new</span><span class="type">Value</span>, oldValue) &#123;</span><br><span class="line">    eventBus.$emit(<span class="string">'my-event'</span>, <span class="keyword">new</span><span class="type">Value</span>)</span><br><span class="line">&#125; ；</span><br><span class="line"></span><br><span class="line">相抵组件之间相互调用，通过父组件做桥接；父组件 通过refs[<span class="number">0</span>] 获取到组件，执行方法</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>是否了解异步路由，异步路由配置之后会有什么变化</p>
+  <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">异步加载路由组件</span><br><span class="line">组件懒加载</span><br><span class="line">  在单页应用中，如果没有应用懒加载，运用webpack打包后的文件将会异常的大，造成进入首页时，需要加载的内容过多，延时过长，不利于用户体验，而运用懒加载则可以将页面进行划分，需要的时候加载页面，可以有效的分担首页所承担的加载压力，减少首页加载用时</span><br><span class="line">  </span><br><span class="line">  (<span class="number">1</span>)路由中配置异步组件</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">    routes: [</span><br><span class="line">        &#123;</span><br><span class="line">            mode: <span class="string">'history'</span>,</span><br><span class="line">            path: <span class="string">'/my'</span>,</span><br><span class="line">            name: <span class="string">'my'</span>,</span><br><span class="line">            component:  <span class="function"><span class="params">resolve</span> =&gt;</span><span class="built_in">require</span>([<span class="string">'../page/my/my.vue'</span>], resolve),<span class="comment">//懒加载</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br><span class="line">(<span class="number">2</span>) 实例中配置异步组件</span><br><span class="line">components: &#123;</span><br><span class="line">    historyTab: <span class="function"><span class="params">resolve</span> =&gt;</span> &#123;<span class="built_in">require</span>([<span class="string">'../../component/historyTab/historyTab.vue'</span>], resolve)&#125;,<span class="comment">//懒加载</span></span><br><span class="line">    <span class="comment">//historyTab: () =&gt; import('../../component/historyTab/historyTab.vue')</span></span><br><span class="line">&#125;,</span><br><span class="line">(<span class="number">3</span>) 全局注册异步组件</span><br><span class="line">Vue.component(<span class="string">'mideaHeader'</span>, <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    System.import(<span class="string">'./component/header/header.vue'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">问题变化：</span><br><span class="line"></span><br><span class="line"><span class="comment">//异步加载的组件将会比页面中其他元素滞后出现， 页面会有瞬间闪跳影响；</span></span><br><span class="line">因为在首次加载组件的时候会有加载时间， 出现页面滞后， 所以需要合理的进行页面结构设计， 避免首次出现跳闪现象；</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>怎么定义动态路由；怎么获取传过来的动态参数；</p>
+  <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义动态路由；</span></span><br><span class="line"><span class="keyword">const</span> router = new VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    <span class="comment">// 动态路径参数 以冒号开头</span></span><br><span class="line">    &#123; path: '/user/:id', component: User &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 获取参数： 一个“路径参数”使用冒号 : 标记。当匹配到一个路由时，参数值会被设置到 this.$route.params</span></span><br><span class="line"></span><br><span class="line">(1)  组件中配置，路由配置拼接参数，取参数使用 this.<span class="variable">$route</span>.params.id</span><br><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">  path: `/<span class="keyword">describe</span>/<span class="variable">$&#123;id&#125;</span>`,</span><br><span class="line">&#125;)</span><br><span class="line">&#123;</span><br><span class="line"> path: '/<span class="keyword">describe</span>/:id',</span><br><span class="line"> name: '<span class="keyword">Describe</span>',</span><br><span class="line"> component: <span class="keyword">Describe</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">（2）子组件中: 这样来获取参数 通过 this.<span class="variable">$route</span>.params.id</span><br><span class="line">父组件中：通过路由属性中的name来确定匹配的路由，通过params来传递参数。</span><br><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">	  name: '<span class="keyword">Describe</span>',</span><br><span class="line">	  params: &#123;</span><br><span class="line">	    id: id</span><br><span class="line">	  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">对应路由配置: 这里可以添加:/id 也可以不添加，不添加数据会在url后面显示，不添加数据就不会显示</span><br><span class="line">&#123;</span><br><span class="line">	path: '/<span class="keyword">describe</span>',</span><br><span class="line">	name: '<span class="keyword">Describe</span>',</span><br><span class="line">	component: <span class="keyword">Describe</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">（3）对应子组件: 这样来获取参数 this.<span class="variable">$route</span>.<span class="keyword">query</span>.id</span><br><span class="line">	父组件：使用path来匹配路由，然后通过<span class="keyword">query</span>来传递参数</span><br><span class="line">	这种情况下 <span class="keyword">query</span>传递的参数会显示在url后面?id=？</span><br><span class="line">	this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">	      path: '/<span class="keyword">describe</span>',</span><br><span class="line">	      <span class="keyword">query</span>: &#123;</span><br><span class="line">	        id: id</span><br><span class="line">	      &#125;</span><br><span class="line">	&#125;)</span><br><span class="line">	对应路由配置：</span><br><span class="line">	&#123;</span><br><span class="line">		 path: '/<span class="keyword">describe</span>',</span><br><span class="line">		 name: '<span class="keyword">Describe</span>',</span><br><span class="line">		 component: <span class="keyword">Describe</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>this.$router 和 this.$route 的区别</p>
+  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1)router为VueRouter实例，主要是实现路由跳转使用。想要导航到不同URL，则使用router.push方法</span><br><span class="line">(2)route object ，路由信息对象，表示当前激活的路由的状态信息，包含了完整路径、当前 URL 解析得到的信息，还有 URL 匹配到的<span class="built_in"> route </span>records（路由记录）</span><br><span class="line">(3)route object 是 immutable（不可变） 的，每次成功的导航后都会产生一个新的对象</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>简述一下vuex 的哪几种属性，分别各自什么作用；</p>
+  <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">属性： <span class="selector-tag">State</span> <span class="selector-tag">Getters</span> <span class="selector-tag">Mutation</span> <span class="selector-tag">Action</span> <span class="selector-tag">Module</span>;</span><br><span class="line"><span class="selector-tag">State</span> 基本数据</span><br><span class="line"><span class="selector-tag">getters</span> 从基本数据派生的数据；</span><br><span class="line"><span class="selector-tag">mutation</span> 提交更改数据的方法；同步; 更改<span class="selector-tag">Vuex</span>中的<span class="selector-tag">store</span>中的状态的唯一方法</span><br><span class="line"><span class="selector-tag">action</span> 像是一个装饰器。封装<span class="selector-tag">mutations</span>；使之可以异步；</span><br><span class="line"><span class="selector-tag">modules</span> 模块化<span class="selector-tag">Vuex</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">store</span><span class="selector-class">.commit</span>(<span class="string">"mutationsname"</span>,&#123;&#125;)</span><br><span class="line"><span class="selector-tag">store</span><span class="selector-class">.dispatch</span>(<span class="string">"actionname"</span>,&#123;&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>格式化金额，三个逗号分隔；</p>
+  <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>) 方法<span class="number">1</span> </span><br><span class="line">function fmoney(s, n) &#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * 参数说明：</span></span><br><span class="line"><span class="comment">     * s：要格式化的数字</span></span><br><span class="line"><span class="comment">     * n：保留几位小数</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">    n = n &gt; <span class="number">0</span> &amp;&amp; n &lt;= <span class="number">20</span> ? n : <span class="number">2</span>;</span><br><span class="line">    s = parseFloat((s + <span class="string">""</span>).replace(/[^\d\.-]/g, <span class="string">""</span>)).toFixed(n) + <span class="string">""</span>;</span><br><span class="line">    <span class="built_in">var</span> l = s.<span class="built_in">split</span>(<span class="string">"."</span>)[<span class="number">0</span>].<span class="built_in">split</span>(<span class="string">""</span>).<span class="built_in">reverse</span>(),   r = s.<span class="built_in">split</span>(<span class="string">"."</span>)[<span class="number">1</span>];   t = <span class="string">""</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; l.<span class="built_in">length</span>; i++) &#123;</span><br><span class="line">        t += l[i] + ((i + <span class="number">1</span>) <span class="symbol">%</span> <span class="number">3</span> == <span class="number">0</span> &amp;&amp; (i + <span class="number">1</span>) != l.<span class="built_in">length</span> ? <span class="string">","</span> : <span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> t.<span class="built_in">split</span>(<span class="string">""</span>).<span class="built_in">reverse</span>().<span class="built_in">join</span>(<span class="string">""</span>) + <span class="string">"."</span> + r;</span><br><span class="line">&#125;</span><br><span class="line">//调用</span><br><span class="line">fmoney(<span class="number">9.7</span>,<span class="number">2</span>);//<span class="number">9.70</span></span><br><span class="line">fmoney('<span class="number">12345.675910</span>', <span class="number">3</span>);//<span class="number">12</span>,<span class="number">345.676</span></span><br><span class="line"></span><br><span class="line">// 方法<span class="number">2</span> s为传入的字符串，dot为金额每隔三位用<span class="string">","</span>或<span class="string">" "</span>间隔</span><br><span class="line">function formatMoney(s,dot) &#123;     </span><br><span class="line">   s = parseFloat((s + <span class="string">""</span>).replace(/[^\d\.-]/g, <span class="string">""</span>)).toFixed(<span class="number">2</span>) + <span class="string">""</span>;   </span><br><span class="line">   <span class="built_in">var</span> l = s.<span class="built_in">split</span>(<span class="string">"."</span>)[<span class="number">0</span>].<span class="built_in">split</span>(<span class="string">""</span>).<span class="built_in">reverse</span>(),   </span><br><span class="line">   r = s.<span class="built_in">split</span>(<span class="string">"."</span>)[<span class="number">1</span>];   </span><br><span class="line">   t = <span class="string">""</span>;   </span><br><span class="line">   <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; l.<span class="built_in">length</span>; i ++ )   &#123;   </span><br><span class="line">      t += l[i] + ((i + <span class="number">1</span>) <span class="symbol">%</span> <span class="number">3</span> == <span class="number">0</span> &amp;&amp; (i + <span class="number">1</span>) != l.<span class="built_in">length</span> ? dot : <span class="string">""</span>);   </span><br><span class="line">   &#125;   </span><br><span class="line">   <span class="built_in">return</span> t.<span class="built_in">split</span>(<span class="string">""</span>).<span class="built_in">reverse</span>().<span class="built_in">join</span>(<span class="string">""</span>) + <span class="string">"."</span> + r;   </span><br><span class="line">&#125; </span><br><span class="line">console.<span class="built_in">log</span>(formatMoney(<span class="string">"12345.605910"</span>, ' '))</span><br><span class="line">//  <span class="number">12</span> <span class="number">345.61</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组扁平化处理；讲一个数组（此数组可能是一维，可能是二维，三维 ） 转为一维数组；</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> reduce 遍历数组每一项，若值为数组则递归遍历，否则concat</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">result, item</span>)=&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> result.concat(<span class="built_in">Array</span>.isArray(item) ? flatten(item) : item);</span><br><span class="line">    &#125;, []);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> toString &amp; split</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.toString().split(<span class="string">','</span>).map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Number</span>(item);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="number">3</span> join &amp; split</span><br><span class="line">和上面的toString一样，join也可以将数组转换为字符串</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.join(<span class="string">','</span>).split(<span class="string">','</span>).map(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">parseInt</span>(item);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 递归 递归的遍历每一项，若为数组则继续遍历，否则concat</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> res = [];</span><br><span class="line">    arr.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(item)) &#123;</span><br><span class="line">            res = res.concat(flatten(item));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            res.push(item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">5.</span> 扩展运算符 es6的扩展运算符能将二维数组变为一维</span><br><span class="line">[].concat(...[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>]]);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(arr.some(<span class="function"><span class="params">item</span>=&gt;</span><span class="built_in">Array</span>.isArray(item))) &#123;</span><br><span class="line">        arr = [].concat(...arr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>权限配置怎么实现</p>
+  <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">接口访问的权限控制</span><br><span class="line">页面的权限控制 菜单中的页面是否能被访问 页面中的按钮（增、删、改）的权限控制是否显示</span><br><span class="line">接口session过期</span><br><span class="line">service.interceptors.request.use(</span><br><span class="line">   <span class="built_in"> config </span>=&amp;gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (store.state.user.token) &#123;</span><br><span class="line">            config.headers.Authorization = `token <span class="variable">$&#123;store.state.user.token&#125;</span>`;</span><br><span class="line">        &#125;</span><br><span class="line">        return config</span><br><span class="line">    &#125;,</span><br><span class="line">    err =&amp;gt; &#123;</span><br><span class="line">        return Promise.reject(err)</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line">动态路由生成router.meta.permission</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>深度广度，二叉树，网站Dom的节点怎么构成</p>
+  <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)// 多叉树的遍历，广度优先遍历层序遍历，借助队列，非递归方式</span><br><span class="line">Tree.prototype.BFSearch = function(<span class="keyword">node</span><span class="title">, callback</span>) &#123;</span><br><span class="line">    var queue = [];</span><br><span class="line">    while (<span class="keyword">node</span> <span class="title">!= null</span>) &#123;</span><br><span class="line">      callback(<span class="keyword">node</span><span class="title">);</span></span><br><span class="line"><span class="title">      if</span> (<span class="keyword">node</span>.<span class="title">children</span>.length != <span class="number">0</span>) &#123;</span><br><span class="line">        for (var i = <span class="number">0</span>; i <span class="tag">&lt; node.children.length; i++) &#123;</span></span><br><span class="line"><span class="tag">          queue.push(node.children[i]); //借助于队列,暂存当前节点的所有子节点  </span></span><br><span class="line"><span class="tag">        &#125;</span></span><br><span class="line"><span class="tag">      &#125;</span></span><br><span class="line"><span class="tag">      node = queue.shift(); //先入先出，借助于数据结构：队列  </span></span><br><span class="line"><span class="tag">    &#125;</span></span><br><span class="line"><span class="tag">&#125;;</span></span><br><span class="line"><span class="tag"></span></span><br><span class="line"><span class="tag">(2)// 多叉树的遍历，深度优先遍历 借助栈，首先遍历根节点，然后沿着一条路径遍历到最深的一层，最后在逐层返回</span></span><br><span class="line"><span class="tag">Tree.prototype.DFSearch = function(node, callback) &#123;</span></span><br><span class="line"><span class="tag">    var stack = [];</span></span><br><span class="line"><span class="tag">    while (node != null) &#123;</span></span><br><span class="line"><span class="tag">      callback(node);</span></span><br><span class="line"><span class="tag">      if (node.children.length != 0) &#123;</span></span><br><span class="line"><span class="tag">        for (var i = node.children.length - 1; i &gt;</span>= <span class="number">0</span>; i--) &#123; //按照相反的子节点顺序压入栈  </span><br><span class="line">          stack.push(<span class="keyword">node</span>.<span class="title">children</span>[i]); //将该节点的所有子节点压入栈  </span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">node</span> <span class="title">= stack</span>.pop(); //弹出栈的子节点顺序就是原来的正确顺序(因为栈是先入后出的)        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">(<span class="number">3</span>) 每一个元素都是一个节点，可以看到有很多类型不同的节点</span><br><span class="line">    Element(元素节点)	<span class="number">1</span>	ELEMENT_NODE</span><br><span class="line">    Attr(属性节点)	<span class="number">1</span>	ATTRIBUTE_NODE</span><br><span class="line">    Text(文本节点)	<span class="number">1</span>	TEXT_NODE</span><br><span class="line">    Comment(注释节点)	<span class="number">1</span>	COMMENT_NODE</span><br><span class="line">    Document(文档节点)	<span class="number">1</span>	DOCUMENT_NODE</span><br><span class="line">    DocumentType(文档类型节点)	<span class="number">1</span>	DOCUMENT_TYPE_NODE</span><br><span class="line">    DocumentFragment(文档片段节点)	<span class="number">1</span>	DOCUMENT_FRAGMENT_NODE</span><br><span class="line"></span><br><span class="line">(<span class="number">4</span>) 每个节点都有nodeType（节点类型）、nodeName（节点名称）、nodeValue（节点值）属性（还有其他的常用属性这里不讲），我们可以通过xxx.nodeType xxx.nodeName xxx.nodeValue获得（xxx代表通过DOM提供的方法获取的<span class="keyword">node</span><span class="title">）</span></span><br><span class="line"><span class="title">    </span></span><br><span class="line"><span class="title">    节点类型	        nodeName</span>					  nodeValue</span><br><span class="line">    Element(元素节点)	元素标签名称如:div		null</span><br><span class="line">    Attr(属性节点)	   属性名称如:id			   属性值如:container</span><br><span class="line">    Text(文本节点).    <span class="comment">#text	节点中包含的文本内容</span></span><br><span class="line">    Comment(注释节点)	 <span class="comment">#comment				注释中的内容</span></span><br><span class="line">    DocumentType(文档类型节点)	doctype的名称（html） null</span><br><span class="line">    DocumentFragment(文档片段节点)	<span class="comment">#document_fragment null</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>未知的对象树怎么辩证节点</p>
+  <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归查找 根据key 是否相同</span></span><br><span class="line">function recursion(<span class="keyword">data</span>, current)&#123;</span><br><span class="line">    <span class="keyword">var</span> result = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">data</span>)&#123;</span><br><span class="line">       <span class="comment">// return; 中断执行</span></span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> <span class="keyword">data</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> item = <span class="keyword">data</span>[i];</span><br><span class="line">        <span class="keyword">if</span>(item.id == current)&#123;</span><br><span class="line">            result = item;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(item.children &amp;&amp; item.children.length &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            result = recursion(item.children, current);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> r = recursion(<span class="keyword">data</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有没有见过色盘，颜色选择器，颜色选择器的颜色怎么出来</p>
+  <figure class="highlight cal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="keyword">begin</span> = <span class="number">0</span>; </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123; </span><br><span class="line">    <span class="keyword">begin</span> = i * <span class="number">8</span>; </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> r = <span class="number">0</span>; r &lt; c.length; r++) &#123; </span><br><span class="line">        document.writeln(<span class="string">'&lt;div class="clear"&gt;'</span>); </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> g = <span class="keyword">begin</span>; g &lt; <span class="keyword">begin</span> + <span class="number">8</span>; g++) &#123; </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> b = <span class="number">0</span>; b &lt; c.length; b++) &#123; </span><br><span class="line">                <span class="keyword">var</span> color = <span class="string">'#'</span> + c.charAt(r) + c.charAt(g) + c.charAt(b); </span><br><span class="line">                document.write(<span class="string">'&lt;div onclick="setColor(\'' + color + '</span>\<span class="string">');" </span></span><br><span class="line"><span class="string">                onmouseover="showColor(\'' + color + '</span>\<span class="string">');" </span></span><br><span class="line"><span class="string">                style="background-color:'</span> + color + <span class="string">';"&gt;</span></span><br><span class="line"><span class="string">                &lt;/div&gt;'</span>); </span><br><span class="line">            &#125; </span><br><span class="line">        &#125; </span><br><span class="line">        document.writeln(<span class="string">'&lt;/div&gt;'</span>); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>吸盘吸各种颜色，怎么去实现</p>
+  <figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectColor</span>(<span class="params">o</span>) </span>&#123; </span><br><span class="line">    o.style.backgroundColor = <span class="string">'#FFF'</span>; </span><br><span class="line">    o.style.border = <span class="string">'solid 10px '</span> + (o.value == <span class="string">''</span> ? <span class="string">'black'</span> : o.value); </span><br><span class="line">&#125; </span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showColor</span>(<span class="params">color</span>) </span>&#123; </span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'txtColor'</span>).style.border = <span class="string">'solid 10px '</span> + <span class="built_in">color</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setColor</span>(<span class="params">color</span>) </span>&#123; </span><br><span class="line">    <span class="keyword">var</span> txtColor = <span class="built_in">document</span>.getElementById(<span class="string">'txtColor'</span>); </span><br><span class="line">    txtColor.value = <span class="built_in">color</span>; </span><br><span class="line">    txtColor.style.backgroundColor = <span class="built_in">color</span>; </span><br><span class="line">    txtColor.select(); </span><br><span class="line">    txtColor.focus(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>热响应的原理; 热更新；热修复；</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">使得应用在运行状态下，不重载刷新就能更新、增加、移除模块的机制</span><br><span class="line">(<span class="number">1</span>) 使用 HotModuleReplacementPlugin 插件 HotModuleReplacementPlugin 插件是 Webpack 自带的</span><br><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  plugins: [</span><br><span class="line">    webpack.HotModuleReplacementPlugin(),</span><br><span class="line">   <span class="comment">// ...</span></span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br><span class="line">(<span class="number">2</span>) 如果直接通过 webpack-dev-server 启动 Webpack 的开发环境，那么可以这样打开 webpack-dev-server 的热更新开关：</span><br><span class="line"><span class="comment">// webpack.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    hot: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">(<span class="number">3</span>)处理依赖模块的热更新</span><br><span class="line"><span class="built_in">module</span>.hot.accept() 告诉 Webpack，当前模块更新不用刷新</span><br><span class="line"><span class="built_in">module</span>.hot.decline() 告诉 Webpack，当前模块更新时一定要刷新</span><br><span class="line"></span><br><span class="line">(<span class="number">4</span>) 处理自身模块的热更新 使用vue的热加载可以实现局部内容的刷新，更改数据后，不会刷新整个页面</span><br><span class="line">在webpack.config.js中设置：</span><br><span class="line">	对config.devServer中添加属性hot:<span class="literal">true</span></span><br><span class="line">对config.plugins添加</span><br><span class="line">	<span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</span><br><span class="line">	<span class="keyword">new</span> webpack.NoEmitOnErrorsPlugin()</span><br><span class="line">————————————————</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (isDev) &#123;</span><br><span class="line">  config.devServer = &#123;</span><br><span class="line">    port: <span class="number">8000</span>,   <span class="comment">//配置端口号</span></span><br><span class="line">    host: <span class="string">'0.0.0.0'</span>,  <span class="comment">//让页面可以通过本机的ip访问，也可以使用手机同一局域网内通过ip访问</span></span><br><span class="line">    overlay: &#123;</span><br><span class="line">      errors: <span class="literal">true</span>  <span class="comment">//webpack在编译的时候如果出现了错误，可以在网页上显示</span></span><br><span class="line">    &#125;,</span><br><span class="line">    hot: <span class="literal">true</span>  <span class="comment">//热加载</span></span><br><span class="line">  &#125;</span><br><span class="line">  config.plugins.push(</span><br><span class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</span><br><span class="line">    <span class="keyword">new</span> webpack.NoEmitOnErrorsPlugin()</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">module</span>.exports = config</span><br><span class="line">————————————————</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>分环境打包怎么配置  development(开发)、test(测试)、pre(预生产)、product（生产）</p>
+  <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、cnpm/npm  <span class="built_in">run</span>  build:dev     ------本地包打包完成</span><br><span class="line"><span class="number">2</span>、cnpm/npm  <span class="built_in">run</span>  build:test     ------测试包打包完成</span><br><span class="line"><span class="number">3</span>、cnpm/npm  <span class="built_in">run</span>  build:prod     ------生产包打包完成</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>)在<span class="built_in">config</span> 目录下 建立    pre.env.js   test.env.js 文件</span><br><span class="line"></span><br><span class="line">    <span class="comment">//test.env.js</span></span><br><span class="line">    <span class="keyword">module</span>.exports = &#123;</span><br><span class="line">      NODE_ENV: <span class="string">'"testing"'</span>, <span class="comment">// 环境</span></span><br><span class="line">      ENV_CONFIG: <span class="string">'"test"'</span>    <span class="comment">// 环境标识</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// pre.env.js</span></span><br><span class="line">    <span class="keyword">module</span>.exports = &#123;</span><br><span class="line">      NODE_ENV: <span class="string">'"pre"'</span>,</span><br><span class="line">      ENV_CONFIG: <span class="string">'"pre"'</span></span><br><span class="line">    &#125;</span><br><span class="line">(<span class="number">2</span>) 导入 <span class="built_in">config</span>目录下的 index.js  build模块</span><br><span class="line">    build: &#123;</span><br><span class="line">        prodEnv: require(<span class="string">'./prod.env'</span>),  <span class="comment">// 添加（导入）环境配置</span></span><br><span class="line">        testEnv: require(<span class="string">'./test.env'</span>),</span><br><span class="line">        preEnv: require(<span class="string">'./pre.env'</span>),</span><br><span class="line">        index: path.resolve(__dirname, <span class="string">'../dist/index.html'</span>),</span><br><span class="line">     </span><br><span class="line">        assetsRoot: path.resolve(__dirname, <span class="string">'../dist'</span>),</span><br><span class="line">        assetsSubDirectory: <span class="string">'static'</span>,</span><br><span class="line">        assetsPublicPath: <span class="string">'./'</span>,</span><br><span class="line">     </span><br><span class="line">        productionSourceMap: true,</span><br><span class="line">        devtool: <span class="string">'#source-map'</span>,</span><br><span class="line">        productionGzip: false,</span><br><span class="line">        productionGzipExtensions: [<span class="string">'js'</span>, <span class="string">'css'</span>],</span><br><span class="line">        bundleAnalyzerReport: <span class="built_in">process</span>.env.npm_config_report</span><br><span class="line">      &#125;</span><br><span class="line">    ————————————————</span><br><span class="line">(<span class="number">3</span>) 肯定配置build目录动态打包文件 而不是单纯的 prod（生产环境了）</span><br><span class="line">    首先 在 build/webpack.prod.conf .js下</span><br><span class="line">    	<span class="keyword">const</span> env = require(<span class="string">'../config/prod.env'</span>) <span class="comment">// 源代码</span></span><br><span class="line">    	替换成</span><br><span class="line">    	<span class="keyword">const</span> env = <span class="built_in">config</span>.build[<span class="built_in">process</span>.env.env_config + <span class="string">'Env'</span>] <span class="comment">//动态环境 env_config</span></span><br><span class="line">    其次 在build/build.js 下 修改 <span class="keyword">const</span> spinner = ora</span><br><span class="line">    	<span class="keyword">const</span> spinner = ora(</span><br><span class="line">    	  <span class="string">'building for '</span> +</span><br><span class="line">    	    <span class="built_in">process</span>.env.NODE_ENV +</span><br><span class="line">    	    <span class="string">' of '</span> +</span><br><span class="line">    	    <span class="built_in">process</span>.env.env_config +</span><br><span class="line">    	    <span class="string">' mode...'</span></span><br><span class="line">    	    </span><br><span class="line">（<span class="number">4</span>）肯定是配置我们的 package.json</span><br><span class="line">	<span class="string">"scripts"</span>: &#123;</span><br><span class="line">	    <span class="string">"dev"</span>: <span class="string">"webpack-dev-server --inline --progress --config build/webpack.dev.conf.js"</span>,</span><br><span class="line">	    <span class="string">"start"</span>: <span class="string">"npm run dev"</span>,</span><br><span class="line">	    <span class="string">"build"</span>: <span class="string">"node build/build.js"</span>,</span><br><span class="line">	    <span class="string">"test"</span>: <span class="string">"cross-env NODE_ENV=testing env_config=test node build/build.js"</span>,</span><br><span class="line">	    <span class="string">"pre"</span>: <span class="string">"cross-env NODE_ENV=pre env_config=pre node build/build.js"</span>,</span><br><span class="line">	    <span class="string">"prod"</span>: <span class="string">"cross-env NODE_ENV=production env_config=prod node build/build.js"</span></span><br><span class="line">	  &#125;</span><br><span class="line">  （<span class="number">5</span>）build之前肯定得安装依赖 才会执行 npm <span class="built_in">run</span> test 等命令  npm install cross-env –save-dev   </span><br><span class="line">  （<span class="number">6</span>）在src下 任意模块下建立 常量 <span class="built_in">config</span>.js，</span><br><span class="line">	let FBC_Api = <span class="string">''</span> <span class="comment">// 服务（包括上传） api IP</span></span><br><span class="line">	let uploadUrl = <span class="string">''</span> <span class="comment">// 图片 路径拼接 IP</span></span><br><span class="line">	<span class="built_in">if</span> (<span class="built_in">process</span>.env.NODE_ENV === <span class="string">'development'</span>) &#123;</span><br><span class="line">	  FBC_Api = <span class="string">'http://192.168.1.114:8180'</span> <span class="comment">// 本地IP</span></span><br><span class="line">	  uploadUrl = <span class="string">'http://192.168.1.114:8180'</span> <span class="comment">// 本地 代理</span></span><br><span class="line">	&#125; <span class="built_in">else</span> <span class="built_in">if</span> (<span class="built_in">process</span>.env.NODE_ENV === <span class="string">'testing'</span>) &#123;</span><br><span class="line">	  <span class="comment">// 07环境</span></span><br><span class="line">	  FBC_Api = <span class="string">'http://192.168.2.70:8000/fbcadmin'</span></span><br><span class="line">	  uploadUrl = <span class="string">'http://192.168.2.70:8000'</span></span><br><span class="line">	&#125; <span class="built_in">else</span> <span class="built_in">if</span> (<span class="built_in">process</span>.env.NODE_ENV === <span class="string">'pre'</span>) &#123;</span><br><span class="line">	  <span class="comment">// 预开发 09</span></span><br><span class="line">	  FBC_Api = <span class="string">'http://192.168.2.70:9061'</span></span><br><span class="line">	  uploadUrl = <span class="string">'http://192.168.2.70:8000'</span></span><br><span class="line">	&#125; <span class="built_in">else</span> &#123;</span><br><span class="line">	  <span class="comment">// 生产</span></span><br><span class="line">	  FBC_Api = <span class="string">'http://192.168.2.70:9061'</span></span><br><span class="line">	  uploadUrl = <span class="string">'http://192.168.2.70:8000'</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">export</span> &#123; FBC_Api, uploadUrl &#125;</span><br><span class="line">	————————————————</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数执行的过程是什么样的（未答）</p>
+  <figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name)</span></span> &#123;</span><br><span class="line">	    this.getName = <span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;</span><br><span class="line">	        <span class="keyword">return</span> name;</span><br><span class="line">	    &#125;;</span><br><span class="line">	 </span><br><span class="line">	    this.setName = <span class="function"><span class="keyword">function</span><span class="params">(value)</span></span> &#123;</span><br><span class="line">	        name = value;</span><br><span class="line">	    &#125;;</span><br><span class="line">	&#125;</span><br><span class="line">	 </span><br><span class="line">	var person = new Person(<span class="string">"Candy"</span>);</span><br><span class="line">	alert(person.getName()); //<span class="string">"Candy"</span></span><br><span class="line">	person.setName(<span class="string">"Greg"</span>);</span><br><span class="line">	alert(person.getName()); //<span class="string">"Greg"</span></span><br><span class="line">	</span><br><span class="line">　为函数创建一个执行环境</span><br><span class="line">　复制函数的 <span class="string">[[scopes]]</span> 属性中的对象构建起执行环境的作用链域</span><br><span class="line">　创建函数活动对象并推入执行环境作用链域的前端</span><br><span class="line">　执行代码</span><br><span class="line">　销毁执行环境和活动对象（闭包情况下活动对象仍被引用没被销毁）</span><br><span class="line">（<span class="number">1</span>）未调用前，只存在全局变量对象</span><br><span class="line">           全局变量中定义了Person() 构造函数，Person作为全局变量对象的一个属性，<span class="string">[[scopes]]</span> 保存着Person() 构造函数的作用链域，因为Person() 构造函数是定义在全局变量对象里面的</span><br><span class="line">        创建函数时，会创建一个预先包含全局变量对象的作用链域，这个作用链域被保存在内部的 <span class="string">[[scopes]]</span> 属性中</span><br><span class="line"> (<span class="number">2</span>) new Person() 创建对象，调用之后，存在全局变量对象，Person对象</span><br><span class="line">	 用new调用构造函数会经过以下<span class="number">4</span>个步骤：</span><br><span class="line">　　创建一个新对象</span><br><span class="line">　　将构造函数的作用域赋给新对象（因此this就指向这个新对象——person，这也是变量name为什么不是对象属性的原因）</span><br><span class="line">　　执行构造函数中的代码（为新对象添加属性）</span><br><span class="line">　　返回新对象</span><br><span class="line">　(<span class="number">3</span>) 函数执行完毕后 setName执行环境和setName活动对象都被销毁，因为setName活动对象没有被引用</span><br><span class="line">　</span><br><span class="line">　(<span class="number">4</span>) 通过这个例子，也很好理解为什么person.name是undefined，因为person对象没有name这个属性，getName、setName能访问name属性是因为它们通过作用链域访问到了Person活动对象中的name属性</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>变量声明提升是什么</p>
+  <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">a</span> =<span class="number">2</span>;这条语句在会被JS引擎看成是两部分，分别为var <span class="keyword">a</span>;和<span class="keyword">a</span> = <span class="number">2</span>。</span><br><span class="line">其中前一部分是发生在编译过程中，而第二部分发生在执行过程中。</span><br><span class="line">也就是说，编译的时候，JS引擎把我们对<span class="keyword">a</span>的声明已经提前了</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>图片打水印怎么使用 </p>
+  <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// canvas生成水印</span></span><br><span class="line">makeWaterMark(content, &#123;</span><br><span class="line">  container = document.body,</span><br><span class="line">  <span class="built_in">width</span> = <span class="number">250</span>,</span><br><span class="line">  <span class="built_in">height</span> = <span class="number">200</span>,</span><br><span class="line">  <span class="built_in">textAlign</span> = <span class="string">'center'</span>,</span><br><span class="line">  textBaseline = <span class="string">'middle'</span>,</span><br><span class="line">  font = <span class="string">'20px 微软雅黑'</span>,</span><br><span class="line">  fillStyle = <span class="string">'rgba(184, 184, 184, 0.8)'</span>,</span><br><span class="line">  angle = <span class="number">30</span>,</span><br><span class="line">  zIndex = <span class="number">11000</span>,</span><br><span class="line">&#125; = &#123;&#125;) &#123;</span><br><span class="line">	  <span class="comment">// 创建画布</span></span><br><span class="line">	  <span class="keyword">const</span> cvs = document.createElement(<span class="string">'canvas'</span>);</span><br><span class="line">	  <span class="comment">// 画布尺寸</span></span><br><span class="line">	  cvs.<span class="built_in">width</span> = <span class="built_in">width</span>;</span><br><span class="line">	  cvs.<span class="built_in">height</span> = <span class="built_in">height</span>;</span><br><span class="line">	  <span class="comment">// 上下文</span></span><br><span class="line">	  <span class="keyword">const</span> ctx = cvs.getContext(<span class="string">'2d'</span>);</span><br><span class="line">	  <span class="comment">// 文字样式</span></span><br><span class="line">	  ctx.<span class="built_in">textAlign</span> = <span class="built_in">textAlign</span>;</span><br><span class="line">	  ctx.textBaseline = textBaseline;</span><br><span class="line">	  ctx.font = font;</span><br><span class="line">	  ctx.fillStyle = fillStyle;</span><br><span class="line">	  <span class="comment">// 文字旋转</span></span><br><span class="line">	  ctx.<span class="built_in">rotate</span>(angle * Math.<span class="literal">PI</span> / <span class="number">180</span>);</span><br><span class="line">	  <span class="comment">// 绘制文字</span></span><br><span class="line">	  ctx.fillText(content, <span class="built_in">width</span> / <span class="number">2</span>, <span class="built_in">height</span> / <span class="number">2</span>);</span><br><span class="line">	  <span class="comment">// 生成base64图片编码</span></span><br><span class="line">	  <span class="keyword">const</span> base64Url = cvs.toDataURL();</span><br><span class="line">	  <span class="comment">// 生成水印容器div</span></span><br><span class="line">	  <span class="keyword">const</span> div = document.createElement(<span class="string">'div'</span>);</span><br><span class="line">	  <span class="comment">// CSS属性</span></span><br><span class="line">	  div.id = <span class="string">'watermark'</span>;</span><br><span class="line">	  div.setAttribute(<span class="string">'style'</span>, `position: fixed; top: <span class="number">0</span>; left: <span class="number">0</span>; <span class="built_in">width</span>: <span class="number">100</span> % ; <span class="built_in">height</span>: <span class="number">100</span> % ; z - index: $ &#123;</span><br><span class="line">	    zIndex</span><br><span class="line">	  &#125;; pointer - events: none; <span class="built_in">background</span> - repeat: repeat; <span class="built_in">background</span> - <span class="built_in">image</span>: url(<span class="string">'$&#123;base64Url&#125;'</span>)`);</span><br><span class="line">	  <span class="comment">// 插入容器</span></span><br><span class="line">	  container.insertBefore(div, <span class="keyword">null</span>);</span><br><span class="line">	  <span class="keyword">return</span> base64Url</span><br><span class="line">————————————————</span><br><span class="line">	<span class="comment">// 通过SVG生成水印</span></span><br><span class="line">	(function () &#123;</span><br><span class="line">	  <span class="comment">// svg 实现 watermark</span></span><br><span class="line">	  function __svgWM(&#123; container = document.body,</span><br><span class="line">	                     content = <span class="string">'请勿外传'</span>,</span><br><span class="line">	                     <span class="built_in">width</span> = <span class="string">'300px'</span>,</span><br><span class="line">	                     <span class="built_in">height</span> = <span class="string">'200px'</span>,</span><br><span class="line">	                     opacity = <span class="string">'0.2'</span>,</span><br><span class="line">	                     fontSize = <span class="string">'20px'</span>,</span><br><span class="line">	                     zIndex = <span class="number">1000</span></span><br><span class="line">	                   &#125; = &#123;&#125;) &#123;</span><br><span class="line">	    <span class="keyword">const</span> args = arguments[<span class="number">0</span>];</span><br><span class="line">	    <span class="keyword">const</span> svgStr = `</span><br><span class="line">	      &lt;svg xmlns=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="built_in">width</span>=<span class="string">"$&#123;width&#125;"</span> <span class="built_in">height</span>=<span class="string">"$&#123;width&#125;"</span>&gt;</span><br><span class="line">	        &lt;<span class="built_in">text</span> x=<span class="string">"50%"</span> y=<span class="string">"50%"</span> dy=<span class="string">"12px"</span> <span class="built_in">text</span>-anchor=<span class="string">"middle"</span> <span class="built_in">stroke</span>=<span class="string">"#000000"</span> <span class="built_in">stroke</span>-<span class="built_in">width</span>=<span class="string">"1"</span> <span class="built_in">stroke</span>-opacity=<span class="string">"$&#123;opacity&#125;"</span> <span class="built_in">fill</span>=<span class="string">"none"</span> transform=<span class="string">"rotate(-45, 120 120)"</span> style=<span class="string">"font-size: $&#123;fontSize&#125;;"</span>&gt;$&#123;content&#125;&lt;/<span class="built_in">text</span>&gt;&lt;/svg&gt;`;</span><br><span class="line">	    <span class="keyword">const</span> base64Url = `data: <span class="built_in">image</span> / svg + xml;</span><br><span class="line">	      base64, $&#123;</span><br><span class="line">	      window.btoa(unescape(encodeURIComponent(svgStr)))</span><br><span class="line">	      &#125;`;</span><br><span class="line">	    <span class="keyword">const</span> __wm = document.querySelector(<span class="string">'.__wm'</span>);</span><br><span class="line">	    <span class="keyword">const</span> watermarkDiv = __wm || document.createElement(<span class="string">"div"</span>);</span><br><span class="line">	    <span class="comment">// ...</span></span><br><span class="line">	    <span class="comment">// 与 canvas 的一致</span></span><br><span class="line">	    <span class="comment">// ...</span></span><br><span class="line">	  &#125;</span><br><span class="line">	)();</span><br><span class="line">	__svgWM(&#123;</span><br><span class="line">	  content: <span class="string">'QQMusicFE'</span></span><br><span class="line">	&#125;)</span><br><span class="line">	————————————————</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 浏览器给图片添加水印就是通过canvas绘制图片，然后增加文字的形式完成的。</span></span><br><span class="line">	(function () &#123;</span><br><span class="line">		  function __picWM(&#123; url = <span class="string">''</span>,</span><br><span class="line">		                     <span class="built_in">textAlign</span> = <span class="string">'center'</span>,</span><br><span class="line">		                     textBaseline = <span class="string">'middle'</span>,</span><br><span class="line">		                     font = <span class="string">"20px Microsoft Yahei"</span>,</span><br><span class="line">		                     fillStyle = <span class="string">'rgba(184, 184, 184, 0.8)'</span>,</span><br><span class="line">		                     content = <span class="string">'请勿外传'</span>,</span><br><span class="line">		                     cb = <span class="keyword">null</span>,</span><br><span class="line">		                     textX = <span class="number">100</span>,</span><br><span class="line">		                     textY = <span class="number">30</span></span><br><span class="line">		                   &#125; = &#123;&#125;) &#123;</span><br><span class="line">		    <span class="keyword">const</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">		    img.src = url;</span><br><span class="line">		    img.crossOrigin = <span class="string">'anonymous'</span>;</span><br><span class="line">		    img.onload = function () &#123;</span><br><span class="line">		      <span class="keyword">const</span> canvas = document.createElement(<span class="string">'canvas'</span>);</span><br><span class="line">		      canvas.<span class="built_in">width</span> = img.<span class="built_in">width</span>;</span><br><span class="line">		      canvas.<span class="built_in">height</span> = img.<span class="built_in">height</span>;</span><br><span class="line">		      <span class="keyword">const</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line">		</span><br><span class="line">		      ctx.drawImage(img, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">		      ctx.<span class="built_in">textAlign</span> = <span class="built_in">textAlign</span>;</span><br><span class="line">		      ctx.textBaseline = textBaseline;</span><br><span class="line">		      ctx.font = font;</span><br><span class="line">		      ctx.fillStyle = fillStyle;</span><br><span class="line">		      ctx.fillText(content, img.<span class="built_in">width</span> - textX, img.<span class="built_in">height</span> - textY);</span><br><span class="line">		</span><br><span class="line">		      <span class="keyword">const</span> base64Url = canvas.toDataURL();</span><br><span class="line">		      cb &amp;&amp; cb(base64Url);</span><br><span class="line">		    &#125;</span><br><span class="line">		  &#125;</span><br><span class="line">		</span><br><span class="line">		  <span class="keyword">if</span> (typeof module != <span class="string">'undefined'</span> &amp;&amp; module.exports) &#123;  <span class="comment">//CMD</span></span><br><span class="line">		    module.exports = __picWM;</span><br><span class="line">		  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (typeof define == <span class="string">'function'</span> &amp;&amp; define.amd) &#123; <span class="comment">// AMD</span></span><br><span class="line">		    define(function () &#123;</span><br><span class="line">		      <span class="keyword">return</span> __picWM;</span><br><span class="line">		    &#125;);</span><br><span class="line">		  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		    window.__picWM = __picWM;</span><br><span class="line">		  &#125;</span><br><span class="line">		</span><br><span class="line">		&#125;)();</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 调用</span></span><br><span class="line">		__picWM(&#123;</span><br><span class="line">		  url: <span class="string">'http://localhost:3000/imgs/google.png'</span>,</span><br><span class="line">		  content: <span class="string">'QQMusicFE'</span>,</span><br><span class="line">		  cb: (base64Url) =&gt; &#123;</span><br><span class="line">		    document.querySelector(<span class="string">'img'</span>).src = base64Url</span><br><span class="line">		  &#125;,</span><br><span class="line">		&#125;);</span><br><span class="line">		————————————————</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>路由器配置包体变化</p>
+</li>
+<li><p>浅拷贝深拷贝类型区别</p>
+</li>
+<li><p>html2的组件有没有使用过（是否是htmlcanvas）</p>
+</li>
+<li>文档跟图片的关系怎么转换，页面输出pdf展示怎么实现</li>
+<li>技术中什么用的最多，是什么类型的</li>
+<li>这里开始原生代码的测试题（分为初中级，初级题目做完会给中级题目做，并且解答出来答案会问为什么这样做）</li>
+<li><p>函数作用是怎么确定的</p>
+</li>
+<li><p>开发环境跟生产环境的区别</p>
+</li>
+<li>最主要做过的项目</li>
+<li>原生代码的问题</li>
+<li>项目一个人开发还是多人开发</li>
+<li>并发问题 前端有没有遇到过</li>
+<li>有没有带人经验</li>
+<li>对加班强度怎么看</li>
+<li>为什么离职，离职的原因是什么</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+      <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+	     --------------------  本文结束
+	    <i class="fa fa-paw"></i>
+	    感谢您的阅读  --------------------
+    </div>
+
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试/" rel="tag"><i class="fa fa-tag"></i> 面试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/01/面试/前端面试题(1)/" rel="next" title="前端面试题(1)">
+                <i class="fa fa-chevron-left"></i> 前端面试题(1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/01/面试/前端面试题(2)/" rel="prev" title="前端面试题(2)">
+                前端面试题(2) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="May Tao">
+            
+              <p class="site-author-name" itemprop="name">May Tao</p>
+              <p class="site-description motion-element" itemprop="description">全栈在路上</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Huan-zhaolover" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ytxinguan09@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.87.com" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-angle-double-down"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#整理2"><span class="nav-number">1.</span> <span class="nav-text">整理2</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+     <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">May Tao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz',
+        appKey: 'GYy3VQ9hXhRnbsBHmMPzwtbq',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz", "GYy3VQ9hXhRnbsBHmMPzwtbq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
