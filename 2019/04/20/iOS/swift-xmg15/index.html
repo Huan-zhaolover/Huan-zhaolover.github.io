@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学习笔记,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Maylover" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="函数式编程Array的常见操作 常见的高阶函数 map/flatmap/reduce ;本质还是for循环 arr.compactMap 非空值 reduce 累加累减/累计操作。  12345678910111213141516171819202122232425262728293031var arr = [1, 2, 3, 4]var arr2 = arr.map &amp;#123; $0 * 2">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift-RxSwift函数响应式编程">
+<meta property="og:url" content="https://www.mayyutao.cn/2019/04/20/iOS/swift-xmg15/index.html">
+<meta property="og:site_name" content="Maylover">
+<meta property="og:description" content="函数式编程Array的常见操作 常见的高阶函数 map/flatmap/reduce ;本质还是for循环 arr.compactMap 非空值 reduce 累加累减/累计操作。  12345678910111213141516171819202122232425262728293031var arr = [1, 2, 3, 4]var arr2 = arr.map &amp;#123; $0 * 2">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-11-20%20%E4%B8%8B%E5%8D%885.37.16.png">
+<meta property="og:updated_time" content="2020-06-28T03:39:36.099Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift-RxSwift函数响应式编程">
+<meta name="twitter:description" content="函数式编程Array的常见操作 常见的高阶函数 map/flatmap/reduce ;本质还是for循环 arr.compactMap 非空值 reduce 累加累减/累计操作。  12345678910111213141516171819202122232425262728293031var arr = [1, 2, 3, 4]var arr2 = arr.map &amp;#123; $0 * 2">
+<meta name="twitter:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-11-20%20%E4%B8%8B%E5%8D%885.37.16.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.mayyutao.cn/2019/04/20/iOS/swift-xmg15/">
+
+
+
+
+
+  <title>Swift-RxSwift函数响应式编程 | Maylover</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/hexo_resize_image.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Maylover</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">平凡之路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mayyutao.cn/2019/04/20/iOS/swift-xmg15/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="May Tao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maylover">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Swift-RxSwift函数响应式编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-20T08:40:00+08:00">
+                2019-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/20/iOS/swift-xmg15/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/20/iOS/swift-xmg15/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/04/20/iOS/swift-xmg15/" class="leancloud_visitors" data-flag-title="Swift-RxSwift函数响应式编程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  20
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h3><h4 id="Array的常见操作"><a href="#Array的常见操作" class="headerlink" title="Array的常见操作"></a>Array的常见操作</h4><ul>
+<li>常见的高阶函数 map/flatmap/reduce ;本质还是for循环</li>
+<li>arr.compactMap 非空值</li>
+<li>reduce 累加累减/累计操作。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr2 = arr.<span class="built_in">map</span> &#123; $<span class="number">0</span> * <span class="number">2</span> &#125; <span class="comment">// [2, 4, 6, 8]</span></span><br><span class="line"><span class="keyword">var</span> arr3 = arr.<span class="built_in">filter</span> &#123; $<span class="number">0</span> % <span class="number">2</span> == <span class="number">0</span> &#125; <span class="comment">// [2, 4] </span></span><br><span class="line"><span class="keyword">var</span> arr4 = arr.<span class="built_in">reduce</span>(<span class="number">0</span>) &#123; $<span class="number">0</span> + $<span class="number">1</span> &#125;  <span class="comment">// 10</span></span><br><span class="line"><span class="keyword">var</span> arr5 = arr.<span class="built_in">reduce</span>(<span class="number">0</span>, +) <span class="comment">// 10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">double</span><span class="params">(<span class="number">_</span> i: Int)</span></span> -&gt; <span class="type">Int</span> &#123; i * <span class="number">2</span> &#125; </span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="comment">// [2, 4, 6, 8] </span></span><br><span class="line"><span class="built_in">print</span>(arr.<span class="built_in">map</span>(double))</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="comment">// [[1], [2, 2], [3, 3, 3]]</span></span><br><span class="line"><span class="keyword">var</span> arr2 = arr.<span class="built_in">map</span> &#123; <span class="type">Array</span>.<span class="keyword">init</span>(repeating: $<span class="number">0</span>, <span class="built_in">count</span>: $<span class="number">0</span>) &#125;</span><br><span class="line"><span class="comment">// [1, 2, 2, 3, 3, 3]</span></span><br><span class="line"><span class="keyword">var</span> arr3 = arr.flatMap &#123; <span class="type">Array</span>.<span class="keyword">init</span>(repeating: $<span class="number">0</span>, <span class="built_in">count</span>: $<span class="number">0</span>) &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">"123"</span>, <span class="string">"test"</span>, <span class="string">"jack"</span>, <span class="string">"-30"</span>] </span><br><span class="line"><span class="comment">// [Optional(123), nil, nil, Optional(-30)] </span></span><br><span class="line"><span class="keyword">var</span> arr2 = arr.<span class="built_in">map</span> &#123; <span class="type">Int</span>($<span class="number">0</span>) &#125;</span><br><span class="line"><span class="comment">// [123, -30]</span></span><br><span class="line"><span class="keyword">var</span> arr3 = arr.compactMap &#123; <span class="type">Int</span>($<span class="number">0</span>) &#125;<span class="comment">// 使用reduce实现map、filter的功能</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="comment">// [2, 4, 6, 8]</span></span><br><span class="line"><span class="built_in">print</span>(arr.<span class="built_in">map</span> &#123; $<span class="number">0</span> * <span class="number">2</span> &#125;) </span><br><span class="line"><span class="built_in">print</span>(arr.<span class="built_in">reduce</span>([]) &#123; $<span class="number">0</span> + [$<span class="number">1</span> * <span class="number">2</span>] &#125;)</span><br><span class="line"><span class="comment">// [2, 4]</span></span><br><span class="line"><span class="built_in">print</span>(arr.<span class="built_in">filter</span> &#123; $<span class="number">0</span> % <span class="number">2</span> == <span class="number">0</span> &#125;) </span><br><span class="line"><span class="built_in">print</span>(arr.<span class="built_in">reduce</span>([]) &#123; $<span class="number">1</span> % <span class="number">2</span> == <span class="number">0</span> ? $<span class="number">0</span> + [$<span class="number">1</span>] : $<span class="number">0</span> &#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="lazy的优化"><a href="#lazy的优化" class="headerlink" title="lazy的优化"></a>lazy的优化</h4><ul>
+<li><code>Array.lay.map</code> 不是每次都遍历全部，只取需要的index</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> result = arr.<span class="built_in">lazy</span>.<span class="built_in">map</span> &#123; (i: <span class="type">Int</span>) -&gt; <span class="type">Int</span> <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"mapping \(i)"</span>)</span><br><span class="line">    <span class="keyword">return</span> i * <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"begin-----"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"mapped"</span>, result[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"mapped"</span>, result[<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"mapped"</span>, result[<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"end----"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// print:</span></span><br><span class="line">begin-----</span><br><span class="line">mapping <span class="number">1</span></span><br><span class="line">mapped <span class="number">2</span></span><br><span class="line">mapping <span class="number">2</span></span><br><span class="line">mapped <span class="number">4</span></span><br><span class="line">mapping <span class="number">3</span></span><br><span class="line">mapped <span class="number">6</span></span><br><span class="line">end----</span><br></pre></td></tr></table></figure>
+<h4 id="Optional的map和flatMap"><a href="#Optional的map和flatMap" class="headerlink" title="Optional的map和flatMap"></a>Optional的map和flatMap</h4><ul>
+<li>map 是在返回值原类型上包一层；</li>
+<li>flatmap是 返回值类型 ，不包一层；</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> num1: <span class="type">Int</span>? = <span class="number">10</span></span><br><span class="line"><span class="comment">// Optional(20)</span></span><br><span class="line"><span class="keyword">var</span> num2 = num1.<span class="built_in">map</span> &#123; $<span class="number">0</span> * <span class="number">2</span> &#125;</span><br><span class="line"><span class="keyword">var</span> num3: <span class="type">Int</span>? = <span class="literal">nil</span></span><br><span class="line"><span class="comment">// nil</span></span><br><span class="line"><span class="keyword">var</span> num4 = num3.<span class="built_in">map</span> &#123; $<span class="number">0</span> * <span class="number">2</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num1: <span class="type">Int</span>? = <span class="number">10</span></span><br><span class="line"><span class="comment">// Optional(Optional(20))</span></span><br><span class="line"><span class="keyword">var</span> num2 = num1.<span class="built_in">map</span> &#123; <span class="type">Optional</span>.some($<span class="number">0</span> * <span class="number">2</span>) &#125;</span><br><span class="line"><span class="comment">// Optional(20)</span></span><br><span class="line"><span class="keyword">var</span> num3 = num1.flatMap &#123; <span class="type">Optional</span>.some($<span class="number">0</span> * <span class="number">2</span>) &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> num1: <span class="type">Int</span>? = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> num2 = (num1 != <span class="literal">nil</span>) ? (num1! + <span class="number">10</span>) : <span class="literal">nil</span> </span><br><span class="line"><span class="keyword">var</span> num3 = num1.<span class="built_in">map</span> &#123; $<span class="number">0</span> + <span class="number">10</span> &#125;</span><br><span class="line"><span class="comment">// num2、num3是等价的</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>对可选项的简便判断 可以用<code>map() | flatMap()</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fmt = <span class="type">DateFormatter</span>()</span><br><span class="line">fmt.dateFormat = <span class="string">"yyyy-MM-dd"</span></span><br><span class="line"><span class="keyword">var</span> str: <span class="type">String</span>? = <span class="string">"2011-09-10"</span></span><br><span class="line"><span class="comment">// old</span></span><br><span class="line"><span class="keyword">var</span> date1 = str != <span class="literal">nil</span> ? fmt.date(from: str!) : <span class="literal">nil</span> </span><br><span class="line"><span class="comment">// new</span></span><br><span class="line"><span class="keyword">var</span> date2 = str.flatMap(fmt.date)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> score: <span class="type">Int</span>? = <span class="number">98</span></span><br><span class="line"><span class="comment">// old</span></span><br><span class="line"><span class="keyword">var</span> str1 = score != <span class="literal">nil</span> ? <span class="string">"socre is \(score!)"</span> : <span class="string">"No score"</span> </span><br><span class="line"><span class="comment">// new</span></span><br><span class="line"><span class="keyword">var</span> str2 = score.<span class="built_in">map</span> &#123; <span class="string">"score is \($0)"</span> &#125; ?? <span class="string">"No score"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>数组对象 巧用map 函数式编程</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">struct</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> items = [</span><br><span class="line">    <span class="type">Person</span>(name: <span class="string">"jack"</span>, age: <span class="number">20</span>), </span><br><span class="line">    <span class="type">Person</span>(name: <span class="string">"rose"</span>, age: <span class="number">21</span>), </span><br><span class="line">    <span class="type">Person</span>(name: <span class="string">"kate"</span>, age: <span class="number">22</span>)</span><br><span class="line">]</span><br><span class="line"><span class="comment">// old</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getPerson1</span><span class="params">(<span class="number">_</span> name: String)</span></span> -&gt; <span class="type">Person</span>? &#123;</span><br><span class="line">    <span class="keyword">let</span> index = items.firstIndex &#123; $<span class="number">0</span>.name == name &#125; </span><br><span class="line">    <span class="keyword">return</span> index != <span class="literal">nil</span> ? items[index!] : <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// new</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getPerson2</span><span class="params">(<span class="number">_</span> name: String)</span></span> -&gt; <span class="type">Person</span>? &#123;</span><br><span class="line">    <span class="keyword">return</span> items.firstIndex &#123; $<span class="number">0</span>.name == name &#125;.<span class="built_in">map</span> &#123; items[$<span class="number">0</span>] &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对象初始化 可选项判断。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">init</span>?(<span class="number">_</span> json: [<span class="type">String</span> : <span class="type">Any</span>]) &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> name = json[<span class="string">"name"</span>] <span class="keyword">as</span>? <span class="type">String</span>,  <span class="keyword">let</span> age = json[<span class="string">"age"</span>] <span class="keyword">as</span>? <span class="type">Int</span> <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">        <span class="keyword">self</span>.age = age</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> json: <span class="type">Dictionary</span>? = [<span class="string">"name"</span> : <span class="string">"Jack"</span>, <span class="string">"age"</span> : <span class="number">10</span>] </span><br><span class="line"></span><br><span class="line"><span class="comment">// old</span></span><br><span class="line"><span class="keyword">var</span> p1 = json != <span class="literal">nil</span> ? <span class="type">Person</span>(json!) : <span class="literal">nil</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// new</span></span><br><span class="line"><span class="keyword">var</span> p2 = json.flatMap(<span class="type">Person</span>.<span class="keyword">init</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="函数式编程-Funtional-Programming"><a href="#函数式编程-Funtional-Programming" class="headerlink" title="函数式编程(Funtional Programming)"></a>函数式编程(Funtional Programming)</h4><ul>
+<li>函数式编程(Funtional Programming，简称FP)是一种编程范式，也就是如何编写程序的方法论 <ul>
+<li>主要思想:把计算过程尽量分解成一系列可复用函数的调用</li>
+<li>主要特征:函数是“第一等公民”</li>
+</ul>
+</li>
+<li>函数与其他数据类型一样的地位，可以赋值给其他变量，也可以作为函数参数、函数返回值</li>
+<li>函数式编程最早出现在LISP语言，绝大部分的现代编程语言也对函数式编程做了不同程度的支持，<ul>
+<li>比如: Haskell、JavaScript、Python、Swift、Kotlin、Scala等</li>
+</ul>
+</li>
+<li>函数式编程中几个常用的概念 <ul>
+<li><code>Higher-Order Function</code>、<code>Function Currying</code> </li>
+<li><code>Functor</code>、<code>Applicative Functor</code>、 <code>Monad</code></li>
+</ul>
+</li>
+<li>参考资料<ul>
+<li><a href="http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html" target="_blank" rel="noopener">http://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html</a> </li>
+<li><a href="http://www.mokacoding.com/blog/functor-applicative-monads-in-pictures" target="_blank" rel="noopener">http://www.mokacoding.com/blog/functor-applicative-monads-in-pictures</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="函数式编程传统写法-函数式写法"><a href="#函数式编程传统写法-函数式写法" class="headerlink" title="函数式编程传统写法/函数式写法"></a>函数式编程传统写法/函数式写法</h4><ul>
+<li>假设要实现以下功能:[(num + 3) * 5 - 1] % 10 / 2</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 传统写法 </span><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 + v2 &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sub</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 - v2 &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">multiple</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 * v2 &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">divide</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 / v2 &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mod</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 % v2 &#125;</span><br><span class="line"></span><br><span class="line">divide(mod(sub(multiple(add(num, <span class="number">3</span>), <span class="number">5</span>), <span class="number">1</span>), <span class="number">10</span>), <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数式写法，返回闭包表达式</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(<span class="number">_</span> v: Int)</span></span> -&gt; (<span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123; &#123; $<span class="number">0</span> + v &#125; &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sub</span><span class="params">(<span class="number">_</span> v: Int)</span></span> -&gt; (<span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123; &#123; $<span class="number">0</span> - v &#125; &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">multiple</span><span class="params">(<span class="number">_</span> v: Int)</span></span> -&gt; (<span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123; &#123; $<span class="number">0</span> * v &#125; &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">divide</span><span class="params">(<span class="number">_</span> v: Int)</span></span> -&gt; (<span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123; &#123; $<span class="number">0</span> / v &#125; &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mod</span><span class="params">(<span class="number">_</span> v: Int)</span></span> -&gt; (<span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123; &#123; $<span class="number">0</span> % v &#125; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> &gt;&gt;&gt; : <span class="type">AdditionPrecedence</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> &gt;&gt;&gt;&lt;A, B, C&gt;<span class="params">(<span class="number">_</span> f1: @escaping <span class="params">(A)</span></span></span> -&gt; <span class="type">B</span>, <span class="number">_</span> f2: @escaping (<span class="type">B</span>) -&gt; <span class="type">C</span>) -&gt; (<span class="type">A</span>) -&gt; <span class="type">C</span> &#123; </span><br><span class="line">      <span class="comment">// $0 是返回值 block 传入的参数（A）</span></span><br><span class="line">      <span class="keyword">return</span> &#123; f2(f1($<span class="number">0</span>)) &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn = add(<span class="number">3</span>) &gt;&gt;&gt; multiple(<span class="number">5</span>) &gt;&gt;&gt; sub(<span class="number">1</span>) &gt;&gt;&gt; mod(<span class="number">10</span>) &gt;&gt;&gt; divide(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">fn(num)</span><br></pre></td></tr></table></figure>
+<h4 id="高阶函数-Higher-Order-Function"><a href="#高阶函数-Higher-Order-Function" class="headerlink" title="高阶函数(Higher-Order Function)"></a>高阶函数(Higher-Order Function)</h4><ul>
+<li>高阶函数是至少满足下列一个条件的函数:<ul>
+<li>接受一个或多个函数作为输入(map、filter、reduce等) </li>
+<li>返回一个函数</li>
+<li>FP中到处都是高阶函数<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(<span class="number">_</span> v: Int)</span></span> -&gt; (<span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123; &#123; $<span class="number">0</span> + v &#125; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="柯里化-Currying"><a href="#柯里化-Currying" class="headerlink" title="柯里化(Currying)"></a>柯里化(Currying)</h4><ul>
+<li>什么是柯里化? <ul>
+<li>将一个接受多参数的函数变换为一系列只接受单个参数的函数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 + v2 &#125;</span><br><span class="line">add(<span class="number">10</span>, <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 柯里化</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(<span class="number">_</span> v: Int)</span></span> -&gt; (<span class="type">Int</span>) -&gt; <span class="type">Int</span> &#123; &#123; $<span class="number">0</span> + v &#125; &#125;</span><br><span class="line">add(<span class="number">10</span>)(<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Array、Optional的map方法接收的参数就是一个柯里化函数</p>
+</li>
+<li><p>讲一个函数currying化；进行拆分 </p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add1</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 + v2 &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add2</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int, <span class="number">_</span> v3: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 + v2 + v3 &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">currying</span>&lt;A, B, C&gt;<span class="params">(<span class="number">_</span> fn: @escaping <span class="params">(A, B)</span></span></span> -&gt; <span class="type">C</span>) -&gt; (<span class="type">B</span>) -&gt; (<span class="type">A</span>) -&gt; <span class="type">C</span> &#123;</span><br><span class="line">          <span class="keyword">return</span>  &#123; b <span class="keyword">in</span> &#123; </span><br><span class="line">                    a <span class="keyword">in</span> </span><br><span class="line">                        fn(a, b) </span><br><span class="line">                   &#125; </span><br><span class="line">             &#125;   </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">currying</span>&lt;A, B, C, D&gt;<span class="params">(<span class="number">_</span> fn: @escaping <span class="params">(A, B, C)</span></span></span> -&gt; <span class="type">D</span>) -&gt; (<span class="type">C</span>) -&gt; (<span class="type">B</span>) -&gt; (<span class="type">A</span>) -&gt; <span class="type">D</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> &#123; <span class="built_in">c</span> <span class="keyword">in</span> &#123; </span><br><span class="line">        b <span class="keyword">in</span> &#123; </span><br><span class="line">            a <span class="keyword">in</span> </span><br><span class="line">                fn(a, b, <span class="built_in">c</span>) </span><br><span class="line">            &#125; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> curriedAdd1 = currying(add1)</span><br><span class="line"><span class="built_in">print</span>(curriedAdd1(<span class="number">10</span>)(<span class="number">20</span>))</span><br><span class="line"><span class="keyword">let</span> curriedAdd2 = currying(add2)</span><br><span class="line"><span class="built_in">print</span>(curriedAdd2(<span class="number">10</span>)(<span class="number">20</span>)(<span class="number">30</span>))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>柯里化(Currying) 结合 函数式编程</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 + v2 &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sub</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 - v2 &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">multiple</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 * v2 &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">divide</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 / v2 &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">mod</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; v1 % v2 &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">prefix</span> <span class="function"><span class="keyword">func</span> ~&lt;A, B, C&gt;<span class="params">(<span class="number">_</span> fn: @escaping <span class="params">(A, B)</span></span></span> -&gt; <span class="type">C</span>) -&gt; (<span class="type">B</span>) -&gt; (<span class="type">A</span>) -&gt; <span class="type">C</span> &#123; </span><br><span class="line">    &#123; b <span class="keyword">in</span> &#123; a <span class="keyword">in</span> fn(a, b) &#125; &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> &gt;&gt;&gt; : <span class="type">AdditionPrecedence</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> &gt;&gt;&gt;&lt;A, B, C&gt;<span class="params">(<span class="number">_</span> f1: @escaping <span class="params">(A)</span></span></span> -&gt; <span class="type">B</span>,  <span class="number">_</span> f2: @escaping (<span class="type">B</span>) -&gt; <span class="type">C</span>) -&gt; (<span class="type">A</span>) -&gt; <span class="type">C</span> &#123; </span><br><span class="line">    &#123; f2(f1($<span class="number">0</span>)) &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> fn = (~add)(<span class="number">3</span>) &gt;&gt;&gt; (~multiple)(<span class="number">5</span>) &gt;&gt;&gt; (~sub)(<span class="number">1</span>) &gt;&gt;&gt; (~mod)(<span class="number">10</span>) &gt;&gt;&gt; (~divide)(<span class="number">2</span>)</span><br><span class="line">fn(num)</span><br></pre></td></tr></table></figure>
+<h4 id="函子-Functor"><a href="#函子-Functor" class="headerlink" title="函子(Functor)"></a>函子(Functor)</h4><ul>
+<li>像Array、Optional这样支持map运算的类型，称为函子(Functor)</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Array&lt;Element&gt;</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">map</span>&lt;T&gt;<span class="params">(<span class="number">_</span> transform: <span class="params">(Element)</span></span></span> -&gt; <span class="type">T</span>) -&gt; <span class="type">Array</span>&lt;<span class="type">T</span>&gt;</span><br><span class="line"><span class="comment">// Optional&lt;Wrapped&gt;</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">map</span>&lt;U&gt;<span class="params">(<span class="number">_</span> transform: <span class="params">(Wrapped)</span></span></span> -&gt; <span class="type">U</span>) -&gt; <span class="type">Optional</span>&lt;<span class="type">U</span>&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="适用函子-Applicative-Functor"><a href="#适用函子-Applicative-Functor" class="headerlink" title="适用函子(Applicative Functor)"></a>适用函子(Applicative Functor)</h4><ul>
+<li>对任意一个函子 F，如果能支持以下运算，该函子就是一个适用函子<ul>
+<li>Optional可以成为适用函子</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pure</span>&lt;A&gt;<span class="params">(<span class="number">_</span> value: A)</span></span> -&gt; <span class="type">F</span>&lt;<span class="type">A</span>&gt;</span><br><span class="line"><span class="function"><span class="keyword">func</span> &lt;*&gt;&lt;A, B&gt;<span class="params">(fn: F&lt;<span class="params">(A)</span></span></span> -&gt; <span class="type">B</span>&gt;, value: <span class="type">F</span>&lt;<span class="type">A</span>&gt;) -&gt; <span class="type">F</span>&lt;<span class="type">B</span>&gt;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pure</span>&lt;A&gt;<span class="params">(<span class="number">_</span> value: A)</span></span> -&gt; <span class="type">A</span>? &#123; value &#125;</span><br><span class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> &lt;*&gt; : <span class="type">AdditionPrecedence</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> &lt;*&gt;&lt;A, B&gt;<span class="params">(fn: <span class="params">(<span class="params">(A)</span></span></span></span> -&gt; <span class="type">B</span>)?, value: <span class="type">A</span>?) -&gt; <span class="type">B</span>? &#123;</span><br><span class="line">    <span class="keyword">guard</span> <span class="keyword">let</span> f = fn, <span class="keyword">let</span> v = value <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</span><br><span class="line">    <span class="keyword">return</span> f(v) </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> value: <span class="type">Int</span>? = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> fn: ((<span class="type">Int</span>) -&gt; <span class="type">Int</span>)? = &#123; $<span class="number">0</span> * <span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Optional(20)</span></span><br><span class="line"><span class="built_in">print</span>(fn &lt;*&gt; value <span class="keyword">as</span> <span class="type">Any</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Array可以成为适用函子</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pure</span>&lt;A&gt;<span class="params">(<span class="number">_</span> value: A)</span></span> -&gt; [<span class="type">A</span>] &#123; [value] &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> &lt;*&gt;&lt;A, B&gt;<span class="params">(fn: [<span class="params">(A)</span></span></span> -&gt; <span class="type">B</span>], value: [<span class="type">A</span>]) -&gt; [<span class="type">B</span>] &#123;</span><br><span class="line">    <span class="keyword">var</span> arr: [<span class="type">B</span>] = []</span><br><span class="line">    <span class="keyword">if</span> fn.<span class="built_in">count</span> == value.<span class="built_in">count</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> fn.startIndex..&lt;fn.endIndex &#123; </span><br><span class="line">            arr.append(fn[i](value[i]))</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(pure(<span class="number">10</span>)) <span class="comment">// [10]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [&#123; $<span class="number">0</span> * <span class="number">2</span>&#125;, &#123; $<span class="number">0</span> + <span class="number">10</span> &#125;, &#123; $<span class="number">0</span> - <span class="number">5</span> &#125;] &lt;*&gt; [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>] </span><br><span class="line"><span class="built_in">print</span>(arr) <span class="comment">// [2, 12, -2]</span></span><br></pre></td></tr></table></figure>
+<h4 id="单子-Monad"><a href="#单子-Monad" class="headerlink" title="单子(Monad)"></a>单子(Monad)</h4><ul>
+<li>对任意一个类型 F，如果能支持以下运算，那么就可以称为是一个单子(Monad)</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pure</span>&lt;A&gt;<span class="params">(<span class="number">_</span> value: A)</span></span> -&gt; <span class="type">F</span>&lt;<span class="type">A</span>&gt;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">flatMap</span>&lt;A, B&gt;<span class="params">(<span class="number">_</span> value: F&lt;A&gt;, <span class="number">_</span> fn: <span class="params">(A)</span></span></span> -&gt; <span class="type">F</span>&lt;<span class="type">B</span>&gt;) -&gt; <span class="type">F</span>&lt;<span class="type">B</span>&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>很显然，Array、Optional都是单子</li>
+</ul>
+<h3 id="面向协议编程"><a href="#面向协议编程" class="headerlink" title="面向协议编程"></a>面向协议编程</h3><blockquote>
+<p>面向协议编程(Protocol Oriented Programming，简称POP) p是Swift的一种编程范式， Apple于2015年WWDC提出</p>
+</blockquote>
+<ul>
+<li>在Swift的标准库中，能见到大量POP的影子</li>
+<li>同时，Swift也是一门面向对象的编程语言(Object Oriented Programming，简称OOP) </li>
+<li>在Swift开发中，OOP和POP是相辅相成的，任何一方并不能取代另一方</li>
+<li>POP能弥补OOP一些设计上的不足<h4 id="回顾面向对象编程OOP"><a href="#回顾面向对象编程OOP" class="headerlink" title="回顾面向对象编程OOP"></a>回顾面向对象编程OOP</h4></li>
+<li>OOP的三大特性:封装、继承、多态</li>
+<li>继承的经典使用场合</li>
+<li>当多个类(比如A、B、C类)具有很多共性时，可以将这些共性抽取到一个父类中(比如D类)，最后A、B、C类继承D类</li>
+</ul>
+<h4 id="OOP的不足"><a href="#OOP的不足" class="headerlink" title="OOP的不足"></a>OOP的不足</h4><ul>
+<li>但有些问题，使用OOP并不能很好解决，比如 p如何将BVC、DVC 的公共方法run 抽取出来?</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BVC</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">run</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"run"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">DVC</span>: <span class="title">UITableViewController</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">run</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"run"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>基于OOP想到的一些解决方案?</p>
+<ul>
+<li><ol>
+<li>将run方法放到另一个对象A中，然后BVC、DVC拥有对象A属性 ；  多了一些额外的依赖关系</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>将run方法增加到UIViewController分类中 ； UIViewController会越来越臃肿，而且会影响它的其他所有子类</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>将run方法抽取到新的父类，采用多继承?(C++支持多继承) ； 会增加程序设计复杂度，产生菱形继承等问题，需要开发者额外解决</li>
+</ol>
+</li>
+</ul>
+<p><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-11-20%20%E4%B8%8B%E5%8D%885.37.16.png" alt="屏幕快照 2019-11-20 下午5.37.16"></p>
+</li>
+</ul>
+<h4 id="POP的解决方案"><a href="#POP的解决方案" class="headerlink" title="POP的解决方案"></a>POP的解决方案</h4><ul>
+<li>遵守相同的协议，然后实现</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">run</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"run"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BVC</span>: <span class="title">UIViewController</span>, <span class="title">Runnable</span> </span>&#123;&#125; </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DVC</span>: <span class="title">UITableViewController</span>, <span class="title">Runnable</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="POP的注意点"><a href="#POP的注意点" class="headerlink" title="POP的注意点"></a>POP的注意点</h4><ul>
+<li>优先考虑创建协议，而不是父类(基类)</li>
+<li>优先考虑值类型(struct、enum)，而不是引用类型(class) </li>
+<li>巧用协议的扩展功能</li>
+<li>不要为了面向协议而使用协议</li>
+</ul>
+<h4 id="利用协议实现前缀效果"><a href="#利用协议实现前缀效果" class="headerlink" title="利用协议实现前缀效果"></a>利用协议实现前缀效果</h4><ul>
+<li>定义一个结构体 对原始值进行封装</li>
+<li>定义协议，增加属性方法/类方法 获取self；</li>
+<li>对需要增加前缀的遵守协议，扩展 增加方法，实现方法</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> string = <span class="string">"123fdsf434"</span> </span><br><span class="line"><span class="built_in">print</span>(string.sd.numberCount())</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SD</span>&lt;<span class="title">Base</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> base: <span class="type">Base</span></span><br><span class="line">    <span class="keyword">init</span>(<span class="number">_</span> base: <span class="type">Base</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.base = base</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SDCompatible</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SDCompatible</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">var</span> sd: <span class="type">SD</span>&lt;<span class="type">Self</span>&gt;.<span class="type">Type</span> &#123; </span><br><span class="line">        <span class="keyword">get</span> &#123; <span class="type">SD</span>&lt;<span class="type">Self</span>&gt;.<span class="keyword">self</span> &#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> sd: <span class="type">SD</span>&lt;<span class="type">Self</span>&gt; &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123; <span class="type">SD</span>(<span class="keyword">self</span>)&#125;</span><br><span class="line">        <span class="keyword">set</span> &#123;&#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">String</span>: <span class="title">SDCompatible</span> </span>&#123;&#125; </span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SD</span> <span class="title">where</span> <span class="title">Base</span> == <span class="title">String</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">numberCount</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">c</span> <span class="keyword">in</span> base <span class="keyword">where</span> (<span class="string">"0"</span>...<span class="string">"9"</span>).<span class="built_in">contains</span>(<span class="built_in">c</span>) &#123; </span><br><span class="line">            <span class="built_in">count</span> += <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">count</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>若想给NSString/NSMutableString 也增加此前缀 扩展方法，不用一个一个遵守协议，只需要让Base遵守协议，</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1: <span class="type">String</span> = <span class="string">"123fdsf434"</span></span><br><span class="line"><span class="keyword">var</span> s2: <span class="type">NSString</span> = <span class="string">"123fdsf434"</span></span><br><span class="line"><span class="keyword">var</span> s3: <span class="type">NSMutableString</span> = <span class="string">"123fdsf434"</span> </span><br><span class="line"><span class="built_in">print</span>(s1.sd.numberCount()) </span><br><span class="line"><span class="built_in">print</span>(s2.sd.numberCount()) </span><br><span class="line"><span class="built_in">print</span>(s3.sd.numberCount())</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">String</span>: <span class="title">SDCompatible</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">NSString</span>: <span class="title">SDCompatible</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">SD</span> <span class="title">where</span> <span class="title">Base</span>: <span class="title">ExpressibleByStringLiteral</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">numberCount</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> string = base <span class="keyword">as</span>! <span class="type">String</span></span><br><span class="line">        <span class="keyword">var</span> <span class="built_in">count</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> <span class="built_in">c</span> <span class="keyword">in</span> string <span class="keyword">where</span> (<span class="string">"0"</span>...<span class="string">"9"</span>).<span class="built_in">contains</span>(<span class="built_in">c</span>) &#123;</span><br><span class="line">            <span class="built_in">count</span> += <span class="number">1</span> </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">count</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用协议实现类型判断"><a href="#利用协议实现类型判断" class="headerlink" title="利用协议实现类型判断"></a>利用协议实现类型判断</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isArray</span><span class="params">(<span class="number">_</span> value: <span class="keyword">Any</span>)</span></span> -&gt; <span class="type">Bool</span> &#123; </span><br><span class="line">    value <span class="keyword">is</span> [<span class="type">Any</span>] </span><br><span class="line">&#125;</span><br><span class="line">isArray( [<span class="number">1</span>, <span class="number">2</span>] )</span><br><span class="line">isArray( [<span class="string">"1"</span>, <span class="number">2</span>] )</span><br><span class="line">isArray( <span class="type">NSArray</span>() )</span><br><span class="line">isArray( <span class="type">NSMutableArray</span>() )</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">ArrayType</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Array</span>: <span class="title">ArrayType</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">NSArray</span>: <span class="title">ArrayType</span> </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">isArrayType</span><span class="params">(<span class="number">_</span> type: <span class="keyword">Any</span>.<span class="keyword">Type</span>)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    type <span class="keyword">is</span> <span class="type">ArrayType</span>.<span class="type">Type</span> </span><br><span class="line">&#125;</span><br><span class="line">isArrayType([<span class="type">Int</span>].<span class="keyword">self</span>)</span><br><span class="line">isArrayType([<span class="type">Any</span>].<span class="keyword">self</span>)</span><br><span class="line">isArrayType(<span class="type">NSArray</span>.<span class="keyword">self</span>)</span><br><span class="line">isArrayType(<span class="type">NSMutableArray</span>.<span class="keyword">self</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="响应式编程"><a href="#响应式编程" class="headerlink" title="响应式编程"></a>响应式编程</h3><ul>
+<li>响应式编程(Reactive Programming，简称RP)</li>
+<li>也是一种编程范式，于1997年提出，可以简化异步编程，提供更优雅的数据绑定 </li>
+<li>一般与函数式融合在一起，所以也会叫做:函数响应式编程(Functional Reactive Programming，简称FRP)</li>
+<li><p>比较著名的、成熟的响应式框架</p>
+</li>
+<li><p>ReactiveCocoa</p>
+<ul>
+<li>简称RAC，有Objective-C、Swift版本</li>
+<li>官网: <a href="http://reactivecocoa.io/" target="_blank" rel="noopener">http://reactivecocoa.io/</a></li>
+<li>github:<a href="https://github.com/ReactiveCocoa" target="_blank" rel="noopener">https://github.com/ReactiveCocoa</a></li>
+</ul>
+</li>
+<li>ReactiveX  简称Rx，有众多编程语言的版本，比如RxJava、RxKotlin、RxJS、RxCpp、RxPHP、RxGo、RxSwift等等  <ul>
+<li>官网: <a href="http://reactivex.io/" target="_blank" rel="noopener">http://reactivex.io/</a></li>
+<li>github: <a href="https://github.com/ReactiveX" target="_blank" rel="noopener">https://github.com/ReactiveX</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="RxSwift"><a href="#RxSwift" class="headerlink" title="RxSwift"></a>RxSwift</h4><ul>
+<li>RxSwift(ReactiveX for Swift)，ReactiveX的Swift版本<ul>
+<li>源码:<a href="https://github.com/ReactiveX/RxSwift" target="_blank" rel="noopener">https://github.com/ReactiveX/RxSwift</a></li>
+<li>中文文档: <a href="https://beeth0ven.github.io/RxSwift-Chinese-Documentation/" target="_blank" rel="noopener">https://beeth0ven.github.io/RxSwift-Chinese-Documentation/</a></li>
+</ul>
+</li>
+<li>RxSwift的github上已经有详细的安装教程，这里只演示CocoaPods方式的安装</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1 Podfile </span></span><br><span class="line">use_frameworks!</span><br><span class="line">target 'target_name' <span class="keyword">do</span> pod '<span class="type">RxSwift'</span>, '~&gt; <span class="number">5</span>' pod '<span class="type">RxCocoa'</span>, '~&gt; <span class="number">5</span>'</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"><span class="comment">//2 命令行</span></span><br><span class="line">pod repo update</span><br><span class="line">ppod install</span><br><span class="line"></span><br><span class="line"><span class="comment">//3 导入模块 </span></span><br><span class="line"><span class="keyword">import</span> RxSwift</span><br><span class="line"><span class="keyword">import</span> RxCocoa</span><br></pre></td></tr></table></figure>
+<ul>
+<li>模块说明</li>
+<li>RxSwift:Rx标准API的Swift实现，不包括任何iOS相关的内容 </li>
+<li>RxCocoa:基于RxSwift，给iOS UI控件扩展了很多Rx特性</li>
+</ul>
+<h4 id="RxSwift的核心角色"><a href="#RxSwift的核心角色" class="headerlink" title="RxSwift的核心角色"></a>RxSwift的核心角色</h4><ul>
+<li>Observable:负责发送事件(Event)</li>
+<li>Observer:负责订阅Observable，监听Observable发送的事件(Event)</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span> -&gt; 事件序列(<span class="type">Event</span> <span class="type">Sequence</span>) -&gt; 加工处理 -&gt; <span class="type">Observer</span></span><br><span class="line"><span class="type">Observer</span> -&gt; 订阅(<span class="type">Subscribe</span>) -&gt; <span class="type">Observable</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">Event</span>&lt;<span class="title">Element</span>&gt; </span>&#123;</span><br><span class="line"><span class="comment">/// Next element is produced. case next(Element)</span></span><br><span class="line"><span class="comment">/// Sequence terminated with an error.</span></span><br><span class="line"><span class="keyword">case</span> error(<span class="type">Swift</span>.<span class="type">Error</span>)</span><br><span class="line"><span class="comment">/// Sequence completed successfully.</span></span><br><span class="line">    <span class="keyword">case</span> completed</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Event有3种<ul>
+<li>next:携带具体数据</li>
+<li>error:携带错误信息，表明Observable终止，不会再发出事件 </li>
+<li>completed:表明Observable终止，不会再发出事件</li>
+</ul>
+</li>
+</ul>
+<h4 id="创建、订阅Observable1"><a href="#创建、订阅Observable1" class="headerlink" title="创建、订阅Observable1"></a>创建、订阅Observable1</h4><ul>
+<li>创建一个observable 只订阅一个对象。之后立即完成 可以用<code>just(1)</code> ;<code>of(1)</code>;<code>form([1])</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observable = <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;.create &#123; observer <span class="keyword">in</span> </span><br><span class="line">    observer.onNext(<span class="number">1</span>)</span><br><span class="line">    observer.onCompleted()</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Disposables</span>.create()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line">observable = <span class="type">Observable</span>.just(<span class="number">1</span>) </span><br><span class="line">observable = <span class="type">Observable</span>.of(<span class="number">1</span>) </span><br><span class="line">observable = <span class="type">Observable</span>.from([<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建一个observable 订阅一种类型，订阅过个对象 之后立即完成，可以用类似<code>of(1,2,3)</code>;<code>form([])</code> </li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> observable = <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;.create &#123; observer <span class="keyword">in</span> </span><br><span class="line">    observer.onNext(<span class="number">1</span>)</span><br><span class="line">    observer.onNext(<span class="number">2</span>)</span><br><span class="line">    observer.onNext(<span class="number">3</span>)</span><br><span class="line">    observer.onCompleted()</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Disposables</span>.create() </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等价于</span></span><br><span class="line">observable = <span class="type">Observable</span>.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) </span><br><span class="line">observable = <span class="type">Observable</span>.from([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>多参数一起订阅 <code>onNext</code>;<code>onError</code>;<code>onCompleted</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">observable.subscribe &#123; event <span class="keyword">in</span> </span><br><span class="line">    <span class="built_in">print</span>(event)</span><br><span class="line">&#125;.dispose()</span><br><span class="line"></span><br><span class="line">observable.subscribe(onNext: &#123; </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"next"</span>, $<span class="number">0</span>)</span><br><span class="line">&#125;, onError: &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"error"</span>, $<span class="number">0</span>)</span><br><span class="line">&#125;, onCompleted: &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"completed"</span>)</span><br><span class="line">&#125;, onDisposed: &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"dispose"</span>)</span><br><span class="line">&#125;).dispose()</span><br></pre></td></tr></table></figure>
+<h4 id="创建、订阅Observable2"><a href="#创建、订阅Observable2" class="headerlink" title="创建、订阅Observable2"></a>创建、订阅Observable2</h4><ul>
+<li>监听定时器数字，绑定到label上 </li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> observable = <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;.timer(.seconds(<span class="number">3</span>),  </span><br><span class="line">                                        period: .seconds(<span class="number">1</span>),</span><br><span class="line">                                        scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">                                        </span><br><span class="line">observable.<span class="built_in">map</span> &#123; <span class="string">"数值是\($0)"</span> &#125;</span><br><span class="line">          .bind(to: label.rx.text)</span><br><span class="line">          .disposed(by: bag)</span><br></pre></td></tr></table></figure>
+<h4 id="创建Observer"><a href="#创建Observer" class="headerlink" title="创建Observer"></a>创建Observer</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> observer = <span class="type">AnyObserver</span>&lt;<span class="type">Int</span>&gt;.<span class="keyword">init</span> &#123; event <span class="keyword">in</span> </span><br><span class="line">    <span class="keyword">switch</span> event &#123;</span><br><span class="line">        <span class="keyword">case</span> .next(<span class="keyword">let</span> data):</span><br><span class="line">            <span class="built_in">print</span>(data)</span><br><span class="line">        <span class="keyword">case</span> .completed:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"completed"</span>)</span><br><span class="line">        <span class="keyword">case</span> .error(<span class="keyword">let</span> error):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"error"</span>, error)</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="type">Observable</span>.just(<span class="number">1</span>).subscribe(observer).dispose()</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> binder = <span class="type">Binder</span>&lt;<span class="type">String</span>&gt;(label) &#123; label, text <span class="keyword">in</span> </span><br><span class="line">    label.text = text</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">Observable</span>.just(<span class="number">1</span>)</span><br><span class="line">           .<span class="built_in">map</span> &#123; <span class="string">"数值是\($0)"</span> &#125;</span><br><span class="line">           .subscribe(binder)</span><br><span class="line">           .dispose() </span><br><span class="line"><span class="type">Observable</span>.just(<span class="number">1</span>)</span><br><span class="line">           .<span class="built_in">map</span> &#123; <span class="string">"数值是\($0)"</span> &#125;</span><br><span class="line">          .bind(to: binder)</span><br><span class="line">          .dispose()</span><br></pre></td></tr></table></figure>
+<h4 id="扩展Binder属性"><a href="#扩展Binder属性" class="headerlink" title="扩展Binder属性"></a>扩展Binder属性</h4><ul>
+<li>创建一个定时器，1秒切花一次按钮的显示/隐藏</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Reactive</span> <span class="title">where</span> <span class="title">Base</span>: <span class="title">UIView</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> hidden: <span class="type">Binder</span>&lt;<span class="type">Bool</span>&gt; &#123;</span><br><span class="line">        <span class="type">Binder</span>&lt;<span class="type">Bool</span>&gt;(base) &#123; view, value <span class="keyword">in</span></span><br><span class="line">            view.isHidden = value</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> observable = <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;.interval(.seconds(<span class="number">1</span>),</span><br><span class="line">                                          scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">observable.<span class="built_in">map</span> &#123; $<span class="number">0</span> % <span class="number">2</span> == <span class="number">0</span> &#125;</span><br><span class="line">          .bind(to: button.rx.hidden)</span><br><span class="line">          .disposed(by: bag)</span><br></pre></td></tr></table></figure>
+<h4 id="传统的状态监听"><a href="#传统的状态监听" class="headerlink" title="传统的状态监听"></a>传统的状态监听</h4><ul>
+<li>在开发中经常要对各种状态进行监听，传统的常见监听方案有 p KVO<ul>
+<li>Target-Action</li>
+<li>Notification</li>
+<li>Delegate  </li>
+<li>Block Callback</li>
+</ul>
+</li>
+<li>传统方案经常会出现错综复杂的依赖关系、耦合性较高，还需要编写重复的非业务代码</li>
+</ul>
+<h4 id="RxSwift的状态监听"><a href="#RxSwift的状态监听" class="headerlink" title="RxSwift的状态监听"></a>RxSwift的状态监听</h4><ul>
+<li>UIButton的按钮点击监听</li>
+<li>TableView的数据源绑定到Cell上</li>
+<li>TableViewCell监听点击事件</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">button.rx.tap.subscribe(onNext: &#123; </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"按钮被点击了1"</span>)</span><br><span class="line">&#125;).disposed(by: bag)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> data = <span class="type">Observable</span>.just([ </span><br><span class="line">        <span class="type">Person</span>(name: <span class="string">"Jack"</span>, age: <span class="number">10</span>), </span><br><span class="line">        <span class="type">Person</span>(name: <span class="string">"Rose"</span>, age: <span class="number">20</span>) </span><br><span class="line">])</span><br><span class="line">data.bind(to: tableView.rx.items(cellIdentifier: <span class="string">"cell"</span>)) &#123; row, person, cell <span class="keyword">in</span></span><br><span class="line">        cell.textLabel?.text = person.name</span><br><span class="line">        cell.detailTextLabel?.text = <span class="string">"\(person.age)"</span> </span><br><span class="line">    &#125;.disposed(by: bag)</span><br><span class="line"></span><br><span class="line">tableView.rx.modelSelected(<span class="type">Person</span>.<span class="keyword">self</span>)</span><br><span class="line">            .subscribe(onNext: &#123; person <span class="keyword">in</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">"点击了"</span>, person.name) </span><br><span class="line">             &#125;).disposed(by: bag)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对一个对象的某个属性值进行监听</li>
+<li>App的通知 NotificationCenter发送通知的监听</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>: <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">    <span class="meta">@objc</span> <span class="keyword">dynamic</span> <span class="keyword">var</span> name: <span class="type">String</span>?</span><br><span class="line">&#125;</span><br><span class="line">dog.rx.observe(<span class="type">String</span>.<span class="keyword">self</span>, <span class="string">"name"</span>)</span><br><span class="line">      .subscribe(onNext: &#123; name <span class="keyword">in</span></span><br><span class="line">          <span class="built_in">print</span>(<span class="string">"name is"</span>, name ?? <span class="string">"nil"</span>)</span><br><span class="line">      &#125;).disposed(by: bag)</span><br><span class="line"></span><br><span class="line">dog.name = <span class="string">"larry"</span></span><br><span class="line">dog.name = <span class="string">"wangwang"</span></span><br><span class="line"></span><br><span class="line"><span class="type">NotificationCenter</span>.<span class="keyword">default</span>.rx</span><br><span class="line">    .notification(<span class="type">UIApplication</span>.didEnterBackgroundNotification)</span><br><span class="line">    .subscribe(onNext: &#123; notification <span class="keyword">in</span></span><br><span class="line">          <span class="built_in">print</span>(<span class="string">"APP进入后台"</span>, notification) </span><br><span class="line">    &#125;).disposed(by: bag)</span><br></pre></td></tr></table></figure>
+<h4 id="既是Observable，又是Observer"><a href="#既是Observable，又是Observer" class="headerlink" title="既是Observable，又是Observer"></a>既是Observable，又是Observer</h4><ul>
+<li>诸如UISlider.rx.value、UTextField.rx.text这类属性值，既是Observable，又是Observer p 它们是RxCocoa.ControlProperty类型</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">Observable</span>.just(<span class="number">0.8</span>).bind(to: slider.rx.value).dispose()</span><br><span class="line"></span><br><span class="line">slider.rx.value.<span class="built_in">map</span> &#123; <span class="string">"当前数值是:\($0)"</span>&#125;</span><br><span class="line">                .bind(to: textField.rx.text)</span><br><span class="line">                .disposed(by: bag)</span><br><span class="line"> textField.rx.text </span><br><span class="line">             .subscribe(onNext: &#123; text <span class="keyword">in</span></span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">"text is"</span>, text ?? <span class="string">"nil"</span>)</span><br><span class="line">              &#125;).disposed(by: bag)</span><br></pre></td></tr></table></figure>
+<h4 id="订阅的取消方式-Disposable"><a href="#订阅的取消方式-Disposable" class="headerlink" title="订阅的取消方式 Disposable"></a>订阅的取消方式 Disposable</h4><ul>
+<li>每当Observable被订阅时，都会返回一个Disposable实例，当调用Disposable的dispose，就相当于取消订阅 </li>
+<li>在不需要再接收事件时，建议取消订阅，释放资源。有3种常见方式取消订阅</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 立即取消订阅(一次性订阅) </span></span><br><span class="line">observable.subscribe &#123; event <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(event)</span><br><span class="line">&#125;.dispose()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当bag销毁(deinit)时，会自动调用Disposable实例的dispose </span></span><br><span class="line">observable.subscribe &#123; event <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(event)</span><br><span class="line">&#125;.disposed(by: bag)</span><br><span class="line"></span><br><span class="line"><span class="comment">// self销毁时(deinit)时，会自动调用Disposable实例的dispose</span></span><br><span class="line"><span class="keyword">let</span> <span class="number">_</span> = observable.takeUntil(<span class="keyword">self</span>.rx.deallocated).subscribe &#123; event <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(event)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+      <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+	     --------------------  本文结束
+	    <i class="fa fa-paw"></i>
+	    感谢您的阅读  --------------------
+    </div>
+
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/19/iOS/swift-xmg14/" rel="next" title="Swift-项目相关配置">
+                <i class="fa fa-chevron-left"></i> Swift-项目相关配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/21/iOS/swift-xmg16/" rel="prev" title="Swift-源码分析资料">
+                Swift-源码分析资料 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="May Tao">
+            
+              <p class="site-author-name" itemprop="name">May Tao</p>
+              <p class="site-description motion-element" itemprop="description">全栈在路上</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">90</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Huan-zhaolover" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ytxinguan09@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.87.com" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-angle-double-down"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式编程"><span class="nav-number">1.</span> <span class="nav-text">函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Array的常见操作"><span class="nav-number">1.1.</span> <span class="nav-text">Array的常见操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lazy的优化"><span class="nav-number">1.2.</span> <span class="nav-text">lazy的优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Optional的map和flatMap"><span class="nav-number">1.3.</span> <span class="nav-text">Optional的map和flatMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数式编程-Funtional-Programming"><span class="nav-number">1.4.</span> <span class="nav-text">函数式编程(Funtional Programming)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数式编程传统写法-函数式写法"><span class="nav-number">1.5.</span> <span class="nav-text">函数式编程传统写法/函数式写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高阶函数-Higher-Order-Function"><span class="nav-number">1.6.</span> <span class="nav-text">高阶函数(Higher-Order Function)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#柯里化-Currying"><span class="nav-number">1.7.</span> <span class="nav-text">柯里化(Currying)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函子-Functor"><span class="nav-number">1.8.</span> <span class="nav-text">函子(Functor)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#适用函子-Applicative-Functor"><span class="nav-number">1.9.</span> <span class="nav-text">适用函子(Applicative Functor)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单子-Monad"><span class="nav-number">1.10.</span> <span class="nav-text">单子(Monad)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向协议编程"><span class="nav-number">2.</span> <span class="nav-text">面向协议编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#回顾面向对象编程OOP"><span class="nav-number">2.1.</span> <span class="nav-text">回顾面向对象编程OOP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OOP的不足"><span class="nav-number">2.2.</span> <span class="nav-text">OOP的不足</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POP的解决方案"><span class="nav-number">2.3.</span> <span class="nav-text">POP的解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POP的注意点"><span class="nav-number">2.4.</span> <span class="nav-text">POP的注意点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用协议实现前缀效果"><span class="nav-number">2.5.</span> <span class="nav-text">利用协议实现前缀效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用协议实现类型判断"><span class="nav-number">2.6.</span> <span class="nav-text">利用协议实现类型判断</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式编程"><span class="nav-number">3.</span> <span class="nav-text">响应式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RxSwift"><span class="nav-number">3.1.</span> <span class="nav-text">RxSwift</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RxSwift的核心角色"><span class="nav-number">3.2.</span> <span class="nav-text">RxSwift的核心角色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建、订阅Observable1"><span class="nav-number">3.3.</span> <span class="nav-text">创建、订阅Observable1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建、订阅Observable2"><span class="nav-number">3.4.</span> <span class="nav-text">创建、订阅Observable2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建Observer"><span class="nav-number">3.5.</span> <span class="nav-text">创建Observer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展Binder属性"><span class="nav-number">3.6.</span> <span class="nav-text">扩展Binder属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#传统的状态监听"><span class="nav-number">3.7.</span> <span class="nav-text">传统的状态监听</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RxSwift的状态监听"><span class="nav-number">3.8.</span> <span class="nav-text">RxSwift的状态监听</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#既是Observable，又是Observer"><span class="nav-number">3.9.</span> <span class="nav-text">既是Observable，又是Observer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#订阅的取消方式-Disposable"><span class="nav-number">3.10.</span> <span class="nav-text">订阅的取消方式 Disposable</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+     <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">May Tao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz',
+        appKey: 'GYy3VQ9hXhRnbsBHmMPzwtbq',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz", "GYy3VQ9hXhRnbsBHmMPzwtbq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

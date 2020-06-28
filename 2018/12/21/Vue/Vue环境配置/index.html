@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Maylover">
 <meta property="og:description" content="Vue环境配置 需要配置有node / npm. 终端查看node -v npm -v 查看是否有，如果没有需要提前安装   vue -V 查看是否安装Vue   12mayloverdeMacBook-Pro:~ maylover$ vue -V-bash: /usr/local/bin/vue: No such file or directory  npm install -g @vue/cl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-22T08:13:16.478Z">
+<meta property="og:updated_time" content="2020-06-28T02:43:20.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue环境配置">
 <meta name="twitter:description" content="Vue环境配置 需要配置有node / npm. 终端查看node -v npm -v 查看是否有，如果没有需要提前安装   vue -V 查看是否安装Vue   12mayloverdeMacBook-Pro:~ maylover$ vue -V-bash: /usr/local/bin/vue: No such file or directory  npm install -g @vue/cl">
@@ -453,7 +453,7 @@
 <h3 id="Vue项目工程配置"><a href="#Vue项目工程配置" class="headerlink" title="Vue项目工程配置"></a>Vue项目工程配置</h3><blockquote>
 <p>搭建一个完美的vue项目的基础工程</p>
 </blockquote>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">vue + webpack + sass/less + es6 + async+ Element + router + store + bable </span><br><span class="line"></span><br><span class="line"><span class="number">1</span>、先用webpack搭建一个最简单的web项目，学习webpack的几个核心概念，插件，loader等等等。</span><br><span class="line"><span class="number">2</span>、添加 webpack-dev-server，实现工程启动启动打开浏览器，热替换等功能。</span><br><span class="line"><span class="number">3</span>、添加引用css样式支持，然后添加sass，less支持等。</span><br><span class="line"><span class="number">4</span>、添加babel编译（将es6编译成es5），eslint编写检查等功能。</span><br><span class="line"><span class="number">5</span>、添加vue支持。</span><br><span class="line"><span class="number">6</span>、添加各类vue-router，vuex等功能支持。</span><br><span class="line"><span class="number">7</span>、最后添加element支持。</span><br><span class="line"><span class="number">8</span>、开发环境配置好了，在写打包配置。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>/ 全局公共文件 这里设置版本号， 获取host 判断dev test pro 环境， 全局公共url / cdn 地址等信息</span><br><span class="line"><span class="number">2</span>/ axios 的封装， 这里根据项目做特殊处理，get/post二次封装等， 例如拦截所以请求添加 token ，对dev 环境中的url 添加固定的 api标示（后端代理请求跨域处理） 当请求异常时是否做弹窗提示等；</span><br><span class="line"><span class="number">3</span>/ api 管理，全局 API 提取当公共文件中，通过dispatch 触发，当前页面内部的业务api 直接写在当前vue文件中</span><br><span class="line"><span class="number">4</span>/ 错误异常收集并上报处理， 利用$bus(具体实现看业务需求)</span><br><span class="line"><span class="number">5</span>/ router 做 require 按需加载，个人习惯 每个 业务独立一份router.js 管理 全局 通过addRoutes 添加</span><br><span class="line"><span class="number">6</span>/ views 下面按照业务分类为 文件夹形式，不太习惯另一种模式（components 下一切皆组件），太难找了，不好区分</span><br><span class="line"><span class="number">7</span>/ 组件间嵌套尽量不超过<span class="number">3</span>级</span><br><span class="line"><span class="number">8</span>/ eslint 的配置， 官网配置的是 save 的是运行lint， 我个人 习惯借用husky的precommit时运行lint</span><br><span class="line"><span class="number">9</span>/ 分包处理， 防止单文件过大</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">vue + webpack + sass/less + es6 + async+ Element + router + store + bable </span><br><span class="line"></span><br><span class="line"><span class="number">1</span>、先用webpack搭建一个最简单的web项目，学习webpack的几个核心概念，插件，loader等等等。</span><br><span class="line"><span class="number">2</span>、添加 webpack-dev-server，实现工程启动启动打开浏览器，热替换等功能。</span><br><span class="line"><span class="number">3</span>、添加引用css样式支持，然后添加sass，less支持等。</span><br><span class="line"><span class="number">4</span>、添加babel编译（将es6编译成es5），eslint编写检查等功能。</span><br><span class="line"><span class="number">5</span>、添加vue支持。</span><br><span class="line"><span class="number">6</span>、添加各类vue-router，vuex等功能支持。</span><br><span class="line"><span class="number">7</span>、最后添加element支持。</span><br><span class="line"><span class="number">8</span>、开发环境配置好了，再写打包配置。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>/ 全局公共文件 这里设置版本号， 获取host 判断dev test pro 环境， 全局公共url / cdn 地址等信息</span><br><span class="line"><span class="number">2</span>/ axios 的封装， 这里根据项目做特殊处理，get/post二次封装等， 例如拦截所以请求添加 token ，对dev 环境中的url 添加固定的 api标示（后端代理请求跨域处理） 当请求异常时是否做弹窗提示等；</span><br><span class="line"><span class="number">3</span>/ api 管理，全局 API 提取当公共文件中，通过dispatch 触发，当前页面内部的业务api 直接写在当前vue文件中</span><br><span class="line"><span class="number">4</span>/ 错误异常收集并上报处理， 利用$bus(具体实现看业务需求)</span><br><span class="line"><span class="number">5</span>/ router 做 require 按需加载，个人习惯 每个 业务独立一份router.js 管理 全局 通过addRoutes 添加</span><br><span class="line"><span class="number">6</span>/ views 下面按照业务分类为 文件夹形式，不太习惯另一种模式（components 下一切皆组件），太难找了，不好区分</span><br><span class="line"><span class="number">7</span>/ 组件间嵌套尽量不超过<span class="number">3</span>级</span><br><span class="line"><span class="number">8</span>/ eslint 的配置， 官网配置的是 save 的是运行lint， 我个人 习惯借用husky的precommit时运行lint</span><br><span class="line"><span class="number">9</span>/ 分包处理， 防止单文件过大</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>cd first-vue</strong> 进入项目内 <code>npm run dev</code>启动项目</li>
 </ul>
@@ -510,8 +510,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/01/面试/前端面试题(1)/" rel="prev" title="前端面试题(1)">
-                前端面试题(1) <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/02/Android/Android-web01/" rel="prev" title="Android-web01-Java">
+                Android-web01-Java <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -594,7 +594,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-count">90</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -605,7 +605,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -616,7 +616,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

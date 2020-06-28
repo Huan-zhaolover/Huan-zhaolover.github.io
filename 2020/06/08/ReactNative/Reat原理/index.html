@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Maylover" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="React-01基础了解JSX 语法吗，简单描述一下React 是如何转化为VDom的又是如何将VDOM转为真实DOM的React的组件两种形式，优缺点用什么管理组件状态setState能立即更新吗？实现setStatet同步的三种方法。函数组件中的用什么状态管理React的事件处理，绑定this 的三种方法组件通信，父传子，子传父，怎么跨层级通信简单描述ReduxReact16.3之前的生命周期">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React原理">
+<meta property="og:url" content="https://www.mayyutao.cn/2020/06/08/ReactNative/Reat原理/index.html">
+<meta property="og:site_name" content="Maylover">
+<meta property="og:description" content="React-01基础了解JSX 语法吗，简单描述一下React 是如何转化为VDom的又是如何将VDOM转为真实DOM的React的组件两种形式，优缺点用什么管理组件状态setState能立即更新吗？实现setStatet同步的三种方法。函数组件中的用什么状态管理React的事件处理，绑定this 的三种方法组件通信，父传子，子传父，怎么跨层级通信简单描述ReduxReact16.3之前的生命周期">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-06-28T02:42:48.618Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React原理">
+<meta name="twitter:description" content="React-01基础了解JSX 语法吗，简单描述一下React 是如何转化为VDom的又是如何将VDOM转为真实DOM的React的组件两种形式，优缺点用什么管理组件状态setState能立即更新吗？实现setStatet同步的三种方法。函数组件中的用什么状态管理React的事件处理，绑定this 的三种方法组件通信，父传子，子传父，怎么跨层级通信简单描述ReduxReact16.3之前的生命周期">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.mayyutao.cn/2020/06/08/ReactNative/Reat原理/">
+
+
+
+
+
+  <title>React原理 | Maylover</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/hexo_resize_image.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Maylover</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">平凡之路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mayyutao.cn/2020/06/08/ReactNative/Reat原理/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="May Tao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maylover">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">React原理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-08T08:39:00+08:00">
+                2020-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/06/08/ReactNative/Reat原理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/08/ReactNative/Reat原理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/06/08/ReactNative/Reat原理/" class="leancloud_visitors" data-flag-title="React原理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  19
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="React-01基础"><a href="#React-01基础" class="headerlink" title="React-01基础"></a>React-01基础</h4><p>了解JSX 语法吗，简单描述一下<br>React 是如何转化为VDom的<br>又是如何将VDOM转为真实DOM的<br>React的组件两种形式，优缺点<br>用什么管理组件状态<br>setState能立即更新吗？<br>实现setStatet同步的三种方法。<br>函数组件中的用什么状态管理<br>React的事件处理，绑定this 的三种方法<br>组件通信，父传子，子传父，<br>怎么跨层级通信<br>简单描述Redux<br>React16.3之前的生命周期<br>React16.4之后的生命周期 区别，为什么要改变</p>
+<ul>
+<li>JSX React使⽤用JSX来描述UI</li>
+<li>React负责逻辑控制，数据 -&gt; VDOM webpack编译，使用CreateElement讲JSX转为一个对象，描述节点，</li>
+<li>ReactDom渲染实际DOM，VDOM -&gt; DOM （VDOM，container）</li>
+<li>组件有两种形式:function组件和class组件。</li>
+<li>class组件通常拥有状态和⽣生命周期，继承于Component，实现 render⽅方法</li>
+<li>函数组件通常无状态，仅关注内容展示，返回渲染结果即可。从React16.8开始引⼊入了了hooks，函数组件也能够拥有状态，</li>
+<li><p>class组件使⽤用state和setState维护状态 ； ⽤用setState更新状态⽽不能直接修改；setState是批量执⾏的，因此对同⼀个状态执行多次只起⼀次作用，多个状态更新可以放在同⼀个setState中进⾏；</p>
+<ul>
+<li>setState同步方式：传递函数给setState⽅方法；使⽤定时器器；原生事件中修改状态</li>
+</ul>
+</li>
+<li>函数组件通过hooks api维护状态 <code>const [date, setDate] = useState(new Date());</code></li>
+<li>绑定this的方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 构造函数中绑定并覆盖:<span class="keyword">this</span>.change= <span class="keyword">this</span>.change.bind(<span class="keyword">this</span>)</span><br><span class="line"><span class="number">2.</span> ⽅方法定义为箭头函数:change=<span class="function"><span class="params">()</span>=&gt;</span>&#123;&#125;</span><br><span class="line"><span class="number">3.</span> 事件中定义为箭头函数:onChange=&#123;()=&gt;<span class="keyword">this</span>.change()&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>props属性传值，通信， 父子之间相互 传值通信<ul>
+<li><code>this.props.callback(obj)</code></li>
+</ul>
+</li>
+<li>跨层级通信 使用Context;</li>
+<li>创建Context =&gt; 获取Provider和Consumer =&gt; Provider提供值 =&gt; Consumer消费值</li>
+</ul>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">const context = React.creatContext()</span></span><br><span class="line"><span class="xml">const </span><span class="template-variable">&#123;Provider,Consumer&#125;</span><span class="xml"> = context</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">value</span>=</span></span><span class="template-variable">&#123;obj&#125;</span><span class="xml"><span class="tag">&gt;</span><span class="tag">&lt;<span class="name">Provider</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">Consumer</span>&gt;</span></span></span><br><span class="line"><span class="xml">   </span><span class="template-variable">&#123;ctx=&gt;&lt;UserCmp &#123;...ctx&#125;</span><span class="xml">&gt;&#125;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">Consumer</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>简单描述Redux: </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">维护state 对象，暴露getState方法，</span><br><span class="line">提供subscribe方法，传入监听函数，</span><br><span class="line">提供dispatch方法，可以传入state 和type,覆盖state值，</span><br><span class="line">执行 reducer 方法，并执行监听回调方法，做到同步刷新。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>16.3之前的生命周期<ul>
+<li>constructor / componentwillMount / render / commponentdidmount</li>
+<li>componentwillreceieveprops / shouldComponentUpdate / commponentwillUpdate / render / commmponentDidupdate </li>
+</ul>
+</li>
+<li>16.3之后的生命周期<ul>
+<li>constructor</li>
+<li>getDirvedStateFromPoros / shouldComponentUpdate / getsnaopshotBeforUpdate / componentDidUpdate,Mounted </li>
+<li>componentWillUnmount</li>
+</ul>
+</li>
+<li>为什么变更 ；原来(React v16.0前)的生命周期在React v16推出的Fiber之后就 不合适了，因为如果要开启async rendering，在render函数之前的所有函数，都有可能被执⾏多次。</li>
+</ul>
+<h4 id="React-02组件化"><a href="#React-02组件化" class="headerlink" title="React-02组件化"></a>React-02组件化</h4><p>Consumer是如何获取到 context值的，三种方式，<br>用过组件复合吗？<br>描述一下高阶组件HOC，项目中具体实现？<br>用到哪些Hooks 特点是什么？<br>使用 Effect Hook 注意点，依赖项，<br>介绍一下 useContext / useReducer<br>手写一个简易redux的定义使用 和原理 </p>
+<ul>
+<li>Consumer取出上下文中的值的三种方式<ul>
+<li>直接在组件内回调函数 传入值；<code>&lt;Consumer&gt;{value =&gt; &lt;Child {...value} /&gt;}&lt;/Consumer&gt;</code></li>
+<li>通过usecontext ;<code>const context = useContext(MyContext);</code></li>
+<li>通过设置静态属性通知编译器获取上下文中数据并赋值给this.context； <code>static contextType = MyContext;</code></li>
+</ul>
+</li>
+<li>组件复合 如果组件间有公⽤的⾮UI逻辑，将它们抽取为 JS模块导⼊使⽤⽽不是继承它。类似具名插槽 <code>{this.props.children}</code></li>
+<li><p>高阶组件：高阶组件是⼀个⼯⼚函数，它接收⼀个组件并返回另⼀一个组<br>件；可以<code>链式调用</code>，结合装饰器decorater <code>@withlog</code></p>
+</li>
+<li><p>Hooks <code>usestate；useEffect</code></p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [date, setDate] = useState(<span class="keyword">new</span> <span class="built_in">Date</span>()) 返回一个数组，第一个值是state，第二个值是setState函数，入参是直接传入state对象</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置空数组意为没有依赖，则副作用操作仅执行行⼀次 </span></span><br><span class="line"><span class="comment">// 设置了一项，则只有fruit更新之后才会触发 useEffect内的函数</span></span><br><span class="line">useEffect(<span class="function"><span class="params">()</span>=&gt;</span>&#123;...&#125;, []) </span><br><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="built_in">document</span>.title = fruit; &#125;, [fruit]);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>useContext 通过useContext 拿到的上下文，可以直接使用取值</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useContext &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">const</span> Context = React.createContext();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ctx = useContext(Context);</span><br><span class="line">&lt;div&gt;userName: &#123;ctx.userName&#125;&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>useReducer手写 定义，使用，原理</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义</span></span><br><span class="line"><span class="keyword">import</span> &#123;createStore&#125; <span class="keyword">from</span> <span class="string">'redux'</span></span><br><span class="line"><span class="keyword">const</span> countReducer = <span class="function"><span class="keyword">function</span>(<span class="params">state=<span class="number">0</span>,action</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">		<span class="keyword">case</span>:<span class="string">'add'</span></span><br><span class="line">			<span class="keyword">return</span> state + <span class="number">1</span></span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">			<span class="keyword">return</span> state</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> store = createStore(countReducer) </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">"../store/ReduxStore"</span>;</span><br><span class="line">store.subscribe(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"subscribe"</span>);</span><br><span class="line">  <span class="keyword">this</span>.forceUpdate();</span><br><span class="line">&#125;);</span><br><span class="line">add = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">	store.dispatch(&#123; <span class="attr">type</span>: <span class="string">"add"</span> &#125;);</span><br><span class="line">&#125;;</span><br><span class="line">&lt;p&gt;&#123;store.getState()&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;button onClick=&#123;this.stayStatic&#125;&gt;static&lt;/</span>button&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//原理 存储获取状态，更新状态，变更订阅subscribe</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createStore</span>(<span class="params">reducer,enhancer</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(enhancer)&#123;</span><br><span class="line">		<span class="keyword">return</span> enhancer(createStore)(reducer)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">let</span> state = &#123;&#125;</span><br><span class="line">	<span class="keyword">let</span> listeners = []</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">getState</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> state</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">subscript</span>(<span class="params">callback</span>)</span>&#123;</span><br><span class="line">		listener.push(callback)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">dispatch</span>(<span class="params">action</span>)</span>&#123;</span><br><span class="line">		state = reducer(state,action)</span><br><span class="line">		listener.forEach(<span class="function"><span class="params">v</span>=&gt;</span>v())</span><br><span class="line">		<span class="keyword">return</span> action</span><br><span class="line">	&#125;</span><br><span class="line">	retutrn &#123;getState, subscript,dispath&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="React-03组件化"><a href="#React-03组件化" class="headerlink" title="React-03组件化"></a>React-03组件化</h4><p>如何配置按需加载第三方组件antd<br>如何设计实现一个表单，能支持根据规则校验input输入，并显示错误信息，支持提交检验所有项；<br>对比 antd表单实现 和 element表单实现的组件化上的差异<br>弹窗类组件设计思路<br>树形组件的设计思路<br>常见的组件优化技术 </p>
+<ul>
+<li>安装react-app-rewired取代react-scripts</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">安装react-app-rewired取代react-scripts，可以扩展webpack的配置 ，类似vue.config.js</span><br><span class="line">npm install react-app-rewired customize-cra babel-plugin-<span class="keyword">import</span> -D</span><br><span class="line"><span class="built_in">module</span>.exports = override( </span><br><span class="line">	fixBabelImports(<span class="string">"import"</span>, &#123;<span class="comment">//antd按需加载 </span></span><br><span class="line">	libraryName: <span class="string">"antd"</span>,</span><br><span class="line">    libraryDirectory: <span class="string">"es"</span>,</span><br><span class="line">    style: <span class="string">"css"</span></span><br><span class="line">	&#125;) </span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改package.json </span></span><br><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"react-app-rewired start"</span>,</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"react-app-rewired build"</span>,</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"react-app-rewired test"</span>,</span><br><span class="line">    <span class="string">"eject"</span>: <span class="string">"react-app-rewired eject"</span></span><br><span class="line">&#125;,</span><br><span class="line">⽀持装饰器器配置</span><br><span class="line">npm install -D @babel/plugin-proposal-decorators</span><br></pre></td></tr></table></figure>
+<ul>
+<li>antd表单实现思路</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">使用高阶组件，对form表单加强扩展现有表单功能，使用装饰器 @form.create()</span><br><span class="line">入参是form组件，render 时返回原组件，但是增加了属性</span><br><span class="line">render() &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;div className=<span class="string">"border"</span>&gt;</span><br><span class="line">          &lt;Cmp</span><br><span class="line">            &#123;...this.props&#125;</span><br><span class="line">            getFieldDecorator=&#123;<span class="keyword">this</span>.getFieldDecorator&#125;</span><br><span class="line">            getFieldValue=&#123;<span class="keyword">this</span>.getFieldValue&#125;</span><br><span class="line">            validateFields=&#123;<span class="keyword">this</span>.validateFields&#125;/&gt; </span><br><span class="line">		&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">	 ); </span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">getFieldDecorator 函数，根据fileid 和options，返回一个高阶函数 接收input组件，对传入的组件加强，增加属性，事件状态提升等，教由父组件处理</span></span><br><span class="line"><span class="regexp">getFieldDecorator = (field, option) =&gt; &#123;</span></span><br><span class="line"><span class="regexp">  this.options[field] = option;</span></span><br><span class="line"><span class="regexp">  return InputCmp =&gt; (</span></span><br><span class="line"><span class="regexp">		&lt;div&gt; &#123;</span></span><br><span class="line"><span class="regexp">		/</span><span class="regexp">/ 由React.createElement生成的元素不能修改，需要克隆⼀份再扩展 </span></span><br><span class="line"><span class="regexp">		React.cloneElement(InputCmp, &#123;</span></span><br><span class="line"><span class="regexp">			name: field,</span></span><br><span class="line"><span class="regexp">			value: this.state[field] || "", /</span><span class="regexp">/控件值 </span></span><br><span class="line"><span class="regexp">			onChange: this.handleChange, /</span><span class="regexp">/控件change事件处理理</span></span><br><span class="line"><span class="regexp">		&#125;)&#125;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>div&gt; </span><br><span class="line">	); </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>弹框第一种方式是V16之后 Portal createPortal</li>
+<li>第二种是使用 unstable_renderSubtreeIntoContainer</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">思路：</span><br><span class="line"><span class="number">1</span>. Dialog什什么都不不给⾃自⼰己画，render返回⼀一个<span class="literal">null</span>就够了了;</span><br><span class="line"><span class="number">2</span>. 它做得事情是通过调⽤用createPortal把要画的东⻄西画在DOM树上另⼀一个⻆角落。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">第一种</span><br><span class="line"><span class="keyword">import</span> &#123; createPortal &#125; from <span class="string">"react-dom"</span>;</span><br><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; hideDialog &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">return</span> createPortal(</span><br><span class="line">      &lt;div className=<span class="string">"dialog"</span>&gt;</span><br><span class="line">        &#123;<span class="keyword">this</span>.props.children&#125;</span><br><span class="line">        &#123;typeof hideDialog === <span class="string">"function"</span> &amp;&amp; (</span><br><span class="line">			&lt;button onClick=&#123;hideDialog&#125;&gt;关掉弹窗&lt;/button&gt; </span><br><span class="line">		 )&#125;</span><br><span class="line">	   &lt;/div&gt;,</span><br><span class="line">      <span class="keyword">this</span>.node,</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第二种 react16之前</span></span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">  <span class="keyword">this</span>.createPortal(<span class="keyword">this</span>.props);</span><br><span class="line">&#125;</span><br><span class="line">componentDidUpdate() &#123;</span><br><span class="line">    <span class="keyword">this</span>.createPortal(<span class="keyword">this</span>.props);</span><br><span class="line">&#125;</span><br><span class="line">render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line">createPortal(props) &#123;</span><br><span class="line">    unstable_renderSubtreeIntoContainer(</span><br><span class="line">		<span class="keyword">this</span>, <span class="comment">//当前组件</span></span><br><span class="line">		&lt;div className=<span class="string">"dialog"</span>&gt;&#123;props.children&#125;&lt;/div&gt;, </span><br><span class="line">		<span class="comment">// 塞进传送⻔门的JSX this.node // 传送⻔门另⼀一端的DOM node</span></span><br><span class="line">	); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>react中实现递归组件更加纯粹，就是组件递归渲染即可。假设我们的节点组件是TreeNode，它的render中只要 发现当前节点拥有子节点就要继续渲染⾃己。节点的打开状态可以通过给组件一个open状态来维护</li>
+<li>组件优化技术，shouldComponentUpdate<ul>
+<li>使用PureComponent 实现了Class组件中 shouldComponentUpdate 的浅比较</li>
+<li>使用React.memo 封装函数式组件</li>
+</ul>
+</li>
+</ul>
+<h4 id="React-04全家桶与原理解析"><a href="#React-04全家桶与原理解析" class="headerlink" title="React-04全家桶与原理解析"></a>React-04全家桶与原理解析</h4><p>实现compose函数，可以将函数数组，reduce合并为线性处理<br>redux 使用 / 原理，<br>react-redux 使用 / 原理；<br>redux中间件 使用 / 原理<br>如何实现redux的异步处理（中间件）<br>redux的模块化，<br>redux-thunk的原理</p>
+<ul>
+<li>compose函数实现</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">...funcs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (funcs.length === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"empty"</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (funcs.length === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> funcs[<span class="number">0</span>];</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> funcs.reduce(<span class="function">(<span class="params">left, right</span>) =&gt;</span> (...args) =&gt; right(left(...args)));</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 类似与</span></span><br><span class="line">    funcs.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">left,right</span>)</span>&#123;</span><br><span class="line">    	 <span class="keyword">var</span> refun = <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    	 	<span class="keyword">return</span> right(left(...args))</span><br><span class="line">    	 &#125; </span><br><span class="line">    	<span class="keyword">return</span> refun </span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line">compose(f1, f2, f3)();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>react-redux 的实现与原理</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">npm install react-redux --save</span><br><span class="line">Provider 为后代提供store</span><br><span class="line">connect 为组件提供 数据和方法 高阶函数可以用装饰器调用</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./store/ReactReduxStore'</span></span><br><span class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span></span><br><span class="line"> &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;App/&gt;</span><br><span class="line">  &lt;<span class="regexp">/Provider&gt;</span></span><br><span class="line"><span class="regexp">  </span></span><br><span class="line"><span class="regexp">1.使用方 定义mapStateToProps 类似 Vue中的mapGetter mapAction</span></span><br><span class="line"><span class="regexp">2.用connect链接 将映射方法输入到组件的props中，</span></span><br><span class="line"><span class="regexp">3也可以用装饰器 @connect(mapStateToProps, mapDispatchToProps)</span></span><br><span class="line"><span class="regexp">const mapStateToProps = state =&gt; &#123;</span></span><br><span class="line"><span class="regexp">  return &#123; num: state &#125;;</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp">const mapDispatchToProps = &#123;</span></span><br><span class="line"><span class="regexp">  add: () =&gt; &#123; return &#123; type: "add" &#125;;  &#125;,</span></span><br><span class="line"><span class="regexp">  minus: () =&gt; &#123; return &#123; type: "minus" &#125;; &#125;,</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp">export default connect(</span></span><br><span class="line"><span class="regexp">	mapStateToProps, /</span><span class="regexp">/状态映射 </span></span><br><span class="line"><span class="regexp">	mapDispatchToProps, /</span><span class="regexp">/派发事件映射</span></span><br><span class="line"><span class="regexp">)(ReactReduxPage);</span></span><br><span class="line"><span class="regexp">class  ReactReduxPage extends React.Component &#123;</span></span><br><span class="line"><span class="regexp">        &lt;p&gt;&#123;num&#125;&lt;/</span>p&gt;</span><br><span class="line">        &lt;button onClick=&#123;add&#125;&gt;add&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>redux-thunk扩展异步处理</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">npm install -s redux-thunk</span><br><span class="line"><span class="comment">//使用时 </span></span><br><span class="line"><span class="keyword">import</span> thunk <span class="keyword">from</span> <span class="string">"redux-thunk"</span>;</span><br><span class="line"><span class="keyword">const</span> store = createStore(countReducer,applyMiddleware(thunk));</span><br><span class="line"><span class="keyword">return</span> store</span><br><span class="line"><span class="comment">// 定义异步dispatch时</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> asyAdd = <span class="function"><span class="params">()</span> =&gt;</span> dispatch =&gt; &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    dispatch(&#123; <span class="attr">type</span>: <span class="string">"add"</span> &#125;);</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 若是函数，会拦截执行函数，若不是，则直接执行next()</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>redux的模块化</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 定义时</span><br><span class="line">createStore(combineReducers( &#123;counter:counterReducer&#125;) )</span><br><span class="line">// 映射时</span><br><span class="line">const mapStateToProps = <span class="keyword">state</span> =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    counter: <span class="keyword">state</span>,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">// 组件内</span><br><span class="line">const &#123; num &#125; = counter;</span><br><span class="line"><span class="variable">&lt;p&gt;</span>&#123;num&#125;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>中间件实现原理</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">传入多个middlewares </span><br><span class="line">createstore 入参返回值</span><br><span class="line">入参是 <span class="function"><span class="keyword">function</span> <span class="title">createStore</span>(<span class="params">reducer,enhancer</span>)</span>&#123;</span><br><span class="line">	retutrn &#123;getState, subscript,dispath&#125;</span><br><span class="line">&#125; </span><br><span class="line">返回一个强化后的函数，入参是createstore，再返回一个函数</span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">applyMiddleware</span>(<span class="params">...middlewares</span>)</span>&#123; </span><br><span class="line">  <span class="comment">// 返回强化以后函数</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="params">createStore</span> =&gt;</span> (...args) =&gt; &#123;</span><br><span class="line">	    <span class="keyword">const</span> store = createStore(...args)</span><br><span class="line">	    <span class="keyword">let</span> dispatch = store.dispatch</span><br><span class="line">	    <span class="keyword">const</span> midApi = &#123;</span><br><span class="line">	      getState:store.getState,</span><br><span class="line">	      dispatch:<span class="function">(<span class="params">...args</span>)=&gt;</span>dispatch(...args)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 使中间件可以获取状态值、派发action</span></span><br><span class="line">	    <span class="keyword">const</span> middlewareChain = middlewares.map(<span class="function"><span class="params">middleware</span> =&gt;</span></span><br><span class="line">												  middleware(midApi))</span><br><span class="line">		<span class="comment">// compose可以middlewareChain函数数组合并成一个函数 </span></span><br><span class="line">		dispatch = compose(...middlewareChain)(store.dispatch) </span><br><span class="line">		<span class="keyword">return</span> &#123;</span><br><span class="line">			...store,</span><br><span class="line">			dispatch</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">...funcs</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (funcs.length==<span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">arg</span>=&gt;</span>arg</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (funcs.length==<span class="number">1</span>) &#123;</span><br><span class="line">	    <span class="keyword">return</span> funcs[<span class="number">0</span>]</span><br><span class="line">   &#125;</span><br><span class="line">  <span class="keyword">return</span> funcs.reduce(<span class="function">(<span class="params">left,right</span>) =&gt;</span> (...args) =&gt;</span><br><span class="line">						right(left(...args)))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>redux-thunk的原理 </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="comment">// const thunk = (&#123;dispatch, getState&#125;) =&gt; dispatch =&gt; action</span></span><br><span class="line"><span class="comment">// =&gt; &#123;</span></span><br><span class="line"><span class="keyword">const</span> thunk = <span class="function"><span class="keyword">function</span>(<span class="params">obj1</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> &#123;dispatch, getState&#125; = obj1</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">dispatch</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">action</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (<span class="keyword">typeof</span> action == <span class="string">'function'</span>) &#123;</span><br><span class="line">				    <span class="keyword">return</span> action(dispatch, getState)</span><br><span class="line">			  &#125;</span><br><span class="line">			  <span class="keyword">return</span> dispatch(action)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> store = createStore(counterReducer,</span><br><span class="line">applyMiddleware(logger,thunk));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>react-redux原理</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">connect高阶函数的实现</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> connect = <span class="function"><span class="keyword">function</span>(<span class="params">mapStateToProps,mapDispatchToProps</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> Class ConnectComponent extends React.Component&#123; </span><br><span class="line">			<span class="comment">// 可以使用上下文静态变量</span></span><br><span class="line">			<span class="comment">// 	构造函数保存state.props 信息</span></span><br><span class="line">			<span class="comment">// 加载完成之后取出上下文的store，执行store.subscribe函数，同时触发update方法</span></span><br><span class="line">			<span class="comment">// update方法</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">Class Provider</span><br></pre></td></tr></table></figure>
+<h4 id="React-05路由"><a href="#React-05路由" class="headerlink" title="React-05路由"></a>React-05路由</h4><p>简单介绍一下react路由，使用中有哪些注意点<br>用过react-router-native吗？<br>react-router 使用了哪些组件<br>Route渲染的优先级 是<br>动态路由如何传参<br>路由嵌套<br>怎样实现404页面<br>如何实现路由守卫<br>你是怎么实现异步路由的<br>BrowserRouter 和HashRoute的对比区别<br>简单描述实现BrowserRouter / Route / Link组件原理</p>
+<ul>
+<li>路由安装  <code>npm install react-router-dom</code></li>
+<li>react-router 的使用组件，browserouter link route switch保证匹配唯一</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import UserPage <span class="keyword">from</span> <span class="string">"./UserPage"</span>;</span><br><span class="line">&lt;BrowerRouter&gt;</span><br><span class="line">&lt;Link <span class="attribute">to</span>=<span class="string">'/detail/2'</span>&gt;</span><br><span class="line">&lt;Route <span class="attribute">path</span>=<span class="string">'/detail:id'</span> component=&#123;Home&#125;&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Route的渲染优先级，先渲染children，再component 再 render</li>
+<li>动态路由传参 定义的是<code>path/:id</code> 传值时是路径拼id <code>/detail/30023</code> ,获取值时通过<code>props.match.params.id</code></li>
+<li>根路由exact 实现精确匹配</li>
+<li>404页面，写在最后面，route中不写path，前面的路由匹配不到，就跳转404页面</li>
+<li>实现路由守卫，创建高阶函数，将route作参数传入，判断是否登录，跳转登录页或者目的路径<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span><span class="built_in"> default </span>function PrivateRoute(&#123; component: Cmp, isLogin, <span class="built_in">..</span>.rest &#125;) &#123;</span><br><span class="line">  return ( </span><br><span class="line">		&lt;Route &#123;<span class="built_in">..</span>.rest&#125;</span><br><span class="line">		      render=&#123; props =&gt; isLogin ? (  &lt;Cmp &#123;<span class="built_in">..</span>.props&#125; /&gt; ):</span><br><span class="line">		      	( &lt;Redirect <span class="keyword">to</span>=&#123;  </span><br><span class="line">		      			&#123; pathname: <span class="string">"/login"</span>, state: &#123; redirect: props.location.pathname &#125; &#125;</span><br><span class="line">		      		&#125; </span><br><span class="line">		      		/&gt; </span><br><span class="line">		      	 ) </span><br><span class="line">			   &#125;</span><br><span class="line">		/&gt;</span><br><span class="line">	); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="React-06-项目"><a href="#React-06-项目" class="headerlink" title="React-06 项目"></a>React-06 项目</h4><p>描述一下generator<br>看看下面yield会打印什么<br>yield generator 和async await区别？<br>使用过redux-saga吗？ 做什么的，<br>redux-saga的常用API<br>注册redux-saga</p>
+<ul>
+<li>genertor 是ES6的异步解决方案，</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="function"><span class="keyword">function</span>关键字与函数名之间有⼀个*;</span></span><br><span class="line"><span class="function">2. 函数体内部使用<span class="title">yield</span>表达式，定义不同的内部状态。</span></span><br><span class="line"><span class="function">3. <span class="title">yield</span>表达式只能在<span class="title">Generator</span>函数⾥使⽤，在其他方会报错</span></span><br><span class="line"><span class="function"><span class="title">hw</span>.<span class="title">next</span>(<span class="params"><span class="string">'12123'</span></span>) <span class="title">yield</span> 表达式并没有返回值，</span></span><br><span class="line"><span class="function"><span class="title">next</span>可以带参数，改参数被当作上个<span class="title">yield</span>表达式的返回值使用</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>注册redux-saga</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> createSagaMiddleware form <span class="string">'redux-saga'</span></span><br><span class="line">imort mySaga <span class="keyword">from</span> <span class="string">'/mySaga'</span></span><br><span class="line"><span class="keyword">const</span> sagaMiddle = createSagaMiddleware()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">createStore(</span><br><span class="line">	combineReducer(&#123;<span class="attr">count</span>:countReducer&#125;),</span><br><span class="line">	applyMiddleware(sagaMiddle)</span><br><span class="line">)</span><br><span class="line">sagaMiddle.run(mysaga)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>redux-saga的常用API (yield takeEvery / yield put / yield call / try cache)</li>
+<li>使用Saga</li>
+</ul>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">store.reducer定义的正常值，dispatch的时候，不是类似redux-thunk一样返回一个以函数内再dispatch，</span><br><span class="line">是直接 调用 dispatch(&#123;<span class="built_in">type</span>:<span class="string">'login'</span>,name&#125;)</span><br><span class="line">saga 用全局函数拦截，</span><br><span class="line"><span class="function"><span class="keyword">function</span> *<span class="title">mySaga</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">yield</span> takeEvery(<span class="string">'login'</span>,loginHandle);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">loginHandle</span><span class="params">(action)</span></span>&#123;</span><br><span class="line">	try &#123;</span><br><span class="line">		<span class="built_in">yield</span> put(&#123;<span class="built_in">type</span>:<span class="string">'requestLogin'</span>&#125;)</span><br><span class="line">		const res = <span class="built_in">yield</span> call(UserService.login,action.name)</span><br><span class="line">		<span class="built_in">yield</span> put(&#123;<span class="built_in">type</span>:<span class="string">'loginSuccess'</span>,res&#125;)</span><br><span class="line">	&#125;cache(err)&#123;</span><br><span class="line">		<span class="built_in">yield</span> put(&#123;<span class="built_in">type</span>:<span class="string">'loginError'</span>,err&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="React-06-原理-虚拟dom-渲染-虚拟dom-更新"><a href="#React-06-原理-虚拟dom-渲染-虚拟dom-更新" class="headerlink" title="React-06 原理 虚拟dom 渲染 虚拟dom 更新"></a>React-06 原理 虚拟dom 渲染 虚拟dom 更新</h4><p>1什么是JSX？为什么需要JSX 和Vue中的template异同<br>2手写CreateElement / Component / render三个核心API<br>3了解setState 为什么是异步？<br>4同时setstate3次，为什么会是第三次的生效？<br>5为什么setState只有在React合成事件和生命周期数中是异步的，<br>在原生事件和setTimeout、setInterval、addEventListener中都是同步的?<br>6深入理解虚拟dom</p>
+<ul>
+<li>JSX 是语法糖，用来简易描述文件结构，看起来像XML的javaScript语法扩展</li>
+<li>使用JSX编写模版简单快速，JSX编译进行了优化，执行更快，类型安全</li>
+<li>JSX的原理 是用bable-loader 预编译JSX为CreateElement()函数</li>
+<li>JSX是React设计JXS-vdom一开始就有，Vue是2.0 才接入Vdom<ul>
+<li>JXS 本来是JS的扩展，转义过程简单的多，Vue是使用temple编译为render函数过程需要复杂的编译器转化字符串，各种正则表达式匹配，转为ast-js函数字符串</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> jsx = (</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;div className=<span class="string">"border"</span>&gt;我是内容&lt;<span class="regexp">/div&gt; </span></span><br><span class="line"><span class="regexp">		&lt;FuncCmp name="我是function组件" /</span>&gt; </span><br><span class="line">		&lt;ClassCmp name=<span class="string">"我是class组件"</span> /&gt;</span><br><span class="line">	&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br><span class="line"><span class="regexp">ReactDOM.render(jsx, document.getElementById("root")); </span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 0. ⽂文本 1. 原⽣生的 2. function组件 3 class组件 </span></span><br><span class="line"><span class="regexp">1. webpack-bable编译时，会将JSX 转化为React.crealeElement(type,options,..chidren)</span></span><br><span class="line"><span class="regexp">2. createElement 函数有返回一个JS对象，即Vdom,能完整描述dom的结构</span></span><br><span class="line"><span class="regexp">3. ReactDOM.render(vdom,container) 可以将vdom 转为dom 并添加到节点上</span></span><br><span class="line"><span class="regexp">4. 转换过程需要diff过程，对比计算出，需要实际更新的patch操作</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>CreateElement 是将传入的JXS 转为Vdom,因为编译器会执行React调用createElement方法，可以创建一个方法进行拦截。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个React文件，导出React ，有component组件，和createElement函数</span></span><br><span class="line"><span class="comment">//定义Componet 定义类属性标志是类组件</span></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> isReactComponent = &#123;&#125;;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">this</span>.props = props;</span><br><span class="line">    <span class="keyword">this</span>.state=&#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">import</span> &#123;Commponent&#125; form <span class="string">'./Component'</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createElement</span>(<span class="params">type,props,...children</span>) </span>&#123;</span><br><span class="line">	props.children = children;</span><br><span class="line">	<span class="comment">//判断组件类型 增加vtype 合并children到props上</span></span><br><span class="line">	<span class="keyword">let</span> vtype;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">typeof</span> type === <span class="string">"string"</span>) &#123; <span class="comment">// 原⽣生标签</span></span><br><span class="line">		vtype = <span class="number">1</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> type === <span class="string">"function"</span>) &#123; <span class="comment">// 类组件 函数组件</span></span><br><span class="line">		vtype = type.isReactComponent ? <span class="number">3</span> : <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> &#123;  vtype, type, props &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> React = &#123;</span><br><span class="line">	Commponent</span><br><span class="line">	createElement</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> React</span><br></pre></td></tr></table></figure>
+<ul>
+<li>返回vdom之后，会调用ReactDOM的render方法，创建render函数，</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mountText, mountHtml, mountFunc, mountClass&#125; <span class="keyword">from</span> <span class="string">"./virtual-dom"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">vnode, container</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"render"</span>, vnode);</span><br><span class="line">	<span class="keyword">const</span> &#123; vtype &#125; = vnode;</span><br><span class="line">	<span class="comment">//创建⽂文本节点 </span></span><br><span class="line">	<span class="keyword">if</span> (!vtype) &#123;</span><br><span class="line">		mountText(vnode, container);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 创建原⽣生节点</span></span><br><span class="line">	<span class="keyword">if</span> (vtype === <span class="number">1</span>) &#123;</span><br><span class="line">		mountHtml(vnode, container);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 创建函数组件</span></span><br><span class="line">	<span class="keyword">if</span> (vtype === <span class="number">2</span>) &#123;</span><br><span class="line">		mountFunc(vnode, container);</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="comment">//创建类组件</span></span><br><span class="line">	<span class="keyword">if</span> (vtype === <span class="number">3</span>) &#123;</span><br><span class="line">		mountClass(vnode, container);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123; render &#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>根据不同的类型分别渲染</li>
+<li>创建文本节点，没有子节点，vnode就是文字</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建⽂文本节点</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mountText</span>(<span class="params">vnode, container</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> textNode = <span class="built_in">document</span>.createTextNode(vnode);</span><br><span class="line">  container.appendChild(textNode);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建函数组件 此时type就是函数的构造方法，直接传入props调用返回的是vdom, 继续render</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建函数组件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mountFunc</span>(<span class="params">vnode, container</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; type, props &#125; = vnode;</span><br><span class="line">  <span class="keyword">const</span> node = type(props);</span><br><span class="line">  render(node, container);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建Class组件，此时type是类的定义，可以调用render方法返回虚拟dom,再次render</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建类组件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mountClass</span>(<span class="params">vnode, container</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; type, props &#125; = vnode;</span><br><span class="line">  <span class="keyword">const</span> cmp = <span class="keyword">new</span> type(props);</span><br><span class="line">  <span class="keyword">const</span> node = cmp.render();</span><br><span class="line">  render(node, container);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建html原生节点 渲染属性 和子节点,type是标签的类型div span等，props内是标签上的属性 事件等</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mountHtml</span>(<span class="params">vnode,container</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">const</span> &#123;types,props&#125; = vnode</span><br><span class="line">	<span class="keyword">const</span> &#123;children,...rest&#125; = props</span><br><span class="line">	<span class="keyword">const</span> node = <span class="built_in">document</span>.creteElememt(type)</span><br><span class="line">	<span class="comment">// 添加属性</span></span><br><span class="line">	<span class="built_in">Object</span>.keys(rest).map(<span class="function"><span class="params">item</span>=&gt;</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(item === <span class="string">'className'</span>) &#123;</span><br><span class="line">			node.setArrtibute(<span class="string">'class'</span>,rest[item])</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span> (item.slice(<span class="number">0</span>,<span class="number">2</span>) == <span class="string">'on'</span>) &#123;</span><br><span class="line">			node.addEventListener(item.slice(<span class="number">2</span>),rest[item])</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="comment">//遍历添加子节点,如果子节点是数组，那数组中都是vdom, 需要遍历render，如果只有一项，将子节点render到node上</span></span><br><span class="line">	children.map(<span class="function"><span class="params">item</span>=&gt;</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>( item.isArrary(item) ) &#123;</span><br><span class="line">			item.map(<span class="function"><span class="params">c</span>=&gt;</span>&#123;</span><br><span class="line">				render(c,node)</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			render(item,node)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">	container.appendChild(node);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+      <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+	     --------------------  本文结束
+	    <i class="fa fa-paw"></i>
+	    感谢您的阅读  --------------------
+    </div>
+
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/04/Vue/Vue组件化/" rel="next" title="Vue组件化 / 插槽">
+                <i class="fa fa-chevron-left"></i> Vue组件化 / 插槽
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="May Tao">
+            
+              <p class="site-author-name" itemprop="name">May Tao</p>
+              <p class="site-description motion-element" itemprop="description">全栈在路上</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">90</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Huan-zhaolover" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ytxinguan09@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.87.com" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-angle-double-down"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#React-01基础"><span class="nav-number">1.</span> <span class="nav-text">React-01基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-02组件化"><span class="nav-number">2.</span> <span class="nav-text">React-02组件化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-03组件化"><span class="nav-number">3.</span> <span class="nav-text">React-03组件化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-04全家桶与原理解析"><span class="nav-number">4.</span> <span class="nav-text">React-04全家桶与原理解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-05路由"><span class="nav-number">5.</span> <span class="nav-text">React-05路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-06-项目"><span class="nav-number">6.</span> <span class="nav-text">React-06 项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-06-原理-虚拟dom-渲染-虚拟dom-更新"><span class="nav-number">7.</span> <span class="nav-text">React-06 原理 虚拟dom 渲染 虚拟dom 更新</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+     <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">May Tao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz',
+        appKey: 'GYy3VQ9hXhRnbsBHmMPzwtbq',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz", "GYy3VQ9hXhRnbsBHmMPzwtbq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

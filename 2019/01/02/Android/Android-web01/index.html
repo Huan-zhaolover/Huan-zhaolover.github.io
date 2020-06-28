@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="1.开发环境搭建 需要JDK 和Android studio2.Android 架构 5个部分 四个主要层 从下向上 Linux内核层 linux kernel 程序库安卓程序库，libraries 安卓运行时  android runtime 应用框架 application framework 应用程序；Applications  ###（1）linux 内核层，提供基本的系统功能：进程 内存">
+<meta name="description" content="1.开发环境搭建 需要JDK 和Android studio2.Android 架构 5个部分 四个主要层 从下向上 Linux内核层 linux kernel 程序库安卓程序库，libraries 安卓运行时  android runtime 应用框架 application framework 应用程序；Applications  linux 内核层， 提供基本的系统功能：进程 内存 设备管理">
 <meta name="keywords" content="Android,Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android-web01-Java">
 <meta property="og:url" content="https://www.mayyutao.cn/2019/01/02/Android/Android-web01/index.html">
 <meta property="og:site_name" content="Maylover">
-<meta property="og:description" content="1.开发环境搭建 需要JDK 和Android studio2.Android 架构 5个部分 四个主要层 从下向上 Linux内核层 linux kernel 程序库安卓程序库，libraries 安卓运行时  android runtime 应用框架 application framework 应用程序；Applications  ###（1）linux 内核层，提供基本的系统功能：进程 内存">
+<meta property="og:description" content="1.开发环境搭建 需要JDK 和Android studio2.Android 架构 5个部分 四个主要层 从下向上 Linux内核层 linux kernel 程序库安卓程序库，libraries 安卓运行时  android runtime 应用框架 application framework 应用程序；Applications  linux 内核层， 提供基本的系统功能：进程 内存 设备管理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-12T02:35:21.262Z">
+<meta property="og:updated_time" content="2020-06-28T04:24:29.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-web01-Java">
-<meta name="twitter:description" content="1.开发环境搭建 需要JDK 和Android studio2.Android 架构 5个部分 四个主要层 从下向上 Linux内核层 linux kernel 程序库安卓程序库，libraries 安卓运行时  android runtime 应用框架 application framework 应用程序；Applications  ###（1）linux 内核层，提供基本的系统功能：进程 内存">
+<meta name="twitter:description" content="1.开发环境搭建 需要JDK 和Android studio2.Android 架构 5个部分 四个主要层 从下向上 Linux内核层 linux kernel 程序库安卓程序库，libraries 安卓运行时  android runtime 应用框架 application framework 应用程序；Applications  linux 内核层， 提供基本的系统功能：进程 内存 设备管理">
 
 
 
@@ -451,9 +451,8 @@
 <li>应用框架 application framework</li>
 <li>应用程序；Applications</li>
 </ul>
-<p>###（1）linux 内核层，提供基本的系统功能：进程 内存 设备管理 网络，大量设备的驱动</p>
-<p>###（2.1）程序库 webkit ;libc库 ；SQLite 数据库，视频播放，音频播放的库等。网络安全的SSL库</p>
-<ul>
+<h3 id="linux-内核层，"><a href="#linux-内核层，" class="headerlink" title="linux 内核层，"></a>linux 内核层，</h3><ul>
+<li>提供基本的系统功能：进程 内存 设备管理 网络，大量设备的驱动<h3 id="程序库-webkit-libc库-；SQLite-数据库，视频播放，音频播放的库等。网络安全的SSL库"><a href="#程序库-webkit-libc库-；SQLite-数据库，视频播放，音频播放的库等。网络安全的SSL库" class="headerlink" title="程序库 webkit ;libc库 ；SQLite 数据库，视频播放，音频播放的库等。网络安全的SSL库"></a>程序库 webkit ;libc库 ；SQLite 数据库，视频播放，音频播放的库等。网络安全的SSL库</h3></li>
 <li>android 程序库 专门未android开发的基于JAVA的程序库；</li>
 <li>android.app 提供程序模型的访问</li>
 <li>android.content 程序间的；程序组件间的；内容访问，发布，消息传递等</li>
@@ -465,31 +464,27 @@
 <li>android.widget 与设置的用户组件组合；比如按钮，标签，列表，布局管理，单选按钮等；</li>
 <li>android.webkit 提供内置web浏览能力</li>
 </ul>
-<p>###（2.2）android 运行时；提供给 Dalvik虚拟机 关键组件 类似于java虚拟机；但是专门为android 提供设计和优化；</p>
-<ul>
+<h3 id="android-运行时；提供给-Dalvik虚拟机-关键组件-类似于java虚拟机；但是专门为android-提供设计和优化；"><a href="#android-运行时；提供给-Dalvik虚拟机-关键组件-类似于java虚拟机；但是专门为android-提供设计和优化；" class="headerlink" title="android 运行时；提供给 Dalvik虚拟机 关键组件 类似于java虚拟机；但是专门为android 提供设计和优化；"></a>android 运行时；提供给 Dalvik虚拟机 关键组件 类似于java虚拟机；但是专门为android 提供设计和优化；</h3><ul>
 <li>可以在java中运行linux核型功能；多线程 内存管理；每一个android程序 都有一个android虚拟机进程；</li>
 </ul>
-<p>###（3）应用框架 - 提供许多高级的服务。</p>
-<ul>
+<h3 id="应用框架-提供许多高级的服务。"><a href="#应用框架-提供许多高级的服务。" class="headerlink" title="应用框架 - 提供许多高级的服务。"></a>应用框架 - 提供许多高级的服务。</h3><ul>
 <li>活动管理者 控制应用程序生命周期 和 活动栈</li>
 <li>内容提供者 允许程序之间的发布；分享数据</li>
 <li>资源管理者 提供对非代码嵌入资源的访问；字符串 颜色设置。用户界面布局</li>
 <li>通知管理者 允许程序 显示对话框通知给用户</li>
-<li>视图系统 可扩展的视图集合。用于创建用户界面<br>###（4）所有的apk 文件被安装这一层次。包括通讯录等</li>
+<li>视图系统 可扩展的视图集合。用于创建用户界面<h3 id="所有的apk-文件被安装这一层次。包括通讯录等"><a href="#所有的apk-文件被安装这一层次。包括通讯录等" class="headerlink" title="所有的apk 文件被安装这一层次。包括通讯录等"></a>所有的apk 文件被安装这一层次。包括通讯录等</h3></li>
 </ul>
 <h2 id="3-android-应用程序组件"><a href="#3-android-应用程序组件" class="headerlink" title="3.android 应用程序组件"></a>3.android 应用程序组件</h2><p>分四类 Activities / Services / Broadcast Receivers / Content Providers</p>
-<p>###(1)Activities 一个活动标识一个具有用户界面的单一屏幕；<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyActivities</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>###(2)services 服务运行在后台 执行耗时操作的组件<br><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyServices</span> <span class="keyword">extends</span> <span class="title">Service</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>###(3)Broadcast Receivers<br>广播接收器 简单的响应从其他应用程序 或者系统内发出的广播消息；</p>
+<h3 id="1-Activities-一个活动标识一个具有用户界面的单一屏幕；"><a href="#1-Activities-一个活动标识一个具有用户界面的单一屏幕；" class="headerlink" title="1.Activities 一个活动标识一个具有用户界面的单一屏幕；"></a>1.Activities 一个活动标识一个具有用户界面的单一屏幕；</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyActivities</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-services-服务运行在后台-执行耗时操作的组件"><a href="#2-services-服务运行在后台-执行耗时操作的组件" class="headerlink" title="2.services 服务运行在后台 执行耗时操作的组件"></a>2.services 服务运行在后台 执行耗时操作的组件</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyServices</span> <span class="keyword">extends</span> <span class="title">Service</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-Broadcast-Receivers"><a href="#3-Broadcast-Receivers" class="headerlink" title="3.Broadcast Receivers"></a>3.Broadcast Receivers</h3><p>广播接收器 简单的响应从其他应用程序 或者系统内发出的广播消息；</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###(4) Content Providers</p>
-<ul>
+<h3 id="4-Content-Providers"><a href="#4-Content-Providers" class="headerlink" title="4.Content Providers"></a>4.Content Providers</h3><ul>
 <li>内容提供组件 请求一个应用程序 到另一个应用程序的提供数据</li>
 <li>这些请求类由ContentResolver来处理，这些数据 可以能来自 文件系统，数据库。</li>
 </ul>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">MyContentProvider</span> <span class="keyword">extends</span> <span class="title">ContentProvider</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###(5)其他组件</p>
-<ul>
+<h3 id="5-其他组件"><a href="#5-其他组件" class="headerlink" title="5.其他组件"></a>5.其他组件</h3><ul>
 <li>Fragments 代表活动的一个行为 或者是一个活动界面 </li>
 <li>Views 绘制在界面上的元素，按钮 文字等</li>
 <li>Layouts 控制屏幕的格式。显示视图外观的继承关系；</li>
@@ -906,8 +901,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/01/面试/前端面试题(2)/" rel="next" title="前端面试题(2)">
-                <i class="fa fa-chevron-left"></i> 前端面试题(2)
+              <a href="/2018/12/21/Vue/Vue环境配置/" rel="next" title="Vue环境配置">
+                <i class="fa fa-chevron-left"></i> Vue环境配置
               </a>
             
           </div>
@@ -1000,7 +995,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">101</span>
+                  <span class="site-state-item-count">90</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1011,7 +1006,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1022,7 +1017,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1084,7 +1079,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-开发环境搭建-需要JDK-和Android-studio"><span class="nav-number">1.</span> <span class="nav-text">1.开发环境搭建 需要JDK 和Android studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Android-架构-5个部分-四个主要层"><span class="nav-number">2.</span> <span class="nav-text">2.Android 架构 5个部分 四个主要层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-android-应用程序组件"><span class="nav-number">3.</span> <span class="nav-text">3.android 应用程序组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Android-应用目录分析"><span class="nav-number">4.</span> <span class="nav-text">4.Android 应用目录分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-资源访问-Resource"><span class="nav-number">5.</span> <span class="nav-text">5.资源访问 Resource</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Activity-生命周期"><span class="nav-number">6.</span> <span class="nav-text">6.Activity 生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）调用顺序"><span class="nav-number">6.1.</span> <span class="nav-text">（1）调用顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）方法含义"><span class="nav-number">6.2.</span> <span class="nav-text">（2）方法含义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Service-服务"><span class="nav-number">7.</span> <span class="nav-text">7.Service 服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-生命周期方法"><span class="nav-number">7.1.</span> <span class="nav-text">(2)生命周期方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Broadcast-Receiever-广播接收器"><span class="nav-number">8.</span> <span class="nav-text">8.Broadcast Receiever 广播接收器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建广播-接受消息"><span class="nav-number">8.1.</span> <span class="nav-text">(1)创建广播 / 接受消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-注册广播-注册广播的意图"><span class="nav-number">8.2.</span> <span class="nav-text">(2)注册广播/注册广播的意图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-系统的意图类型"><span class="nav-number">8.3.</span> <span class="nav-text">(3)系统的意图类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（4）广播自定义的意图"><span class="nav-number">8.4.</span> <span class="nav-text">（4）广播自定义的意图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-Content-Provider-内容提供者"><span class="nav-number">9.</span> <span class="nav-text">9.Content Provider 内容提供者</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-内容URI"><span class="nav-number">9.1.</span> <span class="nav-text">(1)内容URI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-创建内容创造者"><span class="nav-number">9.2.</span> <span class="nav-text">(2)创建内容创造者</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-Fragment-碎片"><span class="nav-number">10.</span> <span class="nav-text">10 Fragment 碎片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-生命周期"><span class="nav-number">10.1.</span> <span class="nav-text">(1) 生命周期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-意图-过滤器Intent-filter"><span class="nav-number">11.</span> <span class="nav-text">11 意图 / 过滤器Intent-filter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）Intent使用"><span class="nav-number">11.1.</span> <span class="nav-text">（1）Intent使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）Intent对象"><span class="nav-number">11.2.</span> <span class="nav-text">（2）Intent对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Intent-类型"><span class="nav-number">11.3.</span> <span class="nav-text">(3)Intent 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-两个按钮”启动浏览器”和”启动电话”"><span class="nav-number">11.4.</span> <span class="nav-text">(4) 两个按钮”启动浏览器”和”启动电话”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（5）举例"><span class="nav-number">11.5.</span> <span class="nav-text">（5）举例</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-开发环境搭建-需要JDK-和Android-studio"><span class="nav-number">1.</span> <span class="nav-text">1.开发环境搭建 需要JDK 和Android studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Android-架构-5个部分-四个主要层"><span class="nav-number">2.</span> <span class="nav-text">2.Android 架构 5个部分 四个主要层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-内核层，"><span class="nav-number">2.1.</span> <span class="nav-text">linux 内核层，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序库-webkit-libc库-；SQLite-数据库，视频播放，音频播放的库等。网络安全的SSL库"><span class="nav-number">2.2.</span> <span class="nav-text">程序库 webkit ;libc库 ；SQLite 数据库，视频播放，音频播放的库等。网络安全的SSL库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#android-运行时；提供给-Dalvik虚拟机-关键组件-类似于java虚拟机；但是专门为android-提供设计和优化；"><span class="nav-number">2.3.</span> <span class="nav-text">android 运行时；提供给 Dalvik虚拟机 关键组件 类似于java虚拟机；但是专门为android 提供设计和优化；</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用框架-提供许多高级的服务。"><span class="nav-number">2.4.</span> <span class="nav-text">应用框架 - 提供许多高级的服务。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#所有的apk-文件被安装这一层次。包括通讯录等"><span class="nav-number">2.5.</span> <span class="nav-text">所有的apk 文件被安装这一层次。包括通讯录等</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-android-应用程序组件"><span class="nav-number">3.</span> <span class="nav-text">3.android 应用程序组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Activities-一个活动标识一个具有用户界面的单一屏幕；"><span class="nav-number">3.1.</span> <span class="nav-text">1.Activities 一个活动标识一个具有用户界面的单一屏幕；</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-services-服务运行在后台-执行耗时操作的组件"><span class="nav-number">3.2.</span> <span class="nav-text">2.services 服务运行在后台 执行耗时操作的组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Broadcast-Receivers"><span class="nav-number">3.3.</span> <span class="nav-text">3.Broadcast Receivers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Content-Providers"><span class="nav-number">3.4.</span> <span class="nav-text">4.Content Providers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-其他组件"><span class="nav-number">3.5.</span> <span class="nav-text">5.其他组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Android-应用目录分析"><span class="nav-number">4.</span> <span class="nav-text">4.Android 应用目录分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-资源访问-Resource"><span class="nav-number">5.</span> <span class="nav-text">5.资源访问 Resource</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Activity-生命周期"><span class="nav-number">6.</span> <span class="nav-text">6.Activity 生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）调用顺序"><span class="nav-number">6.1.</span> <span class="nav-text">（1）调用顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）方法含义"><span class="nav-number">6.2.</span> <span class="nav-text">（2）方法含义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Service-服务"><span class="nav-number">7.</span> <span class="nav-text">7.Service 服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-生命周期方法"><span class="nav-number">7.1.</span> <span class="nav-text">(2)生命周期方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Broadcast-Receiever-广播接收器"><span class="nav-number">8.</span> <span class="nav-text">8.Broadcast Receiever 广播接收器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建广播-接受消息"><span class="nav-number">8.1.</span> <span class="nav-text">(1)创建广播 / 接受消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-注册广播-注册广播的意图"><span class="nav-number">8.2.</span> <span class="nav-text">(2)注册广播/注册广播的意图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-系统的意图类型"><span class="nav-number">8.3.</span> <span class="nav-text">(3)系统的意图类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（4）广播自定义的意图"><span class="nav-number">8.4.</span> <span class="nav-text">（4）广播自定义的意图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-Content-Provider-内容提供者"><span class="nav-number">9.</span> <span class="nav-text">9.Content Provider 内容提供者</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-内容URI"><span class="nav-number">9.1.</span> <span class="nav-text">(1)内容URI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-创建内容创造者"><span class="nav-number">9.2.</span> <span class="nav-text">(2)创建内容创造者</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-Fragment-碎片"><span class="nav-number">10.</span> <span class="nav-text">10 Fragment 碎片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-生命周期"><span class="nav-number">10.1.</span> <span class="nav-text">(1) 生命周期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-意图-过滤器Intent-filter"><span class="nav-number">11.</span> <span class="nav-text">11 意图 / 过滤器Intent-filter</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）Intent使用"><span class="nav-number">11.1.</span> <span class="nav-text">（1）Intent使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（2）Intent对象"><span class="nav-number">11.2.</span> <span class="nav-text">（2）Intent对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Intent-类型"><span class="nav-number">11.3.</span> <span class="nav-text">(3)Intent 类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-两个按钮”启动浏览器”和”启动电话”"><span class="nav-number">11.4.</span> <span class="nav-text">(4) 两个按钮”启动浏览器”和”启动电话”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（5）举例"><span class="nav-number">11.5.</span> <span class="nav-text">（5）举例</span></a></li></ol></li></ol></div>
             
 
           </div>

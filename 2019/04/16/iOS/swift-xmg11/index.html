@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学习笔记,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Maylover" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="内存管理 跟OC一样，Swift也是采取基于引用计数的ARC内存管理方案(针对堆空间)  Swift的ARC中有3种引用 强引用(strong reference):默认情况下，引用都是强引用 弱引用(weak reference):通过weak定义弱引用 必须是可选类型的var，因为实例销毁后，ARC会自动将弱引用设置为nil  ARC自动给弱引用设置nil时，不会触发属性观察器   无主引用(">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift-循环引用&#x2F;指针">
+<meta property="og:url" content="https://www.mayyutao.cn/2019/04/16/iOS/swift-xmg11/index.html">
+<meta property="og:site_name" content="Maylover">
+<meta property="og:description" content="内存管理 跟OC一样，Swift也是采取基于引用计数的ARC内存管理方案(针对堆空间)  Swift的ARC中有3种引用 强引用(strong reference):默认情况下，引用都是强引用 弱引用(weak reference):通过weak定义弱引用 必须是可选类型的var，因为实例销毁后，ARC会自动将弱引用设置为nil  ARC自动给弱引用设置nil时，不会触发属性观察器   无主引用(">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-06-28T03:49:17.854Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift-循环引用&#x2F;指针">
+<meta name="twitter:description" content="内存管理 跟OC一样，Swift也是采取基于引用计数的ARC内存管理方案(针对堆空间)  Swift的ARC中有3种引用 强引用(strong reference):默认情况下，引用都是强引用 弱引用(weak reference):通过weak定义弱引用 必须是可选类型的var，因为实例销毁后，ARC会自动将弱引用设置为nil  ARC自动给弱引用设置nil时，不会触发属性观察器   无主引用(">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.mayyutao.cn/2019/04/16/iOS/swift-xmg11/">
+
+
+
+
+
+  <title>Swift-循环引用/指针 | Maylover</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/hexo_resize_image.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Maylover</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">平凡之路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mayyutao.cn/2019/04/16/iOS/swift-xmg11/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="May Tao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maylover">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Swift-循环引用/指针</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-16T08:40:00+08:00">
+                2019-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/16/iOS/swift-xmg11/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/16/iOS/swift-xmg11/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/04/16/iOS/swift-xmg11/" class="leancloud_visitors" data-flag-title="Swift-循环引用/指针">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><ul>
+<li>跟OC一样，Swift也是采取基于引用计数的ARC内存管理方案(针对堆空间)  Swift的ARC中有3种引用</li>
+<li>强引用(strong reference):默认情况下，引用都是强引用</li>
+<li>弱引用(weak reference):通过weak定义弱引用<ul>
+<li>必须是可选类型的var，因为实例销毁后，ARC会自动将弱引用设置为nil </li>
+<li>ARC自动给弱引用设置nil时，不会触发属性观察器</li>
+</ul>
+</li>
+<li><p>无主引用(unowned reference):通过unowned定义无主引用</p>
+<ul>
+<li>不会产生强引用，实例销毁后仍然存储着实例的内存地址(类似于OC中的unsafe_unretained)</li>
+<li>试图在实例销毁后访问无主引用，会产生运行时错误(野指针)<br><code>Fatal error: Attempted to read an unowned reference but object 0x0 was already deallocated</code></li>
+</ul>
+</li>
+<li><p>week,unwoned只能用载类实例上  </p>
+</li>
+</ul>
+<h4 id="循环引用-Reference-Cycle"><a href="#循环引用-Reference-Cycle" class="headerlink" title="循环引用(Reference Cycle)"></a>循环引用(Reference Cycle)</h4><ul>
+<li>weak、unowned 都能解决循环引用的问题，unowned 要比weak 少一些性能消耗 <ul>
+<li>在生命周期中可能会变为 nil 的使用 weak</li>
+<li>初始化赋值后再也不会变为 nil 的使用 unowned</li>
+</ul>
+</li>
+</ul>
+<h4 id="闭包的循环引用"><a href="#闭包的循环引用" class="headerlink" title="闭包的循环引用"></a>闭包的循环引用</h4><ul>
+<li>闭包表达式默认会对用到的外层对象产生额外的强引用(对外层对象进行了retain操作) </li>
+<li>下面代码会产生循环引用，导致Person对象无法释放(看不到Person的deinit被调用)</li>
+<li>在闭包表达式的捕获列表声明weak或unowned引用，解决循环引用问题</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fn: (() -&gt; ())?</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">run</span><span class="params">()</span></span> &#123; <span class="built_in">print</span>(<span class="string">"run"</span>) &#125;</span><br><span class="line">    <span class="keyword">deinit</span> &#123; <span class="built_in">print</span>(<span class="string">"deinit"</span>) &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> p = <span class="type">Person</span>()</span><br><span class="line">    p.fn = &#123; p.run() &#125;</span><br><span class="line">&#125;</span><br><span class="line">test()</span><br><span class="line">    p.fn = &#123; [<span class="keyword">weak</span> p] <span class="keyword">in</span></span><br><span class="line">       p?.run() </span><br><span class="line">    &#125;</span><br><span class="line">    p.fn = &#123; [<span class="keyword">unowned</span> p] <span class="keyword">in</span></span><br><span class="line">        p.run() </span><br><span class="line">    &#125;</span><br><span class="line">    p.fn = &#123; [<span class="keyword">weak</span> wp = p, <span class="keyword">unowned</span> up = p, a = <span class="number">10</span> + <span class="number">20</span>] <span class="keyword">in</span></span><br><span class="line">        wp?.run()</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果想在定义闭包属性的同时引用self，这个闭包必须是lazy的(因为在实例初始化完毕之后才能引用self) <ul>
+<li>左边的闭包fn内部如果用到了实例成员(属性、方法)</li>
+<li>编译器会强制要求明确写出self</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="built_in">lazy</span> <span class="keyword">var</span> fn: (() -&gt; ()) = &#123;</span><br><span class="line">        [<span class="keyword">weak</span> <span class="keyword">self</span>] <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">self</span>?.run()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">run</span><span class="params">()</span></span> &#123; <span class="built_in">print</span>(<span class="string">"run"</span>) &#125;</span><br><span class="line">    <span class="keyword">deinit</span> &#123; <span class="built_in">print</span>(<span class="string">"deinit"</span>) &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果lazy属性是闭包调用的结果，那么不用考虑循环引用的问题(因为闭包调用后，闭包的生命周期就结束了)</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    <span class="built_in">lazy</span> <span class="keyword">var</span> getAge: <span class="type">Int</span> = &#123;</span><br><span class="line">        <span class="keyword">self</span>.age </span><br><span class="line">    &#125;()</span><br><span class="line">    <span class="keyword">deinit</span> &#123; <span class="built_in">print</span>(<span class="string">"deinit"</span>) &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="逃逸闭包-escaping"><a href="#逃逸闭包-escaping" class="headerlink" title="逃逸闭包 @escaping"></a>逃逸闭包 @escaping</h4><ul>
+<li>非逃逸闭包、逃逸闭包，一般都是当做参数传递给函数</li>
+<li>非逃逸闭包:闭包调用发生在函数结束前，闭包调用在函数作用域内</li>
+<li>逃逸闭包:闭包有可能在函数结束后调用，闭包调用逃离了函数的作用域，需要通过<code>@escaping</code>声明</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Dispatch</span><br><span class="line"><span class="keyword">typealias</span> <span class="type">Fn</span> = () -&gt; ()</span><br><span class="line"></span><br><span class="line"><span class="comment">// fn是非逃逸闭包</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test1</span><span class="params">(<span class="number">_</span> fn: Fn)</span></span> &#123; fn() &#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// fn是逃逸闭包</span></span><br><span class="line"><span class="keyword">var</span> gFn: <span class="type">Fn</span>?</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test2</span><span class="params">(<span class="number">_</span> fn: @escaping Fn)</span></span> &#123; gFn = fn &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// fn是逃逸闭包</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test3</span><span class="params">(<span class="number">_</span> fn: @escaping Fn)</span></span> &#123;</span><br><span class="line">    <span class="type">DispatchQueue</span>.global().async &#123; </span><br><span class="line">        fn()</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fn: <span class="type">Fn</span></span><br><span class="line">    <span class="comment">// fn是逃逸闭包</span></span><br><span class="line">    <span class="keyword">init</span>(fn: @escaping <span class="type">Fn</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.fn = fn </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">run</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// DispatchQueue.global().async也是一个逃逸闭包</span></span><br><span class="line">        <span class="comment">// 它用到了实例成员(属性、方法)，编译器会强制要求明确写出self </span></span><br><span class="line">        <span class="type">DispatchQueue</span>.global().async &#123;</span><br><span class="line">            <span class="keyword">self</span>.fn() </span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>逃逸闭包的注意点 <ul>
+<li>逃逸闭包不可以捕获inout参数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">Fn</span> = () -&gt; ()</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">other1</span><span class="params">(<span class="number">_</span> fn: Fn)</span></span> &#123; fn() &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">other2</span><span class="params">(<span class="number">_</span> fn: @escaping Fn)</span></span> &#123; fn() &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">(value: <span class="keyword">inout</span> Int)</span></span> -&gt; <span class="type">Fn</span> &#123;</span><br><span class="line">    other1 &#123; value += <span class="number">1</span> &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// error: 逃逸闭包不能捕获inout参数</span></span><br><span class="line">    other2 &#123; value += <span class="number">1</span> &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">plus</span><span class="params">()</span></span> &#123; value += <span class="number">1</span> &#125;</span><br><span class="line">    <span class="comment">// error: 逃逸闭包不能捕获inout参数 </span></span><br><span class="line">    <span class="keyword">return</span> plus</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="内存访问冲突-Conflicting-Access-to-Memory"><a href="#内存访问冲突-Conflicting-Access-to-Memory" class="headerlink" title="内存访问冲突(Conflicting Access to Memory)"></a>内存访问冲突(Conflicting Access to Memory)</h4><ul>
+<li>内存访问冲突会在两个访问满足下列条件时发生: <ul>
+<li>至少一个是写入操作</li>
+<li>它们访问的是同一块内存</li>
+<li>它们的访问时间重叠(比如在同一个函数内)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 不存在内存访问冲突</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">plus</span><span class="params">(<span class="number">_</span> num: <span class="keyword">inout</span> Int)</span></span> -&gt; <span class="type">Int</span> &#123; num + <span class="number">1</span> &#125; </span><br><span class="line"><span class="keyword">var</span> number = <span class="number">1</span></span><br><span class="line">number = plus(&amp;number)</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 存在内存访问冲突</span></span><br><span class="line"><span class="comment">// Simultaneous accesses to 0x0, but modification requires exclusive access </span></span><br><span class="line"><span class="keyword">var</span> step = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">increment</span><span class="params">(<span class="number">_</span> num: <span class="keyword">inout</span> Int)</span></span> &#123; num += step &#125;</span><br><span class="line">increment(&amp;step)</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 解决内存访问冲突</span></span><br><span class="line"><span class="keyword">var</span> copyOfStep = step </span><br><span class="line">increment(&amp;copyOfStep) </span><br><span class="line">step = copyOfStep</span><br></pre></td></tr></table></figure>
+<h4 id="内存访问冲突"><a href="#内存访问冲突" class="headerlink" title="内存访问冲突"></a>内存访问冲突</h4><ul>
+<li>如果下面的条件可以满足，就说明重叠访问结构体的属性是安全的 </li>
+<li>你只访问实例存储属性，不是计算属性或者类属性</li>
+<li>结构体是局部变量而非全局变量</li>
+<li>结构体要么没有被闭包捕获要么只被非逃逸闭包捕获</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> tulpe = (health: <span class="number">10</span>, energy: <span class="number">20</span>) </span><br><span class="line">    balance(&amp;tulpe.health, &amp;tulpe.energy)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> holly = <span class="type">Player</span>(name: <span class="string">"Holly"</span>, health: <span class="number">10</span>, energy: <span class="number">10</span>)</span><br><span class="line">    balance(&amp;holly.health, &amp;holly.energy) </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test() <span class="comment">// OK的 全局变量 存储属性，没有闭包捕获</span></span><br></pre></td></tr></table></figure>
+<h3 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h3><h4 id="指针类型"><a href="#指针类型" class="headerlink" title="指针类型"></a>指针类型</h4><ul>
+<li>Swift中也有专门的指针类型，这些都被定性为“Unsafe”(不安全的)，常见的有以下4种类型 <ul>
+<li><code>UnsafePointer&lt;T&gt;</code> 类似于 <code>const T *</code></li>
+<li><code>UnsafeMutablePointer&lt;T&gt;</code> 类似于 <code>T *</code></li>
+<li><code>UnsafeRawPointer</code> 类似于 <code>const void *</code></li>
+<li><code>UnsafeMutableRawPointer</code> 类似于 <code>void *</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="number">10</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test1</span><span class="params">(<span class="number">_</span> ptr: UnsafeMutablePointer&lt;Int&gt;)</span></span> &#123;</span><br><span class="line">    ptr.pointee += <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test2</span><span class="params">(<span class="number">_</span> ptr: UnsafePointer&lt;Int&gt;)</span></span> &#123; </span><br><span class="line">    <span class="built_in">print</span>(ptr.pointee)</span><br><span class="line">&#125;</span><br><span class="line">test1(&amp;age)</span><br><span class="line">test2(&amp;age) <span class="comment">// 20</span></span><br><span class="line"><span class="built_in">print</span>(age) <span class="comment">// 20</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> age = <span class="number">10</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test3</span><span class="params">(<span class="number">_</span> ptr: UnsafeMutableRawPointer)</span></span> &#123;</span><br><span class="line">    ptr.storeBytes(of: <span class="number">20</span>, <span class="keyword">as</span>: <span class="type">Int</span>.<span class="keyword">self</span>) </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test4</span><span class="params">(<span class="number">_</span> ptr: UnsafeRawPointer)</span></span> &#123; </span><br><span class="line">    <span class="built_in">print</span>(ptr.load(<span class="keyword">as</span>: <span class="type">Int</span>.<span class="keyword">self</span>))</span><br><span class="line">&#125;</span><br><span class="line">test3(&amp;age)</span><br><span class="line">test4(&amp;age) <span class="comment">// 20</span></span><br><span class="line"><span class="built_in">print</span>(age) <span class="comment">// 20</span></span><br></pre></td></tr></table></figure>
+<h4 id="指针的应用示例"><a href="#指针的应用示例" class="headerlink" title="指针的应用示例"></a>指针的应用示例</h4><ul>
+<li>数组遍历函数中的stop指针</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="type">NSArray</span>(objects: <span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>)</span><br><span class="line">arr.enumerateObjects &#123; (obj, idx, stop) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(idx, obj)</span><br><span class="line">    <span class="keyword">if</span> idx == <span class="number">2</span> &#123; <span class="comment">// 下标为2就停止遍历</span></span><br><span class="line">        stop.pointee = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等同</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="type">NSArray</span>(objects: <span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>, <span class="number">44</span>)</span><br><span class="line"><span class="keyword">for</span> (idx, obj) <span class="keyword">in</span> arr.enumerated() &#123;</span><br><span class="line">    <span class="built_in">print</span>(idx, obj)</span><br><span class="line">    <span class="keyword">if</span> idx == <span class="number">2</span> &#123;</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="获得指向某个变量的指针"><a href="#获得指向某个变量的指针" class="headerlink" title="获得指向某个变量的指针"></a>获得指向某个变量的指针</h4><ul>
+<li><code>withUnsafeMutablePointer</code> 函数  返回的指针<code>UnsafeMutablePointer&lt;T&gt;</code> 类型的指针，指向的变量可以进行写入修改<ul>
+<li>body 接收一个闭包函数，此闭包函数入参是value T，返回值是Result 最后一个入参 是闭包，此闭包直邮一个返回值，可以写成尾随闭包 </li>
+</ul>
+</li>
+<li><code>withUnsafePointer</code>  返回的指针<code>UnsafePointer&lt;T&gt;</code> 类型的指针，指向的变量不可以写入修改</li>
+<li>函数按<code>$0</code>原入参返回 类型是范型的，确切知道指针每次存取 指针的移动的个数类型；</li>
+<li>init 根据范型指针init 一个不带范型的指针；<ul>
+<li>存储写入数据 用<code>storeBytes</code> 函数；传入 值，偏移量，类型；</li>
+<li>读取数据，用<code>load</code> 函数；传入 偏移量/类型</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// func withUnsafeMutablePointer&lt;T, Result&gt;( to value: inout T, _ body: (UnsafeMutablePointer&lt;T&gt;) throws -&gt; Result) rethrows -&gt; Result</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// func withUnsafePointer&lt;T, Result&gt;(to value: T, _ body: (UnsafePointer&lt;T&gt;) throws -&gt; Result) rethrows -&gt; Result</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> age = <span class="number">11</span></span><br><span class="line"><span class="comment">// var ptr1: UnsafeMutablePointer&lt;Int&gt;</span></span><br><span class="line"><span class="keyword">var</span> ptr1 = <span class="built_in">withUnsafeMutablePointer</span>(to: &amp;age) &#123; $<span class="number">0</span> &#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// var ptr2: UnsafePointer&lt;Int&gt;</span></span><br><span class="line"><span class="keyword">var</span> ptr2 = <span class="built_in">withUnsafePointer</span>(to: &amp;age) &#123; $<span class="number">0</span> &#125;</span><br><span class="line"></span><br><span class="line">ptr1.pointee = <span class="number">22</span></span><br><span class="line"><span class="built_in">print</span>(ptr2.pointee) <span class="comment">// 22</span></span><br><span class="line"><span class="built_in">print</span>(age) <span class="comment">// 22</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// UnsafeMutableRawPointer init?&lt;T&gt;(_ other: UnsafeMutablePointer&lt;T&gt;?)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// var ptr3: UnsafeMutableRawPointer</span></span><br><span class="line"><span class="keyword">var</span> ptr3 = <span class="built_in">withUnsafeMutablePointer</span>(to: &amp;age) &#123; <span class="type">UnsafeMutableRawPointer</span>($<span class="number">0</span>) &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// var ptr4: UnsafeRawPointer</span></span><br><span class="line"><span class="keyword">var</span> ptr4 = <span class="built_in">withUnsafePointer</span>(to: &amp;age) &#123; <span class="type">UnsafeRawPointer</span>($<span class="number">0</span>) &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// func storeBytes&lt;T&gt;(of value: T, toByteOffset offset: Int = default, as: T.Type)</span></span><br><span class="line">ptr3.storeBytes(of: <span class="number">33</span>, <span class="keyword">as</span>: <span class="type">Int</span>.<span class="keyword">self</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// func load&lt;T&gt;(fromByteOffset offset: Int = default, as type: T.Type) -&gt; T</span></span><br><span class="line"><span class="built_in">print</span>(ptr4.load(<span class="keyword">as</span>: <span class="type">Int</span>.<span class="keyword">self</span>)) <span class="comment">// 33</span></span><br><span class="line"><span class="built_in">print</span>(age) <span class="comment">// 33</span></span><br></pre></td></tr></table></figure>
+<h4 id="获得指向堆空间实例的指针"><a href="#获得指向堆空间实例的指针" class="headerlink" title="获得指向堆空间实例的指针"></a>获得指向堆空间实例的指针</h4><ul>
+<li>先取出Person的指针，再读区 指针存储内存地址的存储内容</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="type">Person</span>()</span><br><span class="line"><span class="keyword">var</span> ptr = <span class="built_in">withUnsafePointer</span>(to: &amp;person) &#123; <span class="type">UnsafeRawPointer</span>($<span class="number">0</span>) &#125;  <span class="comment">//  取出指向Person的指针</span></span><br><span class="line"><span class="keyword">var</span> heapPtr = <span class="type">UnsafeRawPointer</span>(bitPattern: ptr.load(<span class="keyword">as</span>: <span class="type">UInt</span>.<span class="keyword">self</span>)) <span class="comment">// 取出Person指针的 存储的内容，是堆空间地址</span></span><br><span class="line"><span class="built_in">print</span>(heapPtr!)</span><br><span class="line"></span><br><span class="line"><span class="type">Creates</span> an <span class="type">OpaquePointer</span> from a given address <span class="keyword">in</span> memory.</span><br><span class="line"><span class="type">Declaration</span></span><br><span class="line"><span class="keyword">init</span>?(bitPattern: <span class="type">UInt</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="创建指针"><a href="#创建指针" class="headerlink" title="创建指针"></a>创建指针</h4><ul>
+<li>通过 <code>malloc</code> 必须 <code>free(ptr)</code></li>
+<li>通过 <code>allocate</code> 必须 <code>ptr.deallocate(ptr)</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个指针，申请16个字节，前8个字节存储11，偏移量8，后8个字节存储22</span></span><br><span class="line"><span class="keyword">var</span> ptr = <span class="type">UnsafeRawPointer</span>(bitPattern: <span class="number">0x100001234</span>)</span><br><span class="line"> <span class="comment">// 创建</span></span><br><span class="line"><span class="keyword">var</span> ptr = malloc(<span class="number">16</span>)</span><br><span class="line"><span class="comment">// 存</span></span><br><span class="line">ptr?.storeBytes(of: <span class="number">11</span>, <span class="keyword">as</span>: <span class="type">Int</span>.<span class="keyword">self</span>)</span><br><span class="line">ptr?.storeBytes(of: <span class="number">22</span>, toByteOffset: <span class="number">8</span>, <span class="keyword">as</span>: <span class="type">Int</span>.<span class="keyword">self</span>)</span><br><span class="line"><span class="comment">// 取</span></span><br><span class="line"><span class="built_in">print</span>((ptr?.load(<span class="keyword">as</span>: <span class="type">Int</span>.<span class="keyword">self</span>))!) <span class="comment">// 11 </span></span><br><span class="line"><span class="built_in">print</span>((ptr?.load(fromByteOffset: <span class="number">8</span>, <span class="keyword">as</span>: <span class="type">Int</span>.<span class="keyword">self</span>))!) <span class="comment">// 22 </span></span><br><span class="line"><span class="comment">// 销毁</span></span><br><span class="line">free(ptr)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个16字节，前8个字节存储11 ；advanced 指针移动8个字节，再存储22占用8个字节</span></span><br><span class="line"><span class="keyword">var</span> ptr = <span class="type">UnsafeMutableRawPointer</span>.allocate(byteCount: <span class="number">16</span>, alignment: <span class="number">1</span>) ptr.storeBytes(of: <span class="number">11</span>, <span class="keyword">as</span>: <span class="type">Int</span>.<span class="keyword">self</span>)</span><br><span class="line">ptr.advanced(by: <span class="number">8</span>).storeBytes(of: <span class="number">22</span>, <span class="keyword">as</span>: <span class="type">Int</span>.<span class="keyword">self</span>) </span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ptr.load(<span class="keyword">as</span>: <span class="type">Int</span>.<span class="keyword">self</span>)) <span class="comment">// 11</span></span><br><span class="line"><span class="built_in">print</span>(ptr.advanced(by: <span class="number">8</span>).load(<span class="keyword">as</span>: <span class="type">Int</span>.<span class="keyword">self</span>)) <span class="comment">// 22 </span></span><br><span class="line">ptr.deallocate()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>带范型<code>&lt;Int&gt;</code>的指针通过<code>successor()</code> 移动，每次移动8个字节，<ul>
+<li><code>ptr.successor()</code> 指针下移一位</li>
+<li>通过 <code>ptr + 1</code> / <code>ptr[0]</code> 来偏移读取</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ptr = <span class="type">UnsafeMutablePointer</span>&lt;<span class="type">Int</span>&gt;.allocate(capacity: <span class="number">3</span>)</span><br><span class="line">ptr.initialize(to: <span class="number">11</span>)</span><br><span class="line">ptr.successor().initialize(to: <span class="number">22</span>)</span><br><span class="line">ptr.successor().successor().initialize(to: <span class="number">33</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ptr.pointee) <span class="comment">// 11</span></span><br><span class="line"><span class="built_in">print</span>((ptr + <span class="number">1</span>).pointee) <span class="comment">// 22</span></span><br><span class="line"><span class="built_in">print</span>((ptr + <span class="number">2</span>).pointee) <span class="comment">// 33</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ptr[<span class="number">0</span>]) <span class="comment">// 11</span></span><br><span class="line"><span class="built_in">print</span>(ptr[<span class="number">1</span>]) <span class="comment">// 22</span></span><br><span class="line"><span class="built_in">print</span>(ptr[<span class="number">2</span>]) <span class="comment">// 33</span></span><br><span class="line">ptr.deinitialize(<span class="built_in">count</span>: <span class="number">3</span>)</span><br><span class="line">ptr.deallocate()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>需要每次创建之后进行 deinitialize /  deallocate 操作</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123; </span><br><span class="line">    <span class="keyword">var</span> age: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> name: <span class="type">String</span></span><br><span class="line">    <span class="keyword">init</span>(age: <span class="type">Int</span>, name: <span class="type">String</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.age = age</span><br><span class="line">        <span class="keyword">self</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">deinit</span> &#123; <span class="built_in">print</span>(name, <span class="string">"deinit"</span>) &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ptr = <span class="type">UnsafeMutablePointer</span>&lt;<span class="type">Person</span>&gt;.allocate(capacity: <span class="number">3</span>) </span><br><span class="line"></span><br><span class="line">ptr.initialize(to: <span class="type">Person</span>(age: <span class="number">10</span>, name: <span class="string">"Jack"</span>))</span><br><span class="line">(ptr + <span class="number">1</span>).initialize(to: <span class="type">Person</span>(age: <span class="number">11</span>, name: <span class="string">"Rose"</span>)) </span><br><span class="line">(ptr + <span class="number">2</span>).initialize(to: <span class="type">Person</span>(age: <span class="number">12</span>, name: <span class="string">"Kate"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// Jack deinit</span></span><br><span class="line"><span class="comment">// Rose deinit</span></span><br><span class="line"><span class="comment">// Kate deinit </span></span><br><span class="line">ptr.deinitialize(<span class="built_in">count</span>: <span class="number">3</span>) </span><br><span class="line">ptr.deallocate()</span><br></pre></td></tr></table></figure>
+<h4 id="指针之间的转换"><a href="#指针之间的转换" class="headerlink" title="指针之间的转换"></a>指针之间的转换</h4><ul>
+<li><code>unsafeBitCast</code>是忽略数据类型的强制转换，不会因为数据类型的变化而改变原来的内存数据 </li>
+<li>类似于C++中的<code>reinterpret_cast</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ptr = <span class="type">UnsafeMutableRawPointer</span>.allocate(byteCount: <span class="number">16</span>, alignment: <span class="number">1</span>) ptr.assumingMemoryBound(to: <span class="type">Int</span>.<span class="keyword">self</span>).pointee = <span class="number">11</span></span><br><span class="line"></span><br><span class="line">(ptr + <span class="number">8</span>).assumingMemoryBound(to: <span class="type">Double</span>.<span class="keyword">self</span>).pointee = <span class="number">22.0</span> </span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">unsafeBitCast</span>(ptr, to: <span class="type">UnsafePointer</span>&lt;<span class="type">Int</span>&gt;.<span class="keyword">self</span>).pointee) <span class="comment">// 11</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">unsafeBitCast</span>(ptr + <span class="number">8</span>, to: <span class="type">UnsafePointer</span>&lt;<span class="type">Double</span>&gt;.<span class="keyword">self</span>).pointee) <span class="comment">// 22.0 ptr.deallocate()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">to: The type T that the memory has already been bound to. Returns: A typed pointer to the same memory as this raw pointer.</span></span><br><span class="line"><span class="comment">Declaration</span></span><br><span class="line"><span class="comment">func assumingMemoryBound&lt;T&gt;(to: T.Type) -&gt; UnsafeMutablePointer&lt;T&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="type">Person</span>()</span><br><span class="line"><span class="keyword">var</span> ptr = <span class="built_in">unsafeBitCast</span>(person, to: <span class="type">UnsafeRawPointer</span>.<span class="keyword">self</span>) </span><br><span class="line"><span class="built_in">print</span>(ptr)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+    <div>
+      
+      <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+	     --------------------  本文结束
+	    <i class="fa fa-paw"></i>
+	    感谢您的阅读  --------------------
+    </div>
+
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/14/iOS/swift-xmg10/" rel="next" title="Swift-高级运算符/扩展/访问控制">
+                <i class="fa fa-chevron-left"></i> Swift-高级运算符/扩展/访问控制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/17/iOS/swift-xmg12/" rel="prev" title="Swift-字面量/模式匹配">
+                Swift-字面量/模式匹配 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="May Tao">
+            
+              <p class="site-author-name" itemprop="name">May Tao</p>
+              <p class="site-description motion-element" itemprop="description">全栈在路上</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">90</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Huan-zhaolover" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ytxinguan09@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.87.com" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-angle-double-down"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存管理"><span class="nav-number">1.</span> <span class="nav-text">内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#循环引用-Reference-Cycle"><span class="nav-number">1.1.</span> <span class="nav-text">循环引用(Reference Cycle)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#闭包的循环引用"><span class="nav-number">1.2.</span> <span class="nav-text">闭包的循环引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逃逸闭包-escaping"><span class="nav-number">1.3.</span> <span class="nav-text">逃逸闭包 @escaping</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存访问冲突-Conflicting-Access-to-Memory"><span class="nav-number">1.4.</span> <span class="nav-text">内存访问冲突(Conflicting Access to Memory)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存访问冲突"><span class="nav-number">1.5.</span> <span class="nav-text">内存访问冲突</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指针"><span class="nav-number">2.</span> <span class="nav-text">指针</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指针类型"><span class="nav-number">2.1.</span> <span class="nav-text">指针类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指针的应用示例"><span class="nav-number">2.2.</span> <span class="nav-text">指针的应用示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获得指向某个变量的指针"><span class="nav-number">2.3.</span> <span class="nav-text">获得指向某个变量的指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获得指向堆空间实例的指针"><span class="nav-number">2.4.</span> <span class="nav-text">获得指向堆空间实例的指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建指针"><span class="nav-number">2.5.</span> <span class="nav-text">创建指针</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指针之间的转换"><span class="nav-number">2.6.</span> <span class="nav-text">指针之间的转换</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+     <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">May Tao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz',
+        appKey: 'GYy3VQ9hXhRnbsBHmMPzwtbq',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz", "GYy3VQ9hXhRnbsBHmMPzwtbq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

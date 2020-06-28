@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.mayyutao.cn/"/>
-  <updated>2020-01-17T04:03:27.896Z</updated>
+  <updated>2020-06-28T02:42:48.618Z</updated>
   <id>https://www.mayyutao.cn/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React原理</title>
+    <link href="https://www.mayyutao.cn/2020/06/08/ReactNative/Reat%E5%8E%9F%E7%90%86/"/>
+    <id>https://www.mayyutao.cn/2020/06/08/ReactNative/Reat原理/</id>
+    <published>2020-06-08T00:39:00.000Z</published>
+    <updated>2020-06-28T02:42:48.618Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="React" scheme="https://www.mayyutao.cn/categories/React/"/>
+    
+    
+      <category term="前端" scheme="https://www.mayyutao.cn/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue组件化 / 插槽</title>
+    <link href="https://www.mayyutao.cn/2020/05/04/Vue/Vue%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
+    <id>https://www.mayyutao.cn/2020/05/04/Vue/Vue组件化/</id>
+    <published>2020-05-04T00:39:00.000Z</published>
+    <updated>2020-06-28T04:31:53.795Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+      <category term="Vue" scheme="https://www.mayyutao.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue源码分析" scheme="https://www.mayyutao.cn/tags/Vue%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
   
   <entry>
     <title>2019年总结</title>
@@ -43,39 +95,11 @@
   </entry>
   
   <entry>
-    <title>汇编学习1</title>
-    <link href="https://www.mayyutao.cn/2019/04/01/iOS/%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A01/"/>
-    <id>https://www.mayyutao.cn/2019/04/01/iOS/汇编学习1/</id>
-    <published>2019-04-01T00:40:00.000Z</published>
-    <updated>2020-01-17T03:16:06.215Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
-    
-      <category term="汇编" scheme="https://www.mayyutao.cn/categories/iOS/%E6%B1%87%E7%BC%96/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-xmg23</title>
-    <link href="https://www.mayyutao.cn/2019/03/25/iOS/swift-xmg23/"/>
-    <id>https://www.mayyutao.cn/2019/03/25/iOS/swift-xmg23/</id>
-    <published>2019-03-25T00:40:00.000Z</published>
-    <updated>2019-11-21T06:43:53.684Z</updated>
+    <title>Swift-源码分析资料</title>
+    <link href="https://www.mayyutao.cn/2019/04/21/iOS/swift-xmg16/"/>
+    <id>https://www.mayyutao.cn/2019/04/21/iOS/swift-xmg16/</id>
+    <published>2019-04-21T00:40:00.000Z</published>
+    <updated>2020-06-28T03:40:00.852Z</updated>
     
     <summary type="html">
     
@@ -99,11 +123,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg22</title>
-    <link href="https://www.mayyutao.cn/2019/03/24/iOS/swift-xmg22/"/>
-    <id>https://www.mayyutao.cn/2019/03/24/iOS/swift-xmg22/</id>
-    <published>2019-03-24T00:40:00.000Z</published>
-    <updated>2019-11-21T06:13:38.579Z</updated>
+    <title>Swift-RxSwift函数响应式编程</title>
+    <link href="https://www.mayyutao.cn/2019/04/20/iOS/swift-xmg15/"/>
+    <id>https://www.mayyutao.cn/2019/04/20/iOS/swift-xmg15/</id>
+    <published>2019-04-20T00:40:00.000Z</published>
+    <updated>2020-06-28T03:39:36.099Z</updated>
     
     <summary type="html">
     
@@ -127,11 +151,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg21</title>
-    <link href="https://www.mayyutao.cn/2019/03/23/iOS/swift-xmg21/"/>
-    <id>https://www.mayyutao.cn/2019/03/23/iOS/swift-xmg21/</id>
-    <published>2019-03-23T00:40:00.000Z</published>
-    <updated>2019-11-19T09:11:01.432Z</updated>
+    <title>Swift-项目相关配置</title>
+    <link href="https://www.mayyutao.cn/2019/04/19/iOS/swift-xmg14/"/>
+    <id>https://www.mayyutao.cn/2019/04/19/iOS/swift-xmg14/</id>
+    <published>2019-04-19T00:40:00.000Z</published>
+    <updated>2020-06-28T03:51:06.945Z</updated>
     
     <summary type="html">
     
@@ -155,11 +179,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg20</title>
-    <link href="https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg20/"/>
-    <id>https://www.mayyutao.cn/2019/03/22/iOS/swift-xmg20/</id>
-    <published>2019-03-22T00:40:00.000Z</published>
-    <updated>2019-08-13T07:05:52.587Z</updated>
+    <title>Swift-OC混编</title>
+    <link href="https://www.mayyutao.cn/2019/04/18/iOS/swift-xmg13/"/>
+    <id>https://www.mayyutao.cn/2019/04/18/iOS/swift-xmg13/</id>
+    <published>2019-04-18T00:40:00.000Z</published>
+    <updated>2020-06-28T03:49:45.219Z</updated>
     
     <summary type="html">
     
@@ -183,11 +207,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg19</title>
-    <link href="https://www.mayyutao.cn/2019/03/21/iOS/swift-xmg19/"/>
-    <id>https://www.mayyutao.cn/2019/03/21/iOS/swift-xmg19/</id>
-    <published>2019-03-21T00:40:00.000Z</published>
-    <updated>2019-08-13T07:05:57.312Z</updated>
+    <title>Swift-字面量/模式匹配</title>
+    <link href="https://www.mayyutao.cn/2019/04/17/iOS/swift-xmg12/"/>
+    <id>https://www.mayyutao.cn/2019/04/17/iOS/swift-xmg12/</id>
+    <published>2019-04-17T00:40:00.000Z</published>
+    <updated>2020-06-28T03:38:04.819Z</updated>
     
     <summary type="html">
     
@@ -211,11 +235,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg18</title>
-    <link href="https://www.mayyutao.cn/2019/03/20/iOS/swift-xmg18/"/>
-    <id>https://www.mayyutao.cn/2019/03/20/iOS/swift-xmg18/</id>
-    <published>2019-03-20T00:40:00.000Z</published>
-    <updated>2019-08-13T08:36:13.538Z</updated>
+    <title>Swift-循环引用/指针</title>
+    <link href="https://www.mayyutao.cn/2019/04/16/iOS/swift-xmg11/"/>
+    <id>https://www.mayyutao.cn/2019/04/16/iOS/swift-xmg11/</id>
+    <published>2019-04-16T00:40:00.000Z</published>
+    <updated>2020-06-28T03:49:17.854Z</updated>
     
     <summary type="html">
     
@@ -239,11 +263,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg17</title>
-    <link href="https://www.mayyutao.cn/2019/03/19/iOS/swift-xmg17/"/>
-    <id>https://www.mayyutao.cn/2019/03/19/iOS/swift-xmg17/</id>
-    <published>2019-03-19T00:40:00.000Z</published>
-    <updated>2019-08-08T09:55:45.107Z</updated>
+    <title>Swift-高级运算符/扩展/访问控制</title>
+    <link href="https://www.mayyutao.cn/2019/04/14/iOS/swift-xmg10/"/>
+    <id>https://www.mayyutao.cn/2019/04/14/iOS/swift-xmg10/</id>
+    <published>2019-04-14T00:40:00.000Z</published>
+    <updated>2020-06-28T03:48:46.019Z</updated>
     
     <summary type="html">
     
@@ -267,11 +291,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg16</title>
-    <link href="https://www.mayyutao.cn/2019/03/18/iOS/swift-xmg16/"/>
-    <id>https://www.mayyutao.cn/2019/03/18/iOS/swift-xmg16/</id>
-    <published>2019-03-18T00:40:00.000Z</published>
-    <updated>2019-08-08T09:53:56.509Z</updated>
+    <title>Swift-内存分析</title>
+    <link href="https://www.mayyutao.cn/2019/04/13/iOS/swift-xmg09/"/>
+    <id>https://www.mayyutao.cn/2019/04/13/iOS/swift-xmg09/</id>
+    <published>2019-04-13T00:40:00.000Z</published>
+    <updated>2020-06-28T03:47:01.553Z</updated>
     
     <summary type="html">
     
@@ -295,11 +319,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg15</title>
-    <link href="https://www.mayyutao.cn/2019/03/17/iOS/swift-xmg15/"/>
-    <id>https://www.mayyutao.cn/2019/03/17/iOS/swift-xmg15/</id>
-    <published>2019-03-17T00:40:00.000Z</published>
-    <updated>2019-08-02T07:10:38.443Z</updated>
+    <title>Swift-错误处理/泛型</title>
+    <link href="https://www.mayyutao.cn/2019/04/12/iOS/swift-xmg08/"/>
+    <id>https://www.mayyutao.cn/2019/04/12/iOS/swift-xmg08/</id>
+    <published>2019-04-12T00:40:00.000Z</published>
+    <updated>2020-06-28T03:46:29.202Z</updated>
     
     <summary type="html">
     
@@ -323,11 +347,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg14</title>
-    <link href="https://www.mayyutao.cn/2019/03/16/iOS/swift-xmg14/"/>
-    <id>https://www.mayyutao.cn/2019/03/16/iOS/swift-xmg14/</id>
-    <published>2019-03-16T00:40:00.000Z</published>
-    <updated>2019-08-01T07:36:10.308Z</updated>
+    <title>Swift-可选链/协议/Any/as/Self</title>
+    <link href="https://www.mayyutao.cn/2019/04/11/iOS/swift-xmg07/"/>
+    <id>https://www.mayyutao.cn/2019/04/11/iOS/swift-xmg07/</id>
+    <published>2019-04-11T00:40:00.000Z</published>
+    <updated>2020-06-28T03:41:27.771Z</updated>
     
     <summary type="html">
     
@@ -351,11 +375,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg13</title>
-    <link href="https://www.mayyutao.cn/2019/03/15/iOS/swift-xmg13/"/>
-    <id>https://www.mayyutao.cn/2019/03/15/iOS/swift-xmg13/</id>
-    <published>2019-03-15T00:40:00.000Z</published>
-    <updated>2019-07-26T08:06:00.049Z</updated>
+    <title>Swift-初始化器</title>
+    <link href="https://www.mayyutao.cn/2019/04/10/iOS/swift-xmg06/"/>
+    <id>https://www.mayyutao.cn/2019/04/10/iOS/swift-xmg06/</id>
+    <published>2019-04-10T00:40:00.000Z</published>
+    <updated>2020-06-28T03:27:27.838Z</updated>
     
     <summary type="html">
     
@@ -379,11 +403,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg12</title>
-    <link href="https://www.mayyutao.cn/2019/03/14/iOS/swift-xmg12/"/>
-    <id>https://www.mayyutao.cn/2019/03/14/iOS/swift-xmg12/</id>
-    <published>2019-03-14T00:40:00.000Z</published>
-    <updated>2019-08-01T09:46:46.156Z</updated>
+    <title>Swift-方法/继承/重写</title>
+    <link href="https://www.mayyutao.cn/2019/04/09/iOS/swift-xmg05/"/>
+    <id>https://www.mayyutao.cn/2019/04/09/iOS/swift-xmg05/</id>
+    <published>2019-04-09T00:40:00.000Z</published>
+    <updated>2020-06-28T03:31:21.978Z</updated>
     
     <summary type="html">
     
@@ -407,11 +431,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg11</title>
-    <link href="https://www.mayyutao.cn/2019/03/13/iOS/swift-xmg11/"/>
-    <id>https://www.mayyutao.cn/2019/03/13/iOS/swift-xmg11/</id>
-    <published>2019-03-13T00:40:00.000Z</published>
-    <updated>2019-08-01T07:41:47.405Z</updated>
+    <title>Swift-存储属性/计算属性/类型属性</title>
+    <link href="https://www.mayyutao.cn/2019/04/08/iOS/swift-xmg04/"/>
+    <id>https://www.mayyutao.cn/2019/04/08/iOS/swift-xmg04/</id>
+    <published>2019-04-08T00:40:00.000Z</published>
+    <updated>2020-06-28T03:30:17.103Z</updated>
     
     <summary type="html">
     
@@ -435,11 +459,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg10</title>
-    <link href="https://www.mayyutao.cn/2019/03/12/iOS/swift-xmg10/"/>
-    <id>https://www.mayyutao.cn/2019/03/12/iOS/swift-xmg10/</id>
-    <published>2019-03-12T00:40:00.000Z</published>
-    <updated>2019-07-24T08:47:52.326Z</updated>
+    <title>Swift-闭包表达式及其内存布局</title>
+    <link href="https://www.mayyutao.cn/2019/04/06/iOS/swift-xmg03/"/>
+    <id>https://www.mayyutao.cn/2019/04/06/iOS/swift-xmg03/</id>
+    <published>2019-04-06T00:40:00.000Z</published>
+    <updated>2020-06-28T03:28:56.242Z</updated>
     
     <summary type="html">
     
@@ -463,11 +487,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg09</title>
-    <link href="https://www.mayyutao.cn/2019/03/11/iOS/swift-xmg09/"/>
-    <id>https://www.mayyutao.cn/2019/03/11/iOS/swift-xmg09/</id>
-    <published>2019-03-11T00:40:00.000Z</published>
-    <updated>2019-07-13T06:56:28.157Z</updated>
+    <title>Swift-枚举/可选项 / 结构体和类</title>
+    <link href="https://www.mayyutao.cn/2019/04/04/iOS/swift-xmg02/"/>
+    <id>https://www.mayyutao.cn/2019/04/04/iOS/swift-xmg02/</id>
+    <published>2019-04-04T00:40:00.000Z</published>
+    <updated>2020-06-28T03:18:07.589Z</updated>
     
     <summary type="html">
     
@@ -491,11 +515,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg08</title>
-    <link href="https://www.mayyutao.cn/2019/03/10/iOS/swift-xmg08/"/>
-    <id>https://www.mayyutao.cn/2019/03/10/iOS/swift-xmg08/</id>
-    <published>2019-03-10T00:40:00.000Z</published>
-    <updated>2019-07-14T22:33:20.774Z</updated>
+    <title>Swift-流程控制 / 函数</title>
+    <link href="https://www.mayyutao.cn/2019/04/03/iOS/swift-xmg01/"/>
+    <id>https://www.mayyutao.cn/2019/04/03/iOS/swift-xmg01/</id>
+    <published>2019-04-03T00:40:00.000Z</published>
+    <updated>2020-06-28T03:18:11.796Z</updated>
     
     <summary type="html">
     
@@ -519,39 +543,11 @@
   </entry>
   
   <entry>
-    <title>swift-xmg07</title>
-    <link href="https://www.mayyutao.cn/2019/03/09/iOS/swift-xmg07/"/>
-    <id>https://www.mayyutao.cn/2019/03/09/iOS/swift-xmg07/</id>
-    <published>2019-03-09T00:40:00.000Z</published>
-    <updated>2019-07-12T07:19:02.887Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-        
-      
-    
-    </summary>
-    
-      <category term="iOS" scheme="https://www.mayyutao.cn/categories/iOS/"/>
-    
-      <category term="Swift" scheme="https://www.mayyutao.cn/categories/iOS/Swift/"/>
-    
-    
-      <category term="学习笔记" scheme="https://www.mayyutao.cn/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>swift-xmg06</title>
-    <link href="https://www.mayyutao.cn/2019/03/08/iOS/swift-xmg06/"/>
-    <id>https://www.mayyutao.cn/2019/03/08/iOS/swift-xmg06/</id>
-    <published>2019-03-08T00:40:00.000Z</published>
-    <updated>2019-07-12T03:05:04.466Z</updated>
+    <title>汇编原理2</title>
+    <link href="https://www.mayyutao.cn/2019/04/02/iOS/%E6%B1%87%E7%BC%96%E5%AD%A6%E4%B9%A02/"/>
+    <id>https://www.mayyutao.cn/2019/04/02/iOS/汇编学习2/</id>
+    <published>2019-04-02T00:40:00.000Z</published>
+    <updated>2020-06-28T03:08:57.439Z</updated>
     
     <summary type="html">
     

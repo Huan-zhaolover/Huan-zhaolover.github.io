@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="学习笔记,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Maylover" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="补充 类型属性 staic var age ; 可以通过类型名Person调用，也可以通过Person.self调用的  12345// 下面都是调用init()方法var p0 = Person() // init var p1 = Person.self() // init var p2 = Person.init() // init var p3 = Person.self.init() /">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift-错误处理&#x2F;泛型">
+<meta property="og:url" content="https://www.mayyutao.cn/2019/04/12/iOS/swift-xmg08/index.html">
+<meta property="og:site_name" content="Maylover">
+<meta property="og:description" content="补充 类型属性 staic var age ; 可以通过类型名Person调用，也可以通过Person.self调用的  12345// 下面都是调用init()方法var p0 = Person() // init var p1 = Person.self() // init var p2 = Person.init() // init var p3 = Person.self.init() /">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-08-01%20%E4%B8%8B%E5%8D%885.46.16.png">
+<meta property="og:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.21.12.png?80">
+<meta property="og:updated_time" content="2020-06-28T03:46:29.202Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift-错误处理&#x2F;泛型">
+<meta name="twitter:description" content="补充 类型属性 staic var age ; 可以通过类型名Person调用，也可以通过Person.self调用的  12345// 下面都是调用init()方法var p0 = Person() // init var p1 = Person.self() // init var p2 = Person.init() // init var p3 = Person.self.init() /">
+<meta name="twitter:image" content="https://www.mayyutao.cn/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-08-01%20%E4%B8%8B%E5%8D%885.46.16.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.mayyutao.cn/2019/04/12/iOS/swift-xmg08/">
+
+
+
+
+
+  <title>Swift-错误处理/泛型 | Maylover</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<script type="text/javascript" src="/js/src/hexo_resize_image.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Maylover</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">平凡之路</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.mayyutao.cn/2019/04/12/iOS/swift-xmg08/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="May Tao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Maylover">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Swift-错误处理/泛型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-12T08:40:00+08:00">
+                2019-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/12/iOS/swift-xmg08/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/12/iOS/swift-xmg08/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/04/12/iOS/swift-xmg08/" class="leancloud_visitors" data-flag-title="Swift-错误处理/泛型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><ul>
+<li>类型属性 staic var age ; 可以通过类型名Person调用，也可以通过Person.self调用的</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下面都是调用init()方法</span></span><br><span class="line"><span class="keyword">var</span> p0 = <span class="type">Person</span>() <span class="comment">// init </span></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="type">Person</span>.<span class="keyword">self</span>() <span class="comment">// init </span></span><br><span class="line"><span class="keyword">var</span> p2 = <span class="type">Person</span>.<span class="keyword">init</span>() <span class="comment">// init </span></span><br><span class="line"><span class="keyword">var</span> p3 = <span class="type">Person</span>.<span class="keyword">self</span>.<span class="keyword">init</span>() <span class="comment">// init</span></span><br></pre></td></tr></table></figure>
+<h3 id="错误处理-异常处理-error"><a href="#错误处理-异常处理-error" class="headerlink" title="错误处理/ 异常处理 error"></a>错误处理/ 异常处理 error</h3><ul>
+<li>开发过程常见的错误<ul>
+<li>语法错误</li>
+<li>逻辑错误</li>
+<li>运行时错误（可能导致闪退，一般也叫做异常）</li>
+</ul>
+</li>
+<li>自定义错误信息</li>
+</ul>
+<h3 id="自定义错误"><a href="#自定义错误" class="headerlink" title="自定义错误"></a>自定义错误</h3><ul>
+<li>Swift中可以通过Error协议自定义运行时的错误信息</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">SomeError</span> : <span class="title">Error</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> illegalArg(<span class="type">String</span>) </span><br><span class="line">    <span class="keyword">case</span> outOfBounds(<span class="type">Int</span>, <span class="type">Int</span>) </span><br><span class="line">    <span class="keyword">case</span> outOfMemory</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>函数内部通过throw抛出自定义Error，可能会抛出Error的函数必须加上throws声明</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">divide</span><span class="params">(<span class="number">_</span> num1: Int, <span class="number">_</span> num2: Int)</span></span> <span class="keyword">throws</span> -&gt; <span class="type">Int</span> &#123; </span><br><span class="line">    <span class="keyword">if</span> num2 == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="type">SomeError</span>.illegalArg(<span class="string">"0不能作为除数"</span>) </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num1 / num2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>需要使用try调用可能会抛出Error的函数 </li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = <span class="keyword">try</span> divide(<span class="number">20</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="do-catch"><a href="#do-catch" class="headerlink" title="do-catch"></a>do-catch</h3><ul>
+<li>可以使用do-catch捕捉Error</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"1"</span>)</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"2"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="keyword">try</span> divide(<span class="number">20</span>, <span class="number">0</span>))</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"3"</span>)</span><br><span class="line">    &#125; <span class="keyword">catch</span> <span class="keyword">let</span> <span class="type">SomeError</span>.illegalArg(msg) &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"参数异常:"</span>, msg)</span><br><span class="line">    &#125; <span class="keyword">catch</span> <span class="keyword">let</span> <span class="type">SomeError</span>.outOfBounds(size, index) &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"下标越界:"</span>, <span class="string">"size=\(size)"</span>, <span class="string">"index=\(index)"</span>)</span><br><span class="line">    &#125; <span class="keyword">catch</span> <span class="type">SomeError</span>.outOfMemory &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"内存溢出"</span>) </span><br><span class="line">    &#125; <span class="keyword">catch</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"其他错误"</span>) </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"4"</span>) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>抛出Error后，try下一句直到作用域结束的代码都将停止运行</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">test()</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 参数异常: 0不能作为除数 // 4</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> divide(<span class="number">20</span>, <span class="number">0</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="keyword">let</span> error &#123;</span><br><span class="line">    <span class="keyword">switch</span> error &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">let</span> <span class="type">SomeError</span>.illegalArg(msg): <span class="built_in">print</span>(<span class="string">"参数错误:"</span>, msg)</span><br><span class="line">        <span class="keyword">default</span>: <span class="built_in">print</span>(<span class="string">"其他错误"</span>)</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="处理Error"><a href="#处理Error" class="headerlink" title="处理Error"></a>处理Error</h3><ul>
+<li>处理Error的2种方式<ul>
+<li>1 通过do-catch捕捉Error</li>
+<li>2 不捕捉Error，在当前函数增加throws声明，Error将自动抛给上层函数 <ul>
+<li>如果最顶层函数(main函数)依然没有捕捉Error，那么程序将终止</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span> <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"1"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="keyword">try</span> divide(<span class="number">20</span>, <span class="number">0</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"2"</span>) </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">try</span> test() <span class="comment">// 1  Fatal error: Error raised at top level</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// do catch 捕获</span></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="keyword">try</span> divide(<span class="number">20</span>, <span class="number">0</span>))</span><br><span class="line">&#125; <span class="keyword">catch</span> <span class="keyword">is</span> <span class="type">SomeError</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"SomeError"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>try 遇到错误之后，直接返回不会继续处理后面的代码，如果需要处理 使用关键字<code>defer</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span> <span class="keyword">throws</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"1"</span>)</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"2"</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="keyword">try</span> divide(<span class="number">20</span>, <span class="number">0</span>))</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"3"</span>)</span><br><span class="line">    &#125; <span class="keyword">catch</span> <span class="keyword">let</span> error <span class="keyword">as</span> <span class="type">SomeError</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(error)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"4"</span>) </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">try</span> test()</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// illegalArg("0不能作为除数") // 4</span></span><br></pre></td></tr></table></figure>
+<h3 id="rethrows"><a href="#rethrows" class="headerlink" title="rethrows"></a>rethrows</h3><ul>
+<li>rethrows表明:函数本身不会抛出错误，但调用闭包参数抛出错误，那么它会将错误向上抛</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">exec</span><span class="params">(<span class="number">_</span> fn: <span class="params">(Int, Int)</span></span></span> <span class="keyword">throws</span> -&gt; <span class="type">Int</span>, <span class="number">_</span> num1: <span class="type">Int</span>, <span class="number">_</span> num2: <span class="type">Int</span>) <span class="keyword">rethrows</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="keyword">try</span> fn(num1, num2))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Fatal error: Error raised at top level</span></span><br><span class="line"><span class="keyword">try</span> exec(divide, <span class="number">20</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h3><ul>
+<li>defer语句:用来定义以任何方式(抛错误、return等)离开代码块前必须要执行的代码 </li>
+<li>defer语句将延迟至当前作用域结束之前执行</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">open</span><span class="params">(<span class="number">_</span> filename: String)</span></span> -&gt; <span class="type">Int</span> &#123; </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"open"</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">close</span><span class="params">(<span class="number">_</span> file: Int)</span></span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"close"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>defer语句的执行顺序与定义顺序相反</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fn1</span><span class="params">()</span></span> &#123; <span class="built_in">print</span>(<span class="string">"fn1"</span>) &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">fn2</span><span class="params">()</span></span> &#123; <span class="built_in">print</span>(<span class="string">"fn2"</span>) &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">defer</span> &#123; fn1() &#125;</span><br><span class="line">    <span class="keyword">defer</span> &#123; fn2() &#125;</span><br><span class="line">&#125;</span><br><span class="line">test()</span><br><span class="line"><span class="comment">// fn2</span></span><br><span class="line"><span class="comment">// fn1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>defer 出错继续执行，讲代码 放在代码作用域结束之前 调用。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">processFile</span><span class="params">(<span class="number">_</span> filename: String)</span></span> <span class="keyword">throws</span> &#123; </span><br><span class="line">    <span class="keyword">let</span> file = <span class="keyword">open</span>(filename)</span><br><span class="line">    <span class="keyword">defer</span> &#123;</span><br><span class="line">        close(file)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 使用file</span></span><br><span class="line">    <span class="comment">// ....</span></span><br><span class="line">    <span class="keyword">try</span> divide(<span class="number">20</span>, <span class="number">0</span>)</span><br><span class="line">    <span class="comment">// close将会在这里调用 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">try</span> processFile(<span class="string">"test.txt"</span>)</span><br><span class="line"><span class="comment">// open</span></span><br><span class="line"><span class="comment">// close</span></span><br><span class="line"><span class="comment">// Fatal error: Error raised at top level</span></span><br></pre></td></tr></table></figure>
+<h3 id="assert-断言"><a href="#assert-断言" class="headerlink" title="assert(断言)"></a>assert(断言)</h3><ul>
+<li>很多编程语言都有断言机制:不符合指定条件就抛出运行时错误，常用于调试(Debug)阶段的条件判断 </li>
+<li>默认情况下，Swift的断言只会在Debug模式下生效，Release模式下会忽略</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">divide</span><span class="params">(<span class="number">_</span> v1: Int, <span class="number">_</span> v2: Int)</span></span> -&gt; <span class="type">Int</span> &#123; </span><br><span class="line">    <span class="built_in">assert</span>(v2 != <span class="number">0</span>, <span class="string">"除数不能为0"</span>)</span><br><span class="line">    <span class="keyword">return</span> v1 / v2</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(divide(<span class="number">20</span>, <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>增加Swift Flags修改断言的默认行为 </li>
+<li><code>-assert-config Release</code>:强制关闭断言 </li>
+<li><code>-assert-config Debug</code>:强制开启断言</li>
+</ul>
+<p><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-08-01%20%E4%B8%8B%E5%8D%885.46.16.png" alt="屏幕快照 2019-08-01 下午5.46.16"></p>
+<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><ul>
+<li>类 / 结构体 范型</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> elements = [<span class="type">E</span>]()</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(<span class="number">_</span> element: E)</span></span> &#123; elements.append(element) &#125; </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">E</span> &#123; elements.removeLast() &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">top</span><span class="params">()</span></span> -&gt; <span class="type">E</span> &#123; elements.last! &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">size</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123; elements.<span class="built_in">count</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Stack</span>&lt;<span class="title">E</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> elements = [<span class="type">E</span>]()</span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(<span class="number">_</span> element: E)</span></span> &#123; elements.append(element) &#125; </span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">E</span> &#123; elements.removeLast() &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">top</span><span class="params">()</span></span> -&gt; <span class="type">E</span> &#123; elements.last! &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">size</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123; elements.<span class="built_in">count</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubStack</span>&lt;<span class="title">E</span>&gt; : <span class="title">Stack</span>&lt;<span class="title">E</span>&gt; </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stack = <span class="type">Stack</span>&lt;<span class="type">Int</span>&gt;()</span><br><span class="line">stack.push(<span class="number">11</span>)</span><br><span class="line">stack.push(<span class="number">22</span>)</span><br><span class="line">stack.push(<span class="number">33</span>)</span><br><span class="line"><span class="built_in">print</span>(stack.top()) <span class="comment">// 33</span></span><br><span class="line"><span class="built_in">print</span>(stack.pop()) <span class="comment">// 33</span></span><br><span class="line"><span class="built_in">print</span>(stack.pop()) <span class="comment">// 22</span></span><br><span class="line"><span class="built_in">print</span>(stack.pop()) <span class="comment">// 11</span></span><br><span class="line"><span class="built_in">print</span>(stack.size()) <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>枚举的一个枚举值是范型</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Score</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> point(<span class="type">T</span>)</span><br><span class="line">    <span class="keyword">case</span> grade(<span class="type">String</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> score0 = <span class="type">Score</span>&lt;<span class="type">Int</span>&gt;.point(<span class="number">100</span>) <span class="keyword">let</span> score1 = <span class="type">Score</span>.point(<span class="number">99</span>)</span><br><span class="line"><span class="keyword">let</span> score2 = <span class="type">Score</span>.point(<span class="number">99.5</span>) <span class="keyword">let</span> score3 = <span class="type">Score</span>&lt;<span class="type">Int</span>&gt;.grade(<span class="string">"A"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="关联类型-Associated-Type"><a href="#关联类型-Associated-Type" class="headerlink" title="关联类型(Associated Type)"></a>关联类型(Associated Type)</h3><ul>
+<li>关联类型的作用:给协议中用到的类型定义一个占位名称 </li>
+<li>协议中可以拥有多个关联类型</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Stackable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">associatedtype</span> <span class="type">Element</span> <span class="comment">// 关联类型 </span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(<span class="number">_</span> element: Element)</span></span> </span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">Element</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">top</span><span class="params">()</span></span> -&gt; <span class="type">Element</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">size</span><span class="params">()</span></span> -&gt; <span class="type">Int</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>给关联类型设定真实类型 <code>typealias Element = String</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">E</span>&gt; : <span class="title">Stackable</span> </span>&#123;</span><br><span class="line">    <span class="comment">// typealias Element = E</span></span><br><span class="line">    <span class="keyword">var</span> elements = [<span class="type">E</span>]()</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(<span class="number">_</span> element: E)</span></span> &#123;  elements.append(element)  &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">E</span> &#123; elements.removeLast() &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">top</span><span class="params">()</span></span> -&gt; <span class="type">E</span> &#123; elements.last! &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">size</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123; elements.<span class="built_in">count</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StringStack</span> : <span class="title">Stackable</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 给关联类型设定真实类型</span></span><br><span class="line">    <span class="comment">// typealias Element = String</span></span><br><span class="line">    <span class="keyword">var</span> elements = [<span class="type">String</span>]()</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(<span class="number">_</span> element: String)</span></span> &#123; elements.append(element) &#125; </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123; elements.removeLast() &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">top</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123; elements.last! &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">size</span><span class="params">()</span></span> -&gt; <span class="type">Int</span> &#123; elements.<span class="built_in">count</span> &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ss = <span class="type">StringStack</span>()</span><br><span class="line">ss.push(<span class="string">"Jack"</span>)</span><br><span class="line">ss.push(<span class="string">"Rose"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="类型约束"><a href="#类型约束" class="headerlink" title="类型约束"></a>类型约束</h3><ul>
+<li>底层 以Swipe函数举例，传入了元类型matatype ；如果传入了Int, 即传入了Int.self 前8个字节，类型。</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Runnable 协议 定义一个函数，是Person类 并且遵守 Runnable 协议</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Runnable</span> </span>&#123; &#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123; &#125;</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">swapValues</span>&lt;T : Person &amp; Runnable&gt;<span class="params">(<span class="number">_</span> a: <span class="keyword">inout</span> T, <span class="number">_</span> b: <span class="keyword">inout</span> T)</span></span> &#123;</span><br><span class="line">    (a, b) = (b, a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个类 是范型，并且遵守 Stackable协议，Stackable 关联类型且 遵守Equatable协议</span></span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Stackable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">associatedtype</span> <span class="type">Element</span>: <span class="type">Equatable</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>&lt;<span class="title">E</span> : <span class="title">Equatable</span>&gt; : <span class="title">Stackable</span> </span>&#123; <span class="keyword">typealias</span> <span class="type">Element</span> = <span class="type">E</span> &#125;</span><br><span class="line"><span class="comment">// 定义函数 s1，s2范型参数遵守Stackable协议，s1,s2的关联类型相同，并且此类型遵守Hashable；</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">equal</span>&lt;S1: Stackable, S2: Stackable&gt;<span class="params">(<span class="number">_</span> s1: S1, <span class="number">_</span> s2: S2)</span></span> -&gt; <span class="type">Bool</span> </span><br><span class="line">    <span class="keyword">where</span> <span class="type">S1</span>.<span class="type">Element</span> == <span class="type">S2</span>.<span class="type">Element</span>, <span class="type">S1</span>.<span class="type">Element</span> : <span class="type">Hashable</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> stack1 = <span class="type">Stack</span>&lt;<span class="type">Int</span>&gt;()</span><br><span class="line"><span class="keyword">var</span> stack2 = <span class="type">Stack</span>&lt;<span class="type">String</span>&gt;()</span><br><span class="line"><span class="comment">// error: requires the types 'Int' and 'String' be equivalent 编译报错，需要类型相同</span></span><br><span class="line"><span class="built_in">equal</span>(stack1, stack2)</span><br></pre></td></tr></table></figure>
+<h3 id="协议类型的注意点"><a href="#协议类型的注意点" class="headerlink" title="协议类型的注意点"></a>协议类型的注意点</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Runnable</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> : <span class="title">Runnable</span> </span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> : <span class="title">Runnable</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">get</span><span class="params">(<span class="number">_</span> type: Int)</span></span> -&gt; <span class="type">Runnable</span> &#123; </span><br><span class="line">    <span class="keyword">if</span> type == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Person</span>()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Car</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> r1 = <span class="keyword">get</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">var</span> r2 = <span class="keyword">get</span>(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果协议中有associatedtype</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">associatedtype</span> <span class="type">Speed</span></span><br><span class="line">    <span class="keyword">var</span> speed: <span class="type">Speed</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> : <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> speed: <span class="type">Double</span> &#123; <span class="number">0.0</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> : <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> speed: <span class="type">Int</span> &#123; <span class="number">0</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>泛型解决在使用的中编译报错</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">get</span>&lt;T : Runnable&gt;<span class="params">(<span class="number">_</span> type: Int)</span></span> -&gt; <span class="type">T</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> type == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Person</span>() <span class="keyword">as</span>! <span class="type">T</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Car</span>() <span class="keyword">as</span>! <span class="type">T</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> r1: <span class="type">Person</span> = <span class="keyword">get</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">var</span> r2: <span class="type">Car</span> = <span class="keyword">get</span>(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>解决方案2:使用some关键字声明一个<code>不透明类型(Opaque Type)</code></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">get</span><span class="params">(<span class="number">_</span> type: Int)</span></span> -&gt; some <span class="type">Runnable</span> &#123; <span class="type">Car</span>() &#125;</span><br><span class="line"><span class="keyword">var</span> r1 = <span class="keyword">get</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">var</span> r2 = <span class="keyword">get</span>(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>some限制只能返回一种类型</p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">get</span><span class="params">(<span class="number">_</span> type: Int)</span></span> -&gt; some <span class="type">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> type == <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Person</span>()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Car</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="some"><a href="#some" class="headerlink" title="some"></a>some</h3><ul>
+<li>some除了用在返回值类型上，一般还可以用在属性类型上</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Runnable</span> </span>&#123; <span class="keyword">associatedtype</span> <span class="type">Speed</span> &#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> : <span class="title">Runnable</span> </span>&#123; <span class="keyword">typealias</span> <span class="type">Speed</span> = <span class="type">Double</span> &#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> pet: some <span class="type">Runnable</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Dog</span>()</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="可选类型的本质是枚举enum"><a href="#可选类型的本质是枚举enum" class="headerlink" title="可选类型的本质是枚举enum"></a>可选类型的本质是枚举enum</h3><ul>
+<li>可选类型 本质是有关联值的枚举<br><img src="/images/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202019-07-26%20%E4%B8%8B%E5%8D%884.21.12.png?80" alt="屏幕快照 2019-07-26 下午4.21.12"></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+      <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">
+	     --------------------  本文结束
+	    <i class="fa fa-paw"></i>
+	    感谢您的阅读  --------------------
+    </div>
+
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/11/iOS/swift-xmg07/" rel="next" title="Swift-可选链/协议/Any/as/Self">
+                <i class="fa fa-chevron-left"></i> Swift-可选链/协议/Any/as/Self
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/13/iOS/swift-xmg09/" rel="prev" title="Swift-内存分析">
+                Swift-内存分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="May Tao">
+            
+              <p class="site-author-name" itemprop="name">May Tao</p>
+              <p class="site-description motion-element" itemprop="description">全栈在路上</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">90</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Huan-zhaolover" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:ytxinguan09@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.87.com" target="_blank" title="掘金">
+                      
+                        <i class="fa fa-fw fa-angle-double-down"></i>掘金</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">1.</span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#错误处理-异常处理-error"><span class="nav-number">2.</span> <span class="nav-text">错误处理/ 异常处理 error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义错误"><span class="nav-number">3.</span> <span class="nav-text">自定义错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#do-catch"><span class="nav-number">4.</span> <span class="nav-text">do-catch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理Error"><span class="nav-number">5.</span> <span class="nav-text">处理Error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rethrows"><span class="nav-number">6.</span> <span class="nav-text">rethrows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#defer"><span class="nav-number">7.</span> <span class="nav-text">defer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#assert-断言"><span class="nav-number">8.</span> <span class="nav-text">assert(断言)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#泛型"><span class="nav-number">9.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联类型-Associated-Type"><span class="nav-number">10.</span> <span class="nav-text">关联类型(Associated Type)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型约束"><span class="nav-number">11.</span> <span class="nav-text">类型约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#协议类型的注意点"><span class="nav-number">12.</span> <span class="nav-text">协议类型的注意点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#some"><span class="nav-number">13.</span> <span class="nav-text">some</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可选类型的本质是枚举enum"><span class="nav-number">14.</span> <span class="nav-text">可选类型的本质是枚举enum</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+     <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">May Tao</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz',
+        appKey: 'GYy3VQ9hXhRnbsBHmMPzwtbq',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'manual') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("JhfL7NDgu4IYnNnAy8k7LzNA-gzGzoHsz", "GYy3VQ9hXhRnbsBHmMPzwtbq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
